@@ -20,39 +20,8 @@
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->
-                <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
-				<!-- Modal -->
-                <div class="modal fade modal-white" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content infotrophy-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Edit Department</h4>
-                            </div>
-                            <div class="modal-body">                            
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-sm-12 col-lg-12 controls distance">
-                                            <input type="text" class="form-control" placeholder="" value="Department Name">
-                                        </div>
-										<div class="col-sm-12 col-lg-12 controls distance">
-                                            <textarea class="form-control" placeholder="">Description Lorem ipsum dolor sit amet. consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</textarea>
-										</div>
-                                    </div>
-                                </div>                 
-                            </div>
-                          <!-- end modal-body -->
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal">CANCEL</button>
-								<button class="btn btn-info" data-dismiss="modal">DISCARD</button>
-                            </div>
-                        </div>
-                        <!-- end modal-content -->
-                    </div>
-                </div>
-				<!-- END Modal-->
+                
+
 				
 				<!-- Modal2 -->
                 <div class="modal fade modal-white" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -63,15 +32,17 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<button class="btn btn-info" data-dismiss="modal">DISCARD</button>
+								<a class="btn btn-info btn-ok">DELETE</a>
                             </div>
                         </div>
                         <!-- end modal-content -->
                     </div>
                 </div>
 				<!-- END Modal2-->
+
 				<!-- Modal3 -->
                 <div class="modal fade modal-white" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <form action="<?php echo base_url("support/add");?>" method="post">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">
@@ -81,23 +52,24 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-sm-12 col-lg-12 controls distance">
-                                            <input type="text" class="form-control" placeholder="Department name">
+                                            <input type="text" class="form-control" placeholder="Department name" name="name">
                                         </div>
                                         <div class="col-sm-12 col-lg-12 controls distance">
-                                            <textarea class="form-control" placeholder="Description"></textarea>
+                                            <textarea class="form-control" placeholder="Description" name="desc"></textarea>
 											<p></p>
 										</div>
                                     </div>
                                 </div>                 
                             </div>
-                          <!-- end modal-body -->
+                            <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<button class="btn btn-info" data-dismiss="modal">DISCARD</button>
+								<input type="submit" class="btn btn-info" value="Submit" name="submit">
                             </div>
                         </div>
                         <!-- end modal-content -->
                     </div>
+                    </form>
                 </div>
 				<!-- END Modal3-->
 				
@@ -108,8 +80,10 @@
                     <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
                 </div>            
 
+                <?php echo $this->session->flashdata("warning")?>
+
                 <div class="box">
-                    <button class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#add">ADD NEW</button>
+                    <a class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#add">ADD NEW</a>
 					<br/>
 					<br/>
                     
@@ -123,32 +97,64 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php 
+                                $counter = 0;
+                                foreach($departments as $list){
+                                    $counter++;
+                            ?>
+                            <!-- Modal -->
+                            <div class="modal fade modal-white" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <form action="<?php echo base_url("support/update");?>" method="post">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content infotrophy-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">Edit Department</h4>
+                                        </div>
+                                        <div class="modal-body">                            
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <input type="hidden" name="id_department" value="<?php echo $list->id_department?>">
+                                                    <div class="col-sm-12 col-lg-12 controls distance">
+                                                        <input type="text" class="form-control" name="name" value="<?php echo $list->name_department;?>">
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-12 controls distance">
+                                                        <textarea class="form-control" name="desc"><?php echo $list->description_department;?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>                 
+                                        </div>
+                                      <!-- end modal-body -->
+                                        <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal">CANCEL</button>
+                                            <input type="submit" class="btn" value="Submit" name="submit">
+                                        </div>
+                                    </div>
+                                    <!-- end modal-content -->
+                                </div>
+                                </form>
+                            </div>
+                            <!-- END Modal-->
                                 <tr>                               
-                                    <td>1</td>
-									<td>Billing Support</td>
-									<td>Question about billing payment upgrade and extend package</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
+                                    <td><?php $counter;?></td>
+									<td><?php echo $list['name_department']?></td>
+									<td><?php echo $list['description_department']?></td>
+									<td><a data-href="<?php echo base_url("support/update").$list['id_department']?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
+									<td><a data-href="<?php echo base_url("support/delete?id=").$list['id_department']?>"data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
                                     
                                 </tr>
-                                <tr>   
-									<td>2</td>
-                                    <td>Sales Department</td>
-									<td>Question about Smart Media Product</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-									
-                                </tr>
-								<tr>
-									<td>3</td>
-									<td>Technical Support</td>
-									<td>Question about technical problems of Smart Media services</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-								</tr>                                                        
+                            <?php  } ?>
+                                                                                    
                             </tbody>
                         </table>
                     
                 </div>
                 <!-- END Main Content -->
                  
+                <script type="text/javascript">
+                    $('#delete').on('show.bs.modal', function(e){
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                    });
+                    $('#edit').on('show.bs.modal', function(e){
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                    });
+                </script>

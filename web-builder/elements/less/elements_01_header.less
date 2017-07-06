@@ -1,0 +1,295 @@
+// 01_HEADER
+.navbar {
+	background-color: transparent;
+	border: 0;
+	margin-bottom: 0;
+	min-height: 110px;
+	.navbar-brand {
+		width: 255px;
+		height: 105px;
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+	.navbar-toggle {
+		border: 0;
+		color: @gray-3;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		&:hover, &:focus {
+			color: @black;
+			background-color: transparent;
+		}
+	}
+	.navbar-control {
+		float: right;
+	}
+}
+
+.navbar-top {
+	font-size: 15px;
+	border-bottom: 1px solid @separator;
+	min-height: 50px;
+	a {
+		color: @gray-2;
+		display: inline-block;
+		line-height: 50px;
+		margin-right: 30px;
+		text-decoration: none;
+		&:hover, .fa {
+			color: @black;
+		}
+		.fa {
+			margin-right: 5px;
+		}
+	}
+	.search-form {
+		margin: 5px 0 0 0;
+		label {
+			left: 35px;
+			position: relative;
+		}
+		.search-box {
+			padding: 0 20px 0 45px;
+			text-indent: 0;
+			width: 110px;
+			&:focus {
+				padding: 0 20px 0 45px;
+			}
+		}
+	}
+	.navbar-social {
+		a {
+			font-size: 16px;
+			margin-left: 15px;
+			margin-right: 0;
+		}
+	}
+}
+
+.nav {
+	margin-top: 30px;
+	& > li {
+		& > a {
+			color: #34495e;
+			margin: 0 10px;
+			&.btn {
+				margin: 0 0 0 20px;
+			}
+			&:focus, &:hover {
+				color: @black;
+			}
+		}
+	}
+}
+
+.navbar-white {
+	.navbar-toggle {
+		color: @white;
+		&:hover, &:focus {
+			color: @white;
+		}
+	}
+	.nav {
+		& > li {
+			& > a {
+				color: @white;
+				&:focus, &:hover {
+					color: @gray-1;
+				}
+			}
+		}
+	}
+	.search-form {
+		.search-box {
+			&:hover, &:focus {
+				& + label {
+					color: @gray-3;
+				}
+			}
+			& + label {
+				color: @white;
+			}
+		}
+	}
+}
+
+.search-form {
+	margin: 6px 0 0 10px;
+	.search-box {
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		border: 0;
+		.rounded(20px);
+		color: @gray-3;
+		cursor: pointer;
+		text-indent: -5000px;
+		.transition(all, 0.4s, ease-in-out, 0s);
+		&:hover {
+			background: @gray-1;
+		}
+		&:focus {
+			background-color: @gray-1;
+			cursor: text;
+			outline: 0;
+			padding: 0 40px 0 20px;
+			text-indent: 0;
+			width: 300px;
+		}
+		& + label {
+			color: @gray-3;
+			cursor: pointer;
+			left: -30px;
+			pointer-events: none;
+			position: relative;
+			.transition(all, 0.4s, ease-in-out, 0s);
+		}
+	}
+	& #search-submit {
+		display: none;
+	}
+}
+
+.multi-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	.container {
+		position: relative;
+	}
+	img {
+		position: absolute;
+	}
+}
+
+.hero-wrapper {
+	overflow: hidden;
+	position: relative;
+	.multi-bg-1 {
+		.bg-1 {
+			top: -180px;
+			left: -380px;
+		}
+		.bg-2 {
+			top: 350px;
+			left: -480px;
+		}
+		.bg-3 {
+			top: 700px;
+			left: -90px;
+		}
+		.bg-4 {
+			top: 591px;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.bg-5 {
+			right: -150px;
+			top: 550px;
+		}
+		.bg-6 {
+			right: -420px;
+			top: 290px;
+		}
+		.bg-7 {
+			right: -290px;
+			top: -150px;
+		}
+	}
+	.multi-bg-2 {
+		.bg-1 {
+			right: 735px;
+			top: 485px;
+			z-index: 4;
+		}
+		.bg-2 {
+			right: 650px;
+			top: 400px;
+			z-index: 3;
+		}
+		.bg-3 {
+			right: 520px;
+			top: 344px;
+			z-index: 2;
+		}
+		.bg-4 {
+			right: -45px;
+			top: 200px;
+			z-index: 1;
+		}
+	}
+}
+
+.navbar, .hero, .intro {
+	position: relative;
+	z-index: 1;
+}
+
+.hero {
+	padding: 150px 0 180px 0;
+	text-align: center;
+	h1 {
+		font-size: 50px;
+		font-weight: 300;
+		letter-spacing: -0.02em;
+		line-height: 65px;
+		margin: 0 auto 40px auto;
+		max-width: 85%;
+	}
+	p {
+		font-size: 17px;
+		line-height: 29px;
+		margin: 0 auto 45px auto;
+		max-width: 55%;
+	}
+	span.small {
+		color: @gray-4;
+		display: block;
+		font-size: 15px;
+		letter-spacing: 0.09em;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+	.button-group {
+		.btn {
+			letter-spacing: 0.02em;
+			padding: 20px 35px;
+			+ .btn {
+				margin-left: 20px;
+			}
+		}
+	}
+	&.hero-3 {
+		padding-bottom: 275px;
+	}
+	&.hero-4 {
+		padding-bottom: 235px;
+		text-align: left;
+	}
+}
+
+.hero-1 {}
+
+.hero-2 {
+	h1 {
+		color: @white;
+	}
+	p {
+		color: @white;
+	}
+}
+
+.hero-4 {
+	h1 {
+		margin: 0 0 25px 0;
+	}
+	span.small {
+		margin-bottom: 45px;
+	}
+}

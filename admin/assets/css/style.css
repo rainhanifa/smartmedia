@@ -1,0 +1,351 @@
+#main-content {
+	background-color: #fefefe;
+	padding-top: 40px;
+}
+.navbar {
+	background: #1BBC9B;
+}
+.navbar .navbar-btn, .navbar .navbar-btn:hover, 
+.navbar .navbar-btn:focus, .navbar .navbar-btn.collapsed:hover, 
+.navbar .navbar-btn.collapsed:focus, 
+.flaty-nav > li.open, .flaty-nav > li.active, 
+.flaty-nav > li:hover, .dropdown-navbar > li.nav-header {
+	background-color: #12aa89;
+}
+.breadcrumb {
+	background: rgba(0,0,255,0.02);
+}
+.active-product {
+	text-align: center;
+}
+.active-product .panel-heading {
+	padding: 20px 0;
+	font-size: 30px;	
+}
+.active-product .panel-body {
+	padding: 30px 0;
+}
+.active-product .panel-heading h4 {
+	font-size:  23px;
+}
+.active-product span {
+	font-size: 100px;
+	color:  #666;
+}
+.no-bg {
+	background: transparent !important;
+	background-color: transparent !important;
+}
+
+.open-ticket .box-title h3{
+	color:  #333;
+}
+.open-ticket .box-tool a {
+ 	height: 47.5px !important;
+ 	padding: 15px 15px;
+}
+
+.open-ticket-table .table-advance th {
+	padding: 20px 10px;
+	font-size: 15px;
+}
+.open-ticket-table .table-advance td {
+	color: #3a3a3a;
+	font-size: 14px;
+	padding:  10px 10px;
+}
+
+.open-ticket-table .table thead > tr > th > a.sort-asc, .table thead > tr > th > a.sort-desc {
+	color: #3a3a3a;
+}
+
+.current-balance {
+	margin-bottom: 30px;
+}
+.current-balance .box-tool,
+.outstanding-balance .box-tool {
+	font-size: 17px;
+	font-weight: 600;
+}
+.current-balance .box-tool span,
+.outstanding-balance .box-tool span {
+	color: #fb3838;
+	font-weight: 700;
+}
+.current-balance .box-tool a,
+.outstanding-balance .box-tool a {
+ 	height: 40px !important;
+ 	padding: 10px 20px;
+ 	font-size: 14px;
+}
+.my-service-table .table-advance th,
+.my-invoice-table .table-advance th {
+	padding: 20px 10px;
+	font-size: 15px;
+}
+.my-service-table .table-advance td,
+.my-invoice-table .table-advance td {
+	color: #3a3a3a;
+	font-size: 14px;
+	padding:  10px 10px;
+	vertical-align: middle;
+}
+
+.my-service-table .label{
+	margin-right: 20px;
+}
+.my-service-table .label-large{
+	margin-right: 20px;
+	padding: 5px 15px;
+}
+
+.my-service-table .enabled-status { 
+	margin-right: 40px;
+}
+
+.outstanding-balance .panel {
+	width: 20%;
+}
+.outstanding-balance .panel-heading {
+	padding: 15px;
+}
+.outstanding-balance .panel-heading span {
+	color: rgb(70, 165, 70);
+}
+
+.outstanding-balance .box {
+	margin-bottom: 0px;
+}
+
+
+.my-invoice-table .btn-lime{
+	margin-left: 20px;
+}
+
+.news-list {
+	width: 98.5%;
+	display: block;
+	margin: 0 auto;
+}
+.news-list li {
+	margin-bottom: 40px;
+	padding-bottom: 30px;
+}
+.news-list .search-results li > .info > a {
+	font-size: 14px;
+	padding: 8px 16px;
+}
+.news-list .search-results li > .info > a.title {
+	font-size: 22px;
+	padding: 0;
+}
+
+.news-list .search-results li > .info > a.btn-readmore {
+	background: #1BBC9B;
+	color: #fff;
+}
+.news-list .news-date {
+	font-size: 14px;
+	margin: 10px 0;
+	font-weight: 600;
+}
+
+.tag-list .box {
+	width: 98.5%;
+	display: block;
+	margin: 0 auto;
+}
+
+.tag-list a {
+	padding: 10px 20px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+.tag-list .btn.btn-gray {
+	background-color: rgba(27,188,155,1);
+	color: #fff;
+}
+
+.login-page .login-wrapper img{
+	display: block;
+	margin: auto;
+	margin-bottom: 50px;
+}
+
+.divider {
+	padding: 10px 0;
+	border-bottom:  1px solid #eee;
+	margin-bottom: 30px;
+}
+
+.single-announcements p {
+	margin: 20px 0;
+}
+.single-knowledgebase h2 {
+	font-size: 30px;
+	color: #5ab4da;
+}
+.single-knowledgebase h4 {
+	margin-top: 30px;
+	color: #5ab4da;
+}
+.related-article ul {
+	padding: 0;
+}
+.related-article li {
+	padding: 5px 0;
+	margin-bottom: 0;
+	font-size: 14px;
+}
+.related-article li a {
+	font-size: 14px;
+}
+
+.detail-domain h2 span{
+	font-size: 13px;
+}
+
+.detail-domain td {
+	padding: 20px 0;
+	vertical-align: middle !important;
+	font-size: 14px;
+}
+.detail-domain .center {
+	font-size: 20px;
+	padding: 15px 10px;
+	color: #50a1c3;
+	width: 45%;
+}
+.renew {
+	margin-left: 20px;
+}
+
+
+
+a.order-btn:hover{
+  color:#ffe13e;
+}
+.pricing-table-grid:hover a.order-btn{
+  background:#445c7f;
+}
+
+.distance{
+    padding-left: 15px;
+}
+
+.distance2{
+    text-align: center;
+    padding-top: 135px;
+}
+
+.distance3{
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+.mail-msg-header .msg-distance {
+    right: 20px;
+}
+
+.box_random{
+  width: 150px;
+  height: 75px;
+  padding-right: 10px;
+    border: solid 1px;
+    border-color: red;
+    font-color: solid red;
+}
+
+.gambar{
+  margin-left: 25%; 
+}
+
+#myform input[type="password"],#myform input[type="text"]{
+ background:white;   
+color: blue;
+font-family: "Lato", sans-serif;
+font-size: 14px;
+padding: 9px 5px;
+height: 21px;
+text-indent: 6px;
+-webkit-appearance: none;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+-webkit-transition: border .25s linear, color .25s linear;
+-moz-transition: border .25s linear, color .25s linear;
+-o-transition: border .25s linear, color .25s linear;
+transition: border .25s linear, color .25s linear;
+-webkit-backface-visibility: hidden;
+width:100%;
+}
+#myform input[type="password"]:focus,#myform input[type="text"]:focus{
+outline:0;
+}
+#myform{
+width: 500px;
+margin: 0 auto;
+position: relative;
+margin-bottom:60px;
+}
+.strength_meter{
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 43px;
+z-index:-1;
+border-radius:5px;
+padding-right:13px;
+}
+.button_strength {
+text-decoration: none;
+color: #FFF;
+font-size: 13px;
+}
+.strength_meter div{
+    width:0%;
+height: 43px;
+text-align: right;
+color: #000;
+line-height: 43px;
+-webkit-transition: all .3s ease-in-out;
+-moz-transition: all .3s ease-in-out;
+-o-transition: all .3s ease-in-out;
+-ms-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+padding-right: 12px;
+border-radius:5px;
+}
+.strength_meter div p{
+position: absolute;
+top: 22px;
+right: 0px;
+color: #FFF;
+font-size:13px;
+}
+
+.veryweak{
+    background-color: #FFA0A0;
+border-color: #F04040!important;
+width:25%!important;
+}
+.weak{
+background-color: #FFB78C;
+border-color: #FF853C!important;
+width:50%!important;
+}
+.medium{
+background-color: #FFEC8B;
+border-color: #FC0!important;
+width:75%!important;
+}
+.strong{
+background-color: #C3FF88;
+border-color: #8DFF1C!important;
+width:100%!important;
+}
+

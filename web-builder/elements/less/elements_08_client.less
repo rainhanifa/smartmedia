@@ -1,0 +1,120 @@
+// 08_CLIENT
+.client {
+	.client-heading {
+		margin-bottom: 70px;
+		text-align: center;
+		h3 {
+			letter-spacing: -0.02em;
+			margin: 0 0 10px 0;
+		}
+		p {
+			font-size: 17px;
+			margin-bottom: 50px;
+		}
+		hr {
+			margin-top: 0;
+			margin-bottom: 0;
+			width: 165px;
+		}
+	}
+	&.client-1 {
+		padding: 100px 0 70px 0;
+	}
+	&.client-2, &.client-3, &.client-4 {
+		padding: 70px 0 50px 0;
+	}
+	&.client-5, &.client-6 {
+		padding: 70px 0 70px 0;
+	}
+}
+
+.client-1, .client-2, .client-3, .client-4 {
+	.client-wrapper {
+		float: right;
+		left: -50%;
+		position: relative;
+		.client-inner {
+			left: 50%;
+			position: relative;
+		}
+	}
+	img {
+		display: inline-block;
+		margin: 0 30px 30px 30px;
+		vertical-align: middle;
+	}
+}
+
+.client-1, .client-2 {
+	background-color: lighten(@gray-1, 5%);
+}
+
+.client-1, .client-2, .client-3, &.client-5, &.client-6 {
+	img {
+		opacity: 0.5;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+.client-2 {
+	.client-heading {
+		margin-bottom: 0;
+	}
+}
+
+.client-4 {
+	h3, p {
+		color: @white;
+	}
+	img {
+		opacity: 1;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+.client-5 {
+	.client-wrapper {
+		margin: 0 auto;
+		max-width: 850px;
+	}
+	a {
+		border-bottom: 1px solid @gray-1;
+		border-right: 1px solid @gray-1;
+		display: block;
+		float: left;
+		min-height: 280px;
+		position: relative;
+		width: 33%;
+		&:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(3) {
+			border-bottom-color: transparent;
+		}
+		&:nth-child(3n) {
+			border-right-color: transparent;
+		}
+		&:hover {
+			img {
+				opacity: 0.7;
+			}
+		}
+	}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+}
+
+.client-6 {
+	img {
+		display: inline-block;
+		margin: 0 30px 30px 30px;
+		vertical-align: middle;
+	}
+}

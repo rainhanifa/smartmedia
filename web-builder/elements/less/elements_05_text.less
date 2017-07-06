@@ -1,0 +1,102 @@
+// 05_TEXT
+.text {
+	.fa {
+		color: @green;
+		font-size: 50px;
+		margin-bottom: 20px;
+	}
+	h3 {
+		letter-spacing: -0.02em;
+		line-height: 50px;
+		margin: 0 0 20px 0;
+	}
+	p.title {
+		font-family: 'Roboto Slab', serif;
+		font-weight: 300;
+		font-size: 20px;
+		letter-spacing: -0.02em;
+		line-height: 45px;
+		margin-bottom: 10px;
+	}
+	p {
+		line-height: 30px;
+	}
+	a.link {
+		border-bottom: 1px solid @green;
+		color: @green;
+		font-size: 15px;
+		letter-spacing: 0.09em;
+		text-decoration: none;
+		text-transform: uppercase;
+		&:hover {
+			border-color: transparent;
+		}
+	}
+	&.text-1, &.text-2, &.text-3, &.text-4, &.text-5, &.text-6 {
+		padding: 140px 0 140px 0;
+	}
+	&.text-7, &.text-8, &.text-9 {
+		padding: 90px 0 90px 0;
+	}
+	&.text-10, &.text-11 {
+		padding: 150px 0 160px 0;
+	}
+	&.text-12, &.text-13, &.text-14, &.text-15 {
+		padding: 130px 0 140px 0;
+	}
+	&.text-16, &.text-17 {
+		padding: 110px 0 120px 0;
+	}
+}
+
+.text-1, .text-2, .text-3, .text-4, .text-5, .text-6 {
+	p {
+		width: 66%;
+	}
+}
+
+.text-2, .text-5, .text-8 {
+	text-align: right;
+	p {
+		margin-left: auto;
+		margin-right: 0;
+	}
+}
+
+.text-3, .text-6, .text-9 {
+	text-align: center;
+	p {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.text-4, .text-5, .text-6 {
+	h3, p {
+		color: @white;
+	}
+}
+
+.text-7, .text-8 {
+	p {
+		width: 64%;
+	}
+}
+
+.text-9 {
+	p {
+		width: 62%;
+	}
+}
+
+.text-10, .text-11 {
+	p {
+		margin-top: 10px;
+	}
+}
+
+.text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
+	p {
+		margin-bottom: 20px;
+	}
+}

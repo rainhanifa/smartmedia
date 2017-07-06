@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Dashboard - Admin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!--base css styles-->
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+
+        
+        <!--page specific css styles-->
+        <link rel="stylesheet" href="../assets/data-tables/bootstrap3/dataTables.bootstrap.css" />
+
+        <!--flaty css styles-->
+        <link rel="stylesheet" href="../css/flaty.css">
+        <link rel="stylesheet" href="../css/flaty-responsive.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <link rel="shortcut icon" href="../img/favicon.png">
+    </head>
+    <body>
+
+        <!-- BEGIN Theme Setting -->
+        <div id="theme-setting">
+            <a href="#"><i class="fa fa-gears fa fa-2x"></i></a>
+            <ul>
+                <li>
+                    <span>Skin</span>
+                    <ul class="colors" data-target="body" data-prefix="skin-">
+                        <li class="active"><a class="blue" href="#"></a></li>
+                        <li><a class="red" href="#"></a></li>
+                        <li><a class="green" href="#"></a></li>
+                        <li><a class="orange" href="#"></a></li>
+                        <li><a class="yellow" href="#"></a></li>
+                        <li><a class="pink" href="#"></a></li>
+                        <li><a class="magenta" href="#"></a></li>
+                        <li><a class="gray" href="#"></a></li>
+                        <li><a class="black" href="#"></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Navbar</span>
+                    <ul class="colors" data-target="#navbar" data-prefix="navbar-">
+                        <li class="active"><a class="blue" href="#"></a></li>
+                        <li><a class="red" href="#"></a></li>
+                        <li><a class="green" href="#"></a></li>
+                        <li><a class="orange" href="#"></a></li>
+                        <li><a class="yellow" href="#"></a></li>
+                        <li><a class="pink" href="#"></a></li>
+                        <li><a class="magenta" href="#"></a></li>
+                        <li><a class="gray" href="#"></a></li>
+                        <li><a class="black" href="#"></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Sidebar</span>
+                    <ul class="colors" data-target="#main-container" data-prefix="sidebar-">
+                        <li class="active"><a class="blue" href="#"></a></li>
+                        <li><a class="red" href="#"></a></li>
+                        <li><a class="green" href="#"></a></li>
+                        <li><a class="orange" href="#"></a></li>
+                        <li><a class="yellow" href="#"></a></li>
+                        <li><a class="pink" href="#"></a></li>
+                        <li><a class="magenta" href="#"></a></li>
+                        <li><a class="gray" href="#"></a></li>
+                        <li><a class="black" href="#"></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span></span>
+                    <a data-target="navbar" href="#"><i class="fa fa-square-o"></i> Fixed Navbar</a>
+                    <a class="hidden-inline-xs" data-target="sidebar" href="#"><i class="fa fa-square-o"></i> Fixed Sidebar</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END Theme Setting -->
+
+        <!-- BEGIN Navbar -->
+        <div id="navbar" class="navbar">
+            <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
+                <span class="fa fa-bars"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <small>
+                    <i class="fa fa-html5"></i>
+                    SMART MEDIA ADMIN
+                </small>
+            </a>
+
+            <!-- BEGIN Navbar Buttons -->
+            <ul class="nav flaty-nav pull-right">
+                <!-- BEGIN Button Notifications -->
+                <li class="hidden-xs">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-important">5</span>
+                    </a>
+
+                    <!-- BEGIN Notifications Dropdown -->
+                    <ul class="dropdown-navbar dropdown-menu">
+                        <li class="nav-header">
+                            <i class="fa fa-warning"></i>
+                            5 Notifications
+                        </li>
+
+                        <li class="notify">
+                            <a href="#">
+                                <i class="fa fa-bullhorn orange"></i>
+                                <p>Maintenance Announcement</p>
+                                <span class="badge badge-warning">1</span>
+                            </a>
+                        </li>
+
+                        <li class="notify">
+                            <a href="#">
+                                <i class="fa fa-clock-o blue"></i>
+                                <p>Site Expire Notice</p>
+                                <span class="badge badge-info">1</span>
+                            </a>
+                        </li>
+
+                        <li class="notify">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart green"></i>
+                                <p>You have pending payment</p>
+                                <span class="badge badge-success">1</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- END Notifications Dropdown -->
+                </li>
+                <!-- END Button Notifications -->
+
+                <!-- BEGIN Button Messages -->
+                <li class="hidden-xs">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope"></i>
+                        <span class="badge badge-success">3</span>
+                    </a>
+
+                    <!-- BEGIN Messages Dropdown -->
+                    <ul class="dropdown-navbar dropdown-menu">
+                        <li class="nav-header">
+                            <i class="fa fa-comments"></i>
+                            3 Messages
+                        </li>
+
+                        <li class="msg">
+                            <a href="#">
+                                <img src="../img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
+                                <div>
+                                    <span class="msg-title">Sarah</span>
+                                    <span class="msg-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>a moment ago</span>
+                                    </span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </a>
+                        </li>
+
+                        <li class="msg">
+                            <a href="#">
+                                <img src="../img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
+                                <div>
+                                    <span class="msg-title">Emma</span>
+                                    <span class="msg-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>2 Days ago</span>
+                                    </span>
+                                </div>
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ...</p>
+                            </a>
+                        </li>
+
+                        <li class="msg">
+                            <a href="#">
+                                <img src="../img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
+                                <div>
+                                    <span class="msg-title">John</span>
+                                    <span class="msg-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>8:24 PM</span>
+                                    </span>
+                                </div>
+                                <p>Duis aute irure dolor in reprehenderit in ...</p>
+                            </a>
+                        </li>
+
+                        <li class="more">
+                            <a href="#">See all messages</a>
+                        </li>
+                    </ul>
+                    <!-- END Notifications Dropdown -->
+                </li>
+                <!-- END Button Messages -->
+
+                <!-- BEGIN Button User -->
+                <li class="user-profile">
+                    <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                        <img class="nav-user-photo" src="../img/demo/avatar/avatar5.jpg" alt="Administrator's Photo" />
+                        <span class="hhh" id="user_info">
+                            Administrator
+                        </span>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <!-- BEGIN User Dropdown -->
+                    <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+                        <li class="nav-header">
+                            <i class="fa fa-clock-o"></i>
+                            Logined From 20:45
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                Edit Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-question"></i>
+                                Help
+                            </a>
+                        </li>
+
+                        <li class="divider visible-xs"></li>
+
+                        <li class="visible-xs">
+                            <a href="#">
+                                <i class="fa fa-tasks"></i>
+                                Tasks
+                                <span class="badge badge-warning">4</span>
+                            </a>
+                        </li>
+                        <li class="visible-xs">
+                            <a href="#">
+                                <i class="fa fa-bell"></i>
+                                Notifications
+                                <span class="badge badge-important">8</span>
+                            </a>
+                        </li>
+                        <li class="visible-xs">
+                            <a href="#">
+                                <i class="fa fa-envelope"></i>
+                                Messages
+                                <span class="badge badge-success">5</span>
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- BEGIN User Dropdown -->
+                </li>
+                <!-- END Button User -->
+            </ul>
+            <!-- END Navbar Buttons -->
+        </div>
+        <!-- END Navbar -->
+
+        <!-- BEGIN Container -->
+        <div class="container" id="main-container">
+            <!-- BEGIN Sidebar -->
+            <div id="sidebar" class="navbar-collapse collapse">
+                <!-- BEGIN Navlist -->
+                <ul class="nav nav-list">
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a class="dropdown-toggle">
+                            <i class="fa fa-list-alt"></i>
+                            <span>Transaction</span>
+                            <b class="arrow fa fa-angle-right"></b>
+                        </a>
+
+                        <!-- BEGIN Submenu -->
+                        <ul class="submenu">
+                            <li><a href="transaction.html" >All Transaction</a></li>
+                            <li><a href="transaction-awaiting.html">Awaiting Confirmation</a></li>
+                            <li><a href="transaction-voucher.html">Voucher Activation</a></li>
+                        </ul>
+                        <!-- END Submenu -->
+                    </li>
+
+
+                    <li>
+                        <a href="clients.html">
+                            <i class="fa fa-star"></i>
+                            <span>Clients</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="sites.html">
+                            <i class="fa fa-desktop"></i>
+                            <span>Sites</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Store</span>
+                            <b class="arrow fa fa-angle-right"></b>
+                        </a>
+
+                        <!-- BEGIN Submenu -->
+                        <ul class="submenu">
+                            <li><a href="packages.html">Packages</a></li>
+                            <li><a href="vouchers.html">Vouchers</a></li>
+                            <li><a href="theme.html">Theme</a></li>
+                        </ul>
+                        <!-- END Submenu -->
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="fa fa-lightbulb-o"></i>
+                            <span>Knowledgebase</span>
+                            <b class="arrow fa fa-angle-right"></b>
+                        </a>
+
+                        <!-- BEGIN Submenu -->
+                        <ul class="submenu">
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="articles_category.html">Category</a></li>
+                        </ul>
+                        <!-- END Submenu -->
+
+                    </li>
+
+                    <li>
+                        <a href="announcement.html">
+                            <i class="fa fa-bullhorn"></i>
+                            <span>Announcement</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="users.html">
+                            <i class="fa fa-users"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-toggle">
+                            <i class="fa fa-globe"></i>
+                            <span>Support</span>
+                            <b class="arrow fa fa-angle-right"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li><a href="tickets.html" >Tickets</a></li>
+                            <li><a href="departments.html">Departments</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- END Navlist -->
+
+                <!-- BEGIN Sidebar Collapse Button -->
+                <div id="sidebar-collapse" class="visible-lg">
+                    <i class="fa fa-angle-double-left"></i>
+                </div>
+                <!-- END Sidebar Collapse Button -->
+            </div>
+            <!-- END Sidebar -->
+
+            <!-- BEGIN Content -->
+            <div id="main-content">
+                <!-- BEGIN Page Title -->
+                <div class="page-title">
+                    <div>
+                        <h1><i class="fa fa-file-o"></i> TRANSACTION</h1>
+                    </div>
+                </div>
+                <!-- END Page Title -->
+
+               <!-- BEGIN Breadcrumb -->
+                <div id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">Home</a>
+                            <span class="divider"><i class="fa fa-angle-right"></i></span>
+                        </li>
+                        <li class="active">Transaction</li>
+                    </ul>
+                </div>
+
+                <!-- END Breadcrumb -->
+                <div class="alert alert-info">
+                    <button class="close" data-dismiss="alert">×</button>
+                    <strong>Latest Info! </strong> The page has been added.
+                </div>
+                <!-- BEGIN Main Content -->
+               
+                <div class="alert alert-success">
+                    <button class="close" data-dismiss="alert">×</button>
+                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
+                </div>                
+
+                <div class="box">
+                            
+                    <div>
+                        <table class="table table-advance" id="transaction-table">
+                            <thead class="table-flag-blue">
+                                <tr>
+                                    <th>Invoice #</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Invoice Date</th>
+                                    <th>Due Date</th>
+                                    <th>Total</th>
+                                    <th colspan="2">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                               
+                                    <td><a href="">279641</a></td>
+                                    <td>Handharbeni</td>
+                                    <td>Muhammad</td>
+                                    <td>16/08/2015</td>
+                                    <td>21/08/2015</td>
+                                    <td> Rp. 280.983,00</td>
+                                    <td><span class="label label-large label-lime">Paid</span></td>
+<<<<<<< HEAD
+                                    <td><a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a></td>
+=======
+                                    <td><a href="detail_invoice.html" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+>>>>>>> origin/master
+                                </tr>
+                                <tr>                               
+                                    <td><a href="">495868</a></td>
+                                    <td>Ibnu Shodiqin</td>
+                                    <td>Suhaemy</td>
+                                    <td>16/03/2017</td>
+                                    <td>23/03/2017</td>
+                                    <td>Rp. 159.945,00</td>
+                                    <td><span class="label label-large label-gray">Canceled</span></td>
+<<<<<<< HEAD
+                                    <td><a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a></td>
+=======
+                                    <td><a href="detail_invoice.html" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+>>>>>>> origin/master
+                                </tr>
+
+                                <tr>                               
+                                    <td><a href="">503565</a></td>
+                                    <td>Andy Zain</td>
+                                    <td>Ifkaruddin</td>
+                                    <td>12/04/2017</td>
+                                    <td>17/04/2017</td>
+                                    <td> Rp. 200.565,00</td>
+<<<<<<< HEAD
+                                    <td><span class="label label-large label-warning">Awaiting Confirmation</span></td>
+                                    <td><a href="#" class="btn btn-info"><i class="fa fa-tasks"></i>  Invoice</a> <a data-toggle="modal" data-target="#konfirm" class="btn btn-lime"><i class="fa fa-check"></i> Confirm</a></td>
+=======
+                                    <td><span class="label label-large label-lime">Paid</span></td>
+                                    <td><a href="detail_invoice.html" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+>>>>>>> origin/master
+                                </tr>
+
+                                 <tr>                               
+                                    <td><a href="">512348</a></td>
+                                    <td>Akhmad</td>
+                                    <td>Maulidi</td>
+                                    <td>5/05/2017</td>
+                                    <td>12/05/2017</td>
+                                    <td> Rp. 235.348,00</td>
+                                    <td><span class="label label-large label-gray">Canceled</span></td>
+<<<<<<< HEAD
+                                    <td><a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a></td>
+=======
+                                    <td><a href="detail_invoice.html" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+>>>>>>> origin/master
+                              
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-right">
+                        1-12 of 46
+                        <a class="btn btn-circle disabled" href="#"><i class="fa fa-angle-left"></i></a>
+                        <a class="btn btn-circle" href="#"><i class="fa fa-angle-right"></i></a>
+                    </p>
+                </div>
+                <!-- END Main Content -->
+                
+                <footer>
+                    <p>2017 © Andrian Smart Media</p>
+                </footer>
+
+                <a id="btn-scrollup" class="btn btn-circle btn-lg" href="#"><i class="fa fa-chevron-up"></i></a>
+            </div>
+            <!-- END Content -->
+        </div>
+        <!-- END Container -->
+
+        <!-- Modal -->
+                <div class="modal fade modal-white" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content infotrophy-content">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3><strong>Confirm Payment #23123</strong></h3>    
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                            <h4>ORDER</h4>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Extend 30-days</td>
+                                                        <td>..............</td>
+                                                        <td class="text-right">Rp 70.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Credit Balance</td>
+                                                        <td>..............</td>
+                                                        <td class="text-right">-Rp 6.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td class="text-right">TOTAL</td>
+                                                        <td class="text-right">Rp 70.000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>PAYMENT DETAIL</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Date of Payment</td>
+                                                    <td> : </td>
+                                                    <td>18/05/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Account Name</td>
+                                                    <td> : </td>
+                                                    <td>Ibnu Suhaemy</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Account No. </td>
+                                                    <td> : </td>
+                                                    <td>12387162212</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bank Account</td>
+                                                    <td> : </td>
+                                                    <td>BRI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Additional Information </td>
+                                                    <td> : </td>
+                                                    <td>Pembayaran invoice 23123</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <br/>
+                                        <p><strong>PAYMENT METHOD</strong></p>
+                                        <p><strong>BCA 0115116032 - Imaniar Hanifa</strong></p>
+                                    </div>
+                                </div>              
+                            </div>
+                          <!-- end modal-body -->
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal">CANCEL</button>
+                                <button class="btn btn-primary" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                        <!-- end modal-content -->
+                    </div>
+                </div>
+
+        <!--basic scripts-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../assets/jquery/jquery-2.1.4.min.js"><\/script>')</script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../assets/jquery-cookie/jquery.cookie.js"></script>
+
+        <!--page specific plugin scripts-->
+        <script type="text/javascript" src="../assets/data-tables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="../assets/data-tables/bootstrap3/dataTables.bootstrap.js"></script>
+
+
+        <!--flaty scripts-->
+        <script src="../js/flaty.js"></script>
+        <script src="../js/flaty-demo-codes.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready( function() {
+              $('#transaction-table').dataTable( {
+                "aoColumnDefs": [
+                  { "bSortable": true, "aTargets": [ 7 ] }
+                ] } );
+            } );
+        </script>
+    </body>
+</html>

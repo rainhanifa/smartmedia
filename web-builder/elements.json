@@ -1,0 +1,172 @@
+var _Elements = {"elements": {
+    "Header":[
+        {"url":"elements/01_header_1.html","height":60, "thumbnail":"elements/thumbs/01_header_1.jpg"},
+        {"url":"elements/01_header_2.html","height":60, "thumbnail":"elements/thumbs/01_header_2.jpg"},
+        {"url":"elements/01_header_3.html","height":60, "thumbnail":"elements/thumbs/01_header_3.jpg"},
+        {"url":"elements/01_header_4.html","height":60, "thumbnail":"elements/thumbs/01_header_4.jpg"},
+        {"url":"elements/01_header_5.html","height":60, "thumbnail":"elements/thumbs/01_header_5.jpg"},
+        {"url":"elements/01_header_6.html","height":60, "thumbnail":"elements/thumbs/01_header_6.jpg"},
+        {"url":"elements/01_header_7.html","height":60, "thumbnail":"elements/thumbs/01_header_7.jpg"},
+        {"url":"elements/01_header_8.html","height":60, "thumbnail":"elements/thumbs/01_header_8.jpg"},
+        {"url":"elements/01_header_9.html","height":60, "thumbnail":"elements/thumbs/01_header_9.jpg"},
+        {"url":"elements/01_header_10.html","height":60, "thumbnail":"elements/thumbs/01_header_10.jpg"}
+    ],
+    "Intro":[
+        {"url":"elements/02_intro_1.html","height":60, "thumbnail":"elements/thumbs/02_intro_1.jpg"},
+        {"url":"elements/02_intro_2.html","height":60, "thumbnail":"elements/thumbs/02_intro_2.jpg"},
+        {"url":"elements/02_intro_3.html","height":60, "thumbnail":"elements/thumbs/02_intro_3.jpg"},
+        {"url":"elements/02_intro_4.html","height":60, "thumbnail":"elements/thumbs/02_intro_4.jpg"},
+        {"url":"elements/02_intro_5.html","height":60, "thumbnail":"elements/thumbs/02_intro_5.jpg"},
+        {"url":"elements/02_intro_6.html","height":60, "thumbnail":"elements/thumbs/02_intro_6.jpg"},
+        {"url":"elements/02_intro_7.html","height":60, "thumbnail":"elements/thumbs/02_intro_7.jpg"}
+    ],
+    "Content":[
+        {"url":"elements/03_content_1.html","height":60, "thumbnail":"elements/thumbs/03_content_1.jpg"},
+        {"url":"elements/03_content_2.html","height":60, "thumbnail":"elements/thumbs/03_content_2.jpg"},
+        {"url":"elements/03_content_3.html","height":60, "thumbnail":"elements/thumbs/03_content_3.jpg"},
+        {"url":"elements/03_content_4.html","height":60, "thumbnail":"elements/thumbs/03_content_4.jpg"},
+        {"url":"elements/03_content_5.html","height":60, "thumbnail":"elements/thumbs/03_content_5.jpg"},
+        {"url":"elements/03_content_6.html","height":60, "thumbnail":"elements/thumbs/03_content_6.jpg"},
+        {"url":"elements/03_content_7.html","height":60, "thumbnail":"elements/thumbs/03_content_7.jpg"},
+        {"url":"elements/03_content_8.html","height":60, "thumbnail":"elements/thumbs/03_content_8.jpg"},
+        {"url":"elements/03_content_9.html","height":60, "thumbnail":"elements/thumbs/03_content_9.jpg"},
+        {"url":"elements/03_content_10.html","height":60, "thumbnail":"elements/thumbs/03_content_10.jpg"},
+        {"url":"elements/03_content_11.html","height":60, "thumbnail":"elements/thumbs/03_content_11.jpg"},
+        {"url":"elements/03_content_12.html","height":60, "thumbnail":"elements/thumbs/03_content_12.jpg"},
+        {"url":"elements/03_content_13.html","height":60, "thumbnail":"elements/thumbs/03_content_13.jpg"}
+    ],
+    "Feature":[
+        {"url":"elements/04_feature_1.html","height":60, "thumbnail":"elements/thumbs/04_feature_1.jpg"},
+        {"url":"elements/04_feature_2.html","height":60, "thumbnail":"elements/thumbs/04_feature_2.jpg"},
+        {"url":"elements/04_feature_3.html","height":60, "thumbnail":"elements/thumbs/04_feature_3.jpg"},
+        {"url":"elements/04_feature_4.html","height":60, "thumbnail":"elements/thumbs/04_feature_4.jpg"},
+        {"url":"elements/04_feature_5.html","height":60, "thumbnail":"elements/thumbs/04_feature_5.jpg"},
+        {"url":"elements/04_feature_6.html","height":60, "thumbnail":"elements/thumbs/04_feature_6.jpg"},
+        {"url":"elements/04_feature_7.html","height":60, "thumbnail":"elements/thumbs/04_feature_7.jpg"},
+        {"url":"elements/04_feature_8.html","height":60, "thumbnail":"elements/thumbs/04_feature_8.jpg"},
+        {"url":"elements/04_feature_9.html","height":60, "thumbnail":"elements/thumbs/04_feature_9.jpg"},
+        {"url":"elements/04_feature_10.html","height":60, "thumbnail":"elements/thumbs/04_feature_10.jpg"},
+        {"url":"elements/04_feature_11.html","height":60, "thumbnail":"elements/thumbs/04_feature_11.jpg"},
+        {"url":"elements/04_feature_12.html","height":60, "thumbnail":"elements/thumbs/04_feature_12.jpg"},
+        {"url":"elements/04_feature_13.html","height":60, "thumbnail":"elements/thumbs/04_feature_13.jpg"},
+        {"url":"elements/04_feature_14.html","height":60, "thumbnail":"elements/thumbs/04_feature_14.jpg"},
+        {"url":"elements/04_feature_15.html","height":60, "thumbnail":"elements/thumbs/04_feature_15.jpg"},
+        {"url":"elements/04_feature_16.html","height":60, "thumbnail":"elements/thumbs/04_feature_16.jpg"}
+    ],
+    "Text":[
+    	{"url":"elements/05_text_1.html","height":60, "thumbnail":"elements/thumbs/05_text_1.jpg"},
+        {"url":"elements/05_text_2.html","height":60, "thumbnail":"elements/thumbs/05_text_2.jpg"},
+        {"url":"elements/05_text_3.html","height":60, "thumbnail":"elements/thumbs/05_text_3.jpg"},
+        {"url":"elements/05_text_4.html","height":60, "thumbnail":"elements/thumbs/05_text_4.jpg"},
+        {"url":"elements/05_text_5.html","height":60, "thumbnail":"elements/thumbs/05_text_5.jpg"},
+        {"url":"elements/05_text_6.html","height":60, "thumbnail":"elements/thumbs/05_text_6.jpg"},
+        {"url":"elements/05_text_7.html","height":60, "thumbnail":"elements/thumbs/05_text_7.jpg"},
+        {"url":"elements/05_text_8.html","height":60, "thumbnail":"elements/thumbs/05_text_8.jpg"},
+        {"url":"elements/05_text_9.html","height":60, "thumbnail":"elements/thumbs/05_text_9.jpg"},
+        {"url":"elements/05_text_10.html","height":60, "thumbnail":"elements/thumbs/05_text_10.jpg"},
+        {"url":"elements/05_text_11.html","height":60, "thumbnail":"elements/thumbs/05_text_11.jpg"},
+        {"url":"elements/05_text_12.html","height":60, "thumbnail":"elements/thumbs/05_text_12.jpg"},
+        {"url":"elements/05_text_13.html","height":60, "thumbnail":"elements/thumbs/05_text_13.jpg"},
+        {"url":"elements/05_text_14.html","height":60, "thumbnail":"elements/thumbs/05_text_14.jpg"},
+        {"url":"elements/05_text_15.html","height":60, "thumbnail":"elements/thumbs/05_text_15.jpg"},
+        {"url":"elements/05_text_16.html","height":60, "thumbnail":"elements/thumbs/05_text_16.jpg"},
+        {"url":"elements/05_text_17.html","height":60, "thumbnail":"elements/thumbs/05_text_17.jpg"}
+    ],
+	"Call to Action":[
+		{"url":"elements/06_cta_1.html","height":60, "thumbnail":"elements/thumbs/06_cta_1.jpg"},
+        {"url":"elements/06_cta_2.html","height":60, "thumbnail":"elements/thumbs/06_cta_2.jpg"},
+        {"url":"elements/06_cta_3.html","height":60, "thumbnail":"elements/thumbs/06_cta_3.jpg"},
+        {"url":"elements/06_cta_4.html","height":60, "thumbnail":"elements/thumbs/06_cta_4.jpg"},
+        {"url":"elements/06_cta_5.html","height":60, "thumbnail":"elements/thumbs/06_cta_5.jpg"},
+        {"url":"elements/06_cta_6.html","height":60, "thumbnail":"elements/thumbs/06_cta_6.jpg"}
+    ],
+    "Team":[
+        {"url":"elements/07_team_1.html","height":60, "thumbnail":"elements/thumbs/07_team_1.jpg"},
+        {"url":"elements/07_team_2.html","height":60, "thumbnail":"elements/thumbs/07_team_2.jpg"},
+        {"url":"elements/07_team_3.html","height":60, "thumbnail":"elements/thumbs/07_team_3.jpg"},
+        {"url":"elements/07_team_4.html","height":60, "thumbnail":"elements/thumbs/07_team_4.jpg"},
+        {"url":"elements/07_team_5.html","height":60, "thumbnail":"elements/thumbs/07_team_5.jpg"},
+        {"url":"elements/07_team_6.html","height":60, "thumbnail":"elements/thumbs/07_team_6.jpg"},
+        {"url":"elements/07_team_7.html","height":60, "thumbnail":"elements/thumbs/07_team_7.jpg"},
+        {"url":"elements/07_team_8.html","height":60, "thumbnail":"elements/thumbs/07_team_8.jpg"}
+    ],  
+	"Client":[
+    	{"url":"elements/08_client_1.html","height":60, "thumbnail":"elements/thumbs/08_client_1.jpg"},
+        {"url":"elements/08_client_2.html","height":60, "thumbnail":"elements/thumbs/08_client_2.jpg"},
+        {"url":"elements/08_client_3.html","height":60, "thumbnail":"elements/thumbs/08_client_3.jpg"},
+        {"url":"elements/08_client_4.html","height":60, "thumbnail":"elements/thumbs/08_client_4.jpg"},
+        {"url":"elements/08_client_5.html","height":60, "thumbnail":"elements/thumbs/08_client_5.jpg"},
+        {"url":"elements/08_client_6.html","height":60, "thumbnail":"elements/thumbs/08_client_6.jpg"}
+    ],
+    "Pricing":[
+        {"url":"elements/09_pricing_1.html","height":60, "thumbnail":"elements/thumbs/09_pricing_1.jpg"},
+        {"url":"elements/09_pricing_2.html","height":60, "thumbnail":"elements/thumbs/09_pricing_2.jpg"},
+        {"url":"elements/09_pricing_3.html","height":60, "thumbnail":"elements/thumbs/09_pricing_3.jpg"},
+        {"url":"elements/09_pricing_4.html","height":60, "thumbnail":"elements/thumbs/09_pricing_4.jpg"},
+        {"url":"elements/09_pricing_5.html","height":60, "thumbnail":"elements/thumbs/09_pricing_5.jpg"}
+    ],  
+    "Slider":[
+        {"url":"elements/10_slider_1.html","height":60, "thumbnail":"elements/thumbs/10_slider_1.jpg"},
+        {"url":"elements/10_slider_2.html","height":60, "thumbnail":"elements/thumbs/10_slider_2.jpg"},
+        {"url":"elements/10_slider_3.html","height":60, "thumbnail":"elements/thumbs/10_slider_3.jpg"},
+        {"url":"elements/10_slider_4.html","height":60, "thumbnail":"elements/thumbs/10_slider_4.jpg"}
+    ], 
+    "Portfolio":[
+        {"url":"elements/11_portfolio_1.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_1.jpg"},
+        {"url":"elements/11_portfolio_2.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_2.jpg"},
+        {"url":"elements/11_portfolio_3.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_3.jpg"},
+        {"url":"elements/11_portfolio_4.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_4.jpg"},
+        {"url":"elements/11_portfolio_5.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_5.jpg"},
+        {"url":"elements/11_portfolio_6.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_6.jpg"},
+        {"url":"elements/11_portfolio_7.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_7.jpg"},
+        {"url":"elements/11_portfolio_8.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_8.jpg"},
+        {"url":"elements/11_portfolio_9.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_9.jpg"},
+        {"url":"elements/11_portfolio_10.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_10.jpg"},
+        {"url":"elements/11_portfolio_11.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_11.jpg"},
+        {"url":"elements/11_portfolio_12.html","height":60, "thumbnail":"elements/thumbs/11_portfolio_12.jpg"}
+    ],
+	"Blog":[
+        {"url":"elements/12_blog_1.html","height":60, "thumbnail":"elements/thumbs/12_blog_1.jpg"},
+        {"url":"elements/12_blog_2.html","height":60, "thumbnail":"elements/thumbs/12_blog_2.jpg"},
+        {"url":"elements/12_blog_3.html","height":60, "thumbnail":"elements/thumbs/12_blog_3.jpg"},
+        {"url":"elements/12_blog_4.html","height":60, "thumbnail":"elements/thumbs/12_blog_4.jpg"},
+        {"url":"elements/12_blog_5.html","height":60, "thumbnail":"elements/thumbs/12_blog_5.jpg"},
+        {"url":"elements/12_blog_6.html","height":60, "thumbnail":"elements/thumbs/12_blog_6.jpg"},
+        {"url":"elements/12_blog_7.html","height":60, "thumbnail":"elements/thumbs/12_blog_7.jpg"},
+        {"url":"elements/12_blog_8.html","height":60, "thumbnail":"elements/thumbs/12_blog_8.jpg"}
+    ],
+    "Testimonial":[
+        {"url":"elements/13_testimonial_1.html","height":60, "thumbnail":"elements/thumbs/13_testimonial_1.jpg"},
+        {"url":"elements/13_testimonial_2.html","height":60, "thumbnail":"elements/thumbs/13_testimonial_2.jpg"},
+        {"url":"elements/13_testimonial_3.html","height":60, "thumbnail":"elements/thumbs/13_testimonial_3.jpg"},
+        {"url":"elements/13_testimonial_4.html","height":60, "thumbnail":"elements/thumbs/13_testimonial_4.jpg"},
+        {"url":"elements/13_testimonial_5.html","height":60, "thumbnail":"elements/thumbs/13_testimonial_5.jpg"}
+    ],
+    "Counter":[
+        {"url":"elements/14_counter_1.html","height":60, "thumbnail":"elements/thumbs/14_counter_1.jpg"},
+        {"url":"elements/14_counter_2.html","height":60, "thumbnail":"elements/thumbs/14_counter_2.jpg"},
+        {"url":"elements/14_counter_3.html","height":60, "thumbnail":"elements/thumbs/14_counter_3.jpg"},
+        {"url":"elements/14_counter_4.html","height":60, "thumbnail":"elements/thumbs/14_counter_4.jpg"}
+    ],
+    "Contact":[
+        {"url":"elements/15_contact_1.html","height":60, "thumbnail":"elements/thumbs/15_contact_1.jpg"},
+        {"url":"elements/15_contact_2.html","height":60, "thumbnail":"elements/thumbs/15_contact_2.jpg"},
+        {"url":"elements/15_contact_3.html","height":60, "thumbnail":"elements/thumbs/15_contact_3.jpg"},
+        {"url":"elements/15_contact_4.html","height":60, "thumbnail":"elements/thumbs/15_contact_4.jpg"},
+        {"url":"elements/15_contact_5.html","height":60, "thumbnail":"elements/thumbs/15_contact_5.jpg"}
+    ],
+    "Footer":[
+        {"url":"elements/16_footer_1.html","height":60, "thumbnail":"elements/thumbs/16_footer_1.jpg"},
+        {"url":"elements/16_footer_2.html","height":60, "thumbnail":"elements/thumbs/16_footer_2.jpg"},
+        {"url":"elements/16_footer_3.html","height":60, "thumbnail":"elements/thumbs/16_footer_3.jpg"},
+        {"url":"elements/16_footer_4.html","height":60, "thumbnail":"elements/thumbs/16_footer_4.jpg"},
+        {"url":"elements/16_footer_5.html","height":60, "thumbnail":"elements/thumbs/16_footer_5.jpg"},
+        {"url":"elements/16_footer_6.html","height":60, "thumbnail":"elements/thumbs/16_footer_6.jpg"},
+        {"url":"elements/16_footer_7.html","height":60, "thumbnail":"elements/thumbs/16_footer_7.jpg"},
+        {"url":"elements/16_footer_8.html","height":60, "thumbnail":"elements/thumbs/16_footer_8.jpg"},
+        {"url":"elements/16_footer_9.html","height":60, "thumbnail":"elements/thumbs/16_footer_9.jpg"},
+        {"url":"elements/16_footer_10.html","height":60, "thumbnail":"elements/thumbs/16_footer_10.jpg"},
+        {"url":"elements/16_footer_11.html","height":60, "thumbnail":"elements/thumbs/16_footer_11.jpg"}
+    ]
+    }
+}

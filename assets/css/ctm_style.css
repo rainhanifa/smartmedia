@@ -1,0 +1,187 @@
+
+
+/*HOME*/
+
+.benefit .service_grid .fa {
+	float: left;
+	font-size: 60px;
+	margin:  0 .5em 0 0;
+	color: #1BBC9B;
+}
+.benefit .service_grid .fa-inc-left {
+	margin:  0 .7em 0 .2em;
+}
+
+
+.promo-container {
+	padding-top: 80px;
+}
+
+
+
+.flexslider .slides img {
+	width: 100% !important;
+}
+
+.billing {
+	padding: 70px 0;
+}
+.billing-info {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+.billing-info .tz-title-5 p:after {
+	margin-left: 0;
+	left: 0;
+}
+.form-billing {
+	padding: 50px 20px;
+	background: #1BBC9B;
+	color: #fff;
+}
+
+.form-billing h3 {
+	margin-bottom: 0px;
+	font-size: 27px;
+}
+.form-billing p {
+	font-size: 14px;
+}
+.form-billing h4 {
+	margin-bottom: 0;
+}
+.input-panel {
+	padding: 30px;
+	background: #fafafa;
+}
+.input-panel p {
+	padding: 10px 0;
+	font-size: 13px;
+	letter-spacing: .4s;
+	color: #666;
+}
+
+.inputgroupdomain .form-control {
+	display: inline-block;
+	float: left;
+	border-radius: 0;
+}
+.inputgroupdomain .form-control:nth-child(1){
+	width: 72.5%;
+}
+.inputgroupdomain .form-control:nth-child(2){
+	width: 12.5%;
+	left: -10px;
+}
+.inputgroupdomain .form-control:nth-child(3){
+	width: 15%;
+}
+
+
+ul.charge {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+span.m_12,
+span.m_11 {
+	font-size: 17px;
+}
+
+.payment-item {
+	float: left;
+	text-align: center;
+	margin-left: 20px;
+}
+.payment-item  img{
+	display: block;
+}
+.promocode {
+	padding: 0;
+}
+.checkpromocode {
+	padding: 8px 30px;
+	background: none;
+	border: none;
+}
+
+
+.h_menu4 .caret {
+	margin-left: 10px;
+}
+
+.h_menu4 .dropdown-menu {
+	border-bottom: none;
+	margin-top: 14px;
+	background: #445c7f;
+	
+	
+	border: none;
+	border-radius: 0;
+}
+.h_menu4 .dropdown-menu li a {
+	text-transform: uppercase;
+	border: none;
+	color: #fff !important; 
+	border-radius: 0;
+}
+.h_menu4 .dropdown-menu li:nth-child(1) a{
+	border-bottom: 2px solid rgba(255,255,255,0.5);
+}
+.h_menu4 .dropdown-menu li a:hover {
+	color: #fff !important;
+	background: #1BBC9B	;
+}
+
+.resellernews {
+	padding: 47.5px 0;
+}
+
+.paysection {
+	text-align: center;
+	padding-top: 30px;
+}
+.paysection p {
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+.paysection a {
+	color: #428bca;
+}
+.ordernow {
+	color: #fff;
+	padding: 20px 30px;
+	border: none;
+	border-radius: 0;
+	font-size: 20px;
+	background: #1BBC9B;
+	margin-bottom: 20px;
+}
+
+.detail-order-header {
+	padding: 40px 15px;
+	background: #1BBC9B;
+	color: #fff;
+}
+.detail-order-header h4 {
+ 	font-size: 20px;
+ 	margin-bottom: 5px;
+}
+.detail-order-header p {
+	font-size: 14px;
+	font-style: italic;
+}
+
+.billing-info table td {
+	font-size: 13px;
+}
+.billing-info table tr td:nth-child(2) {
+	border-left: 1px solid #ccc;
+}
+.detail-price span{
+	text-align: right !important;
+	float: right;
+}
+.totaled-price {
+	text-align: right !important;
+	font-weight: bold;
+}

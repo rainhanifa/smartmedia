@@ -1,0 +1,120 @@
+// 09_PRICING
+.pricing {
+	.pricing-wrapper {
+		border: 1px solid @gray-1;
+		.rounded(5px);
+	}
+	.pricing-header {
+		background-color: lighten(@gray-1, 5%);
+		border-bottom: 1px solid @gray-1;
+		color: @gray-3;
+		font-family: 'Roboto Slab', serif;
+		font-weight: 300;
+		letter-spacing: -0.02em;
+		padding: 30px 25px 25px 25px;
+		text-align: center;
+		.fa {
+			color: @green;
+			font-size: 30px;
+			margin-bottom: 10px;
+		}
+		.type {
+			font-size: 24px;
+		}
+		.price {
+			font-size: 65px;
+			.currency {
+				font-size: 24px;
+				position: relative;
+    			top: -27px;
+    			left: -4px;
+			}
+		}
+		.dues {
+			font-size: 15px;
+			margin-top: -10px;
+			text-transform: uppercase;
+		}
+	}
+	.pricing-body {
+		padding: 30px 25px 30px 25px;
+		ul {
+			color: @gray-4;
+			list-style: none;
+			max-width: 210px;
+			margin: 0 auto 30px auto;
+			padding: 0;
+			&.icon {
+				max-width: 200px;
+				li {
+					padding-left: 0;
+					background: none;
+				}
+			}
+			li {
+				background-position: left center;
+				background-repeat: no-repeat;
+				margin-bottom: 15px;
+				padding-left: 30px;
+				&.yes {
+					background-image: url('../images/icon/check-green.png');
+				}
+				&.no {
+					background-image: url('../images/icon/close-red.png');
+				}
+				.fa {
+					color: darken(@gray-1, 10%);
+					font-size: 14px;
+					margin-right: 10px;
+				}
+			}
+		}
+		.button {
+			text-align: center;
+		}
+	}
+	.pricing-highlight {
+		&.pricing-wrapper {
+			border: 1px solid @green;
+		}
+		.pricing-header {
+			background-color: darken(@green, 5%);
+			border-color: darken(@green, 5%);
+			color: @white;
+			.fa {
+				color: @white;
+			}
+		}
+		.pricing-body {
+			background-color: @green;
+			ul {
+				color: @white;
+				li {
+					&.yes {
+					background-image: url('../images/icon/check-white.png');
+					}
+					&.no {
+						background-image: url('../images/icon/close-white.png');
+					}
+					.fa {
+						color: @white;
+					}
+				}
+			}
+			.button {
+				.btn {
+					border-color: @white;
+				}
+			}
+		}
+	}
+	&.pricing-1, &.pricing-2 {
+		padding: 40px 0 40px 0;
+	}
+	&.pricing-3, &.pricing-4 {
+		padding: 100px 0 100px 0;
+	}
+	&.pricing-5 {
+		padding: 65px 0 65px 0;
+	}
+}

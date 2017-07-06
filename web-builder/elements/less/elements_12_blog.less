@@ -1,0 +1,173 @@
+// 12_BLOG
+.blog {
+	padding: 40px 0 40px 0;
+	.blog-wrapper {
+		border: 1px solid @gray-1;
+		margin-bottom: 40px;
+		.blog-media {
+			img {
+				width: 100%
+			}
+			.slick-slider {
+				margin-bottom: 0;
+			}
+		}
+		.blog-content {
+			padding: 20px;
+			h4 {
+				font-size: 25px;
+				margin: 0 0 10px 0;
+			}
+			.blog-detail {
+				color: @gray-2;
+				font-size: 14px;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				span {
+					margin: 0 10px;
+				}
+				sup {
+					text-transform: lowercase;
+				}
+			}
+			p {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.slider-wrapper {
+		.slick-dots {
+			bottom: 15px;
+			li {
+				margin: 0;
+				button {
+					&:before {
+						color: @white;
+						font-size: 10px;
+						opacity: 1;
+					}
+				}
+				&.slick-active {
+					button {
+						&:before {
+							color: @green;
+						}
+					}
+				}
+			}
+		}
+	}
+	.blog-pagination {
+		text-align: center;
+		.active {
+			a {
+				background-color: @green;
+				border-color: @green;
+			}
+		}
+		li {
+			a {
+				padding-left: 16px;
+				padding-right: 16px;
+			}
+		}
+	}
+	.blog-widget {
+		margin-bottom: 40px;
+		h5 {
+			font-size: 19px;
+		}
+		hr {
+			border-top-width: 2px;
+			margin: 10px 0 15px 0;
+			width: 40px;
+		}
+		.list-group-item {
+			border: none;
+			padding: 5px 0;
+		}
+		.label {
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 400;
+			margin: 0 2px 5px 0;
+			padding: 5px 10px;
+		}
+		.post-detail {
+			margin-bottom: 20px;
+			p {
+				margin-bottom: 0;
+			}
+			span {
+				color: @gray-2;
+				font-size: 14px;
+			}
+		}
+	}
+	.blog-tags {
+		.label {
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 400;
+			margin: 0 2px 5px 0;
+			padding: 5px 10px;
+		}
+	}
+	.blog-comment {
+		.media {
+			margin-bottom: 20px;
+		}
+		h5 {
+			margin-top: 0;
+		}
+		.post-detail {
+			p {
+				margin-bottom: 5px;
+			}
+		}
+		.media-reply {
+			margin-left: 50px;
+		}
+	}
+	form {
+		input {
+			color: @gray-2;
+			font-size: 16px;
+			margin-right: 12px;
+			padding: 20px 15px 20px 15px;
+			width: 100%;
+		}
+		textarea {
+			color: @gray-2;
+			font-size: 16px;
+			padding: 10px 15px 10px 15px;
+		}
+		.btn {
+			padding: 12px 15px 12px 15px;
+		}
+	}
+}
+
+.blog-4, .blog-5 {
+	.blog-wrapper {
+		.blog-media {
+			max-height: 200px;
+			min-height: 200px;
+			overflow: hidden;
+			& > div {
+				height: 200px;
+			}
+			img {
+				height: 100%;
+				max-width: none;
+				width: auto;
+			}
+			.slick-slider {				
+				height: 200px;
+				.slick-list, .slick-track {
+					height: 100%;
+				}
+			}
+		}
+	}
+}

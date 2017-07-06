@@ -44,10 +44,13 @@
 			//ambil daftar kategori
 			$data['category'] = $this->db->query('SELECT * FROM article_category')->result_array();
 
+			
+
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('knowledgebase/knowledgebase_create.php',$data);
 			$this->load->view('template/footer-admin.php');
+
 		}
 		public function update($id_articles = 0){
 			if (isset($_POST['submit'])){
@@ -78,7 +81,7 @@
 			$data['category'] = $this->db->query('SELECT * FROM article_category')->result_array();
 
 			$data['articles'] = $this->db->query("SELECT * FROM articles WHERE id_articles = ".$id_articles)->result();
-
+			
 			
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
@@ -104,18 +107,71 @@
 			redirect('Knowledgebase/');
 		}
 
+
 		public function category($action="list"){
+			$data2['article_category'] = $this->db->query('SELECT * FROM article_category')->result_array();
+
 			switch($action){
 				case 'add'		: //view category add
+					$category_name = $this->input->post('category_name');
+					$knowledgebase_category=array("name_category" => $category_name);
+					$this->db->insert("article_category",$knowledgebase_category);
+					var_dump($this->db->error());
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+
+	            	redirect('Knowledgebase/category');    
+
 								  break;
 				case 'update'	: //view category update
+
+				// if (isset($_POST['submit'])){
+					$id_category = $_GET['id'];
+					$this->db->where('id_category', $id_category);
+					$category_name = $this->input->post('category_name');
+					$knowledgebase_category=array("name_category" => $category_name);	
+					
+					$this->db->where('id_category', $id_category);
+					$this->db->update("articles",$knowledgebase_category);
+					
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+
+	            	redirect('Knowledgebase/category');    
+
+				// }
+				$data2['article_category'] = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result();
+
 								  break;
 				case 'delete'	: //action category delete
+				$id_category = $_GET['id'];
+				$this->db->where('id_category', $id_category);
+				if ($this->db->delete("article_category")){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil Menghapus</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
+
+				redirect('Knowledgebase/category');
 								  break;
 				default 		: //view category list;
 								$this->load->view('template/header-admin.php');
 								$this->load->view('template/navbar-admin.php');
-								$this->load->view('knowledgebase/articles_category.php');
+								$this->load->view('knowledgebase/articles_category.php', $data2);
 								$this->load->view('template/footer-admin.php');
 								  break;
 			}

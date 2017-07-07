@@ -52,7 +52,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-sm-12 col-lg-12 controls distance">
-                                            <input type="text" class="form-control" placeholder="Department name" name="name">
+                                            <input type="text" class="form-control" placeholder="Department name" name="name" value="">
                                         </div>
                                         <div class="col-sm-12 col-lg-12 controls distance">
                                             <textarea class="form-control" placeholder="Description" name="desc"></textarea>

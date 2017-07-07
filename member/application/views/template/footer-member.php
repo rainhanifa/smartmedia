@@ -35,9 +35,9 @@
                 ] } );
 
               $('#ticket-table').dataTable( {
-                "aoColumnDefs": [
-                  { "bSortable": true, "aTargets": [ 5 ] }
-                ] } );
+                /*"aoColumnDefs": [
+                  { "bSortable": true, "aTargets": [ 4 ] }
+                ]*/ } );
             });
         </script>
 

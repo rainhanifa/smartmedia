@@ -1,4 +1,4 @@
-            <!-- BEGIN Content -->
+            <!-- BEGIN Content --> 
             <div id="main-content">
                 <!-- BEGIN Page Title -->
                 <div class="page-title">
@@ -13,7 +13,7 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="<?php echo base_url("dashboard")?>">Home</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
                         <li class="active">Announcement</li>
@@ -64,10 +64,13 @@
                     <div class="tab-pane active" id="search-simple">
                         <!-- BEGIN Simple Search Result -->
                                 <div class="info">
-                                     <h2>Informasi Maintenance Member Area</h2>
-                                     <div class="divider"></div>
-                                            <p>Terima kasih atas kepercayaan anda akan layanan kami, Untuk semakin meningkatkan komunikasi yang berjalan pada member area, maka kami akan   melakukan maintenance pada :  Hari / Tanggal : Sabtu, 6 Mei 2017 Pukul : 22.00 - 06.00 WIB Selama proses maintenance, untuk akses ke member area tidak akan data-prefixat dilakukan. Namun untuk jalur komunikasi chat dan telepon maupun email tetap... </p>
-                                            <p>
+                                    <?php 
+                                        foreach($announcement as $list){
+                                    ?>
+                                    <h2><?php echo $list['title_announcement']?></h2>
+                                    <div class="divider"></div>
+                                            <p><?php echo $list['content_announcement']?></p>
+                                           <!--  <p>
                                             Terima kasih atas kepercayaan anda akan layanan kami,
                                             Untuk semakin meningkatkan komunikasi yang berjalan pada member area, maka kami akan melakukan maintenance pada :  
                                             </p>
@@ -82,14 +85,15 @@
                                             <p>
                                             Demikian informasi maintenance kami.
                                             Atas perhatian dan kerjasamanya, kami ucapkan terima kasih.
-                                            </p>
+                                            </p> -->
                                             <p>
                                             Regards,
                                             Jagoan Hosting Indonesia 
                                             </p>
                                             <br>
                                             <p>Regards <br> Smartmedia Indonesia</p>
-                                    <p class="news-date">Thursday, May 4, 2017</p>
+                                    <p class="news-date">Thursday, <?php echo $list['date_announcement']?></p>
+                                    <?php  } ?>
                                 </div>
                         <!-- END Simple Search Result -->
                     </div>

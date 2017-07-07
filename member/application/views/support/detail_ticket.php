@@ -88,7 +88,7 @@
                                                         <h4><i class="fa fa-user"></i> ROFUL Z. SANTOSA</h4>
                                                     </div>
                                                     <div class="col-md-6 col-lg-4" style="text-align:right;">
-uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu8 gy6uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuyyyyyyyvvvvvvvvvvvvvvvv t ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttc667                                                        <p><i class="fa fa-clock-o"></i> FRIDAY, FEBRUARY 3RD, 2017 (14:01)</p>
+                                                       <p><i class="fa fa-clock-o"></i> FRIDAY, FEBRUARY 3RD, 2017 (14:01)</p>
                                                     </div>
                                                 </div>
                                             </div>

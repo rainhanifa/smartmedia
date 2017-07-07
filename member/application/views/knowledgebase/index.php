@@ -44,10 +44,14 @@ BEGIN Content -->
                     </div>
                 </div>
                 
-                <?php foreach ($articles2 as $category): ?>   
+                  
                 <div class="tag-list">
+                    
                     <div class="box">
+                        <?php foreach ($articles2 as $category): ?> 
                         <a href="#" class="btn disabled btn-gray"><?php echo $category['name_category']?></a>
+                        <?php endforeach; ?>
+
                         <!-- <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
@@ -55,16 +59,22 @@ BEGIN Content -->
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Gray</a> -->
                     </div>
+                      
                 </div>
-                <?php endforeach; ?>  
+                
 
-                <?php foreach ($articles as $art): ?>    
+               
                 <div class="news-list"> 
                     <div class="box-content">
                         <!-- BEGIN Tab Content -->
                         <div class="tab-content">               
                             <div class="tab-pane active" id="search-simple">
                                 <!-- BEGIN Simple Search Result -->
+                   <?php 
+                    $counter = 0;
+                        foreach($articles as $art){
+                    $counter++;
+                ?>              
                                 <div class="search-results search-results-simple">
                                     <ul class="clearfix">
                                         <li>
@@ -75,7 +85,7 @@ BEGIN Content -->
                                                 <a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"  class="btn btn-readmore btn-xs">Read More</a>
                                             </div>
                                         </li>
-                <?php endforeach; ?>    
+                   <?php  } ?>   
                                         <!-- <li>
                                             <div class="info">
                                                 <a href="single-knowledgebase.html" class="title">Informasi Disable Fungsi PHP</a>
@@ -93,9 +103,11 @@ BEGIN Content -->
                                             </div>
                                         </li> -->
                                     </ul>
+
                                 </div>
                                 <!-- END Simple Search Result -->
                             </div>
+
                             
                         </div>
                         <!-- END Tab Content -->

@@ -44,19 +44,21 @@
                     </div>
                 </div>
                 
-
+                <?php foreach ($articles as $art): ?> 
                 <div class="tag-list">
                     <div class="box">
-                        <a href="#" class="btn disabled btn-gray">Gray (13)</a>
+                        <a href="#" class="btn disabled btn-gray"><?php echo $art['name_category']?></a>
+                        <!-- <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Gray</a>
+                        <a href="#" class="btn disabled btn-gray">Gray</a> -->
                     </div>
                 </div>
-
+                <?php endforeach; ?>  
+                
+                <?php foreach ($articles as $art): ?> 
                <div class="news-list single-announcement"> 
                 <div class="box-content">
                 <!-- BEGIN Tab Content -->
@@ -64,37 +66,16 @@
                     <div class="tab-pane active" id="search-simple">
                         <!-- BEGIN Simple Search Result -->
                                 <div class="info">
-                                     <h2>Informasi Maintenance Member Area</h2>
+                                     <h2><?php echo $art['title_articles']?></h2>
                                      <div class="divider"></div>
-                                            <p>Terima kasih atas kepercayaan anda akan layanan kami, Untuk semakin meningkatkan komunikasi yang berjalan pada member area, maka kami akan   melakukan maintenance pada :  Hari / Tanggal : Sabtu, 6 Mei 2017 Pukul : 22.00 - 06.00 WIB Selama proses maintenance, untuk akses ke member area tidak akan data-prefixat dilakukan. Namun untuk jalur komunikasi chat dan telepon maupun email tetap... </p>
-                                            <p>
-                                            Terima kasih atas kepercayaan anda akan layanan kami,
-                                            Untuk semakin meningkatkan komunikasi yang berjalan pada member area, maka kami akan melakukan maintenance pada :  
-                                            </p>
-                                            <p>
-                                            Hari / Tanggal : Sabtu, 6 Mei 2017 <br>
-                                            Pukul : 22.00 - 06.00 WIB
-                                            </p>
-                                            <p>
-                                            Selama proses maintenance, untuk akses ke member area tidak akan dapat dilakukan.
-                                            Namun untuk jalur komunikasi chat dan telepon maupun email tetap dapat dilakukan.
-                                            </p>
-                                            <p>
-                                            Demikian informasi maintenance kami.
-                                            Atas perhatian dan kerjasamanya, kami ucapkan terima kasih.
-                                            </p>
-                                            <p>
-                                            Regards,
-                                            Jagoan Hosting Indonesia 
-                                            </p>
-                                            <br>
-                                            <p>Regards <br> Smartmedia Indonesia</p>
-                                    <p class="news-date">Thursday, May 4, 2017</p>
+                                            <p><?php echo $art['content_articles']?></p>
+                                    <p class="news-date"><?php echo $art['date_articles']?></p>
                                 </div>
                         <!-- END Simple Search Result -->
                     </div>
                     
-                </div>
+                </div> 
+                <?php endforeach; ?>  
             <!-- END Tab Content -->
                     </div>
                 </div>

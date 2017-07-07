@@ -44,20 +44,21 @@ BEGIN Content -->
                     </div>
                 </div>
                 
-
+                <?php foreach ($articles2 as $category): ?>   
                 <div class="tag-list">
                     <div class="box">
-                        <a href="#" class="btn disabled btn-gray">Gray (13)</a>
+                        <a href="#" class="btn disabled btn-gray"><?php echo $category['name_category']?></a>
+                        <!-- <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
                         <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Gray</a>
+                        <a href="#" class="btn disabled btn-gray">Gray</a> -->
                     </div>
                 </div>
+                <?php endforeach; ?>  
 
-                 <?php foreach ($articles as $art): ?>       
+                <?php foreach ($articles as $art): ?>    
                 <div class="news-list"> 
                     <div class="box-content">
                         <!-- BEGIN Tab Content -->
@@ -68,10 +69,10 @@ BEGIN Content -->
                                     <ul class="clearfix">
                                         <li>
                                             <div class="info">
-                                                <a href="single-knowledgebase.html" class="title"><?php echo $art['title_article']?></a>
-                                                <p class="news-date"><?php echo $art['views_articles']?></p>
+                                                <a href="single-knowledgebase.html" class="title"><?php echo $art['title_articles']?></a>
+                                                <p class="news-date">Total Views: <?php echo $art['views_articles']?></p>
                                                 <p><?php echo $art['content_articles']?></p>
-                                                <a href="<?php echo base_url("knowledgebase/detail");?>" class="btn btn-readmore btn-xs">Read More</a>
+                                                <a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"  class="btn btn-readmore btn-xs">Read More</a>
                                             </div>
                                         </li>
                 <?php endforeach; ?>    

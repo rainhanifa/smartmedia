@@ -28,6 +28,7 @@
                
 				<!-- Modal -->
                 <div class="modal fade modal-white" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <form action="<?php echo base_url("knowledgebase/category/update");?>" method="post">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">
@@ -45,11 +46,12 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<a class="btn btn-info btn-ok" >OK</a>
+								<input type="submit" class="btn" value="Submit" name="OK" >
                             </div>
                         </div>
                         <!-- end modal-content -->
                     </div>
+                </form>    
                 </div>
 				<!-- END Modal-->
 				
@@ -169,9 +171,6 @@
                 </div>
                 <!-- END Main Content -->
                 <script type="text/javascript">
-                    $('#edit').on('show.bs.modal', function(e) {
-                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-                    });
                     $('#delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                     });

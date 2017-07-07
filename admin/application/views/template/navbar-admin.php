@@ -254,7 +254,7 @@
                         <ul class="submenu">
                             <li><a href="packages.html">Packages</a></li>
                             <li><a href="vouchers.html">Vouchers</a></li>
-                            <li><a href="theme.html">Theme</a></li>
+                            <li><a href="<?php echo base_url("store/theme_detail");?>">Theme</a></li>
                         </ul>
                         <!-- END Submenu -->
                     </li>

@@ -1,4 +1,4 @@
-<!-- BEGIN Content -->
+BEGIN Content -->
             <div id="main-content">
                 <!-- BEGIN Page Title -->
                 <div class="page-title">
@@ -57,6 +57,7 @@
                     </div>
                 </div>
 
+                 <?php foreach ($articles as $art): ?>       
                 <div class="news-list"> 
                     <div class="box-content">
                         <!-- BEGIN Tab Content -->
@@ -67,13 +68,14 @@
                                     <ul class="clearfix">
                                         <li>
                                             <div class="info">
-                                                <a href="single-knowledgebase.html" class="title">Informasi Maintenance Member Area</a>
-                                                <p class="news-date">Total Views: 7209</p>
-                                                <p>Terima kasih atas kepercayaan anda akan layanan kami, Untuk semakin meningkatkan komunikasi yang berjalan pada member area, maka kami akan melakukan maintenance pada :  Hari / Tanggal : Sabtu, 6 Mei 2017 Pukul : 22.00 - 06.00 WIB Selama proses maintenance, untuk akses ke member area tidak akan dapat dilakukan. Namun untuk jalur komunikasi chat dan telepon maupun email tetap...</p>
+                                                <a href="single-knowledgebase.html" class="title"><?php echo $art['title_article']?></a>
+                                                <p class="news-date"><?php echo $art['views_articles']?></p>
+                                                <p><?php echo $art['content_articles']?></p>
                                                 <a href="<?php echo base_url("knowledgebase/detail");?>" class="btn btn-readmore btn-xs">Read More</a>
                                             </div>
                                         </li>
-                                        <li>
+                <?php endforeach; ?>    
+                                        <!-- <li>
                                             <div class="info">
                                                 <a href="single-knowledgebase.html" class="title">Informasi Disable Fungsi PHP</a>
                                                 <p class="news-date">Total Views: 9483</p>
@@ -88,7 +90,7 @@
                                                 <p>Terima kasih atas kepercayaan anda akan layanan kami, Sebelumnya, Kami sampaikan permohonan maaf atas gangguan network pada  beberapa server kami, sehingga server tidak bisa melakukan koneksi ke luar datacenter. Saat ini proses perbaikan pada server tersebut masih berlangsung. Kami menyadari pentingnya akses ke website Anda dan berusaha untuk secepatnya menyelesaikan...</p>
                                                 <a href="<?php echo base_url("knowledgebase/detail");?>" class="btn btn-readmore btn-xs">Read More</a>
                                             </div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                                 <!-- END Simple Search Result -->
@@ -110,4 +112,4 @@
                         </div>
                     </div>
                 </div>
-                <!-- END Main Content -->
+                <!-- END Main Content

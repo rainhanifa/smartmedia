@@ -128,7 +128,7 @@
 								  break;
 				case 'update'	: //view category update
 
-				// if (isset($_POST['submit'])){
+				if (isset($_POST['submit'])){
 					$id_category = $_GET['id'];
 					$this->db->where('id_category', $id_category);
 					$category_name = $this->input->post('category_name');
@@ -145,7 +145,8 @@
 
 	            	redirect('Knowledgebase/category');    
 
-				// }
+				}
+				
 				$data2['article_category'] = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result();
 
 								  break;

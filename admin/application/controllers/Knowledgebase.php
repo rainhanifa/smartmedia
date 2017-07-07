@@ -128,14 +128,14 @@
 								  break;
 				case 'update'	: //view category update
 
-				if (isset($_POST['submit'])){
-					$id_category = $_GET['id'];
-					$this->db->where('id_category', $id_category);
+				// if (isset($_POST['submit'])){
+					$id=$this->input->post('id_category');
+					
 					$category_name = $this->input->post('category_name');
 					$knowledgebase_category=array("name_category" => $category_name);	
 					
-					$this->db->where('id_category', $id_category);
-					$this->db->update("articles",$knowledgebase_category);
+					$this->db->where('id_category', $id);
+					$this->db->update("article_category",$knowledgebase_category);
 					
 					$this->session->set_flashdata("warning", '
 	                <div class="alert alert-success">
@@ -145,9 +145,9 @@
 
 	            	redirect('Knowledgebase/category');    
 
-				}
+				// }
 				
-				$data2['article_category'] = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result();
+				$data['article_category'] = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result();
 
 								  break;
 				case 'delete'	: //action category delete
@@ -176,5 +176,19 @@
 								$this->load->view('template/footer-admin.php');
 								  break;
 			}
+		}
+		public function get_category_by_id($id_category){
+
+			$articles = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result_array();
+			foreach($articles as $a){
+			echo '<div class="row">
+                                    <div class="form-group">
+                                        <div class="col-sm-12 col-lg-12 controls">
+                                        	<input type="hidden" name="id_category" value="'.$a['id_category'].'">
+                                            <input type="text" id="sitedesc" class="form-control" name="category_name" value="'.$a['name_category'].'">
+                                        </div>
+                                    </div>
+                                </div>  ';
+            }
 		}
 	}

@@ -34,14 +34,10 @@
                             <div class="modal-header">
                                 <h4 class="modal-title" id="myModalLabel">Edit Category</h4>
                             </div>
-                            <div class="modal-body">                            
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-sm-12 col-lg-12 controls">
-                                            <input type="text" id="sitedesc" class="form-control" placeholder="Website" name="category_name">
-                                        </div>
-                                    </div>
-                                </div>                 
+                            <div class="modal-body">
+                                <div id="container_update">
+                                </div>                            
+                                               
                             </div>
                           <!-- end modal-body -->
                             <div class="modal-footer">
@@ -135,7 +131,7 @@
                                 <tr>                               
                                     <td><?php $counter;?></td>
 									<td><?php echo $list['name_category']?></td>
-									<td><a data-href="<?php echo base_url("knowledgebase/category/update?id=").$list['id_category'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
+									<td><a id="link_update" data-href="<?php echo base_url("knowledgebase/category/update?id=").$list['id_category'];?>" data-id="<?php echo $list['id_category'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
 									<td><a data-href="<?php echo base_url("knowledgebase/category/delete?id=").$list['id_category'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
                                     
                                 </tr>
@@ -174,5 +170,11 @@
                     $('#delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                     });
+                    $('#link_update').click(function(){
+                        var id_category = $(this).data('id');
+                        $.get("<?php echo base_url('knowledgebase/get_category_by_id/')?>"+id_category, function(html){
+                            $('#container_update').html(html);
+                        });
+                    })
 
                 </script>       

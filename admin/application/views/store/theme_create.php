@@ -68,14 +68,14 @@
                                             <input type="text" class="form-control" name="preview3">
                                         </div>      
                                 </div>
-                                 <div class="form-group">
+                                <!--  <div class="form-group">
                                     <label for="inputlasttname" class="col-sm-1 control-label">File Theme</label>
                                         <div class="col-sm-11">
                                             <input type="text" class="form-control" name="file">
                                         </div>      
-                                </div>
-                               <!--  <div class="form-group">
-                                <label class="col-sm-2 col-lg-1 control-label">Image Upload</label>
+                                </div> -->
+                                <div class="form-group">
+                                <label class="col-sm-2 col-lg-1 control-label">File Theme</label>
                                     <div class="col-sm-10 col-lg-11 controls">
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
                                             <div class="fileupload-new img-thumbnail" style="width: 210px; height: 160px;">
@@ -85,14 +85,14 @@
                                             <div>
                                                 <span class="btn btn-default btn-file"><span class="fileupload-new">Select image</span>
                                                 <span class="fileupload-exists">Change</span>
-                                                <input type="file" class="file-input" /></span>
+                                                <input type="file" class="file-input" name="file"/></span>
                                                 <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                                             </div>
                                         </div>
                                          <span class="label label-important">NOTE!</span>
                                          <span>Attached image img-thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only</span>
                                     </div>
-                                </div>       -->
+                                </div>      
                                 <div class="col-md-1"></div>
 								<p>
 									<input type="submit" class="btn" value="Submit" name="submit">

@@ -23,17 +23,46 @@
 			$this->load->view('support/new_ticket.php',$dataz);
 			$this->load->view('template/footer-member.php');
 		}
-		public function open_ticket(){
+		public function open_ticket($id_department=0){
+			$data['department'] = $this->db->query('SELECT * FROM departments')->result_array();
+			$data['departement'] = $id_department;
+			if (isset($_POST['submit'])){
+				$category = $this->input->post('department_id');
+				$tags = $this->input->post('priority');
+				$subject = $this->input->post('subject');
+				$sites = $this->input->post('sites');
+				$content = $this->input->post('content');
+				$date = date("Y-m-d");
+
+				$ticket_post = array( "department_id" => $category,
+										"priority" => $tags,
+										"subject_ticket" => $subject,
+										"sites" => $sites,
+										"description" => $content,
+										"date_ticket" => $date,
+										"status_ticket" => 'unsolved'
+									);
+				$this->db->insert("tickets",$ticket_post);
+
+				$this->session->set_flashdata("warning", '
+                <div class="alert alert-success">
+                    <button class="close" data-dismiss="alert">×</button>
+                    <strong>Berhasil menyimpan</strong>
+                </div>');
+
+                redirect('Support/');
+			}
+
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
-			$this->load->view('support/open_ticket.php');
+			$this->load->view('support/open_ticket.php',$data);
 			$this->load->view('template/footer-member.php');
 		}
-		public function detail(){
-			
+		public function detail($id = 0){
+			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
-			$this->load->view('support/detail_ticket.php');
+			$this->load->view('support/detail_ticket.php',$data);
 			$this->load->view('template/footer-member.php');
 		}
 	}

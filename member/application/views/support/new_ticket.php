@@ -37,31 +37,15 @@
                                             $counter = 0;
                                             foreach($department as $list){
                                                 $counter++;
-                                        ?>
-                                        
-                                            <a class="col-md-6" href="<?php echo base_url("support/open_ticket")?>">
-                                                <div class="well well-lg">
-                                                    <h2><span><?php echo $list['name_department']?></span></h2>
-                                                    <p><span><?php echo $list['description_department']?></span></p>
-                                                </div>
-                                            </a>
-                                        
+                                        ?>                                            
+                                        <a class="col-md-6" href="<?php echo base_url("support/open_ticket/").$list['id_department']?>">
+                                            <div class="well well-lg">
+                                                <h2><span><?php echo $list['name_department']?></span></h2>
+                                                <p><span><?php echo $list['description_department']?></span></p>
+                                            </div>
+                                        </a>
                                         <?php  } ?>
-                                    <!-- <a class="col-md-6" href="<?php echo base_url("support/open_ticket")?>">
-                                        <div class="well well-lg">
-                                            <h2><span>Sales Department</span></h2>
-                                            <p><span>You can ask about Smart Media product here</span></p>
-                                        </div>
-                                    </a> -->
                                     </ul>
-                                <!-- </div> 
-                                <div class="row"> -->
-                                    <!-- <a class="col-md-6" href="<?php echo base_url("support/open_ticket")?>">
-                                        <div class="well well-lg">
-                                            <h2><span>Billing Support</span></h2>
-                                            <p><span>Questions about billing, package upgrade, payment confirmation, dan cost services on Smart Media</span></p>
-                                        </div>
-                                    </a> -->
                                 </div> 
                             </div>
                         </div>
@@ -70,3 +54,17 @@
 
                 <!-- END SUPPORT TICKETS -->               
                 <!-- END Main Content -->
+                                    <!-- <a class="col-md-6" href="<?php echo base_url("support/open_ticket")?>">
+                                        <div class="well well-lg">
+                                            <h2><span>Sales Department</span></h2>
+                                            <p><span>You can ask about Smart Media product here</span></p>
+                                        </div>
+                                    </a> -->
+                                <!-- </div> 
+                                <div class="row"> -->
+                                    <!-- <a class="col-md-6" href="<?php echo base_url("support/open_ticket")?>">
+                                        <div class="well well-lg">
+                                            <h2><span>Billing Support</span></h2>
+                                            <p><span>Questions about billing, package upgrade, payment confirmation, dan cost services on Smart Media</span></p>
+                                        </div>
+                                    </a> -->

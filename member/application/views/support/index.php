@@ -59,7 +59,7 @@ BEGIN Content -->
                                     <td><?php echo $list['date_ticket']?></td>
                                     <td><?php echo $list['department_id']?></td>
                                     <td>
-                                        <a href="<?php echo base_url("support/detail")?>"><?php echo $list['subject_ticket']?></a>
+                                        <a href="<?php echo base_url("support/detail/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>
                                     <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
                                     <td>21/10/2017</td>

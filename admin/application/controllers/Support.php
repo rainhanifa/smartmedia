@@ -43,8 +43,8 @@
 		public function update(){
 			if (isset($_POST['submit'])){	
 				$id_department = $this->input->post('id_department');
-				$name = $this->input->post('title');
-				$desc = $this->input->post('content');
+				$name = $this->input->post('name');
+				$desc = $this->input->post('desc');
 
 				$department_update = array( "id_department" => $id_department,
 											"name_department" => $name,
@@ -84,8 +84,41 @@
 
 			redirect('Support/');
 		}
+		public function get_category_by_id($id_department){
+
+			$department = $this->db->query("SELECT * FROM departments WHERE id_department = ".$id_department)->result_array();
+			foreach($department as $a){
+				echo '
+				<div class="row">
+	            	<div class="form-group">
+	                	<input type="hidden" name="id_department" value="'.$a['id_department'].'">
+	                	<div class="col-sm-12 col-lg-12 controls distance">
+	                    	<input type="text" class="form-control" name="name" value="'.$a['name_department'].'">
+	                	</div>
+	                    <div class="col-sm-12 col-lg-12 controls distance">
+	                    	<textarea class="form-control" name="desc">'.$a['description_department'].'</textarea>
+	                    </div>
+	                </div>
+	            </div>';
+            }
+		}
+		public function ticket(){
+			$data['ticket'] = $this->db->query('SELECT * FROM tickets')->result_array();
+			$this->load->view('template/header-admin.php');
+			$this->load->view('template/navbar-admin.php');
+			$this->load->view('support/tickets.php', $data);
+			$this->load->view('template/footer-admin.php');
+		}
+		public function detail_ticket($id = 0){
+			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
+			$this->load->view('template/header-admin.php');
+			$this->load->view('template/navbar-admin.php');
+			$this->load->view('support/detail_ticket.php',$data);
+			$this->load->view('template/footer-admin.php');
+		}
+
 		public function open_ticket(){
-			//action open
+			
 		}
 		public function close_ticket(){
 			//action close

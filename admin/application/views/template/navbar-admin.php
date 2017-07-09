@@ -298,7 +298,7 @@
                         </a>
 
                         <ul class="submenu">
-                            <li><a href="tickets.html" >Tickets</a></li>
+                            <li><a href="<?php echo base_url("support/ticket");?>" >Tickets</a></li>
                             <li><a href="<?php echo base_url("support");?>">Departments</a></li>
                         </ul>
                     </li>

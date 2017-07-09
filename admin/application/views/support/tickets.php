@@ -3,7 +3,7 @@
 <!-- BEGIN Page Title -->
 <div class="page-title">
     <div>
-        <h1><i class="fa fa-globe"></i> My Ticket</h1>
+        <h1><i class="fa fa-globe"></i> Tickets</h1>
     </div>
 </div>
 <!-- END Page Title -->
@@ -16,7 +16,7 @@
             <a href="<?php echo base_url("dashboard")?>">Home</a>
             <span class="divider"><i class="fa fa-angle-right"></i></span>
         </li>
-        <li class="active"> My Ticket </li>
+        <li class="active"> Tickets </li>
     </ul>
 </div>
 <!-- END Breadcrumb -->
@@ -30,13 +30,9 @@
                     <div class="box">
                         <div class="box-title no-bg">
                             <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray">3</span></h3>
-                            <div class="box-tool">
-                                <a href="<?php echo base_url("support/new_ticket")?>" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
-                            </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="box">                            
                     <div class="table-responsive">
                         <table class="table table-advance" id="ticket-table">
@@ -59,7 +55,7 @@
                                     <td><?php echo $list['date_ticket']?></td>
                                     <td><?php echo $list['department_id']?></td>
                                     <td>
-                                        <a href="<?php echo base_url("support/detail/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
+                                        <a href="<?php echo base_url("support/detail_ticket/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>
                                     <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
                                     <td>21/10/2017</td>

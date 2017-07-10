@@ -11,7 +11,7 @@
 
 		public function index(){
 			$data['departments'] = $this->db->query('SELECT * FROM departments')->result_array();
-
+			
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('support/departments.php', $data);
@@ -102,8 +102,8 @@
 	            </div>';
             }
 		}
-		public function ticket(){
-			$data['ticket'] = $this->db->query('SELECT * FROM tickets')->result_array();
+		public function ticket($id=0){
+			$data['ticket'] = $this->db->query('SELECT tickets.id, tickets.date_ticket, departments.name_department, tickets.subject_ticket, tickets.status_ticket from departments JOIN tickets ON departments.id_department = tickets.department_id ')->result_array();
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('support/tickets.php', $data);

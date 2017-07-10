@@ -52,13 +52,13 @@
                                     $counter++;
                             ?>
                                 <tr class="table-flag-blue">                                    
-                                    <td><?php echo $list['date_ticket']?></td>
+                                    <td><?php echo $list['date_lawas']?></td>
                                     <td><?php echo $list['name_department']?></td>
                                     <td>
                                         <a href="<?php echo base_url("support/detail_ticket/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>
                                     <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
-                                    <td>21/10/2017</td>
+                                    <td><?php echo $list['date_terbaru']?></td>
                                 </tr>
                             <?php  } ?>
                                 <!-- <tr class="table-flag-blue">                                    

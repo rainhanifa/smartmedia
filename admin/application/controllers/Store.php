@@ -54,6 +54,7 @@
 				$preview2 = $this->input->post('preview2');
 				$preview3 = $this->input->post('preview3');
 				$file = $this->input->post('file');
+				$config['upload_path'] = FCPATH."assets/img/";
 
 				$theme_post = array("name_theme" => $name, 
 											"description_theme" => $description,

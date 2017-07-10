@@ -6,6 +6,9 @@
 		{
 			$data['articles'] = $this->db->query('SELECT * FROM articles')->result_array();
 			
+			$string = 	$data['articles'][0]['content_articles'];
+			$pos=strpos($string, ' ', 100);
+			$data['string'] = substr($string,0,$pos ); 
 			$this->load->view('template/header.php');
 			$this->load->view('knowledgebase/faq.php',$data);
 			$this->load->view('template/footer.php');

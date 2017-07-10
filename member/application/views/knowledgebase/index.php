@@ -70,7 +70,7 @@ BEGIN Content -->
                                             <div class="info">
                                                 <a href="single-knowledgebase.html" class="title"><?php echo $art['title_articles']?></a>
                                                 <p class="news-date">Total Views: <?php echo $art['views_articles']?></p>
-                                                <p><?php echo $string?>. . .</p>
+                                                <p><?php echo $string?> . . .</p>
                                                 <a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"  class="btn btn-readmore btn-xs">Read More</a>
                                             </div>
                                         </li>

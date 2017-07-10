@@ -20,7 +20,7 @@
 				<ul class="project_box">
 				  <li class="mini-post-meta2">Q</li>
 				  <li class="desc"><h5><a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"><?php echo $art['title_articles']?></a></h5>
-				  	 <p><?php echo $art['content_articles']?></p>
+				  	 <p><?php echo $string?> . . .</p>
 				  </li>	
 				  <div class="clearfix"> </div>
 				</ul>

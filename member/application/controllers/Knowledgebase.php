@@ -9,7 +9,7 @@
 			$data['articles2'] = $this->db->query('SELECT * FROM article_category')->result_array();
 			
 			$string = 	$data['articles'][0]['content_articles'];
-			$pos=strpos($string, ' ', 200);
+			$pos=strpos($string, ' ', 100);
 			$data['string'] = substr($string,0,$pos ); 
 			// $a= substr($string,0,100);
      		// $a= substr($string,0,strrpos($string," "));

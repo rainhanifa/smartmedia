@@ -100,7 +100,7 @@
                                 ?>
                                 <tr>                               
                                     <td><?php echo $counter;?></td>
-                                    <td><?php echo $list['title_articles']?></td>
+                                    <td><a href="http://localhost/smartmedia/knowledgebase"><?php echo $list['title_articles']?></a></td>
                                     <td>Administrator</td>
                                     <td><?php echo $list['date_articles']?></td>
                                     <td><?php echo $list['name_category']?></td>

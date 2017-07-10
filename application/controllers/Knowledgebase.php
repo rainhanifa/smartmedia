@@ -4,8 +4,19 @@
 
 		public function index()
 		{
+			$data['articles'] = $this->db->query('SELECT * FROM articles')->result_array();
+			
 			$this->load->view('template/header.php');
-			$this->load->view('knowledgebase/faq.php');
+			$this->load->view('knowledgebase/faq.php',$data);
+			$this->load->view('template/footer.php');
+		}
+		public function detail($id_articles = 0){
+
+			$data['articles'] = $this->db->query("SELECT articles.*, article_category.name_category FROM articles
+												 INNER JOIN article_category ON articles.category_articles = article_category.id_category WHERE id_articles = ".$id_articles)->result_array();
+
+			$this->load->view('template/header.php');
+			$this->load->view('knowledgebase/detail.php', $data);
 			$this->load->view('template/footer.php');
 		}
 	}

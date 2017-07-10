@@ -64,7 +64,7 @@
                                             </div>
                                         </a>
                                         <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
+                                            <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
                                     <li>
@@ -75,10 +75,10 @@
                                             </div>
                                         </a>
                                         <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
+                                            <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
-                                    <li>
+                                   <!--  <li>
                                         <a href="<?php echo base_url("assets");?>/img/3a.jpg" rel="prettyPhoto" title="Description of image">
                                             <div>
                                                 <img src="<?php echo base_url("assets");?>/img/3.jpg" alt="" />
@@ -165,7 +165,7 @@
                                         <div class="gallery-tools">
                                             <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <div class="text-center">
                                     <ul class="pagination pagination-bullet">

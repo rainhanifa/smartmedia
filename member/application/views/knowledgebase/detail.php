@@ -58,7 +58,7 @@
                                      <h2><?php echo $art['title_articles']?></h2>
                                      <div class="divider"></div>
                                             <p><?php echo $art['content_articles']?></p>
-                                    <p class="news-date"><?php echo $art['date_articles']?></p>
+                                    <p class="news-date"><?php echo date('l', strtotime($art['date_articles']))?>,<?php echo $art['date_articles']?></p>
                                 </div>
                         <!-- END Simple Search Result -->
                     </div>

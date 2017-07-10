@@ -32,13 +32,21 @@
 											"content_articles" => $content,
 											"date_articles" => $date, 							
 											"category_articles" => $category);
-				$this->db->insert("articles",$knowledgebase_post);
+				if($this->db->insert("articles",$knowledgebase_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-danger">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
 
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil menyimpan</strong>
-                </div>');
+				
             	redirect('Knowledgebase/');    
 			}
 			//ambil daftar kategori
@@ -65,15 +73,20 @@
 											"date_articles" => $date, 							
 											"category_articles" => $category);
 				$this->db->where('id_articles', $id_articles);
-				$this->db->update("articles",$knowledgebase_post);
-
+				if($this->db->update("articles",$knowledgebase_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil Mengupdate</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-danger">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
 				
-
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil Mengupdate</strong>
-                </div>');
                 redirect('Knowledgebase/');
 
 			}
@@ -98,7 +111,7 @@
                 </div>');
 			}else{
 				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Error</strong>
                 </div>');
@@ -115,37 +128,52 @@
 				case 'add'		: //view category add
 					$category_name = $this->input->post('category_name');
 					$knowledgebase_category=array("name_category" => $category_name);
-					$this->db->insert("article_category",$knowledgebase_category);
-					var_dump($this->db->error());
-					$this->session->set_flashdata("warning", '
-	                <div class="alert alert-success">
-	                    <button class="close" data-dismiss="alert">×</button>
-	                    <strong>Berhasil menyimpan</strong>
-	                </div>');
+					
+					if($this->db->insert("article_category",$knowledgebase_category)){
+						// var_dump($this->db->error());
+						$this->session->set_flashdata("warning", '
+		                <div class="alert alert-success">
+		                    <button class="close" data-dismiss="alert">×</button>
+		                    <strong>Berhasil menyimpan</strong>
+		                </div>');
+					}else{
+						$this->session->set_flashdata("warning", '
+		                <div class="alert alert-danger">
+		                    <button class="close" data-dismiss="alert">×</button>
+		                    <strong>Error</strong>
+		                </div>');
+					}
+					
 
 	            	redirect('Knowledgebase/category');    
 
 								  break;
 				case 'update'	: //view category update
 
-				// if (isset($_POST['submit'])){
+			
 					$id=$this->input->post('id_category');
 					
 					$category_name = $this->input->post('category_name');
 					$knowledgebase_category=array("name_category" => $category_name);	
 					
 					$this->db->where('id_category', $id);
-					$this->db->update("article_category",$knowledgebase_category);
-					
-					$this->session->set_flashdata("warning", '
-	                <div class="alert alert-success">
-	                    <button class="close" data-dismiss="alert">×</button>
-	                    <strong>Berhasil Mengupdate</strong>
-	                </div>');
+					if($this->db->update("article_category",$knowledgebase_category)){
+						$this->session->set_flashdata("warning", '
+		                <div class="alert alert-success">
+		                    <button class="close" data-dismiss="alert">×</button>
+		                    <strong>Berhasil Mengupdate</strong>
+		                </div>');
+					}else{
+						$this->session->set_flashdata("warning", '
+		                <div class="alert alert-danger">
+		                    <button class="close" data-dismiss="alert">×</button>
+		                    <strong>Error</strong>
+		                </div>');
+					}
 
 	            	redirect('Knowledgebase/category');    
 
-				// }
+				
 				
 				$data['article_category'] = $this->db->query("SELECT * FROM article_category WHERE id_category = ".$id_category)->result();
 
@@ -161,7 +189,7 @@
 	                </div>');
 				}else{
 					$this->session->set_flashdata("warning", '
-	                <div class="alert alert-success">
+	                <div class="alert alert-danger">
 	                    <button class="close" data-dismiss="alert">×</button>
 	                    <strong>Error</strong>
 	                </div>');

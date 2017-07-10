@@ -54,10 +54,7 @@
 				<!-- END Modal2-->
                 <!-- BEGIN Main Content -->
                
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>        
+     
                 <?php echo $this->session->flashdata("warning")?>         
 
                 <div class="box">
@@ -102,7 +99,7 @@
                                        
                                 ?>
                                 <tr>                               
-                                    <td><?php $counter;?></td>
+                                    <td><?php echo $counter;?></td>
                                     <td><?php echo $list['title_articles']?></td>
                                     <td>Administrator</td>
                                     <td><?php echo $list['date_articles']?></td>

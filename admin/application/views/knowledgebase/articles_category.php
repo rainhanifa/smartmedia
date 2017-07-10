@@ -42,7 +42,7 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<input type="submit" class="btn" value="Submit" name="OK" >
+								<input type="submit" class="btn btn-info " value="Submit" name="OK" >
                             </div>
                         </div>
                         <!-- end modal-content -->
@@ -87,7 +87,7 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<input type="submit" class="btn" value="Submit" name="OK" >
+								<input type="submit" class="btn btn-info" value="Submit" name="OK" >
                             </div>
                         </div>
                         <!-- end modal-content -->
@@ -98,10 +98,10 @@
 				
                 <!-- BEGIN Main Content -->
                
-                <div class="alert alert-success">
+               <!--  <div class="alert alert-success">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>     
+                </div>  -->    
                 <?php echo $this->session->flashdata("warning")?>    
        
 
@@ -129,7 +129,7 @@
                                        
                                 ?>
                                 <tr>                               
-                                    <td><?php $counter;?></td>
+                                    <td><?php echo $counter;?></td>
 									<td><?php echo $list['name_category']?></td>
 									<td><a id="link_update" data-href="<?php echo base_url("knowledgebase/category/update?id=").$list['id_category'];?>" data-id="<?php echo $list['id_category'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
 									<td><a data-href="<?php echo base_url("knowledgebase/category/delete?id=").$list['id_category'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>

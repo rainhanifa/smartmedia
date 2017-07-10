@@ -20,16 +20,10 @@
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->
-                <div class="alert alert-danger">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
+
                 <!-- BEGIN Main Content -->
-               
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>                
+               <?php echo $this->session->flashdata("message")?> 
+                               
 
                 <div class="box">
                             
@@ -45,54 +39,45 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                foreach($users as $user){
+                            ?>
                                 <tr>                               
-                                    <td><a href="">andyzain</a></td>
-                                    <td>andyzain@gmail.com</td>
-                                    <td>Andy Zain</td>
-                                    <td>Client</td>
-                                    <td><a href="#" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
+                                    <td><a href="#"><?php echo $user['username']?></a></td>
+                                    <td><?php echo $user['email']?></td>
+                                    <td><?php echo $user['fullname']?></td>
+                                    <td><?php echo ($user['username'] == "1") ? "Administrator" : (($user['username'] == "1") ? "Staff" : "Client"); ?></td>
+                                    <td><a href="#" data-href="<?php echo base_url('users/reset_password/').$user['id_users']; ?>"  data-name="<?php echo $user['username']?>" data-toggle="modal" data-target="#reset" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
                                         <a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Deactivate</a>
                                     </td>
                                 </tr>
-                                <tr>                               
-                                    <td><a href="">ibnuaja</a></td>
-                                    <td>ibnuaja@gmail.com</td>
-                                    <td>Ibnu Shodiqin</td>
-                                    <td>Client</td>
-                                    <td><a href="#" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
-                                        <a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Deactivate</a>
-                                    </td>
-                                </tr>
-                                <tr>                               
-                                    <td><a href="">3</a></td>
-                                    <td>Dimas</td>
-                                    <td>Virdana</td>
-                                    <td>dimasgundam@gmail.com</td>
-                                    <td><a href="#" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
-                                        <a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Deactivate</a>
-                                    </td>
-                                </tr>
-                                <tr>                               
-                                    <td><a href="">4</a></td>
-                                    <td>Handharbeni</td>
-                                    <td>Muhammad</td>
-                                    <td>mhandharbeni@gmail.com</td>
-                                    <td><a href="#" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
-                                        <a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Deactivate</a>
-                                    </td>
-                                </tr>
-                                <tr>                               
-                                    <td><a href="">5</a></td>
-                                    <td>Luqman</td>
-                                    <td>Hakim</td>
-                                    <td>cakmen@gmail.com</td>
-                                    <td><a href="#" class="btn btn-lime"><i class="fa fa-user"></i> Reset Password</a>
-                                        <a href="#" class="btn btn-info"><i class="fa fa-tasks"></i> Deactivate</a>
-                                    </td>
-                                </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <!-- END Main Content -->
+
+                <div class="modal fade modal-white" id="reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content infotrophy-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myContainer"></h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal">CANCEL</button>
+                                <a class="btn btn-info btn-ok">RESET</a>
+                            </div>
+                        </div>
+                        <!-- end modal-content -->
+                    </div>
+                </div>
                 
+                <script type="text/javascript">
+                    $('#reset').on('show.bs.modal', function(e) {
+                        var username =  $(e.relatedTarget).data('name');
+                        $('#myContainer').html("Reset Password for user '"+username+"'?");
+
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                    });
+                </script>

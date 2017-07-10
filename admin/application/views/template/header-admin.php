@@ -12,12 +12,6 @@
         <!--base css styles-->
         <link rel="stylesheet" href="<?php echo base_url('assets')?>/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url('assets')?>/assets/font-awesome/css/font-awesome.min.css">
-
-        
-        <!--page specific css styles-->
-        <link rel="stylesheet" href="<?php echo base_url('assets')?>/assets/data-tables/bootstrap3/dataTables.bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
         
         <!--flaty css styles-->
         <link rel="stylesheet" href="<?php echo base_url('assets')?>/css/flaty.css">
@@ -30,12 +24,6 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url('assets')?>/assets/jquery/jquery-2.1.4.min.js"><\/script>')</script>
         <script src="<?php echo base_url('assets')?>/assets/bootstrap/js/bootstrap.min.js"></script>
-         
-        <script src="<?php echo base_url('assets')?>/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="<?php echo base_url('assets')?>/assets/jquery-cookie/jquery.cookie.js"></script>
-
-        <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/data-tables/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/data-tables/bootstrap3/dataTables.bootstrap.js"></script>
         
 
         

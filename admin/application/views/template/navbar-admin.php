@@ -1,5 +1,6 @@
         <?php $active= $this->router->fetch_class(); ?>
         <!-- BEGIN Navbar -->
+<!-- BEGIN Navbar -->
         <div id="navbar" class="navbar">
             <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
                 <span class="fa fa-bars"></span>
@@ -71,7 +72,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
+                                <img src="../img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
                                 <div>
                                     <span class="msg-title">Sarah</span>
                                     <span class="msg-time">
@@ -85,7 +86,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
+                                <img src="../img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
                                 <div>
                                     <span class="msg-title">Emma</span>
                                     <span class="msg-time">
@@ -99,7 +100,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
+                                <img src="../img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
                                 <div>
                                     <span class="msg-title">John</span>
                                     <span class="msg-time">
@@ -120,8 +121,8 @@
                 <!-- END Button Messages -->
 
                 <!-- BEGIN Button User -->
-                <li class="user-profile">
-                    <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
                         <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="Administrator's Photo" />
                         <span class="hhh" id="user_info">
                             Administrator
@@ -130,7 +131,7 @@
                     </a>
 
                     <!-- BEGIN User Dropdown -->
-                    <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+                    <ul class="dropdown-menu">
                         <li class="nav-header">
                             <i class="fa fa-clock-o"></i>
                             Logined From 20:45
@@ -197,6 +198,7 @@
             <!-- END Navbar Buttons -->
         </div>
         <!-- END Navbar -->
+
 
         <!-- BEGIN Container -->
         <div class="container" id="main-container">

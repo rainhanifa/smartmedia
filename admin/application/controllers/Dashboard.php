@@ -1,6 +1,15 @@
 <?php
-	defined('BASEPATH') OR exit ('No diect script access allowed');
+	defined('BASEPATH') OR exit ('No direct script access allowed');
 	class Dashboard extends CI_COntroller{
+
+		function __construct() {
+	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        //redirect('auth/login');
+		     	echo "masuk";
+		     }
+	    
+	    }
 
 		public function index()
 		{

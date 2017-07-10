@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Login - FLATY Admin</title>
+        <title>Login - Smartmedia Admin</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,9 +26,15 @@
         <!-- BEGIN Main Content -->
         <div class="login-wrapper">
             <!-- BEGIN Login Form -->
-            <form id="form-login" action="<?php echo base_url("auth")?>" method="get">
+            <form id="form-login" action="<?php echo base_url("auth/login")?>" method="post">
                 <h3>Login</h3>
                 <hr/>
+                <?php if($error != ""){ ?>
+                        <div class="alert alert-danger">
+                            <button class="close" data-dismiss="alert">&times;</button>
+                            <?php echo $error;?>
+                        </div>
+                <?php }?>
                 <div class="form-group">
                     <div class="controls">
                         <input type="text" placeholder="Username" class="form-control" />
@@ -48,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                        <button type="submit" class="btn btn-primary form-control">Sign In</button>
+                        <input type="submit" class="btn btn-primary form-control" name="submit" value="LOGIN">
                     </div>
                 </div>
             </form>

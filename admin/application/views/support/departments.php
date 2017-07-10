@@ -37,14 +37,14 @@
                                 <!-- end modal-body -->
                                 <div class="modal-footer">
                                     <button class="btn" data-dismiss="modal">CANCEL</button>
-                                    <input type="submit" class="btn" value="Submit" name="submit">
+                                    <input type="submit" class="btn btn-info" value="Submit" name="submit">
                                 </div>
                             </div>
                             <!-- end modal-content -->
                         </div>
                     </form>
                 </div>
-                            <!-- END Modal-->
+                <!-- END Modal-->
 				<!-- Modal2 -->
                 <div class="modal fade modal-white" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -61,46 +61,40 @@
                     </div>
                 </div>
 				<!-- END Modal2-->
-
 				<!-- Modal3 -->
                 <div class="modal fade modal-white" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <form action="<?php echo base_url("support/add");?>" method="post">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content infotrophy-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Add New Department</h4>
-                            </div>
-                            <div class="modal-body">                            
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-sm-12 col-lg-12 controls distance">
-                                            <input type="text" class="form-control" placeholder="Department name" name="name" value="">
+                    <form action="<?php echo base_url("support/add");?>" method="post">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content infotrophy-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Add New Department</h4>
+                                </div>
+                                <div class="modal-body">                            
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-12 col-lg-12 controls distance">
+                                                <input type="text" class="form-control" placeholder="Department name" name="name" value="">
+                                            </div>
+                                            <div class="col-sm-12 col-lg-12 controls distance">
+                                                <textarea class="form-control" placeholder="Description" name="desc"></textarea>
+    											<p></p>
+    										</div>
                                         </div>
-                                        <div class="col-sm-12 col-lg-12 controls distance">
-                                            <textarea class="form-control" placeholder="Description" name="desc"></textarea>
-											<p></p>
-										</div>
-                                    </div>
-                                </div>                 
+                                    </div>                 
+                                </div>
+                                <!-- end modal-body -->
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal">CANCEL</button>
+    								<input type="submit" class="btn btn-info" value="Submit" name="submit">
+                                </div>
                             </div>
-                            <!-- end modal-body -->
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal">CANCEL</button>
-								<input type="submit" class="btn btn-info" value="Submit" name="submit">
-                            </div>
+                            <!-- end modal-content -->
                         </div>
-                        <!-- end modal-content -->
-                    </div>
-                </form>
+                    </form>
                 </div>
 				<!-- END Modal3-->
 				
-                <!-- BEGIN Main Content -->
-               
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>            
+                <!-- BEGIN Main Content -->           
 
                 <?php echo $this->session->flashdata("warning")?>
 
@@ -125,7 +119,7 @@
                                     $counter++;
                             ?>
                                 <tr>                               
-                                    <td><?php $counter;?></td>
+                                    <td><?php echo $counter;?></td>
 									<td><?php echo $list['name_department']?></td>
 									<td><?php echo $list['description_department']?></td>
 									<td><a id="update" data-href="<?php echo base_url("support/update?id=").$list['id_department'];?>" data-id="<?php echo $list['id_department'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>

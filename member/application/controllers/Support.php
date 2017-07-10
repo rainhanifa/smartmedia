@@ -63,6 +63,6 @@
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('support/detail_ticket.php',$data);
-			$this->load->view('template/footer-member.php');
+			$this->load->view('template/footer-member.php'); 
 		}
 	}

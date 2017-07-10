@@ -48,24 +48,24 @@
                                     <span><?php echo $list['status_ticket']?></span>
                                 </h4>                           
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <p>
-                                    <span><i class="fa fa-calendar-o"></i></span> Friday, <?php echo $list['date_ticket']?></span>
+                                    <span><i class="fa fa-calendar-o"></i></span> <?php echo date('l', strtotime($list['date_ticket']))?>, <?php echo $list['date_ticket']?></span>
                                 </p>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <p>
                                     <span><i class="fa fa-users"></i></span> Billing Support</span>
                                 </p>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <p>
-                                    <span><i class="fa fa-exclamation-circle"></i></span> Medium Priority</span>
+                                    <span><i class="fa fa-exclamation-circle"></i></span> <?php echo $list['priority']?> Priority</span>
                                 </p>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <p>
-                                    <span><i class="fa fa-tag"></i></span> Closed</span>
+                                    <span><i class="fa fa-tag"></i></span> <?php echo $list['status_ticket']?></span>
                                 </p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                                         <h4><i class="fa fa-user"></i> <?php echo $list['client_id']?></h4>
                                                     </div>
                                                     <div class="col-md-6 col-lg-4" style="text-align:right;">
-                                                       <p><i class="fa fa-clock-o"></i> FRIDAY, <?php echo $list['date_ticket']?></p>
+                                                       <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($list['date_ticket']))?>, <?php echo $list['date_ticket']?></p>
                                                     </div>
                                                 </div>
                                             </div>

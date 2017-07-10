@@ -57,13 +57,7 @@
                             ?>
                                 <tr class="table-flag-blue">                                    
                                     <td><?php echo $list['date_ticket']?></td>
-                                    <?php 
-                                        $counter = 0;
-                                        foreach($category as $cat){
-                                            $counter++;
-                                    ?>
-                                    <td><?php echo $cat['name_department']?></td>
-                                    <?php } ?>
+                                    <td><?php echo $list['name_department']?></td>
                                     <td>
                                         <a href="<?php echo base_url("support/detail/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>

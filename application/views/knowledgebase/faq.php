@@ -9,28 +9,28 @@
             <p class="tzweight_Bold"><span class="m_1">Question<br></span>FAQ'S</p>
         </h4>
         <div class="faq_top">
+       
 		<div class="plans_grid">
+			 <?php 
+	            $counter = 0;
+	                foreach($articles as $art){
+	            $counter++;
+        	?>    
 		    <div class="col-md-6">
 				<ul class="project_box">
 				  <li class="mini-post-meta2">Q</li>
-				  <li class="desc"><h5><a href="#">Lorem Ipsum is simply dummy text of the print ?</a></h5>
-				  	 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make. a type specimen book. It has survived not only five centuries. but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				  <li class="desc"><h5><a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"><?php echo $art['title_articles']?></a></h5>
+				  	 <p><?php echo $string?> . . .</p>
 				  </li>	
 				  <div class="clearfix"> </div>
 				</ul>
 			</div>
-			<div class="col-md-6">
-				<ul class="project_box">
-				  <li class="mini-post-meta2">Q</li>
-				  <li class="desc"><h5><a href="#">opposed to using 'Content here, content here ?</a></h5>
-				  	 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make. a type specimen book.</p>
-				  </li>	
-				  <div class="clearfix"> </div>
-				</ul>
-			</div>
+			<?php  } ?>   
+			
 			<div class="clearfix"> </div>
 		</div>
-		<div class="plans_grid">
+		
+		<!-- <div class="plans_grid">
 		    <div class="col-md-6">
 				<ul class="project_box">
 				  <li class="mini-post-meta2">Q</li>
@@ -92,7 +92,7 @@
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
-		</div>
+		</div> -->
 		<div class="faq_but">
 		  <a class="faq_but1" href="#">Ask Our Questions Through Email</a>
 	    </div>

@@ -54,6 +54,7 @@
 				$preview2 = $this->input->post('preview2');
 				$preview3 = $this->input->post('preview3');
 				$file = $this->input->post('file');
+				$config['upload_path'] = FCPATH."assets/img/";
 
 				$theme_post = array("name_theme" => $name, 
 											"description_theme" => $description,
@@ -61,13 +62,20 @@
 											"preview_2" => $preview2,
 											"preview_3" => $preview3,
 											"file_theme" => $file,);
-				$this->db->insert("theme",$theme_post);
+				if($this->db->insert("theme",$theme_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-danger">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
 
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil menyimpan</strong>
-                </div>');
             	redirect('store/theme_detail');    
 			}
 
@@ -95,14 +103,20 @@
 											"preview_3" => $preview3,
 											"file_theme" => $file,);
 				$this->db->where('id_theme', $id_theme);
-				$this->db->update("theme",$theme_post);
-
-
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil Mengupdate</strong>
-                </div>');
+				if($this->db->update("theme",$theme_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil Mengupdate</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-danger">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
+				
             	redirect('store/theme_detail');    
 			}
 
@@ -125,7 +139,7 @@
                 </div>');
 			}else{
 				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Error</strong>
                 </div>');

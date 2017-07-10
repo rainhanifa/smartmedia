@@ -78,7 +78,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button class="btn btn-primary">Reply</button>
+                                        <a class="btn btn-primary" href="#reply">Reply</a>
                                     </div>
                                 </div>
                                 <br/>
@@ -107,7 +107,7 @@
                                     <div class="msg-reply">
                                         <form class="horizontal-form" action="#">
                                             <p class="controls">
-                                                <textarea class="form-control wysihtml5" name="msg-body" placeholder="Replay to this mail" rows="5"></textarea>
+                                                <textarea class="form-control wysihtml5" name="msg-body" placeholder="Replay to this mail" rows="5" id="reply"></textarea>
                                             </p>
                                             <p>
                                                 <button class="btn btn-primary"><i class="fa fa-reply"></i> Reply</button>

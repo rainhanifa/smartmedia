@@ -53,7 +53,7 @@
                             ?>
                                 <tr class="table-flag-blue">                                    
                                     <td><?php echo $list['date_ticket']?></td>
-                                    <td><?php echo $list['department_id']?></td>
+                                    <td><?php echo $list['name_department']?></td>
                                     <td>
                                         <a href="<?php echo base_url("support/detail_ticket/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>

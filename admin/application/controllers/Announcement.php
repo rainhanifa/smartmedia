@@ -30,13 +30,19 @@
 											"content_announcement" => $content,
 											"date_announcement" => $date
 										);
-				$this->db->insert("announcements",$announcement_post);
-
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil menyimpan</strong>
-                </div>');
+				if($this->db->insert("announcements",$announcement_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-error">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error!</strong>
+	                </div>');
+				}	
 
                 redirect('Announcement/');
 			}
@@ -58,14 +64,20 @@
 											"date_announcement" => $date
 										);
 				$this->db->where('id_announcement', $id_announcement);
-				$this->db->update("announcements",$announcement_update);
+				if($this->db->update("announcements",$announcement_update)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil mengupdate !</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-error">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error!</strong>
+	                </div>');	
+				}
 				
-				$this->session->set_flashdata("warning", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil mengupdate !</strong>
-                </div>');
-
                 redirect('Announcement/');
             }
 

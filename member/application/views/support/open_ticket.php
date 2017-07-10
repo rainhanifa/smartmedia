@@ -157,24 +157,22 @@
                                                 <span><strong>Attachments</strong></span>
                                             </h5><br/>
                                             <div class="input-group">
-                                                <span class="input-group-addon">
+                                                <!-- <span class="input-group-addon">
                                                     <i class="fa fa-folder-open-o"></i>
-                                                </span>
-                                                <input class="form-control" type="text">
-                                                <span class="input-group-btn">
+                                                </span> -->
+                                                <input class="form-control" type="file">
+                                                <!-- <span class="input-group-btn">
                                                     <button class="btn" type="button"><i class="fa fa-plus-circle"></i> Search!</button>
-                                                </span>
+                                                </span> -->
                                             </div>
                                         </div>
                                     </div> 
                                     <br/>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="col-md-4"></div>
                                             <div class="col-md-4">
                                                 <input type="submit" class="btn" value="Submit" name="submit">
                                             </div>
-                                            <div class="col-md-4"></div>
                                         </div>
                                     </div>
                                 </form>

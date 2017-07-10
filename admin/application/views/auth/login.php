@@ -37,12 +37,12 @@
                 <?php }?>
                 <div class="form-group">
                     <div class="controls">
-                        <input type="text" placeholder="Username" class="form-control" />
+                        <input type="text" placeholder="Username" class="form-control" name="username"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                        <input type="password" placeholder="Password" class="form-control" />
+                        <input type="password" placeholder="Password" class="form-control" name="password" />
                     </div>
                 </div>
                 <div class="form-group">

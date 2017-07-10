@@ -4,10 +4,16 @@
 	class Store extends CI_Controller {
 		var $table = "theme";
 
+		function __construct() {
+	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
+	    }
+
 		public function index(){
 			//redirect to package
 
-			
 			
 		}
 		public function package_detail(){

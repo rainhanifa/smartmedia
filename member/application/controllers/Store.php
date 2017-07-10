@@ -3,6 +3,8 @@
 
 	class Store extends CI_Controller {
 		public function index(){
+			$data['theme'] = $this->db->query('SELECT * FROM theme')->result_array();
+			
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('store/index.php');

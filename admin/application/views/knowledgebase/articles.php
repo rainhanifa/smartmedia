@@ -78,12 +78,7 @@
                             </thead>
                             <tbody>
 
-                                <?php 
-                                    $counter = 0;
-                                    foreach($articles as $list){
-                                        $counter++;
-                                       
-                                ?>
+                                
                                 <!-- Modal -->
                                 <div class="modal fade modal-white" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
@@ -100,6 +95,12 @@
                                     </div>
                                 </div>
                                 <!-- END Modal-->
+                                <?php 
+                                    $counter = 0;
+                                    foreach($articles as $list){
+                                        $counter++;
+                                       
+                                ?>
                                 <tr>                               
                                     <td><?php $counter;?></td>
                                     <td><?php echo $list['title_articles']?></td>

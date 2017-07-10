@@ -52,7 +52,7 @@
 				$description = $this->input->post('description');
 				$preview1 = $this->input->post('preview1');
 				$preview2 = $this->input->post('preview2');
-				$preview3 = $this->input->post('preview1');
+				$preview3 = $this->input->post('preview3');
 				$file = $this->input->post('file');
 
 				$theme_post = array("name_theme" => $name, 
@@ -85,7 +85,7 @@
 				$description = $this->input->post('description');
 				$preview1 = $this->input->post('preview1');
 				$preview2 = $this->input->post('preview2');
-				$preview3 = $this->input->post('preview1');
+				$preview3 = $this->input->post('preview3');
 				$file = $this->input->post('file');
 
 				$theme_post = array("name_theme" => $name, 

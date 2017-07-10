@@ -72,7 +72,7 @@
 				$this->session->set_flashdata("warning", '
                 <div class="alert alert-success">
                     <button class="close" data-dismiss="alert">×</button>
-                    <strong>Berhasil menyimpan</strong>
+                    <strong>Berhasil Mengupdate</strong>
                 </div>');
                 redirect('Knowledgebase/');
 
@@ -140,7 +140,7 @@
 					$this->session->set_flashdata("warning", '
 	                <div class="alert alert-success">
 	                    <button class="close" data-dismiss="alert">×</button>
-	                    <strong>Berhasil menyimpan</strong>
+	                    <strong>Berhasil Mengupdate</strong>
 	                </div>');
 
 	            	redirect('Knowledgebase/category');    

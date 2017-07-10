@@ -47,34 +47,27 @@
                                             <p><textarea class="form-control wysihtml5" rows="6" name="description"></textarea></p>
                                         </div>      
                                 </div>
-								<!-- <div class="col sm-10">		
-									<p><textarea class="form-control wysihtml5" rows="6" name="content"></textarea></p>
-								</div>	 -->
+				
                                 <div class="form-group">
-                                    <label for="inputlasttname" class="col-sm-1 control-label">Preview 1</label>
-                                        <div class="col-sm-11">
-                                            <input type="text" class="form-control" name="preview1">
-                                        </div>      
-                                </div>
+                                      <label class="col-sm-2 col-lg-1 control-label">Preview 1</label>
+                                      <div class="col-sm-10 col-lg-11 controls">
+                                         <input type="file" class="form-control" name="preview1"/>
+                                      </div>
+                                </div>  
                                 <div class="form-group">
-                                    <label for="inputlasttname" class="col-sm-1 control-label">Preview 2</label>
-                                        <div class="col-sm-11">
-                                            <input type="text" class="form-control" name="preview2">
-                                        </div>      
-                                </div>
+                                      <label class="col-sm-2 col-lg-1 control-label">Preview 2</label>
+                                      <div class="col-sm-10 col-lg-11 controls">
+                                         <input type="file" class="form-control" name="preview2"/>
+                                      </div>
+                                </div>  
                                 <div class="form-group">
-                                    <label for="inputlasttname" class="col-sm-1 control-label">Preview 3</label>
-                                        <div class="col-sm-11">
-                                            <input type="text" class="form-control" name="preview3">
-                                        </div>      
-                                </div>
-                                <!--  <div class="form-group">
-                                    <label for="inputlasttname" class="col-sm-1 control-label">File Theme</label>
-                                        <div class="col-sm-11">
-                                            <input type="text" class="form-control" name="file">
-                                        </div>      
-                                </div> -->
-                                <div class="form-group">
+                                      <label class="col-sm-2 col-lg-1 control-label">Preview 3</label>
+                                      <div class="col-sm-10 col-lg-11 controls">
+                                         <input type="file" class="form-control" name="preview3"/>
+                                      </div>
+                                </div>  
+                                
+                                <!-- <div class="form-group">
                                 <label class="col-sm-2 col-lg-1 control-label">File Theme</label>
                                     <div class="col-sm-10 col-lg-11 controls">
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -92,7 +85,14 @@
                                          <span class="label label-important">NOTE!</span>
                                          <span>Attached image img-thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only</span>
                                     </div>
-                                </div>      
+                                </div>       -->
+                               
+                                <div class="form-group">
+                                      <label class="col-sm-2 col-lg-1 control-label">File Theme</label>
+                                      <div class="col-sm-10 col-lg-11 controls">
+                                         <input type="file" class="form-control" name="file" />
+                                      </div>
+                                </div>  
                                 <div class="col-md-1"></div>
 								<p>
 									<input type="submit" class="btn" value="Submit" name="submit">

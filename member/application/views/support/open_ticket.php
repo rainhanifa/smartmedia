@@ -35,7 +35,7 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-content">
-                                <form action="<?php echo base_url("support/open_ticket");?>" method="post">
+                                <form action="<?php echo base_url("support/open_ticket");?>" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -160,7 +160,7 @@
                                                 <!-- <span class="input-group-addon">
                                                     <i class="fa fa-folder-open-o"></i>
                                                 </span> -->
-                                                <input class="form-control" type="file">
+                                                <input class="form-control" type="file" name="up_photo">
                                                 <!-- <span class="input-group-btn">
                                                     <button class="btn" type="button"><i class="fa fa-plus-circle"></i> Search!</button>
                                                 </span> -->

@@ -13,10 +13,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
 
-    
-        <script src="<?php echo base_url('assets')?>/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url('assets')?>/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="<?php echo base_url('assets')?>/assets/jquery-cookie/jquery.cookie.js"></script>
 
         <!--page specific plugin scripts-->
 

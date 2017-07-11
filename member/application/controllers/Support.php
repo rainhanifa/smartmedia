@@ -6,6 +6,9 @@
  
 		public function __construct() {
 	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
 	        $this->load->model('smartmedia');
 	    }
 
@@ -27,23 +30,48 @@
 			$data['department'] = $this->db->query('SELECT * FROM departments')->result_array();
 			$data['departement'] = $id_department;
 			if (isset($_POST['submit'])){
+
+
 				$category = $this->input->post('department_id');
 				$tags = $this->input->post('priority');
 				$subject = $this->input->post('subject');
 				$sites = $this->input->post('sites');
 				$content = $this->input->post('content');
 				$date = date("Y-m-d");
+				
+	            $config['upload_path']          = realpath('./../')."/upload/tickets/";
+	            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+	            
+	            $this->load->library('upload');
+
+	            $this->upload->initialize($config);
+
+
+	            if($this->upload->do_upload('up_photo')) {
+	                $datax = $this->upload->data();
+	                $foto_k = "upload/tickets/".$datax['file_name'];
+	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
+	            else{
+	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
 
 				$ticket_post = array( "department_id" => $category,
+										"id_ticket" => "id_ticket"+1,
 										"priority" => $tags,
 										"subject_ticket" => $subject,
 										"sites" => $sites,
 										"description" => $content,
 										"date_ticket" => $date,
-										"status_ticket" => 'unsolved'
+										"status_ticket" => "unsolved",
+										"photo" => $foto_k
 									);
 				$this->db->insert("tickets",$ticket_post);
-
+				// var_dump($ticket_post);
+				// die();
 				$this->session->set_flashdata("warning", '
                 <div class="alert alert-success">
                     <button class="close" data-dismiss="alert">×</button>

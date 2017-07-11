@@ -2,6 +2,13 @@
 	defined('BASEPATH') OR exit ('No diect script access allowed');
 	class Manage extends CI_COntroller{
 
+		function __construct() {
+	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
+	    }
+	    
 		public function index()
 		{
 			$this->load->view('template/header-member.php');

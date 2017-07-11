@@ -12,6 +12,13 @@
 .flaty-nav > li:hover, .dropdown-navbar > li.nav-header {
 	background-color: #12aa89;
 }
+.drop-right{
+    left: auto;
+    right: 0;
+}
+.drop-right > li.nav-header:hover {
+    background-color: #12aa89!important;
+}
 .breadcrumb {
 	background: rgba(0,0,255,0.02);
 }

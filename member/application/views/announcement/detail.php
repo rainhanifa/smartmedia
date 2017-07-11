@@ -21,41 +21,8 @@
                 </div>
                 <!-- END Breadcrumb -->
 
-
-                <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
                 <!-- BEGIN Main Content -->
                
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>
-
-                <div class="current-balance">
-                    <div class="box">
-                        <div class="box-title no-bg">
-                         <h2>Knowledgebase</h2>
-                            <div class="box-tool">
-                                <div class="box">Credit Balance: <span> Rp.667 </span> <a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-ok"></i> Add Deposit</a> </div>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <div class="tag-list">
-                    <div class="box">
-                        <a href="#" class="btn disabled btn-gray">Gray (13)</a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Gray</a>
-                    </div>
-                </div>
 
                <div class="news-list single-announcements"> 
                 <div class="box-content">
@@ -92,7 +59,7 @@
                                             </p>
                                             <br>
                                             <p>Regards <br> Smartmedia Indonesia</p>
-                                    <p class="news-date">Thursday, <?php echo $list['date_announcement']?></p>
+                                    <p class="news-date"><?php echo date('l', strtotime($list['date_announcement']))?>, <?php echo $list['date_announcement']?></p>
                                     <?php  } ?>
                                 </div>
                         <!-- END Simple Search Result -->

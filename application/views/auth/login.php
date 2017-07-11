@@ -17,18 +17,27 @@
                 <p class="tzweight_Bold"><span class="m_20">Registered Customers</span></p>
             </h4>
 			  	
-			<p>If you have an account with us, please log in.</p>
-			<form action="<?php echo base_url('Auth/doLogin')?>">
+			
+
+            <?php if($this->session->flashdata("message") != ""){ ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata("message");?>
+                    </div>
+            <?php } else { ?>
+            		<p>If you have an account with us, please log in.</p>
+            <?php } ?>
+			<form action="<?php echo base_url('Auth/doLogin')?>" method="post">
 			    <div>
 					<span class="m_25">Email Address<label>*</label></span>
-					<input type="text"> 
+					<input type="text" name="email"> 
 				</div>
 				<div>
 					<span class="m_25">Password<label>*</label></span>
-					<input type="text"> 
+					<input type="password" name="password"> 
 				</div>
-				<a class="forgot" href="#">Forgot Your Password?</a>
-				<input type="submit" value="Login">
+				<a class="forgot" href="<?php echo base_url("member/login")?>">Forgot Your Password?</a>
+				<input type="submit" value="Login" name="submit">
 			</form>
 		</div>	
 		<div class="clearfix"> </div>

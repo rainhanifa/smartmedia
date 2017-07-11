@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-                                                <a class="btn btn-info btn-ok">DELETE</a>
+                                                <a class="btn btn-info btn-ok" data-dismiss="modal">DELETE</a>
                                             </div>
                                         </div>
                                         <!-- end modal-content -->

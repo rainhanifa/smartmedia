@@ -62,9 +62,9 @@
                                         $counter++;
                                     ?>        
                                     <li>
-                                        <a href="<?php echo $them['preview_1']?>" rel="prettyPhoto" title="Description of image">
+                                        <a href="../<?php echo $them["preview_2"]?>" rel="prettyPhoto" title="<?php echo $them['description_theme']?>">
                                             <div>
-                                                <img src="<?php echo $them['preview_1']?>" alt=""  />
+                                               <img src="../<?php echo $them["preview_1"]?>" alt=""  /> 
                                                 <i></i>
                                             </div>
                                         </a>

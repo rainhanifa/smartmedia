@@ -121,7 +121,7 @@
                 <!-- END Button Messages -->
 
                 <!-- BEGIN Button User -->
-                <li class="dropdown">
+                <li class="user-profile dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
                         <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="User's Photo" />
                         <span class="hhh" id="user_info">
@@ -131,7 +131,7 @@
                     </a>
 
                     <!-- BEGIN User Dropdown -->
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu drop-right dropdown-navbar">
                         <li class="nav-header">
                             <i class="fa fa-clock-o"></i>
                             Logined From 20:45

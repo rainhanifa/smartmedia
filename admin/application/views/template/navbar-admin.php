@@ -72,7 +72,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="../img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
+                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
                                 <div>
                                     <span class="msg-title">Sarah</span>
                                     <span class="msg-time">
@@ -86,7 +86,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="../img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
+                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
                                 <div>
                                     <span class="msg-title">Emma</span>
                                     <span class="msg-time">
@@ -100,7 +100,7 @@
 
                         <li class="msg">
                             <a href="#">
-                                <img src="../img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
+                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
                                 <div>
                                     <span class="msg-title">John</span>
                                     <span class="msg-time">
@@ -123,9 +123,9 @@
                 <!-- BEGIN Button User -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-                        <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="Administrator's Photo" />
+                        <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="User's Photo" />
                         <span class="hhh" id="user_info">
-                            Administrator
+                            <?php echo $this->session->userdata('admin_active_name'); ?>
                         </span>
                         <i class="fa fa-caret-down"></i>
                     </a>
@@ -185,7 +185,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="<?php echo base_url('auth/logout')?>">
                                 <i class="fa fa-off"></i>
                                 Logout
                             </a>

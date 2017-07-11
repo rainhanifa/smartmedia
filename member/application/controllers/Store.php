@@ -2,6 +2,13 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Store extends CI_Controller {
+		function __construct() {
+	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
+	    }
+	    
 		public function index(){
 			$data['theme'] = $this->db->query('SELECT * FROM theme')->result_array();
 			

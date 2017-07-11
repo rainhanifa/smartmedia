@@ -98,10 +98,6 @@
 				
                 <!-- BEGIN Main Content -->
                
-               <!--  <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>  -->    
                 <?php echo $this->session->flashdata("warning")?>    
        
 
@@ -136,32 +132,6 @@
                                     
                                 </tr>
                                 <?php }?>
-                                <!-- <tr>   
-									<td>2</td>
-                                    <td>Web Builder</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-									
-                                </tr>
-								<tr>
-									<td>3</td>
-									<td>Hosting</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-								</tr>
-                                <tr>   
-									<td>4</td>
-									<td>Voucher</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-                                    
-                                </tr>
-								<tr>
-									<td>5</td>
-									<td>Payment</td>
-									<td><a data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
-                                </tr>                           -->                              
                             </tbody>
                         </table>
                 </div>

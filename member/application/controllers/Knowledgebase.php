@@ -4,6 +4,13 @@
 	class Knowledgebase extends CI_Controller {
 		var $table = "articles";
 
+		function __construct() {
+	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
+	    }
+
 		public function index(){
 			$data['articles'] = $this->db->query('SELECT * FROM articles')->result_array();
 			$data['articles2'] = $this->db->query('SELECT * FROM article_category')->result_array();

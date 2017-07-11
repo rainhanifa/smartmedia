@@ -13,12 +13,10 @@
 
 
 -- Dumping database structure for smartmedia
-DROP DATABASE IF EXISTS `smartmedia`;
 CREATE DATABASE IF NOT EXISTS `smartmedia` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `smartmedia`;
 
 -- Dumping structure for table smartmedia.announcements
-DROP TABLE IF EXISTS `announcements`;
 CREATE TABLE IF NOT EXISTS `announcements` (
   `id_announcement` int(11) NOT NULL AUTO_INCREMENT,
   `title_announcement` varchar(50) DEFAULT NULL,
@@ -35,7 +33,6 @@ INSERT INTO `announcements` (`id_announcement`, `title_announcement`, `content_a
 /*!40000 ALTER TABLE `announcements` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.app_users
-DROP TABLE IF EXISTS `app_users`;
 CREATE TABLE IF NOT EXISTS `app_users` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
@@ -51,13 +48,12 @@ DELETE FROM `app_users`;
 /*!40000 ALTER TABLE `app_users` DISABLE KEYS */;
 INSERT INTO `app_users` (`id_users`, `username`, `fullname`, `email`, `password`, `type`) VALUES
 	(1, 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1),
-	(2, 'user', 'John Doe', 'user@user.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3),
+	(2, 'user', 'John Doe', 'user@user.com', 'EE11CBB19052E40B07AAC0CA060C23EE', 3),
 	(3, 'customercare', 'Customer Care', 'customercare@smartmedia.com', 'E828400B3535C6353E8AA744BDAE8E14', 2),
 	(4, 'staff', 'Staff', 'staff@smartmedia.com', '1253208465B1EFA876F982D8A9E73EEF', 2);
 /*!40000 ALTER TABLE `app_users` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.articles
-DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id_articles` int(11) NOT NULL AUTO_INCREMENT,
   `title_articles` varchar(50) NOT NULL,
@@ -76,7 +72,6 @@ INSERT INTO `articles` (`id_articles`, `title_articles`, `content_articles`, `da
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.article_category
-DROP TABLE IF EXISTS `article_category`;
 CREATE TABLE IF NOT EXISTS `article_category` (
   `id_category` int(11) NOT NULL AUTO_INCREMENT,
   `name_category` varchar(50) DEFAULT NULL,
@@ -96,7 +91,6 @@ INSERT INTO `article_category` (`id_category`, `name_category`) VALUES
 /*!40000 ALTER TABLE `article_category` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.billing
-DROP TABLE IF EXISTS `billing`;
 CREATE TABLE IF NOT EXISTS `billing` (
   `id_billing` int(11) NOT NULL AUTO_INCREMENT,
   `id_users` int(11) DEFAULT NULL,
@@ -112,7 +106,6 @@ DELETE FROM `billing`;
 /*!40000 ALTER TABLE `billing` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.clients
-DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
   `id_client` int(11) NOT NULL AUTO_INCREMENT,
   `id_users` int(11) NOT NULL DEFAULT '0',
@@ -135,7 +128,6 @@ DELETE FROM `clients`;
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.departments
-DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id_department` int(11) NOT NULL AUTO_INCREMENT,
   `name_department` varchar(50) DEFAULT NULL,
@@ -153,7 +145,6 @@ INSERT INTO `departments` (`id_department`, `name_department`, `description_depa
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.packages
-DROP TABLE IF EXISTS `packages`;
 CREATE TABLE IF NOT EXISTS `packages` (
   `id_package` int(11) NOT NULL AUTO_INCREMENT,
   `name_package` varchar(50) DEFAULT NULL,
@@ -174,7 +165,6 @@ DELETE FROM `packages`;
 /*!40000 ALTER TABLE `packages` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.payments
-DROP TABLE IF EXISTS `payments`;
 CREATE TABLE IF NOT EXISTS `payments` (
   `id_payment` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
@@ -194,7 +184,6 @@ DELETE FROM `payments`;
 /*!40000 ALTER TABLE `payments` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.sites
-DROP TABLE IF EXISTS `sites`;
 CREATE TABLE IF NOT EXISTS `sites` (
   `id_site` int(11) NOT NULL AUTO_INCREMENT,
   `name_site` varchar(50) DEFAULT NULL,
@@ -212,7 +201,6 @@ DELETE FROM `sites`;
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.theme
-DROP TABLE IF EXISTS `theme`;
 CREATE TABLE IF NOT EXISTS `theme` (
   `id_theme` int(11) NOT NULL AUTO_INCREMENT,
   `name_theme` varchar(50) DEFAULT NULL,
@@ -230,7 +218,6 @@ DELETE FROM `theme`;
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.tickets
-DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE IF NOT EXISTS `tickets` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_ticket` int(11) NOT NULL DEFAULT '0',
@@ -255,7 +242,6 @@ INSERT INTO `tickets` (`id`, `id_ticket`, `subject_ticket`, `sites`, `priority`,
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.vouchers
-DROP TABLE IF EXISTS `vouchers`;
 CREATE TABLE IF NOT EXISTS `vouchers` (
   `id_voucher` int(11) NOT NULL AUTO_INCREMENT,
   `code_voucher` varchar(50) DEFAULT NULL,

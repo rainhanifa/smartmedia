@@ -57,8 +57,31 @@
                         <input type="submit" class="btn btn-primary form-control" name="submit" value="LOGIN">
                     </div>
                 </div>
+
+                <p class="clearfix">
+                    <a href="#" class="goto-forgot pull-left">Forgot Password?</a>
+                </p>
             </form>
             <!-- END Login Form -->
+
+            <form id="form-forgot" action="<?php echo base_url("auth/requestreset")?>" method="post" style="display:none">
+                <h3>Get back your password</h3>
+                <hr/>
+                <div class="form-group">
+                    <div class="controls">
+                        <input type="text" placeholder="Email" class="form-control" name="email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-primary form-control">Reset Password</button>
+                    </div>
+                </div>
+                <hr/>
+                <p class="clearfix">
+                    <a href="#" class="goto-login pull-left">← Back to login form</a>
+                </p>
+            </form>
         </div>
         <!-- END Main Content -->
 
@@ -68,5 +91,25 @@
         <script>window.jQuery || document.write('<script src="<?php echo base_url('assets');?>/assets/jquery/jquery-2.1.4.min.js"><\/script>')</script>
         <script src="<?php echo base_url('assets');?>/assets/bootstrap/js/bootstrap.min.js"></script>
 
+        <script type="text/javascript">
+            function goToForm(form)
+            {
+                $('.login-wrapper > form:visible').fadeOut(500, function(){
+                    $('#form-' + form).fadeIn(500);
+                    //$('#form-' + form).css("display","block");
+                });
+            }
+            $(function() {
+                $('.goto-login').click(function(){
+                    goToForm('login');
+                });
+                $('.goto-forgot').click(function(){
+                    goToForm('forgot');
+                });
+                $('.goto-register').click(function(){
+                    goToForm('register');
+                });
+            });
+        </script>
     </body>
 </html>

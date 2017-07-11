@@ -27,7 +27,7 @@
         <script src="<?php echo base_url('assets')?>/js/flaty.js"></script>
         <script src="<?php echo base_url('assets')?>/js/flaty-demo-codes.js"></script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready( function() {
               $('#invoice-table').dataTable( {
                 "aoColumnDefs": [
@@ -38,7 +38,9 @@
                 /*"aoColumnDefs": [
                   { "bSortable": true, "aTargets": [ 4 ] }
                 ]*/ } );
+              
             });
+            
         </script>
 
     </body>

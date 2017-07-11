@@ -6,6 +6,9 @@
  
 		public function __construct() {
 	        parent::__construct();
+		     if (!$this->session->userdata('is_logged_in')){
+		        redirect('auth/login');
+		     }
 	        $this->load->model('smartmedia');
 	    }
 

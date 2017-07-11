@@ -122,9 +122,9 @@
         <!-- BEGIN Button User -->
         <li class="user-profile">
             <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
-                <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar1.jpg" alt="Penny's Photo" />
+                <img class="nav-user-photo" src="<?php echo base_url('assets')?>/img/demo/avatar/avatar1.jpg" alt="Member's Photo" />
                 <span class="hhh" id="user_info">
-                    Penny
+                    <?php echo $this->session->userdata('is_active_name'); ?>
                 </span>
                 <i class="fa fa-caret-down"></i>
             </a>
@@ -184,7 +184,7 @@
                 <li class="divider"></li>
 
                 <li>
-                    <a href="#">
+                    <a href="<?php echo base_url('auth/logout')?>">
                         <i class="fa fa-off"></i>
                         Logout
                     </a>
@@ -253,4 +253,3 @@
         <!-- END Sidebar Collapse Button -->
     </div>
     <!-- END Sidebar -->
-

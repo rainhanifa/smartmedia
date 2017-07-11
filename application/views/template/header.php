@@ -60,8 +60,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="cssmenu">
                             <ul>
                                 <li><a href="mailto:info@mycompany.com">info(at)voucher.com</a></li> 
-                                <li class="active"><a href="<?php echo base_url("auth/login")?>">Log In</a></li> 
-                                <li><a href="<?php echo base_url("auth/register")?>">Register</a></li>
+                                <?php if($this->session->userdata('is_logged_in')) { ?>
+                                    <li><a href="<?php echo base_url("member/dashboard")?>"><?php echo $this->session->userdata('is_active_name')?></a></li> 
+                                    <li><a href="<?php echo base_url("auth/logout")?>">Logout</a></li>
+                                <?php } else { ?>
+                                    <li><a href="<?php echo base_url("auth/login")?>">Login</a></li> 
+                                    <li><a href="<?php echo base_url("auth/register")?>">Register</a></li>
+                                <?php } ?>
                             </ul>
                     </div>
                     <div class="clearfix"> </div>

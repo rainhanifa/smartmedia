@@ -11,7 +11,6 @@
 	            redirect('dashboard');
 	        }
 
-	        $data['error'] = "";
 
 	        if(isset($_POST['submit'])){
 	            $un     = $this->input->post('username');
@@ -19,19 +18,24 @@
 	            $login  =  $this->db->get_where('app_users',array('username'=>$un,'password'=>  $pw));
 	            if($login->num_rows()>0)
 	            {
-	                $r      = $login->row_array();
-	                $data   = array('admin_active_user' => $r['username'],
-	                            'admin_acive_name' => $r['nama'],
+	            	$r      = $login->row_array();
+	                if($r['type'] != '3'){
+	                	$data   = array('admin_active_user' => $r['username'],
+	                            'admin_active_name' => $r['fullname'],
 	                            'admin_logged_in' => 'TRUE');
 
-	                $this->session->set_userdata($data);
+		                $this->session->set_userdata($data);
 
-	                redirect('dashboard');
+		                redirect('dashboard');
+	                }
+	                else{
+	                	$this->session->set_flashdata("message","You don't have privileges to access this feature");	
+	                }
 	            }else{
-	                $data['error'] = "Username atau password salah";
+	                $this->session->set_flashdata("message","Wrong username or password");	
 	            }        
 	        }
-			$this->load->view('auth/login.php', $data);
+			$this->load->view('auth/login.php');
 		}
 
 		public function register(){
@@ -42,7 +46,14 @@
 	    function logout()
 	    {
 	        $this->session->sess_destroy();
-	        $this->session->unset_userdata();
-	        redirect('auth/login');
+
+	    	$data   = array('admin_active_user' => '',
+	                'admin_active_name' => '',
+	                'admin_logged_in' => 'FALSE');
+	        $this->session->unset_userdata($data);
+	        $this->session->set_flashdata("message","You're logged out");	
+	        $this->load->view('auth/login.php');
 	    }
+
+
 	}

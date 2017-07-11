@@ -57,8 +57,6 @@
 
 		}
 
-
-
 	    function logout()
 	    {
 	        $this->session->sess_destroy();

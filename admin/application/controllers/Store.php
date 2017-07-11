@@ -57,87 +57,86 @@
 				$name = $this->input->post('name');
 				$description = $this->input->post('description');
         
-	            $config['upload_path']          = realpath("./../")."/upload/theme";
+	            $config['upload_path']          = realpath('./../')."/upload/theme";
 	            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx';
 
-	            var_dump($config);
 				$this->load->library('upload');
+				
 				$this->upload->initialize($config);
 
+				if($this->upload->do_upload('preview1')) {
+	                $datax = $this->upload->data();
+	                $preview1= "upload/theme/".$datax['file_name'];
+	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
+	            else{
+	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
 
-	             	// $this->upload->initialize($config);
-		            if($this->upload->do_upload('preview1')){
-		                echo "step 1<br>";
-		                $preview1 = $this->upload->data();
-		                $data['preview1'] = "/upload/theme/".$preview1['file_name'];
-		                
-		                if ($this->upload->do_upload('preview2')) {
-		                    echo "step 11<br>";
-		                    $preview2 = $this->upload->data();
-		                    $data['preview1'] = "/upload/theme/".$preview2['file_name'];
-		                   
-		                    if ($this->upload->do_upload('preview3')) {
-		                        echo "step 111<br>";
-		                        $preview3 = $this->upload->data();
-		                        $data['preview3'] = "/upload/theme/".$preview3['file_name'];
+	            if($this->upload->do_upload('preview2')) {
+	                $datax = $this->upload->data();
+	                $preview2 = "upload/theme/".$datax['file_name'];
+	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
+	            else{
+	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
 
-		                        if($this->upload->do_upload('file')){
-					                echo "step 1111<br>";
-					                $file = $this->upload->data();
-					                $data['file'] = "/upload/theme/".$file['file_name'];
-					                echo "good<br>";
-			                        echo "<pre>";
-			                        var_dump($preview1);
-			                        var_dump($preview2);
-			                        var_dump($preview3);
-			                        var_dump($file);
-			                        echo "</pre>";
-					            } else{
-					            	echo "bad 4";
-					            }
-		                        
-		                    }
-		                    else{
-		                        echo "bad 3 <br>";
-		                    }
-		                }else{
-		                        echo "bad 2 <br>";
-		                }
-		            }
-		            else{
-		                echo "bad 1 <br>";
-		            }
-		            die();
-		        }
-			// 	$preview1 = $this->input->post('preview1');
-			// 	$preview2 = $this->input->post('preview2');
-			// 	$preview3 = $this->input->post('preview3');
-			// 	$file = $this->input->post('file');
-				
+	            if($this->upload->do_upload('preview3')) {
+	                $datax = $this->upload->data();
+	                $preview3 = "upload/theme/".$datax['file_name'];
+	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
+	            else{
+	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
 
-			// 	$theme_post = array("name_theme" => $name, 
-			// 								"description_theme" => $description,
-			// 								"preview_1" => $preview1, 							
-			// 								"preview_2" => $preview2,
-			// 								"preview_3" => $preview3,
-			// 								"file_theme" => $file,);
-			// 	if($this->db->insert("theme",$theme_post)){
-			// 		$this->session->set_flashdata("warning", '
-	  //               <div class="alert alert-success">
-	  //                   <button class="close" data-dismiss="alert">×</button>
-	  //                   <strong>Berhasil menyimpan</strong>
-	  //               </div>');
-			// 	}else{
-			// 		$this->session->set_flashdata("warning", '
-	  //               <div class="alert alert-danger">
-	  //                   <button class="close" data-dismiss="alert">×</button>
-	  //                   <strong>Error</strong>
-	  //               </div>');
-			// 	}
+	            if($this->upload->do_upload('file')) {
+	                $datax = $this->upload->data();
+	                $file = "upload/theme/".$datax['file_name'];
+	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
+	            else{
+	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            }
 
 
-   //          	redirect('store/theme_detail');    
-			// }
+				$theme_post = array("name_theme" => $name, 
+										"description_theme" => $description,
+										"preview_1" => $preview1, 							
+										"preview_2" => $preview2,
+										"preview_3" => $preview3,
+										"file_theme" => $file
+									);
+				if($this->db->insert("theme",$theme_post)){
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-success">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Berhasil menyimpan</strong>
+	                </div>');
+				}else{
+					$this->session->set_flashdata("warning", '
+	                <div class="alert alert-danger">
+	                    <button class="close" data-dismiss="alert">×</button>
+	                    <strong>Error</strong>
+	                </div>');
+				}
+
+
+            	redirect('store/theme_detail');    
+			}
 
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');

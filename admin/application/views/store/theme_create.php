@@ -24,7 +24,7 @@
                 <div class="box">
                     <div class="col sm-12">     
 						<div class="mail-content-announcement">
-							<form class="mail-compose form-horizontal" action="<?php echo base_url("store/theme_add");?>" method="post">
+							<form class="mail-compose form-horizontal" action="<?php echo base_url("store/theme_add");?>" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="inputlasttname" class="col-sm-1 control-label">Name Theme</label>
 										<div class="col-sm-11">

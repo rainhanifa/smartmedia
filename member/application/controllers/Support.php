@@ -40,7 +40,7 @@
 				$date = date("Y-m-d");
 				
 	            $config['upload_path']          = realpath('./../')."/upload/tickets/";
-	            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+	            $config['allowed_types']        = 'gif|jpg|png|jpeg|doc|zip|rar';
 	            
 	            $this->load->library('upload');
 

@@ -7,7 +7,7 @@
 		}
 		public function login(){
 
-			if ($this->session->userdata('is_logged_in')){
+			if ($this->session->userdata('admin_logged_in')){
 	            redirect('dashboard');
 	        }
 
@@ -20,9 +20,9 @@
 	            if($login->num_rows()>0)
 	            {
 	                $r      = $login->row_array();
-	                $data   = array('is_active_user' => $r['username'],
-	                            'is_active_name' => $r['nama'],
-	                            'is_logged_in' => 'TRUE');
+	                $data   = array('admin_active_user' => $r['username'],
+	                            'admin_acive_name' => $r['nama'],
+	                            'admin_logged_in' => 'TRUE');
 
 	                $this->session->set_userdata($data);
 

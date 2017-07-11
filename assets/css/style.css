@@ -1839,6 +1839,13 @@ span.m_25{
 	font-size:0.8125em;
 	padding:10px;
 }
+.login-right input[type="password"] {
+	border: 1px solid #EEE;
+	outline-color:#fb4d01;
+	width:100%;
+	font-size:0.8125em;
+	padding:10px;
+}
 .login-right input[type="submit"] {
 	background:#1BBC9B;
 	color: #FFF;
@@ -1855,6 +1862,10 @@ span.m_25{
 }
 a.forgot {
 	font-size: 0.8125em;
+}
+.alert{
+    font-size: 13px;
+    padding: 10px;
 }
 /*--register--*/
 .account_grid{

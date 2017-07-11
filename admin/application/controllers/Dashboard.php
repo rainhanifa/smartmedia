@@ -5,10 +5,8 @@
 		function __construct() {
 	        parent::__construct();
 		     if (!$this->session->userdata('is_logged_in')){
-		        //redirect('auth/login');
-		     	echo "masuk";
+		        redirect('auth/login');
 		     }
-	    
 	    }
 
 		public function index()

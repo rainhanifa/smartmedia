@@ -16,9 +16,7 @@
 	        if(isset($_POST['submit'])){
 	            $un     = $this->input->post('username');
 	            $pw     = md5($this->input->post('password'));
-
 	            $login  =  $this->db->get_where('app_users',array('username'=>$un,'password'=>  $pw));
-	            
 	            if($login->num_rows()>0)
 	            {
 	                $r      = $login->row_array();
@@ -35,6 +33,7 @@
 	        }
 			$this->load->view('auth/login.php', $data);
 		}
+
 		public function register(){
 			
 		}

@@ -56,10 +56,15 @@
                                 </div>
                                 <hr>
                                 <ul class="gallery">
+                                      <?php 
+                                        $counter = 0;
+                                            foreach($theme as $them){
+                                        $counter++;
+                                    ?>        
                                     <li>
-                                        <a href="<?php echo base_url("assets");?>/img/1a.jpg" rel="prettyPhoto" title="Description of image">
+                                        <a href="<?php echo $them['preview_1']?>" rel="prettyPhoto" title="Description of image">
                                             <div>
-                                                <img src="<?php echo base_url("assets");?>/img/1.jpg" alt="" />
+                                                <img src="<?php echo $them['preview_1']?>" alt=""  />
                                                 <i></i>
                                             </div>
                                         </a>
@@ -67,7 +72,7 @@
                                             <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="<?php echo base_url("assets");?>/img/2a.jpg" rel="prettyPhoto" title="Description of image">
                                             <div>
                                                 <img src="<?php echo base_url("assets");?>/img/2.jpg" alt="" />
@@ -77,7 +82,8 @@
                                         <div class="gallery-tools">
                                             <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
-                                    </li>
+                                    </li> -->
+                                     <?php }?>
                                    <!--  <li>
                                         <a href="<?php echo base_url("assets");?>/img/3a.jpg" rel="prettyPhoto" title="Description of image">
                                             <div>

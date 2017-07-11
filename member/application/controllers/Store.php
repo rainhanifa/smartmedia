@@ -7,7 +7,7 @@
 			
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
-			$this->load->view('store/index.php');
+			$this->load->view('store/index.php',$data);
 			$this->load->view('template/footer-member.php');
 		}
 		public function confirmation(){

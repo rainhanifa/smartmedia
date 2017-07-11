@@ -24,5 +24,22 @@
 
 			return $query->get()->result();
 		}
+
+		public function record_count($table) {
+            return $this->db->count_all($table);
+        }
+
+        public function fetch_countries($limit, $start) {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get("announcements");
+
+            if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+            return false;
+       }
 	}
 ?>

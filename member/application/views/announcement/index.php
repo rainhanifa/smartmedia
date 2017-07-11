@@ -71,9 +71,10 @@
                             <ul class="pagination">
                                 <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
                                 <!-- Show pagination links -->
-                                <?php foreach ($links as $link) {
+                                <?php if(is_array($links)){
+                                    foreach ($links as $link) {
                                     echo "<li>". $link."</li>";
-                                } ?>
+                                }} ?>
                                 <!-- <li class="active"><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>

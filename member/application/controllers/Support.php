@@ -29,6 +29,8 @@
 		public function open_ticket($id_department=0){
 			$data['department'] = $this->db->query('SELECT * FROM departments')->result_array();
 			$data['departement'] = $id_department;
+			$id_ticket= $this->db->query('SELECT MAX(id_ticket) FROM tickets')->result_array();
+			// var_dump($id_ticket);
 			if (isset($_POST['submit'])){
 
 
@@ -58,9 +60,9 @@
 	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
 					$this->session->set_flashdata('alert_foto', $alert_foto);
 	            }
-
+	            $id_ticket = $id_ticket[0]['MAX(id_ticket)'];
 				$ticket_post = array( "department_id" => $category,
-										"id_ticket" => "id_ticket"+1,
+										"id_ticket" => $id_ticket + 1,
 										"priority" => $tags,
 										"subject_ticket" => $subject,
 										"sites" => $sites,
@@ -88,6 +90,42 @@
 		}
 		public function detail($id = 0){
 			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
+			$data['tiket'] = $this->db->query('SELECT * FROM tickets WHERE id_ticket ='.$data['ticket'][0]['id_ticket'])->result_array();
+			
+			if (isset($_POST['submit'])){
+				$name = $this->input->post('msg-body');
+				$date = date("Y-m-d");
+				$reply = array( "description" => $name,
+								"subject_ticket" => $data['ticket'][0]['subject_ticket'],
+								"id_ticket" => $data['ticket'][0]['id_ticket'],
+								"sites" => $data['ticket'][0]['sites'],
+								"priority" => $data['ticket'][0]['priority'],
+								"client_id" => $data['ticket'][0]['client_id'],
+								"department_id" => $data['ticket'][0]['department_id'],
+								"status_ticket" => $data['ticket'][0]['status_ticket'],
+								"client_id" => $this->session->userdata('is_active_user'),
+								"date_ticket" => $date
+					);
+
+				/*var_dump($reply);die();*/
+				if($this->db->insert("tickets",$reply)){
+					$this->session->set_flashdata("warning", '
+			            <div class="alert alert-success">
+			                <button class="close" data-dismiss="alert">×</button>
+			                <strong>Berhasil menambahkan</strong>
+			            </div>');
+
+			        redirect('Support/');
+				}else{
+					$this->session->set_flashdata("warning", '
+			            <div class="alert alert-error">
+			                <button class="close" data-dismiss="alert">×</button>
+			                <strong>Tidak Berhasil</strong>
+			            </div>');
+
+			        redirect('Support/');
+				}
+			}
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('support/detail_ticket.php',$data);

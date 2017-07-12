@@ -21,6 +21,8 @@
 </div>
 <!-- END Breadcrumb -->
 
+<?php echo $this->session->flashdata("warning")?>
+
 <!-- SUPPORT TICKET -->
 <div class="row">
     <div class="col-md-12">

@@ -33,7 +33,7 @@
                         <div class="panel">
                             <div class="panel-body">   
                                 <h3>
-                                    <span>VIEW <?php echo $list['subject_ticket']?></span>
+                                    <span><?php echo $list['subject_ticket']?></span>
                                 </h3>
                             </div>
                         </div>
@@ -43,11 +43,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-12">
-                                <h4>
-                                    <span><?php echo $list['status_ticket']?></span>
-                                </h4>                           
-                            </div>
                             <div class="col-md-3">
                                 <p>
                                     <span><i class="fa fa-calendar-o"></i></span> <?php echo date('l', strtotime($list['date_ticket']))?>, <?php echo $list['date_ticket']?></span>
@@ -83,34 +78,36 @@
                                 </div>
                                 <br/>
                                 <div class="row">
-                                    <div class="box">
+                                    <?php
+                                        foreach ($tiket as $po) {
+                                    ?>
                                         <div class="box">
                                             <div class="box-title">
                                                 <div class="row">
                                                     <div class="col-md-6 col-lg-8">                                                
-                                                        <h4><i class="fa fa-user"></i> <?php echo $list['client_id']?></h4>
+                                                        <h4><i class="fa fa-user"></i> <?php echo $po['client_id']?></h4>
                                                     </div>
                                                     <div class="col-md-6 col-lg-4" style="text-align:right;">
-                                                       <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($list['date_ticket']))?>, <?php echo $list['date_ticket']?></p>
+                                                       <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($po['date_ticket']))?>, <?php echo $po['date_ticket']?></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="box-content">
-                                                <p><?php echo $list['description']?></p>
-                                                <p>Regards<br/><?php echo $list['client_id']?><br/>SmartMedia</p>
+                                                <p><?php echo $po['description']?></p>
+                                                <p>Regards<br/><?php echo $po['client_id']?><br/>SmartMedia</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                     <div class="msg-reply">
-                                        <form class="horizontal-form" action="#">
+                                        <form class="horizontal-form" action="<?php echo base_url("support/detail_ticket/").$list['id']?>" method="post">
                                             <p class="controls">
                                                 <textarea class="form-control wysihtml5" name="msg-body" placeholder="Replay to this mail" rows="5" id="reply"></textarea>
                                             </p>
                                             <p>
-                                                <button class="btn btn-primary"><i class="fa fa-reply"></i> Reply</button>
+                                                <input type="submit" class="btn btn-primary" value="Submit" name="submit">
                                             </p>
                                         </form>
                                     </div>

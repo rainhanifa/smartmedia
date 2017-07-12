@@ -20,8 +20,10 @@
         <!--page specific plugin scripts-->
         <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/data-tables/jquery.dataTables.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/data-tables/bootstrap3/dataTables.bootstrap.js"></script>
-        <script src="<?php echo base_url('assets')?>/assets/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
         <script src="<?php echo base_url('assets')?>/assets/chosen-bootstrap/chosen.jquery.min.js"></script>
+        <script src="<?php echo base_url('assets')?>/assets/prettyPhoto/js/jquery.prettyPhoto.js"></script>
 
         <!--flaty scripts-->
         <script src="<?php echo base_url('assets')?>/js/flaty.js"></script>

@@ -67,49 +67,49 @@
 				if($this->upload->do_upload('preview1')) {
 	                $datax = $this->upload->data();
 	                $preview1= "upload/theme/".$datax['file_name'];
-	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 
 	            if($this->upload->do_upload('preview2')) {
 	                $datax = $this->upload->data();
 	                $preview2 = "upload/theme/".$datax['file_name'];
-	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 
 	            if($this->upload->do_upload('preview3')) {
 	                $datax = $this->upload->data();
 	                $preview3 = "upload/theme/".$datax['file_name'];
-	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 
 	            if($this->upload->do_upload('file')) {
 	                $datax = $this->upload->data();
 	                $file = "upload/theme/".$datax['file_name'];
-	                $alert_foto = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file berhasil!</strong></div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_foto', $alert_foto);
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('alert_preview', $alert_preview);
 	            }
 
 				$theme_post = array("name_theme" => $name, 

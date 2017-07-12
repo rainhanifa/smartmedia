@@ -11,8 +11,9 @@
 			$this->load->view('template/footer.php');
 		}
 		public function theme(){
+			$data['theme'] = $this->db->query('SELECT * FROM theme')->result_array();
 			$this->load->view('template/header.php');
-			$this->load->view('store/theme.php');
+			$this->load->view('store/theme.php',$data);
 			$this->load->view('template/footer.php');
 		}
 	}

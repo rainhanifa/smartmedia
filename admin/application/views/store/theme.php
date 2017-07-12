@@ -102,10 +102,10 @@
                                     <td><?php echo $counter;?></td>
                                     <td><?php echo $them['name_theme']?></td>
                                     <td><?php echo $them['description_theme']?></td>
-                                    <td><?php echo $them['preview_1']?></td>
-                                    <td><?php echo $them['preview_2']?></td>
-                                    <td><?php echo $them['preview_3']?></td>
-                                    <td><?php echo $them['file_theme']?></td>
+                                    <td><a href="../../<?php echo $them["preview_1"]?>"> Preview</a></td>
+                                    <td><a href="../../<?php echo $them["preview_2"]?>"> Preview</a></td>
+                                    <td><a href="../../<?php echo $them["preview_3"]?>"> Preview</a></td>
+                                    <td><a href="../../<?php echo $them['file_theme']?>">Download</a></td>
                                     <td><a  href="<?php echo base_url("store/theme_update/").$them['id_theme'];?>" class="glyphicon glyphicon-pencil"></a></td>
                                     <td><a  data-href="<?php echo base_url("store/theme_delete/").$them['id_theme'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
                                 </tr>

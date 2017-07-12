@@ -8,16 +8,22 @@
 		<h4 class="tz-title-4 tzcolor-blue">
             <p class="tzweight_Bold"><span class="m_1">We Provide Many<br></span>Templates</p>
         </h4>
+        <?php 
+            $counter = 0;
+                foreach($theme as $them){
+            $counter++;
+        ?>      
 		<div class="col-md-4">
 			<div class="theme-img">
-				<img src="<?php echo base_url("assets");?>/images/Sweetsop.jpg">
+				<img src="../<?php echo $them["preview_1"]?>">
 			</div>
 			<div class="theme-btn">
 				<h4>Sweetsop </h4>
-				<a href="#" onclick="openModal();currentSlide(1)" class="hover-shadow">Review</a>
+				<a href="../<?php echo $them["preview_2"]?>" onclick="openModal();currentSlide(1)" class="hover-shadow">Review</a>
 			</div>
 		</div>
-		<div class="col-md-4 themebox">
+		<?php }?>
+		<!-- <div class="col-md-4 themebox">
 			<div class="theme-img">
 				<img src="<?php echo base_url("assets");?>/images/2.jpg">
 			</div>
@@ -115,7 +121,7 @@
 				<h4>Sweetsop </h4>
 				<a href="#" onclick="openModal();currentSlide(12)" class="hover-shadow">Review</a>
 			</div>
-		</div>
+		</div> -->
 		<div class="clearfix"> </div>
 	</div>
 </div>

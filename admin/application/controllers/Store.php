@@ -58,7 +58,7 @@
 				$description = $this->input->post('description');
         
 	            $config['upload_path']          = realpath('./../')."/upload/theme";
-	            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx';
+	            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|docx|zip';
 
 				$this->load->library('upload');
 				

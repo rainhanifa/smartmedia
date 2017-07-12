@@ -72,7 +72,7 @@
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
 					$this->session->set_flashdata('alert_foto', $alert_foto);
 	            }
 
@@ -84,7 +84,7 @@
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
 					$this->session->set_flashdata('alert_foto', $alert_foto);
 	            }
 
@@ -96,7 +96,7 @@
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
 					$this->session->set_flashdata('alert_foto', $alert_foto);
 	            }
 
@@ -108,10 +108,9 @@
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>mohon lakukan update foto</div>";
+	            	$alert_foto = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload foto profil gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
 					$this->session->set_flashdata('alert_foto', $alert_foto);
 	            }
-
 
 				$theme_post = array("name_theme" => $name, 
 										"description_theme" => $description,

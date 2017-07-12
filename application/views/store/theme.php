@@ -8,16 +8,22 @@
 		<h4 class="tz-title-4 tzcolor-blue">
             <p class="tzweight_Bold"><span class="m_1">We Provide Many<br></span>Templates</p>
         </h4>
+        <?php 
+            $counter = 0;
+                foreach($theme as $them){
+            $counter++;
+        ?>      
 		<div class="col-md-4">
 			<div class="theme-img">
-				<img src="<?php echo base_url("assets");?>/images/Sweetsop.jpg">
+				<img src="../<?php echo $them["preview_1"]?>">
 			</div>
 			<div class="theme-btn">
 				<h4>Sweetsop </h4>
 				<a href="#" onclick="openModal();currentSlide(1)" class="hover-shadow">Review</a>
 			</div>
 		</div>
-		<div class="col-md-4 themebox">
+		<?php }?>
+		<!-- <div class="col-md-4 themebox">
 			<div class="theme-img">
 				<img src="<?php echo base_url("assets");?>/images/2.jpg">
 			</div>
@@ -115,7 +121,7 @@
 				<h4>Sweetsop </h4>
 				<a href="#" onclick="openModal();currentSlide(12)" class="hover-shadow">Review</a>
 			</div>
-		</div>
+		</div> -->
 		<div class="clearfix"> </div>
 	</div>
 </div>
@@ -124,11 +130,21 @@
 	<div id="myModal" class="modal">
 		<span class="close cursor" onclick="closeModal()">&times;</span>
 	  		<div class="modal-content">
+	  			
 				<div class="mySlides">
-				  <div class="numbertext">1 / 9</div>
-					<img src="<?php echo base_url("assets");?>/images/1.jpg" style="width:100%" >
+				  <div class="numbertext">1 / 3</div>
+					<img src="../<?php echo $them["preview_1"]?>" style="width:100%" >
 				</div>
 				<div class="mySlides">
+				  <div class="numbertext">1/ 3</div>
+					<img src="../<?php echo $them["preview_2"]?>" style="width:100%" >
+				</div>
+				<div class="mySlides">
+				  <div class="numbertext">1/ 3</div>
+					<img src="../<?php echo $them["preview_3"]?>" style="width:100%" >
+				</div>
+				
+				<!-- <div class="mySlides">
 				  <div class="numbertext">2 / 9</div>
 					<img src="<?php echo base_url("assets");?>/images/2.jpg" style="width:100%" >
 				</div>
@@ -164,7 +180,7 @@
 				<div class="mySlides">
 				  	<div class="numbertext">9 / 9</div>
 					<img src="<?php echo base_url("assets");?>/images/Sweetsop.jpg" style="width:100%" >
-				</div>
+				</div> -->
 
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				<a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -174,20 +190,20 @@
 				</div>
 
 				<div class="column-lightbox">
-				  	<img class="demo" src="<?php echo base_url("assets");?>/images/1.jpg" onclick="currentSlide(1)" alt="Nature">
+				  	<img class="demo" src="../<?php echo $them["preview_1"]?>" onclick="currentSlide(1)" alt="Nature">
 				</div>
 
 				<div class="column-lightbox">
-				  	<img class="demo" src="<?php echo base_url("assets");?>/images/2.jpg" onclick="currentSlide(2)" alt="Trolltunga">
+				  	<img class="demo" src="../<?php echo $them["preview_2"]?>" onclick="currentSlide(2)" alt="Trolltunga">
 				</div>
 
 				<div class="column-lightbox">
-				  	<img class="demo" src="<?php echo base_url("assets");?>/images/4.jpg" onclick="currentSlide(3)" alt="Mountains">
+				  	<img class="demo" src="../<?php echo $them["preview_3"]?>" onclick="currentSlide(3)" alt="Mountains">
 				</div>
 
-				<div class="column-lightbox">
-				  	<img class="demo" src="<?php echo base_url("assets");?>/images/5.jpg" onclick="currentSlide(4)" alt="Lights">
-				</div>
+				<!-- <div class="column-lightbox">
+				  	<img class="demo" src="../<?php echo $them["preview_1"]?>" onclick="currentSlide(4)" alt="Lights">
+				</div> -->
 	  		</div>
 	</div> 
 
@@ -209,3 +225,46 @@
 		</form>
     </div>
 </div>
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+		function openModal() {
+		  document.getElementById('myModal').style.display = "block";
+		}
+
+		function closeModal() {
+		  document.getElementById('myModal').style.display = "none";
+		}
+
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("demo");
+		  var captionText = document.getElementById("caption");
+		  if (n > slides.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		  }
+		  for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";
+		  dots[slideIndex-1].className += " active";
+		  captionText.innerHTML = dots[slideIndex-1].alt;
+		}
+</script>

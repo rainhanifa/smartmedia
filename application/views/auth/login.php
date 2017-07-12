@@ -36,7 +36,7 @@
 					<span class="m_25">Password<label>*</label></span>
 					<input type="password" name="password"> 
 				</div>
-				<a class="forgot" href="<?php echo base_url("member/login")?>">Forgot Your Password?</a>
+				<a class="forgot" href="<?php echo base_url("member/auth/login")?>">Forgot Your Password?</a>
 				<input type="submit" value="Login" name="submit">
 			</form>
 		</div>	

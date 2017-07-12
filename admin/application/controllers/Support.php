@@ -106,12 +106,13 @@
             }
 		}
 		public function ticket($id=0){
-			$data['ticket'] = $this->db->query('SELECT DISTINCT tickets.id, tickets.id_ticket,  min(tickets.date_ticket) as date_lawas, max(tickets.date_ticket) as date_terbaru, departments.name_department, tickets.subject_ticket, tickets.status_ticket from departments JOIN tickets ON departments.id_department = tickets.department_id group by tickets.id_ticket')->result_array();
+			$data['ticket'] = $this->db->query('SELECT tickets.id, tickets.id_ticket,  min(tickets.date_ticket) as open_date, max(tickets.date_ticket) as latest_date, departments.name_department, tickets.subject_ticket, tickets.status_ticket from departments JOIN tickets ON departments.id_department = tickets.department_id group by tickets.id_ticket')->result_array();
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('support/tickets.php', $data);
 			$this->load->view('template/footer-admin.php');
 		}
+
 		public function detail_ticket($id = 0){
 			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
 			$data['tiket'] = $this->db->query('SELECT * FROM tickets WHERE id_ticket ='.$data['ticket'][0]['id_ticket'])->result_array();

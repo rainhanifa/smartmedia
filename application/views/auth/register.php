@@ -6,26 +6,32 @@
 <div class="account_grid">
 	<div class="container">
 		<div class="register">
-		<form action="<?php echo base_url("auth/registersuccess");?>"> 
+		<?php if($this->session->flashdata("message") != "") { ?>
+				<div class="alert alert-danger">
+                    <button class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $this->session->flashdata("message");?>
+                </div>
+		<?php		}		?>
+		<form action="<?php echo base_url("auth/register");?>" method="post"> 
 			<div class="register-top-grid">
 				<h4 class="tz-title-5 tzcolor-blue">
                 	<p class="tzweight_Bold"><span class="m_20">Personal Information</span></p>
                 </h4>
 				<div>
 					<span class="m_25">First Name<label>*</label></span>
-					<input type="text"> 
+					<input type="text" name="first_name"> 
 				</div>
 				<div>
 					<span class="m_25">Last Name<label>*</label></span>
-					<input type="text"> 
+					<input type="text" name="last_name"> 
 				</div>
 				<div>
 					<span class="m_25">Email Address<label>*</label></span>
-					<input type="text"> 
+					<input type="text" name="email"> 
 				</div>
 				<div class="clearfix"> </div>
 					<a class="news-letter" href="#">
-					<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+					<label class="checkbox"><input type="checkbox" name="newsletter" checked=""><i> </i>Sign Up for Newsletter</label>
 				</a>
 				</div>
 
@@ -35,17 +41,17 @@
                     </h4>
 					<div>
 						<span class="m_25">Password<label>*</label></span>
-						<input type="text">
+						<input type="password"  name="password">
 					</div>
 					<div>
 						<span class="m_25">Confirm Password<label>*</label></span>
-						<input type="text">
+						<input type="password" name="confirm_password">
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="one-fifth">
 					<div class="clearfix"> </div>
-					<input type="submit" value="submit">
+					<input type="submit" value="submit" name="submit">
 					<div class="clearfix"> </div>
 				</div>
 			</div>
@@ -55,7 +61,7 @@
 </div>
 <div class="domain">
 	<div class="container">
-		<form class="search-form domain-search">
+		<div class="search-form domain-search">
 			<div class="two-fifth signup column first">
 		    	<img src="<?php echo base_url("assets");?>/images/msg.png" alt="">
 				<h2><span class="m_1">Sign Up Your</span><br>Newsletter</h2>

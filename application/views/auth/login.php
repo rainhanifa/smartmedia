@@ -16,9 +16,6 @@
 		   	<h4 class="tz-title-5 tzcolor-blue">
                 <p class="tzweight_Bold"><span class="m_20">Registered Customers</span></p>
             </h4>
-			  	
-			
-
             <?php if($this->session->flashdata("message") != ""){ ?>
                     <div class="alert alert-danger">
                         <button class="close" data-dismiss="alert">&times;</button>
@@ -35,6 +32,7 @@
 				<div>
 					<span class="m_25">Password<label>*</label></span>
 					<input type="password" name="password"> 
+					<input type="hidden" name="redirect" value="<?php echo $this->session->flashdata('redirect')?>">
 				</div>
 				<a class="forgot" href="<?php echo base_url("member/auth/login")?>">Forgot Your Password?</a>
 				<input type="submit" value="Login" name="submit">

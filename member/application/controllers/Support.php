@@ -91,7 +91,7 @@
 		public function detail($id = 0){
 			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
 			$data['tiket'] = $this->db->query('SELECT * FROM tickets WHERE id_ticket ='.$data['ticket'][0]['id_ticket'])->result_array();
-			$data['name'] = $this->db->query('SELECT DISTINCT app_users.fullname FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.answered_id')->result_array();
+			$data['name'] = $this->db->query('SELECT tickets.*, app_users.fullname FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.answered_id WHERE tickets.id_ticket = ' .$data['ticket'][0]['id_ticket'])->result_array();
 			/*var_dump($data['name']);*/
 			if (isset($_POST['submit'])){
 				$name = $this->input->post('msg-body');

@@ -83,14 +83,14 @@
                                         foreach ($tiket as $po) {
                                     ?>
                                         <div class="box">
+                                            <?php
+                                                foreach ($name as $x) {
+                                                    if ($x['id'] == $po['id']) { 
+                                            ?>                                                
                                             <div class="box-title">
                                                 <div class="row">
                                                     <div class="col-md-6 col-lg-8">
-                                                        <?php
-                                                            foreach ($name as $x) { 
-                                                        ?>                                                
                                                         <h4><i class="fa fa-user"></i> <?php echo $x['fullname']?></h4>
-                                                        <?php } ?>
                                                     </div>
                                                     <div class="col-md-6 col-lg-4" style="text-align:right;">
                                                        <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($po['date_ticket']))?>, <?php echo $po['date_ticket']?></p>
@@ -100,8 +100,10 @@
                                             <div class="box-content">
                                                 <p>Dear Client,</p>
                                                 <p><?php echo $po['description']?></p>
-                                                <p>Regards<br/><?php echo $po['client_id']?><br/>SmartMedia</p>
+                                                <p>Regards<br/><?php echo $x['fullname']?><br/>SmartMedia</p>
                                             </div>
+                                            <?php }
+                                            } ?>
                                         </div>
                                     <?php } ?>
                                 </div>

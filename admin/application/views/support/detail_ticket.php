@@ -83,9 +83,10 @@
                                         foreach ($tiket as $po) {
                                     ?>
                                     <div class="box">
-                                        <?php
-                                            foreach ($name as $x) { 
-                                        ?>                                                
+                                            <?php
+                                            foreach ($name as $x) {
+                                                if ($x['id'] == $po['id']) {
+                                            ?>                                           
                                             <div class="box-title">
                                                 <div class="row">
                                                     <div class="col-md-6 col-lg-8"> 
@@ -96,11 +97,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php } ?>
                                             <div class="box-content">
                                                 <p><?php echo $po['description']?></p>
-                                                <p>Regards<br/><?php echo $po['client_id']?><br/>SmartMedia</p>
+                                                <p>Regards<br/><?php echo $x['fullname']?><br/>SmartMedia</p>
                                             </div>
+                                            <?php  
+                                                }
+                                            } 
+                                            ?>
                                         </div>
                                     <?php } ?>
                                 </div>

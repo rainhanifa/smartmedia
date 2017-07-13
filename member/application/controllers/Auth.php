@@ -22,10 +22,10 @@
 
 	                	$data   = array('is_active_user' => $r['username'],
 	                            'is_active_name' => $r['fullname'],
+	                            'is_active_id' => $r['id_users'],
 	                            'is_logged_in' => 'TRUE');
 
 		                $this->session->set_userdata($data);
-
 		                redirect('dashboard');
 	                }
 	                else{

@@ -148,27 +148,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                        $counter = 0;
+                        foreach($ticket as $list){
+                            $counter++;
+                    ?>
                     <tr class="table-flag-blue">                                    
-                        <td>13/10/2017</td>
-                        <td>Hosting</td>
-                        <td>Kenapa CPanel saya tidak bisa dibuka ?</td>
-                        <td><span class="label label-large label-info">Solved</span></td>
-                        <td>21/10/2017</td>
+                        <td><?php echo $list['open_date']?></td>
+                        <td><?php echo $list['name_department']?></td>
+                        <td>
+                            <a href="<?php echo base_url("support/detail_ticket/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
+                        </td>
+                        <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
+                        <td><?php echo $list['latest_date']?></td>
                     </tr>
-                    <tr class="table-flag-blue">                                    
-                        <td>3/11/2017</td>
-                        <td>Domain</td>
-                        <td>Kenapa terjadi Internal Server error ?</td>
-                        <td><span class="label label-large label-success">Active</span></td>
-                        <td>16/11/2017</td>
-                    </tr>
-                    <tr class="table-flag-blue">                                    
-                        <td>3/11/2017</td>
-                        <td>Lain-Lain</td>
-                        <td>Muncul Halaman Mercusuar</td>
-                        <td><span class="label label-large label-success">Active</span></td>
-                        <td>16/11/2017</td>
-                    </tr>                              
+                    <?php  } ?>                           
                 </tbody>
             </table>
         </div>

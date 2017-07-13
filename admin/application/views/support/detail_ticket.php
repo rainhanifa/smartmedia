@@ -24,9 +24,9 @@
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->
-                <?php 
-                    foreach($ticket as $list){
-                ?> 
+            <?php 
+                foreach($ticket as $list){
+            ?> 
 
                 <div class="row">
                     <div class="col-md-12">
@@ -66,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+            <?php  } ?>
 
                 <div class="row">
                     <div class="col-md-12">
@@ -81,17 +82,21 @@
                                     <?php
                                         foreach ($tiket as $po) {
                                     ?>
-                                        <div class="box">
+                                    <div class="box">
+                                        <?php
+                                            foreach ($name as $x) { 
+                                        ?>                                                
                                             <div class="box-title">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-lg-8">                                                
-                                                        <h4><i class="fa fa-user"></i> <?php echo $po['client_id']?></h4>
+                                                    <div class="col-md-6 col-lg-8"> 
+                                                        <h4><i class="fa fa-user"></i> <?php echo $x['fullname']?></h4>
                                                     </div>
                                                     <div class="col-md-6 col-lg-4" style="text-align:right;">
                                                        <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($po['date_ticket']))?>, <?php echo $po['date_ticket']?></p>
                                                     </div>
                                                 </div>
                                             </div>
+                                        <?php } ?>
                                             <div class="box-content">
                                                 <p><?php echo $po['description']?></p>
                                                 <p>Regards<br/><?php echo $po['client_id']?><br/>SmartMedia</p>
@@ -121,5 +126,4 @@
                     </div>
                 </div>
                 
-                <?php  } ?>
                 <!-- END Main Content -->

@@ -116,7 +116,8 @@
 		public function detail_ticket($id = 0){
 			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
 			$data['tiket'] = $this->db->query('SELECT * FROM tickets WHERE id_ticket ='.$data['ticket'][0]['id_ticket'])->result_array();
-
+			$data['name'] = $this->db->query('SELECT DISTINCT app_users.fullname FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.answered_id')->result_array();
+			
 			if (isset($_POST['submit'])){
 				$name = $this->input->post('msg-body');
 				$date = date("Y-m-d");
@@ -129,7 +130,7 @@
 								"client_id" => $data['ticket'][0]['client_id'],
 								"department_id" => $data['ticket'][0]['department_id'],
 								"status_ticket" => $data['ticket'][0]['status_ticket'],
-								"answered_id" => $this->session->userdata('is_active_user'),
+								"answered_id" => $this->session->userdata('admin_active_id'),
 								"date_ticket" => $date
 					);
 

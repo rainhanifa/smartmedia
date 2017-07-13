@@ -22,6 +22,7 @@
 	                if($r['type'] != '3'){
 	                	$data   = array('admin_active_user' => $r['username'],
 	                            'admin_active_name' => $r['fullname'],
+	                            'admin_active_id' => $r['id_users'],
 	                            'admin_logged_in' => 'TRUE');
 
 		                $this->session->set_userdata($data);

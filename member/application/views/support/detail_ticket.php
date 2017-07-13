@@ -80,31 +80,24 @@
                                 <br/>
                                 <div class="row">
                                     <?php
-                                        foreach ($tiket as $po) {
-                                    ?>
-                                        <div class="box">
-                                            <?php
-                                                foreach ($name as $x) {
-                                                    if ($x['id'] == $po['id']) { 
-                                            ?>                                                
-                                            <div class="box-title">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-lg-8">
-                                                        <h4><i class="fa fa-user"></i> <?php echo $x['fullname']?></h4>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-4" style="text-align:right;">
-                                                       <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($po['date_ticket']))?>, <?php echo $po['date_ticket']?></p>
-                                                    </div>
+                                        foreach ($name as $x) {
+                                    ?>                                    
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-8"> 
+                                                    <h4><i class="fa fa-user"></i> <?php echo $x['fullname']?></h4>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4" style="text-align:right;">
+                                                   <p><i class="fa fa-clock-o"></i> <?php echo date('l', strtotime($x['date_ticket']))?>, <?php echo $x['date_ticket']?></p>
                                                 </div>
                                             </div>
-                                            <div class="box-content">
-                                                <p>Dear Client,</p>
-                                                <p><?php echo $po['description']?></p>
-                                                <p>Regards<br/><?php echo $x['fullname']?><br/>SmartMedia</p>
-                                            </div>
-                                            <?php }
-                                            } ?>
                                         </div>
+                                        <div class="box-content">
+                                            <p><?php echo $x['description']?></p>
+                                            <p>Regards<br/><?php echo $x['fullname']?><br/>SmartMedia</p>
+                                        </div>
+                                    </div>
                                     <?php } ?>
                                 </div>
                                 <div class="row">

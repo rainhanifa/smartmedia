@@ -13,11 +13,11 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="<?php echo base_url()?>">Home</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
                         <li>
-                            <a href="clients.html">Client</a>
+                            <a href="<?php echo base_url('clients')?>">Client</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
                         <li class="active">Client Profile</li>

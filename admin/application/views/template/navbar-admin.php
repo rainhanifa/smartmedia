@@ -239,7 +239,7 @@
                     </li>
 
                     <li <?php echo ($active =="sites")? "class='active'" : "" ?>>
-                        <a href="sites.html">
+                        <a href="<?php echo base_url("sites");?>">
                             <i class="fa fa-desktop"></i>
                             <span>Sites</span>
                         </a>

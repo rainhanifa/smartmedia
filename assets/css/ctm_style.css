@@ -113,8 +113,6 @@ span.m_11 {
 	border-bottom: none;
 	margin-top: 14px;
 	background: #445c7f;
-	
-	
 	border: none;
 	border-radius: 0;
 }
@@ -184,4 +182,60 @@ span.m_11 {
 .totaled-price {
 	text-align: right !important;
 	font-weight: bold;
+}
+
+/* Create Site */
+.create-site{
+    text-align: left;
+}
+.create-site .gambar{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.create-site .tzweight_Bold{
+    margin-bottom: 15px;
+}
+.create-site .tzweight_Bold span.m_21{
+    text-align: left;
+}
+.create-site .feature .fa{
+    margin-right: 5px;
+}
+.create-site .feature p{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #4c515b;
+}
+
+.register-site .register-top-grid div{
+    float: none;
+}
+.register-site .register-top-grid .input-group{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.register-site .register-top-grid .input-group,
+.register-site .register-top-grid input[type=text]{
+    width: 100%;
+}
+.register-site .register-top-grid .input-group-addon{
+    width: 1%;
+    font-family: 'Open Sans', sans-serif;
+    color: #999;
+    font-size: 14px;
+    border: 1px solid #EEE;
+    border-left: none;
+    border-radius: 0;
+    padding: 5px;
+}
+.register-site .register-top-grid textarea{
+    border: 1px solid #EEE;
+    outline-color: #FF5B36;
+    font-size: 1em;
+    padding: 0.5em;
+    width: 100%;
+}
+.register-site .one-fifth input[type="submit"]{
+    margin-top: 0;
 }

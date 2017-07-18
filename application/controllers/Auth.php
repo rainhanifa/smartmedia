@@ -79,11 +79,17 @@
 			{	
 				$data["mail"]		= "registered mail";	
 			}
+			$this->session->set_flashdata("redirect","auth/voucher");
 			$this->load->view('template/header.php');
 			$this->load->view('auth/register-success.php', $data);
 			$this->load->view('template/footer.php');
 		}
 		public function verification(){
+
+			if ($this->session->userdata('is_logged_in')){
+	            redirect('auth/voucher');
+	        }
+
 			$this->load->view('template/header.php');
 			$this->load->view('auth/verification-success.php');
 			$this->load->view('template/footer.php');
@@ -111,7 +117,7 @@
 	                            'is_logged_in' => 'TRUE');
 
 		                $this->session->set_userdata($data);
-		                	redirect($redirect);
+		                redirect($redirect);
 						
 	                }
 	                else{

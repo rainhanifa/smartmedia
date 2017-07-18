@@ -29,7 +29,7 @@
                                 <div class="current-balance">
                                     <div class="box">
                                         <div class="box-title no-bg">
-                                            <div class="box"><a class="btn btn-success btn-lg"><i class="glyphicon glyphicon-plus"></i> Create Site</a></div>
+                                            <div class="box"><a class="btn btn-success btn-lg" href="<?php echo base_url('./../web-builder');?>"><i class="glyphicon glyphicon-plus"></i> Create Site</a></div>
                                             <div class="box-tool">
                                                 <div class="box">Credit Balance: <span> Rp. 667 </span> <a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-ok"></i> Add </a></div>
                                             </div>
@@ -39,47 +39,21 @@
                                 <div class="col-md-10">
                                     <div class="box">
                                         <div class="row">
+                                        <?php foreach($sites as $site){?>
                                             <div class="col-md-3">
                                                 <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/img/demo/profile-picture.jpg" alt="profile picture" />
                                             </div>
                                             <div class="col-md-9">
-                                                <h3><strong>Sub Domain</strong></h3>
+                                                <h3><strong><?php echo $site['name_site']?></strong></h3>
                                                 <br/>
-                                                <p><span>Address :</span> subdomain.voucher.co.id</p>
+                                                <p><span>Address :</span> <?php echo $site['address_site']?></p>
                                                 <p><span>Package :</span> Basic</p>
                                                 <br/>
-                                                <p><a class="btn" href="//localhost/smartmedia-client/manage/index.html">Manage Site</a></p>
+                                                <p><a class="btn" href="<?php echo base_url('./../manage');?>">Manage Site</a></p>
                                             </div>
                                         </div>
                                         <hr/>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/img/demo/profile-picture.jpg" alt="profile picture" />
-                                            </div>
-                                            <div class="col-md-9">
-                                                <h3><strong>My Site</strong></h3>
-                                                <br/>
-                                                <p><span>Address :</span> mysite.voucher.co.id</p>
-                                                <p><span>Package :</span> Starter</p>
-                                                <br/>
-                                                <p><a class="btn" href="//localhost/smartmedia-client/manage/index.html">Manage Site</a></p>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/img/demo/profile-picture.jpg" alt="profile picture" />
-                                            </div>
-                                            <div class="col-md-9">
-                                                <h3><strong>Sub Domain</strong></h3>
-                                                <br/>
-                                                <p><span>Address :</span> Jack</p>
-                                                <p><span>Package :</span> Brown</p>
-                                                <br/>
-                                                <p><a class="btn" href="//localhost/smartmedia-client/manage/index.html">Manage Site</a></p>
-                                            </div>
-                                        </div>
-                                        <hr/>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

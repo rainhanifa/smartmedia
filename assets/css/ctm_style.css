@@ -210,6 +210,7 @@ span.m_11 {
 
 .register-site .register-top-grid div{
     float: none;
+    width: 80%;
 }
 .register-site .register-top-grid .input-group{
     margin-top: 0;
@@ -238,4 +239,27 @@ span.m_11 {
 }
 .register-site .one-fifth input[type="submit"]{
     margin-top: 0;
+}
+
+@media screen and (max-width: 1199px){
+    .register-site .register-top-grid div{
+        width: 78%;
+    }
+}
+@media screen and (max-width: 991px){
+    .create-site{
+        margin-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .create-site .tzweight_Bold span.m_21{
+        text-align: center;
+    }
+    .create-site .feature{
+        text-align: left;
+    }
+    .register-site .register-top-grid div{
+        width: 100%;
+    }
 }

@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for smartmedia
+DROP DATABASE IF EXISTS `smartmedia`;
 CREATE DATABASE IF NOT EXISTS `smartmedia` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `smartmedia`;
 
 -- Dumping structure for table smartmedia.announcements
+DROP TABLE IF EXISTS `announcements`;
 CREATE TABLE IF NOT EXISTS `announcements` (
   `id_announcement` int(11) NOT NULL AUTO_INCREMENT,
   `title_announcement` varchar(50) DEFAULT NULL,
@@ -25,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   PRIMARY KEY (`id_announcement`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.announcements: ~1 rows (approximately)
+-- Dumping data for table smartmedia.announcements: ~0 rows (approximately)
 DELETE FROM `announcements`;
 /*!40000 ALTER TABLE `announcements` DISABLE KEYS */;
 INSERT INTO `announcements` (`id_announcement`, `title_announcement`, `content_announcement`, `date_announcement`) VALUES
@@ -33,6 +35,7 @@ INSERT INTO `announcements` (`id_announcement`, `title_announcement`, `content_a
 /*!40000 ALTER TABLE `announcements` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.app_users
+DROP TABLE IF EXISTS `app_users`;
 CREATE TABLE IF NOT EXISTS `app_users` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
@@ -41,19 +44,23 @@ CREATE TABLE IF NOT EXISTS `app_users` (
   `password` varchar(50) DEFAULT NULL,
   `type` int(11) DEFAULT NULL COMMENT '1: admin, 2: staff, 3:user',
   PRIMARY KEY (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.app_users: ~4 rows (approximately)
+-- Dumping data for table smartmedia.app_users: ~7 rows (approximately)
 DELETE FROM `app_users`;
 /*!40000 ALTER TABLE `app_users` DISABLE KEYS */;
 INSERT INTO `app_users` (`id_users`, `username`, `fullname`, `email`, `password`, `type`) VALUES
 	(1, 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1),
 	(2, 'user', 'John Doe', 'user@user.com', 'EE11CBB19052E40B07AAC0CA060C23EE', 3),
 	(3, 'customercare', 'Customer Care', 'customercare@smartmedia.com', 'E828400B3535C6353E8AA744BDAE8E14', 2),
-	(4, 'staff', 'Staff', 'staff@smartmedia.com', '1253208465B1EFA876F982D8A9E73EEF', 2);
+	(4, 'staff', 'Staff', 'staff@smartmedia.com', '1253208465B1EFA876F982D8A9E73EEF', 2),
+	(5, 'johndoe@smartmedia.com', 'John Doe', 'johndoe@smartmedia.com', '6579e96f76baa00787a28653876c6127', 3),
+	(6, 'johndoe@gmail.com', 'John Doe', 'johndoe@gmail.com', '6579e96f76baa00787a28653876c6127', 3),
+	(7, 'rue@smartmedia.com', 'Rue Roe', 'rue@smartmedia.com', 'a7dc5849a233266c71bc62f1d163c34f', 3);
 /*!40000 ALTER TABLE `app_users` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.articles
+DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id_articles` int(11) NOT NULL AUTO_INCREMENT,
   `title_articles` varchar(50) NOT NULL,
@@ -64,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   PRIMARY KEY (`id_articles`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.articles: ~1 rows (approximately)
+-- Dumping data for table smartmedia.articles: ~0 rows (approximately)
 DELETE FROM `articles`;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id_articles`, `title_articles`, `content_articles`, `date_articles`, `views_articles`, `category_articles`) VALUES
@@ -72,6 +79,7 @@ INSERT INTO `articles` (`id_articles`, `title_articles`, `content_articles`, `da
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.article_category
+DROP TABLE IF EXISTS `article_category`;
 CREATE TABLE IF NOT EXISTS `article_category` (
   `id_category` int(11) NOT NULL AUTO_INCREMENT,
   `name_category` varchar(50) DEFAULT NULL,
@@ -91,6 +99,7 @@ INSERT INTO `article_category` (`id_category`, `name_category`) VALUES
 /*!40000 ALTER TABLE `article_category` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.billing
+DROP TABLE IF EXISTS `billing`;
 CREATE TABLE IF NOT EXISTS `billing` (
   `id_billing` int(11) NOT NULL AUTO_INCREMENT,
   `id_users` int(11) DEFAULT NULL,
@@ -106,28 +115,34 @@ DELETE FROM `billing`;
 /*!40000 ALTER TABLE `billing` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.clients
+DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
   `id_client` int(11) NOT NULL AUTO_INCREMENT,
-  `id_users` int(11) NOT NULL DEFAULT '0',
-  `first_name` varchar(50) NOT NULL DEFAULT '0',
-  `last_name` varchar(50) NOT NULL DEFAULT '0',
-  `company_name` varchar(50) NOT NULL DEFAULT '0',
-  `phone_number` varchar(50) NOT NULL DEFAULT '0',
-  `address_1` varchar(50) NOT NULL DEFAULT '0',
-  `address_2` varchar(50) NOT NULL DEFAULT '0',
-  `city` varchar(50) NOT NULL DEFAULT '0',
-  `region` varchar(50) NOT NULL DEFAULT '0',
-  `zip_code` varchar(50) NOT NULL DEFAULT '0',
-  `country` varchar(50) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `company_name` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(50) DEFAULT NULL,
+  `address_1` varchar(50) DEFAULT NULL,
+  `address_2` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `region` varchar(50) DEFAULT NULL,
+  `zip_code` varchar(50) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.clients: ~0 rows (approximately)
+-- Dumping data for table smartmedia.clients: ~3 rows (approximately)
 DELETE FROM `clients`;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` (`id_client`, `user_id`, `first_name`, `last_name`, `company_name`, `phone_number`, `address_1`, `address_2`, `city`, `region`, `zip_code`, `country`) VALUES
+	(1, 5, 'John', 'Doe', '0', '0', '0', '0', '0', '0', '0', '0'),
+	(2, 6, 'John', 'Doe', '0', '0', '0', '0', '0', '0', '0', '0'),
+	(3, 7, 'Rue', 'Roe', '0', '0', '0', '0', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.departments
+DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id_department` int(11) NOT NULL AUTO_INCREMENT,
   `name_department` varchar(50) DEFAULT NULL,
@@ -135,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   PRIMARY KEY (`id_department`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.departments: ~3 rows (approximately)
+-- Dumping data for table smartmedia.departments: ~2 rows (approximately)
 DELETE FROM `departments`;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
 INSERT INTO `departments` (`id_department`, `name_department`, `description_department`) VALUES
@@ -145,6 +160,7 @@ INSERT INTO `departments` (`id_department`, `name_department`, `description_depa
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.packages
+DROP TABLE IF EXISTS `packages`;
 CREATE TABLE IF NOT EXISTS `packages` (
   `id_package` int(11) NOT NULL AUTO_INCREMENT,
   `name_package` varchar(50) DEFAULT NULL,
@@ -165,6 +181,7 @@ DELETE FROM `packages`;
 /*!40000 ALTER TABLE `packages` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.payments
+DROP TABLE IF EXISTS `payments`;
 CREATE TABLE IF NOT EXISTS `payments` (
   `id_payment` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
@@ -184,6 +201,7 @@ DELETE FROM `payments`;
 /*!40000 ALTER TABLE `payments` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.sites
+DROP TABLE IF EXISTS `sites`;
 CREATE TABLE IF NOT EXISTS `sites` (
   `id_site` int(11) NOT NULL AUTO_INCREMENT,
   `name_site` varchar(50) DEFAULT NULL,
@@ -193,14 +211,18 @@ CREATE TABLE IF NOT EXISTS `sites` (
   `active_package` text,
   `date_registered` date DEFAULT NULL,
   PRIMARY KEY (`id_site`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.sites: ~0 rows (approximately)
+-- Dumping data for table smartmedia.sites: ~2 rows (approximately)
 DELETE FROM `sites`;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
+INSERT INTO `sites` (`id_site`, `name_site`, `address_site`, `description_site`, `client_id`, `active_package`, `date_registered`) VALUES
+	(1, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', NULL, NULL, NULL),
+	(2, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '6', NULL, NULL);
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.theme
+DROP TABLE IF EXISTS `theme`;
 CREATE TABLE IF NOT EXISTS `theme` (
   `id_theme` int(11) NOT NULL AUTO_INCREMENT,
   `name_theme` varchar(50) DEFAULT NULL,
@@ -210,14 +232,17 @@ CREATE TABLE IF NOT EXISTS `theme` (
   `preview_3` text,
   `file_theme` text,
   PRIMARY KEY (`id_theme`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table smartmedia.theme: ~0 rows (approximately)
 DELETE FROM `theme`;
 /*!40000 ALTER TABLE `theme` DISABLE KEYS */;
+INSERT INTO `theme` (`id_theme`, `name_theme`, `description_theme`, `preview_1`, `preview_2`, `preview_3`, `file_theme`) VALUES
+	(1, 'Photography', 'an elegant theme for photography', 'upload/theme/1.jpg', 'upload/theme/1a.jpg', 'upload/theme/11.jpg', NULL);
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.tickets
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE IF NOT EXISTS `tickets` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_ticket` int(11) NOT NULL DEFAULT '0',
@@ -242,6 +267,7 @@ INSERT INTO `tickets` (`id`, `id_ticket`, `subject_ticket`, `sites`, `priority`,
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.vouchers
+DROP TABLE IF EXISTS `vouchers`;
 CREATE TABLE IF NOT EXISTS `vouchers` (
   `id_voucher` int(11) NOT NULL AUTO_INCREMENT,
   `code_voucher` varchar(50) DEFAULT NULL,

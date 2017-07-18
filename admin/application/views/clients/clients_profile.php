@@ -13,11 +13,11 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="<?php echo base_url()?>">Home</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
                         <li>
-                            <a href="clients.html">Client</a>
+                            <a href="<?php echo base_url('clients')?>">Client</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
                         <li class="active">Client Profile</li>
@@ -41,12 +41,14 @@
                                             <div class="row">
                                                 <div class="col-md-7">
                                                     <h3><strong>Profile</strong></h3>
+
+                                                    <?php foreach($profile as $profile){?>
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <p>Name</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>Andi Zain Ifkaruddin</p>
+                                                            <p><?php echo $profile['first_name']." ".$profile['last_name']?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -54,7 +56,7 @@
                                                             <p>Company Name</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>Illiyin Studio</p>
+                                                            <p><?php echo $profile['company_name']; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -62,7 +64,7 @@
                                                             <p>Address</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>Perum Puri Nirwana Keben Kav 7 Sukun</p>
+                                                            <p><?php echo $profile['address_1']; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -70,7 +72,7 @@
                                                             <p>City</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>Malang</p>
+                                                            <p><?php echo $profile['city']; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -78,7 +80,7 @@
                                                             <p>Region</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>Jawa Timur - Indonesia</p>
+                                                            <p><?php echo $profile['region'].", ".$profile['country']; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -86,9 +88,10 @@
                                                             <p>ZIP Code</p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>65118</p>
+                                                            <p><?php echo $profile['zip_code']; ?></p>
                                                         </div>
                                                     </div>
+                                                    <?php } ?>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/../img/demo/profile-picture.jpg" alt="profile picture" width="200px" height="200px" style="float:right;">
@@ -290,7 +293,7 @@
                                                             <i class="fa fa-desktop"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">3</p>
+                                                            <p class="big"><?php echo $total_site;?></p>
                                                             <p class="title">TOTAL SITE</p>
                                                         </div>
                                                     </div>
@@ -322,6 +325,7 @@
                                                 <div class="col-md-12">
                                                     <h3><strong>Client's Site</strong></h3>
                                                     <div class="row">
+                                                        <?php foreach($sites as $site){ ?>
                                                         <div class="col-md-3">
                                                             <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/../img/demo/profile-picture.jpg" alt="profile picture">
                                                         </div>
@@ -331,7 +335,7 @@
                                                                     <p><strong>Site Name</strong></p>
                                                                 </div>
                                                                 <div class="col-md-8">
-                                                                    <p>My Site</p>
+                                                                    <p><?php echo $site['name_site'] ?></p>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -339,7 +343,7 @@
                                                                     <p><strong>Site Address</strong></p>
                                                                 </div>
                                                                 <div class="col-md-8">
-                                                                    <a href="#">subdomain.voucher.co.id</a>
+                                                                    <a href="//<?php echo $site['name_site']?>"><?php echo $site['address_site']?></a>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -347,7 +351,7 @@
                                                                     <p><strong>Web Mail</strong></p>
                                                                 </div>
                                                                 <div class="col-md-8">
-                                                                    <a href="#">subdomain@voucher.co.id</a>
+                                                                    <a href="mailto:">email@voucher.co.id</a>
                                                                 </div>
                                                             </div>
                                                             <br/>
@@ -377,68 +381,11 @@
                                                                     <p>1024 MB</p>
                                                                 </div>
                                                             </div>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <hr/>
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/../img/demo/profile-picture.jpg" alt="profile picture">
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Site Name</strong></p>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <p>My Site</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Site Address</strong></p>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <a href="#">subdomain.voucher.co.id</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Web Mail</strong></p>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <a href="#">subdomain@voucher.co.id</a>
-                                                                </div>
-                                                            </div>
-                                                            <br/>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Storage</strong></p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Used</p>
-                                                                    <p>200 MB</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Total</p>
-                                                                    <p>2046 MB</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Bandwith</strong></p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Used</p>
-                                                                    <p>200 MB</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Total</p>
-                                                                    <p>1024 MB</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr/>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

@@ -3,7 +3,7 @@
                 <!-- BEGIN Page Title -->
                 <div class="page-title">
                     <div>
-                        <h1><i class="fa fa-star"></i> CLIENTS</h1>
+                        <h1><i class="fa fa-star"></i> SITES</h1>
                     </div>
                 </div>
                 <!-- END Page Title -->
@@ -13,10 +13,10 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="<?php echo base_url()?>">Home</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
-                        <li class="active">Clients</li>
+                        <li class="active">sites</li>
                     </ul>
                 </div>
 
@@ -26,38 +26,30 @@
                     <strong>Latest Info! </strong> The page has been added.
                 </div>
                 <!-- BEGIN Main Content -->
-               
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>                
-
                 <div class="box">
                             
                     <div class="">
-                        <table class="table table-advance" id="clients-table">
+                        <table class="table table-advance" id="sites-table">
                             <thead class="table-flag-blue">
                                 <tr>
-                                    <th># Client</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Client Email</th>
+                                    <th>#</th>
+                                    <th>Sites Name</th>
+                                    <th>Sites Address</th>
+                                    <th>Owner</th>
                                     <th>Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     $counter    = 1;
-                                    foreach($clients as $client){
+                                    foreach($sites as $site){
                                 ?>
                                 <tr>                               
                                     <td><a href=""><?php echo $counter;?></a></td>
-                                    <td><?php echo $client['first_name']; ?></td>
-                                    <td><?php echo $client['last_name']; ?></td>
-                                    <td><?php echo $client['email']; ?></td>
-                                    <td><a href="<?php echo base_url("clients/profile/").$client['id_client'];?>" class="btn btn-lime"><i class="fa fa-user"></i> Profile</a>
-                                        <a href="<?php echo base_url("clients/profile/").$client['id_client'];?>" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a>
-                                        <a href="clients_profile.html#sites" class="btn btn-gray"><i class="fa fa-desktop"></i> Sites</a></td>
+                                    <td><?php echo $site['name_site']; ?></td>
+                                    <td><a href="<?php echo $site['address_site']; ?>"><?php echo $site['address_site']; ?></a></td>
+                                    <td><a href="<?php echo base_url("clients/profile/").$site['id_client'];?>"> <?php echo $site['first_name']." ".$site["last_name"] ; ?></a></td>
+                                    <td><a href="<?php echo base_url("sites/detail/").$site['id_site'];?>" class="btn btn-gray"><i class="fa fa-desktop"></i> Sites</a></td>
                                 </tr>
                                 <?php $counter++;
                                 } ?>

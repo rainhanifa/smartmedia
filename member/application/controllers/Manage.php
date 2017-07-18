@@ -26,5 +26,29 @@
 			$this->load->view('manage/dashboard.php');
 			$this->load->view('template/footer-manage.php');
 		}
+
+		function createsite(){
+
+			if(isset($_POST['submit'])){
+				$sitename		= $this->input->post("sitename");
+				$siteaddress	= $this->input->post("siteaddress");
+				$sitedesc		= $this->input->post("sitedesc");
+				$webmail		= $this->input->post("webmail");
+
+				$sitedata		= array("name_site" => $sitename,
+										"address_site" => $siteaddress,
+										"description_site" => $sitedesc,
+										"client_id"	=> $this->session->userdata("is_active_id")
+									);
+				if($this->db->insert("sites",$sitedata)){
+					redirect(base_url."./../../web-builder");
+				}
+				else{
+					$this->session->set_flashdata("message","Failed to save site! ".$this->db->error());	
+					redirect("index");
+				}
+				
+			}
+		}
 	}
 ?>	

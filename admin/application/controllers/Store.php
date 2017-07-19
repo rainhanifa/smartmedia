@@ -2,8 +2,6 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Store extends CI_Controller {
-		var $table = "theme";
-
 		function __construct() {
 	        parent::__construct();
 		     if (!$this->session->userdata('admin_logged_in')){
@@ -13,7 +11,6 @@
 
 		public function index(){
 			//redirect to package
-
 			
 		}
 		public function package_detail(){
@@ -29,11 +26,35 @@
 		public function package_delete(){
 			// delete
 		}
-		public function voucher_detail(){
+		public function vouchers(){
+			$data['vouchers'] = $this->db->get('vouchers')->result_array();
+
 			//detail
+			$this->load->view('template/header-admin.php');
+			$this->load->view('template/navbar-admin.php');
+			$this->load->view('store/voucher.php',$data);
+			$this->load->view('template/footer-admin.php');
 		}
 		public function voucher_add(){
 			// add page	
+			if(isset($_POST['submit'])){
+				$code	=	$this->input->post('code');
+				$name	=	$this->input->post('name');
+				$price	=	$this->input->post('price');
+				$package=	$this->input->post('package');
+
+				$insert_voucher	= array("code" => $code,
+										"name" => $name,
+										"price" => $price,
+										"id_package"	=> $package
+								);
+				if($this->db->insert("vouchers", $insert_voucher)){
+					$this->session->set_flashdata("message","berhasil");
+				}else{
+					$this->session->set_flashdata("message","gagal");
+				}
+				redirect("store/vouchers");
+			}
 		}
 		public function voucher_update(){
 			// update page
@@ -41,8 +62,8 @@
 		public function voucher_delete(){
 			// delete
 		}
-		public function theme_detail(){
-			$data['theme'] = $this->db->query('SELECT * FROM theme')->result_array();
+		public function themes(){
+			$data['theme'] = $this->db->get('theme')->result_array();
 
 			//detail
 			$this->load->view('template/header-admin.php');

@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `app_users` (
   PRIMARY KEY (`id_users`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.app_users: ~7 rows (approximately)
+-- Dumping data for table smartmedia.app_users: ~6 rows (approximately)
 DELETE FROM `app_users`;
 /*!40000 ALTER TABLE `app_users` DISABLE KEYS */;
 INSERT INTO `app_users` (`id_users`, `username`, `fullname`, `email`, `password`, `type`) VALUES
@@ -217,8 +217,8 @@ CREATE TABLE IF NOT EXISTS `sites` (
 DELETE FROM `sites`;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
 INSERT INTO `sites` (`id_site`, `name_site`, `address_site`, `description_site`, `client_id`, `active_package`, `date_registered`) VALUES
-	(1, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', NULL, NULL, NULL),
-	(2, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '6', NULL, NULL);
+	(1, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '1', NULL, NULL),
+	(2, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '2', NULL, NULL);
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.theme
@@ -270,17 +270,21 @@ INSERT INTO `tickets` (`id`, `id_ticket`, `subject_ticket`, `sites`, `priority`,
 DROP TABLE IF EXISTS `vouchers`;
 CREATE TABLE IF NOT EXISTS `vouchers` (
   `id_voucher` int(11) NOT NULL AUTO_INCREMENT,
-  `code_voucher` varchar(50) DEFAULT NULL,
-  `name_voucher` varchar(50) DEFAULT NULL,
+  `code` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `id_package` int(11) DEFAULT NULL,
-  `price_voucher` int(11) DEFAULT NULL,
-  `active_voucher` int(11) DEFAULT NULL COMMENT '0: not activated, 1: active, 2: used, 3: expired',
+  `price` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT '0' COMMENT '0: not activated, 1: active, 2: used, 3: expired',
+  `used_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_voucher`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table smartmedia.vouchers: ~0 rows (approximately)
 DELETE FROM `vouchers`;
 /*!40000 ALTER TABLE `vouchers` DISABLE KEYS */;
+INSERT INTO `vouchers` (`id_voucher`, `code`, `name`, `id_package`, `price`, `status`, `used_at`) VALUES
+	(1, 'AO81231557771', 'Voucher Basic', 0, 50000, 0, NULL),
+	(2, 'AO81231557772', 'Voucher Basic', 1, 50000, 0, NULL);
 /*!40000 ALTER TABLE `vouchers` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

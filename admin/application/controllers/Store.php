@@ -13,8 +13,14 @@
 			//redirect to package
 			
 		}
-		public function package_detail(){
+		public function packages(){
+			$data['packages'] = $this->db->get('packages')->result_array();
+
 			//detail
+			$this->load->view('template/header-admin.php');
+			$this->load->view('template/navbar-admin.php');
+			$this->load->view('store/package.php',$data);
+			$this->load->view('template/footer-admin.php');
 		}
 		public function package_add(){
 			// add page	
@@ -65,7 +71,7 @@
 		public function themes(){
 			$data['theme'] = $this->db->get('theme')->result_array();
 
-			//detail
+			//detail\
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('store/theme.php',$data);

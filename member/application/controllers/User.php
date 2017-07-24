@@ -41,7 +41,7 @@
 									);
 
 				
-				$this->db->where("id_users",$this->session->userdata('is_active_id'));
+				$this->db->where("user_id",$this->session->userdata('is_active_id'));
 				if($this->db->update($this->table,$profile)){
 					$this->session->set_flashdata('message','<div class="alert alert-success">
                             <button class="close" data-dismiss="alert">&times;</button >Profile changes! </div>');	
@@ -51,7 +51,7 @@
                             <button class="close" data-dismiss="alert">&times;</button>Failed to edit profile! '.$this->db->error().'</div>');	
 				}
 			}
-			$data['profile'] = $this->db->get_where($this->table, array('id_users' => $this->session->userdata('is_active_id')))->result_array();
+			$data['profile'] = $this->db->get_where($this->table, array('user_id' => $this->session->userdata('is_active_id')))->result_array();
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 

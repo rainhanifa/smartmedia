@@ -154,11 +154,6 @@
                             <div class="modal-body">                            
                                 <div class="row">
                                     <div class="form-group">
-                                        
-                                        <div class="col-sm-12 col-lg-12 controls">
-                                            <span class="m_25"><label>package Code</label></span>
-                                            <input type="text" name="code" id="package_code" class="form-control" placeholder="">
-                                        </div>
 
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>package Name</label></span>

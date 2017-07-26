@@ -1,16 +1,14 @@
-
     <div class="banner">
         <div class="container">
-
            <!-- FlexSlider -->
            <section class="slider">
                <div class="flexslider">
                     <ul class="slides">
                         <li>
-                            <img src="<?php echo base_url("assets");?>/images/freestock/hero-1.jpg" class="" alt=""/>
+                            <img src="<?php echo base_url("assets");?>/images/sample-image-banner-1.jpg" class="" alt=""/>
                         </li>
                         <li>
-                            <img src="<?php echo base_url("assets");?>/images/freestock/hero-2.jpg" class="" alt=""/>
+                            <img src="<?php echo base_url("assets");?>/images/sample-image-banner-2.jpg" class="" alt=""/>
                         </li>
                     </ul>
                 </div>
@@ -19,43 +17,10 @@
 
         </div>
     </div>
-    <div class="domain">
-        <div class="container">
-            <form class="search-form domain-search">
-                <div class="two-fifth column first">
-                    <img src="<?php echo base_url("assets");?>/images/search.png" alt=""/>
-                    <h2><span class="m_1">search your</span><br>domain</h2>
-                </div>
-                <div class="three-fifth column first">
-                    <input type="text" class="text" value="Enter your domain name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your domain name';}">               
-                </div>
-                <div class="one-fifth column">
-                    <span class="selection-box"><select class="domains valid" name="domains">
-                        <option>Year(0-1 Year)</option>
-                        <option>.info (From $3 / Year)</option>
-                        <option>.net (From $3 / Year)</option>
-                        <option>.org (From $3 / Year)</option>
-                    </select></span>
-                </div>
-                <div class="one-fifth column">
-                    <span class="selection-box"><select class="domains valid" name="domains">
-                        <option>.com</option>
-                        <option>.info (From $3 / Year)</option>
-                        <option>.net (From $3 / Year)</option>
-                        <option>.org (From $3 / Year)</option>
-                    </select></span>
-                </div>
-                <div class="one-fifth column">
-                    <input type="submit" value="Search">
-                </div>
-                <div class="clearfix"> </div>
-            </form>
-        </div>
-    </div>
     <div class="benefit">
         <div class="container">
             <h4 class="tz-title-4 tzcolor-blue">
-                <p class="tzweight_Bold"><span class="m_1">our<br></span>Benefits</p>
+                <p class="tzweight_Bold"><span class="m_1">FITUR<br></span>TERBAIK</p>
             </h4>
             <div class="box1">
                 <div class="col-md-4 row_10">
@@ -63,7 +28,7 @@
                        <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
                        <li class="desc">
                         <h3>99.9% Uptime</h3>
-                        <p>Service Level Agreement (SLA) dari SmartMedia adalah 99,99% mencakup Up-time layanan & koneksi jaringan..</p>
+                        <p>Server yang tangguh menjamin website Anda selalu dapat diakses</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -72,8 +37,8 @@
                     <ul class="service_grid">
                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
                        <li class="desc">
-                        <h3>24/7/365 Support</h3>
-                        <p>We're always here to assist via email, LiveChat, and telephone!.</p>
+                        <h3>24/7 Support</h3>
+                        <p>Layanan pelanggan kami tersedia 24 jam sehari, 7 hari dalam seminggu</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -82,8 +47,8 @@
                     <ul class="service_grid">
                        <i class="fa fa-desktop" aria-hidden="true"></i>
                        <li class="desc">
-                        <h3>Protect Your pc</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                        <h3>Web Builder</h3>
+                        <p>Drag-and-drop web builder mudah digunakan</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -94,8 +59,8 @@
                     <ul class="service_grid">
                        <i class="fa fa-cogs" aria-hidden="true"></i>
                        <li class="desc">
-                        <h3>Website Builder</h3>
-                        <p>Instant access to our state of the art drag and drop website editor. Choose from 100s of professional looking templates..</p>
+                        <h3>Customizable</h3>
+                        <p>Kemudahan untuk membuat website sesuai keinginan</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -105,7 +70,7 @@
                        <i class="fa fa-cloud" aria-hidden="true"></i>
                        <li class="desc">
                         <h3>Domain Transfer</h3>
-                        <p>We'll move your site, or sites, free of charge with our white-glove migration service..</p>
+                        <p>Anda dapat memiliki website dengan domain pribadi</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -114,8 +79,8 @@
                     <ul class="service_grid">
                        <i class="fa fa-unlock-alt fa-inc-left" aria-hidden="true"></i>
                        <li class="desc">
-                        <h3>100% Security</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                        <h3>Keamanan 100%</h3>
+                        <p>Website Anda aman dengan kami!</p>
                        </li>
                        <div class="clearfix"> </div>
                     </ul>
@@ -127,42 +92,40 @@
         <div class="container">
             <div class="col-md-4">
                <h4 class="tz-title-4 tzcolor-blue">
-                 <p class="tzweight_Bold m_2"><span class="m_1">Now<br></span>What is Hot</p>
+                 <p class="tzweight_Bold m_2"><span class="m_1">PROMO<br></span>TERBARU</p>
               </h4>
               <ul class="offer">
-                 <li><p class="m_3"><span class="m_4">Get Up to<br></span>50%</p></li>	
-                 <li><p class="m_5">Off</p></li>	
-                 <li class="last"><p class="m_6"><span class="m_7">Each<br></span>Hosting</p></li>
+                 <li><p class="m_3"><span class="m_4">Voucher Basic<br></span>Rp 30.000</p></li>	
               </ul>
             </div>
             <div class="col-md-8 row_1">
                 <h4 class="tz-title-4 tzcolor-blue">
-                 <p class="tzweight_Bold m_2"><span class="m_1">our<br></span>Feature</p>
+                 <p class="tzweight_Bold m_2"><span class="m_1">Dapatkan<br></span>Fitur</p>
                </h4>
                <div class="section_1">
                 <div class="col_1_of_3 span_1_of_3">
                     <div class="list_1">
                         <ul>
-                          <li><a href="">Unlimited Email.</a></li>
-                          <li><a href="">cPanel Control Panel.</a></li>                           
-                          <li><a href="">LiteSpeed Enterprise.</a></li>      
-                          <li><a href="">SSH, GIT, Addon Domain.</a></li>
+                          <li><a href="">1 Website</a></li>
+                          <li><a href="">1 Webmail</a></li>                           
+                          <li><a href="">Penyimpanan 200 MB </a></li>      
+                          <li><a href="">Masa aktif 30 hari</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col_1_of_3 span_1_of_3">
                     <div class="list_1">
                         <ul>
-                        <li><a href="">Free Backup Daily.</a></li>  
-                          <li><a href="">Website Builder.</a></li>
-                          <li><a href="">Instant Backup, dll.</a></li>
-                          <li><a href="">MySQL, PHPMyAdmin, dll.</a></li>
+                        <li><a href="">Website Builder</a></li>  
+                          <li><a href="">3 Tema Gratis!</a></li>
+                          <li><a href="">Unlimited Bandwidth</a></li>
+                          <li><a href="">SSD Hosting</a></li>
                            
                         </ul>
                     </div>
                 </div>
                 <div class="col_1_of_3 span_1_of_3">
-                    <a class="but1" href="#">View All</a>
+                    <a class="but1" href="#">Ambil</a>
                 </div>
                 <div class="clearfix"> </div>
                </div>
@@ -289,7 +252,7 @@
             <div class="clearfix"> </div>								
        </div>
     </div>
-    <div class="domain">
+    <!--div class="domain">
         <div class="container">
             <form class="search-form domain-search" action="register.html">
                 <div class="two-fifth signup column first">
@@ -305,7 +268,7 @@
                 <div class="clearfix"> </div>
             </form>
         </div>
-    </div>
+    </div-->
 
     <link href="<?php echo base_url("assets");?>/css/flexslider.css" rel='stylesheet' type='text/css' />
         <script defer src="<?php echo base_url("assets");?>/js/jquery.flexslider.js"></script>

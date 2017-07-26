@@ -2,20 +2,17 @@
         <div class="container">
             <div class="col-md-3 box_1">    
                 <img src="<?php echo base_url("assets");?>/images/f_logo.png" alt=""/>
-                <p>© 2015 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+                <p>© 2017 <a href="http://illiyin.lam2x.com" target="_blank"> Smartmedia</a></p>
             </div>
             <div class="col-md-3 box_2">
                 <h4>Quick Links</h4>
                 <ul class="list_2">
                     <li><a href="<?php echo base_url("home");?>">Home</a></li>
                     <li><a href="<?php echo base_url("about");?>">About Us</a></li>
-                    <li><a href="<?php echo base_url("service");?>">Service</a></li>
                     <li><a href="<?php echo base_url("store/theme")?>">Theme</a></li>
-                    <li><a href="<?php echo base_url("promo");?>">Promo</a></li>
-                    <li><a href="<?php echo base_url("reseller");?>">Reseller</a></li>
                 </ul>
                 <ul class="list_2">
-                    <li><a href="<?php echo base_url("knowledgebase");?>">Faq</a></li>
+                    <li><a href="<?php echo base_url("knowledgebase");?>">Knowledgebase</a></li>
                     <li><a href="<?php echo base_url("blog");?>">Blog</a></li>
                     <li><a href="<?php echo base_url("contact");?>">Contact</a></li>
                 </ul>
@@ -26,9 +23,9 @@
                 <address class="address">
                   <dl>
                      <dt></dt>
-                     <dd>Address : <span>3598 But I must explain to you how all this mistaken</span></dd>
-                     <dd>E-mail : <a href="mailto@example.com">info(at)hosting.com</a></dd>
-                     <dd>Call : <span> +1 800 547 5478</span></dd>
+                     <dd>Alamat : <span>Perum Nirwana Keben Kav. 7 Malang</span></dd>
+                     <dd>E-mail : <a href="mailto@example.com">info(at)smartmedia.com</a></dd>
+                     <dd>Tel : <span> +62 31 8080909</span></dd>
                   </dl>
                </address>
             </div>

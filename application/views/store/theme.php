@@ -19,7 +19,7 @@
 			</div>
 			<div class="theme-btn">
 				<h4>Sweetsop </h4>
-				<a href="#" onclick="openModal();currentSlide(1)" class="hover-shadow">Review</a>
+				<a href="#" onclick="openModal();currentSlide(1)" class="hover-shadow">Preview</a>
 			</div>
 		</div>
 		<?php }?>
@@ -208,7 +208,7 @@
 	</div> 
 
 
-<div class="domain">
+<!--div class="domain">
 	<div class="container">
 		<form class="search-form domain-search">
 			<div class="two-fifth signup column first">
@@ -224,7 +224,7 @@
             <div class="clearfix"> </div>
 		</form>
     </div>
-</div>
+</div-->
 
 
 

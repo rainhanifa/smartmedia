@@ -34,7 +34,7 @@
                 <!-- BEGIN Main Content -->
                
                 <?php if($this->session->flashdata("message") != ""){?>
-                    <div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> 
+                    <div class='alert alert-success alert-dismissible' role='alert'>
                     <?php echo $this->session->flashdata("message"); ?>
                     </div>
                 <?php } ?>    
@@ -87,7 +87,11 @@
                                         }?>
                                     </td>
                                     <td><?php echo $voucher['used_at']?></td>
-									<td><a id="link_update" data-href="<?php echo base_url("store/vouchers/update?id=").$voucher['id_voucher'];?>" data-id="<?php echo $voucher['id_voucher'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a> <a data-href="<?php echo base_url("store/vouchers/delete?id=").$voucher['id_voucher'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
+									<td>
+
+                                    <a data-href="<?php echo base_url("store/voucher_update/").$voucher['id_voucher'];?>" data-uid="<?php echo $voucher['id_voucher'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil link_update"></a> 
+
+                                    <a data-href="<?php echo base_url("store/voucher_delete/").$voucher['id_voucher'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
                                     
                                 </tr>
                                 <?php }?>
@@ -97,7 +101,7 @@
                 <!-- END Main Content -->
                <!-- Modal -->
                 <div class="modal fade modal-white" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <form action="<?php echo base_url("store/vouchers/update");?>" method="post">
+                <form action="<?php echo base_url("store/voucher_update");?>" method="post">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">
@@ -105,6 +109,7 @@
                             </div>
                             <div class="modal-body">
                                 <div id="container_update">
+                                    <img src="<?php echo base_url('assets/img/loader.gif')?>"/>
                                 </div>                            
                                                
                             </div>
@@ -142,12 +147,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">New Voucher</h4>
+                                <h4 class="modal-title" id="myModalLabel1">New Voucher</h4>
                             </div>
                             <div class="modal-body">                            
                                 <div class="row">
                                     <div class="form-group">
-                                        
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Voucher Code</label></span>
                                             <input type="text" name="code" id="voucher_code" class="form-control" placeholder="">
@@ -160,7 +164,7 @@
 
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Voucher Price</label></span>
-                                                <div class="form-group">
+                                                <div class="input-group">
                                                     <div class="input-group-addon"> Rp </div>
                                                     <input type="number" name="price" id="voucher_price" class="form-control">
                                                 </div>
@@ -175,8 +179,7 @@
                                                 <option value="2">2</option>
                                             </select>
                                         </div>
-                                    </div>
-                                </div>                 
+                                    </div>                
                             </div>
                           <!-- end modal-body -->
                             <div class="modal-footer">
@@ -195,9 +198,9 @@
                     $('#delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                     });
-                    $('#link_update').click(function(){
-                        var id_vouchers = $(this).data('id');
-                        $.get("<?php echo base_url('store/get_vouchers_by_id/')?>"+id_vouchers, function(html){
+                    $('.link_update').click(function(){
+                        var id_vouchers = $(this).data('uid');
+                        $.get("<?php echo base_url('store/get_voucher_by_id/')?>"+id_vouchers, function(html){
                             $('#container_update').html(html);
                         });
                     })

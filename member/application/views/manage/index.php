@@ -97,7 +97,7 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-                                <input type="submit" class="btn btn-info" value="SUBMIT" name="OK" >
+                                <input type="submit" class="btn btn-info" value="SUBMIT" name="submit" >
                             </div>
                         </div>
                         <!-- end modal-content -->

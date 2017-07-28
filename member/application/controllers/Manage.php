@@ -39,16 +39,17 @@
 				$sitedata		= array("name_site" => $sitename,
 										"address_site" => $siteaddress,
 										"description_site" => $sitedesc,
-										"client_id"	=> $this->session->userdata("is_active_id")
+										"client_id"	=> $this->session->userdata("is_active_id"),
+										"date_registered" => date("Y-m-d H:i:s")
 									);
 				if($this->db->insert("sites",$sitedata)){
-					redirect(base_url."./../../web-builder");
+					redirect(base_url()."./../web-builder");
 				}
 				else{
 					$this->session->set_flashdata("message","Failed to save site! ".$this->db->error());	
-					redirect("index");
+					redirect(base_url("manage"));
 				}
-				
+				var_dump($this->db->error());
 			}
 		}
 	}

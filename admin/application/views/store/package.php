@@ -24,12 +24,6 @@
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->
-
-                <!-- <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div> -->
-               
 				
                 <!-- BEGIN Main Content -->
                
@@ -55,12 +49,11 @@
                                     <th>Package Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
-                                    <th>Active Periode</th>
+                                    <th>Active Period</th>
                                     <th>Domain</th>
                                     <th>Email</th>
                                     <th>Bandwidth</th>
                                     <th>Storage</th>
-                                    <th>Theme</th>
                                     <th colspan="2">Action</th>
                                 </tr>
                             </thead>
@@ -89,12 +82,14 @@
                                         }?>
                                     </td>
                                     <td><?php echo $package['price_package']?></td>
-                                    <td><?php echo $package['active_periode']?></td>
+                                    <td><?php echo $package['active_period']?></td>
                                     <td><?php echo $package['domain']?></td>
                                     <td><?php echo $package['email']?></td>
                                     <td><?php echo $package['bandwidth']?></td>
                                     <td><?php echo $package['storage']?></td>
-									<td><a id="link_update" data-href="<?php echo base_url("store/packages/update?id=").$package['id_package'];?>" data-id="<?php echo $package['id_package'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a> <a data-href="<?php echo base_url("store/packages/delete?id=").$package['id_package'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
+									<td>
+                                    <a data-href="<?php echo base_url("store/package_update/").$package['id_package'];?>" data-id="<?php echo $package['id_package'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil link_update"></a> 
+                                    <a data-href="<?php echo base_url("store/package_delete/").$package['id_package'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
                                     
                                 </tr>
                                 <?php }?>
@@ -104,7 +99,7 @@
                 <!-- END Main Content -->
                <!-- Modal -->
                 <div class="modal fade modal-white" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <form action="<?php echo base_url("store/packages/update");?>" method="post">
+                <form action="<?php echo base_url("store/package_update");?>" method="post">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">
@@ -154,32 +149,58 @@
                             <div class="modal-body">                            
                                 <div class="row">
                                     <div class="form-group">
-
                                         <div class="col-sm-12 col-lg-12 controls">
-                                            <span class="m_25"><label>package Name</label></span>
+                                            <span class="m_25"><label>Package Name</label></span>
                                             <input type="text" name="name" id="package_name" class="form-control" placeholder="">
                                         </div>
-
                                         <div class="col-sm-12 col-lg-12 controls">
-                                            <span class="m_25"><label>package Price</label></span>
-                                                <div class="form-group">
+                                            <span class="m_25"><label>Package Detail</label></span>
+                                            <textarea name="detail" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-12 controls">
+                                            <span class="m_25"><label>Package Price</label></span>
+                                                <div class="input-group">
                                                     <div class="input-group-addon"> Rp </div>
                                                     <input type="number" name="price" id="package_price" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="col-sm-12 col-lg-12 controls">
-                                            <span class="m_25"><label>Package</label></span>
+                                            <span class="m_25"><label>Category</label></span>
                                             <select name="package" class="form-control">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
+                                                <option value="0">Quota</option>
+                                                <option value="1">Extension</option>
+                                                <option value="2">New</option>
                                             </select>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-12 controls">
+                                            <span class="m_25"><label>Active Period</label></span>
+                                            <div class="input-group">
+                                                <input type="number" name="active" class="form-control" placeholder="30">
+                                                <div class="input-group-addon"> days </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-6 controls">
+                                            <span class="m_25"><label>Domain</label></span>
+                                            <input type="number" name="domain" class="form-control" placeholder="1">
+                                        </div>
+                                        <div class="col-sm-6 col-lg-6 controls">
+                                            <span class="m_25"><label>Email</label></span>
+                                            <input type="number" name="email" class="form-control" placeholder="1">
+                                        </div>
+                                        <div class="col-sm-6 col-lg-6 controls">
+                                            <span class="m_25"><label>Bandwidth</label></span>
+                                            <input type="number" name="bandwidth" class="form-control" placeholder="200">
+                                        </div>
+                                        <div class="col-sm-6 col-lg-6 controls">
+                                            <span class="m_25"><label>Storage</label></span>
+                                            <div class="input-group">
+                                                <input type="number" name="storage" class="form-control" placeholder="200">
+                                                <div class="input-group-addon"> MB </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>                 
-                            </div>
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
@@ -197,9 +218,9 @@
                     $('#delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                     });
-                    $('#link_update').click(function(){
+                    $('.link_update').click(function(){
                         var id_packages = $(this).data('id');
-                        $.get("<?php echo base_url('store/get_packages_by_id/')?>"+id_packages, function(html){
+                        $.get("<?php echo base_url('store/get_package_by_id/')?>"+id_packages, function(html){
                             $('#container_update').html(html);
                         });
                     })

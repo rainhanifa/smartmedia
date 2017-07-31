@@ -67,7 +67,7 @@
 
                             <div class="signup-header wow fadeInUp">
                                 <h3 class="form-title text-center">REGISTRASI</h3>
-                                <form class="form-header" action="<?php echo base_url('auth/register')?>" role="form" method="POST" id="#register">
+                                <form class="form-header" action="<?php echo base_url('auth/register')?>" role="form" method="GET" id="#register">
                                     <div class="form-group">
                                         <input class="form-control input-lg" name="first_name" id="first_name" type="text" placeholder="Nama" required>
                                     </div>

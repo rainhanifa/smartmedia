@@ -29,7 +29,7 @@
 	    <a href="http://illiyin.lam2x.com">
 	         <div class="logo-container">
 	            <div class="logo">
-	                <img src="<?php echo base_url('assets/')?>img/new_logo.png">
+	                <img src="<?php echo base_url('assets/images/')?>logo-square.png">
 	            </div>
 	            <div class="brand">
 	                Smart Media
@@ -88,11 +88,11 @@
 											<h5 class="info-text"> Data Akun</h5>
 											<div class="col-sm-10 col-sm-offset-1">
 													<div class="form-group">
-														<label>Nama Depan <small>(required)</small></label>
+														<label>Nama Depan</label>
 														<input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="<?php echo $nama;?>">
 													</div>
 													<div class="form-group">
-														<label>Nama Belakang <small>(required)</small></label>
+														<label>Nama Belakang</label>
 														<input name="lastname" type="text" class="form-control" placeholder="Smith...">
 													</div>
 											</div>

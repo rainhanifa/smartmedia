@@ -30,7 +30,7 @@
 	    <a href="http://illiyin.lam2x.com">
 	         <div class="logo-container">
 	            <div class="logo">
-	                <img src="<?php echo base_url('assets/')?>img/new_logo.png">
+	                <img src="<?php echo base_url('assets/images/')?>logo-square.png">
 	            </div>
 	            <div class="brand">
 	                Smart Media
@@ -46,7 +46,7 @@
 		            <div class="wizard-container">
 
 		                <div class="card wizard-card" data-color="blue" id="wizardProfile">
-		                    <form action="" method="post">
+		                    <form action="<?php echo base_url('auth/voucher')?>" method="post">
 		                <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
 
 		                    	<div class="wizard-header text-center">

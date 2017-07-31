@@ -19,6 +19,8 @@
 		}
 
 		function register(){
+			$data['nama'] = "";
+			$data['email'] = "";
 			if($_SERVER['QUERY_STRING']){
 				parse_str($_SERVER['QUERY_STRING'], $_GET); 	
 				$data['nama']	=	$_GET['first_name'];

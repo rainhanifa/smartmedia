@@ -1,7 +1,8 @@
-#main-content {
-	background-color: #fefefe;
+.skin-black #main-content {
+	background-color: #fff;/*#fefefe;*/
 	padding-top: 40px;
 }
+/*
 .navbar {
 	background: #1BBC9B;
 }
@@ -12,6 +13,7 @@
 .flaty-nav > li:hover, .dropdown-navbar > li.nav-header {
 	background-color: #12aa89;
 }
+*/
 .drop-right{
     left: auto;
     right: 0;

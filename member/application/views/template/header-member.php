@@ -32,4 +32,4 @@
 
         <link rel="shortcut icon" href="<?php echo base_url('assets')?>/img/favicon.png">
     </head>
-    <body>
+    <body class="skin-blue">

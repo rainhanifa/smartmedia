@@ -38,7 +38,7 @@
 
         
     </head>
-    <body>
+    <body class="skin-black">
 
         <!-- BEGIN Theme Setting -->
         <div id="theme-setting">

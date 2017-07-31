@@ -54,7 +54,7 @@
 
                             <!-- /.header button -->
                             <div class="head-btn wow fadeInLeft">
-                                <a href="#feature" class="btn-primary">Lebih Lanjut</a>
+                                <a href="#about" class="btn-primary">Selengkapnya</a>
                                 <a href="#download" class="btn-default">Coba Sekarang</a>
                             </div>
 
@@ -102,8 +102,8 @@
 
                     <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="about">Tentang</a></li>
-                            <li><a href="#feature-2">Fitur</a></li>
+                            <li><a href="#about">Tentang</a></li>
+                            <li><a href="#fitur">Fitur</a></li>
                             <li><a href="#package">Paket</a></li>
                             <li><a href="knowledgebase">Knowledgebase</a></li>
                             <li><a href="#testi">Testimonial</a></li>
@@ -118,7 +118,7 @@
 
         <!-- /.feature section -->
         <div id="feature-2">
-            <div class="container">
+            <div id="fitur" class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
 
@@ -197,6 +197,30 @@
                     <div class="col-md-6 feature-2-pic wow fadeInRight">
                         <img src="<?php echo base_url('assets/')?>images/pic2.jpg" alt="image" class="img-responsive">
                     </div>                
+                </div>            
+            </div>
+        </div>
+
+        <!-- /.video section -->
+        <div id="feature-2">
+            <div class="container">
+                <div class="row">=
+                    <!-- /.feature image -->
+                    <div class="col-md-6 feature-2-pic wow fadeInLeft">
+                        <div class="video-embed wow fadeIn" data-wow-duration="1s">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/z41Uy3Tg-yI" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>  
+
+                    <!-- /.template content -->
+                    <div class="col-md-6 wow fadeInLeft">
+                        <h2>Cara Kerja Smart Media</h2>
+                        <p>Smart Media Web Builder menyediakan berbagai variasi template yang sesuai dengan tema website Anda, personal, edukasi, restoran, portfolio, kesehatan, berita, hingga bisnis. Semua template kami bersifat responsif, sehingga dapat tampil dengan baik di berbagai perangkat seperti desktop, tablet, maupun mobile.
+                        </p>
+
+                        <div class="btn-section"><a href="#download" class="btn-default">Lihat Template</a></div>
+
+                    </div>              
                 </div>            
             </div>
         </div>

@@ -45,15 +45,11 @@
 					<br/>
 					<br/>
                         <table class="table table-advance" id="vouchers-table">
-							<col style="width:auto">
-							<col style="width:auto">
-							<col style="width:10%">
-							<col style="width:10%">
                             <thead class="table-flag-blue">
                                 <tr>
                                     <th>#</th>
                                     <th>Voucher Code</th>
-                                    <th>Voucher Type</th>
+                                    <th>Package</th>
                                     <th>Voucher Price</th>
                                     <th>Voucher Status</th>
                                     <th>Used At</th>
@@ -70,7 +66,20 @@
                                 <tr>                               
                                     <td><?php echo $counter;?></td>
 									<td><?php echo $voucher['code']?></td>
-                                    <td><?php echo $voucher['id_package']?></td>
+                                    <td><?php switch($voucher['category_package']){
+                                                case 0  :   echo "<span class='label label-yellow'>Quota</span>";
+                                                            break;
+
+                                                case 1  :   echo "<span class='label label-pink'>Extension</span>";
+                                                            break;
+
+                                                case 2  :   echo "<span class='label label-info'>Starter</span>";
+                                                            break;
+
+                                                default  :   echo "<span class='label label-info'>Starter</span>";
+                                                            break;
+                                        }
+                                        echo " ".$voucher['name_package']?></td>
                                     <td>Rp <?php echo $voucher['price']?></td>
                                     <td><?php switch($voucher['status']){
                                                 case 0  :   echo "<span class='label label-success'>Available</span>";
@@ -116,7 +125,7 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-                                <input type="submit" class="btn btn-info " value="SUBMIT" name="OK" >
+                                <input type="submit" class="btn btn-info " value="SUBMIT" name="submit" >
                             </div>
                         </div>
                         <!-- end modal-content -->
@@ -159,7 +168,7 @@
 
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Voucher Name</label></span>
-                                            <input type="text" name="name" id="voucher_name" class="form-control" placeholder="">
+                                            <input type="text" name="voucher_name" id="voucher_name" class="form-control" placeholder="">
                                         </div>
 
                                         <div class="col-sm-12 col-lg-12 controls">
@@ -174,9 +183,9 @@
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Package</label></span>
                                             <select name="package" class="form-control">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
+                                            <?php foreach($packages as $package){ ?>
+                                                <option value="<?php echo $package['id_package']?>"><?php echo $package['name_package']?></option>
+                                            <?php } ?>
                                             </select>
                                         </div>
                                     </div>                

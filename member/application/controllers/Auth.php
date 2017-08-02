@@ -19,10 +19,13 @@
 	            {
 	                $r      = $login->row_array();
 	                if($r['type'] == '3'){	
+	                	$clients  =  $this->db->get_where('clients',array('user_id' =>  $r['id_users']))->result_array();
+
 
 	                	$data   = array('is_active_user' => $r['username'],
 	                            'is_active_name' => $r['fullname'],
-	                            'is_active_id' => $r['id_user'],
+	                            'is_active_id' => $r['id_users'],
+	                            'is_active_cid' => $clients[0]['id_client'],
 	                            'is_logged_in' => 'TRUE');
 
 		                $this->session->set_userdata($data);

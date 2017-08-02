@@ -68,16 +68,16 @@
                                     <td><?php echo $counter;?></td>
 									<td><?php echo $package['name_package']?></td>
                                     <td><?php switch($package['category_package']){
-                                                case 0  :   echo "<span class='label label-success'>Quota</span>";
+                                                case 0  :   echo "<span class='label label-yellow'>Quota</span>";
                                                             break;
 
-                                                case 1  :   echo "<span class='label label-warning'>Extension</span>";
+                                                case 1  :   echo "<span class='label label-pink'>Extension</span>";
                                                             break;
 
-                                                case 2  :   echo "<span class='label label-danger'>Full Package</span>";
+                                                case 2  :   echo "<span class='label label-info'>Starter</span>";
                                                             break;
 
-                                                default  :   echo "<span class='label label-success'>Quota</span>";
+                                                default  :   echo "<span class='label label-info'>Starter</span>";
                                                             break;
                                         }?>
                                     </td>
@@ -167,35 +167,35 @@
                                         </div>
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Category</label></span>
-                                            <select name="package" class="form-control">
+                                            <select name="category" class="form-control">
                                                 <option value="0">Quota</option>
                                                 <option value="1">Extension</option>
-                                                <option value="2">New</option>
+                                                <option value="2">Starter</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-12 col-lg-12 controls">
                                             <span class="m_25"><label>Active Period</label></span>
                                             <div class="input-group">
-                                                <input type="number" name="active" class="form-control" placeholder="30">
+                                                <input type="number" name="active" class="form-control">
                                                 <div class="input-group-addon"> days </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-lg-6 controls">
                                             <span class="m_25"><label>Domain</label></span>
-                                            <input type="number" name="domain" class="form-control" placeholder="1">
+                                            <input type="number" name="domain" class="form-control">
                                         </div>
                                         <div class="col-sm-6 col-lg-6 controls">
                                             <span class="m_25"><label>Email</label></span>
-                                            <input type="number" name="email" class="form-control" placeholder="1">
+                                            <input type="number" name="email" class="form-control">
                                         </div>
                                         <div class="col-sm-6 col-lg-6 controls">
                                             <span class="m_25"><label>Bandwidth</label></span>
-                                            <input type="number" name="bandwidth" class="form-control" placeholder="200">
+                                            <input type="number" name="bandwidth" class="form-control">
                                         </div>
                                         <div class="col-sm-6 col-lg-6 controls">
                                             <span class="m_25"><label>Storage</label></span>
                                             <div class="input-group">
-                                                <input type="number" name="storage" class="form-control" placeholder="200">
+                                                <input type="number" name="storage" class="form-control">
                                                 <div class="input-group-addon"> MB </div>
                                             </div>
                                         </div>

@@ -9,179 +9,105 @@
                 </div>
                 <!-- END Page Title -->
 
-                <!-- BEGIN Breadcrumb -->
-                <div id="breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="<?php echo base_url("dashboard")?>">Home</a>
-                            <span class="divider"><i class="fa fa-angle-right"></i></span>
-                        </li>
-                        <li class="active">Store</li>
-                    </ul>
-                </div>
-                <!-- END Breadcrumb -->
-
                 <!-- BEGIN Main Content -->
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="box">
+                            <div class="box-title">
+                                <span><h3><strong>Voucher</strong></h3></span>
+                            </div>
                             <div class="box-content">
-                                <div class="clearfix">
-                                    <div class="pull-left">
-                                        <div class="btn-toolbar">
-                                            <div class="btn-group">
-                                                <select name="cat" class="chosen gallery-cat col-xs-12" data-placeholder="Filter category">
-                                                    <option value=""> </option>
-                                                    <option value="opt-1">Category-1</option>
-                                                    <option value="opt-2">Category-2</option>
-                                                    <option value="opt-3">Category-3</option>
-                                                    <option value="opt-4">Category-4</option>
-                                                    <option value="opt-5">Category-5</option>
-                                                </select>
+                                <p>Sudah memiliki voucher? Anda bisa langsung mengaktifkan paket dengan voucher.</p>
+                                <form class="form-inline" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="voucher_code" placeholder="Masukkan kode voucher" class="form-control" id="voucher_code" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <a name="check_voucher" class="btn btn-primary" id="check_voucher" data-toggle="modal" >Aktifkan</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="box">
+                            <div class="box-title">
+                                <span><h3><strong>Upgrade Package</strong></h3></span>
+                            </div>
+                            <div class="box-content">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="well well-lg">
+                                            <div class="gambar">
+                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/basic.png" style="position:center;">
                                             </div>
-                                            <div class="btn-group">
-                                                <select name="sort" class="chosen gallery-sort" data-placeholder="Sort by" data-nosearch="true">
-                                                    <option value=""> </option>
-                                                    <option value="sort-1">Date</option>
-                                                    <option value="sort-2">Author</option>
-                                                    <option value="sort-3">Category</option>
-                                                </select>
+                                            <h5 class="text-center">STARTER</h5><hr/>
+                                            <p class="text-center">1 Subdomain</p><hr/>
+                                            <p class="text-center">1 Email</p><hr/>
+                                            <p class="text-center">1GB Bandwith</p><hr/>
+                                            <p class="text-center">1GB Storage</p><hr/>        
+                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="well well-lg">
+                                            <div class="gambar">
+                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/starter.png">
                                             </div>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-success show-tooltip" title="Apply filter"><i class="fa fa-check"></i></a>
+                                            <h5 class="text-center">BASIC</h5><hr/>
+                                            <p class="text-center">1 Subdomain</p><hr/>
+                                            <p class="text-center">1 Email</p><hr/>
+                                            <p class="text-center">2GB Bandwith</p><hr/>
+                                            <p class="text-center">2GB Storage</p><hr/>        
+                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="well well-lg">
+                                            <div class="gambar">
+                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/pro.png">
                                             </div>
+                                            <h5 class="text-center">PROFESSIONAL</h5><hr/>
+                                            <p class="text-center">1 Subdomain</p><hr/>
+                                            <p class="text-center">5 Email</p><hr/>
+                                            <p class="text-center">Unlimited Bandwith</p><hr/>
+                                            <p class="text-center">5GB Storage</p><hr/>        
+                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
-                                <ul class="gallery">
-                                      <?php 
-                                        $counter = 0;
-                                            foreach($theme as $them){
-                                        $counter++;
-                                    ?>        
-                                    <li>
-                                        <a href="../<?php echo $them["preview_1"]?>" rel="prettyPhoto" title="<?php echo $them['description_theme']?>">
-                                            <div>
-                                               <img src="../<?php echo $them["preview_1"]?>" alt=""  /> 
-                                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-title">
+                                <h3>Extension</h3>
+                            </div>
+                            <div class="box-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php foreach($extensions as $extension){ ?>
+                                        <div class="col-md-3">
+                                            <div class="well well-lg">
+                                                <div class="gambar">
+                                                    <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/days.png" style="position:center;">
+                                                </div>
+                                                <hr/><h5 class="text-center"><?php echo $extension['name_package']?></h5><hr/>
+                                                
+                                                <p>
+                                                    <button class="btn-block btn btn-primary btn-lg">BELI</button>
+                                                </p>
                                             </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
-                                    </li>
-                                    <!-- <li>
-                                        <a href="<?php echo base_url("assets");?>/img/2a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/2.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("store/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li> -->
-                                     <?php }?>
-                                   <!--  <li>
-                                        <a href="<?php echo base_url("assets");?>/img/3a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/3.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/4a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/4.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/5a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/5.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/6a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/6.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/7a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/7.jpg"alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/8a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/8.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/9a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/9.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url("assets");?>/img/10a.jpg" rel="prettyPhoto" title="Description of image">
-                                            <div>
-                                                <img src="<?php echo base_url("assets");?>/img/10.jpg" alt="" />
-                                                <i></i>
-                                            </div>
-                                        </a>
-                                        <div class="gallery-tools">
-                                            <a href="<?php echo base_url("stores/confirmation")?>"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
-                                    </li> -->
-                                </ul>
-                                <div class="text-center">
-                                    <ul class="pagination pagination-bullet">
-                                        <li class="active"><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                    </ul>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -189,4 +115,57 @@
                 </div>
                 <!-- END Main Content -->
 
+                <!-- Modal Voucher -->
+                <div class="modal fade modal-white" id="buy_voucher" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <form action="<?php echo base_url("store/activate_voucher");?>" method="post">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content infotrophy-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Aktivasi Voucher</h4>
+                            </div>
+
+                            <div id="voucher_detail">
+                                <div class="modal-body">
+                                    <img src="<?php echo base_url('assets/img/loader.gif')?>"/>
+                                    
+                                </div>         
+                            </div>
+                          <!-- end modal-body -->
+                        </div>
+                        <!-- end modal-content -->
+                    </div>
+                </form>    
+                </div>
+                <!-- end modal voucher -->
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<?php echo base_url('assets')?>/assets/jquery/jquery-2.1.4.min.js"><\/script>')</script>
+        <script src="<?php echo base_url('assets')?>/assets/bootstrap/js/bootstrap.min.js"></script>
+
             
+            <script type="text/javascript">
+                $('#check_voucher').click(function(e){
+                    e.preventDefault();
+                    var code = $("#voucher_code").val();
+                        $.ajax({
+                            url: "<?php echo base_url('store/get_voucher_by_code'); ?>",
+                            data: "code=" + code,
+                            success: function(html)
+                            {
+                                $("#voucher_detail").html(html);
+
+                            }
+                        });  
+                    
+                });
+
+                $('#voucher_code').blur(function() {
+                   if($('#voucher_code').val() !== "") {
+                       $('#check_voucher').attr('data-target','#buy_voucher');
+                   } else {
+                      $('#check_voucher').removeAttr('data-target');
+                      alert("Masukkan kode voucher terlebih dahulu");
+                   }
+                });
+            </script>       

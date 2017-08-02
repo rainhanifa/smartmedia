@@ -20,17 +20,9 @@
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->
-                <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
                 <!-- BEGIN Main Content -->
                
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>
-
+                <!-- 
                 <div class="outstanding-balance ">
                     <div class="box">
                         <div class="box-title no-bg ">
@@ -38,6 +30,7 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">Outstanding Balance: <span>Rp 0,00</span></h4>
                                 </div>
+
                                 </div>
                             <div class="box-tool">
                                 <div class="box">Credit Balance: <span> Rp.667 </span> <a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-ok"></i> Add Deposit</a> </div>                                
@@ -45,9 +38,8 @@
                         </div>
                     </div>
                 </div>
+                -->
                 
-                
-
                 <div class="box">
                     <div>
                         <table class="table table-advance" id="invoice-table">
@@ -61,43 +53,31 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($transactions as $transaction) { ?>
                                 <tr>                               
-                                    <td><a href="">279641</a></td>
-                                    <td>16/08/2015</td>
-                                    <td>21/08/2015</td>
-                                    <td> Rp. 280.983,00</td>
-                                    <td><span class="label label-large label-lime">Paid</span></td>
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+                                    <td><a href="<?php echo base_url("transactions/invoice");?>"><?php echo $transaction['id_transaction']?></a></td>
+                                    <td><?php echo $transaction['date_transaction']?></td>
+                                    <td><?php echo $transaction['due_date']?></td>
+                                    <td> Rp. <?php echo $transaction['total']?></td>
+                                    <td>
+                                    <?php
+                                        switch($transaction['date_transaction']){
+                                            case 0: echo '<span class="label label-large label-warning">Unpaid</span>';
+                                                    break;
+                                            case 1: echo '<span class="label label-large label-lime">Awaiting Confirmation</span>';
+                                                    break;
+                                            case 2: echo '<span class="label label-large label-lime">Paid</span>';
+                                                    break;
+                                            case 5: echo '<span class="label label-large label-gray">Canceled</span>';
+                                                    break;
+                                            default:echo '<span class="label label-large label-warning">Unpaid</span>';
+                                                    break;
+                                        }
+                                    ?>
+                                    </td>
+                                    <td><a href="<?php echo base_url('transactions/invoice/').$transaction['id_transaction'];?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
                                 </tr>
-                                <tr>                               
-                                    <td><a href="">495868</a></td>
-                                    <td>16/03/2017</td>
-                                    <td>23/03/2017</td>
-                                    <td>Rp. 159.945,00</td>
-                                    <td><span class="label label-large label-gray">Canceled</span></td>
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
-                                </tr>
-
-                                <tr>                               
-                                    <td><a href="">503565</a></td>
-                                    <td>12/04/2017</td>
-                                    <td>17/04/2017</td>
-                                    <td> Rp. 200.565,00</td>
-                                    <td><span class="label label-large label-warning">Unpaid</span></td>
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a>
-                                     <a href="#" class="btn btn-lime" data-toggle="modal" data-target="#confirm"><i class="fa fa-check"></i> Confirm Payment</a></td>
-                                </tr>
-
-                                 <tr>                               
-                                    <td><a href="">512348</a></td>
-                                    <td>5/05/2017</td>
-                                    <td>12/05/2017</td>
-                                    <td> Rp. 235.348,00</td>
-                                    <td><span class="label label-large label-danger">Unpaid</span></td>
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a>
-                                     <a href="#" class="btn btn-lime" data-toggle="modal" data-target="#confirm"><i class="fa fa-check"></i> Confirm Payment</a></td>
-                                </tr>
-                              
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

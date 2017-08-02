@@ -62,10 +62,13 @@
 														"last_name"	 => $last_name,
 												 );
 							if($this->db->insert("clients",$register_client)){
+
+								$id_client	= $this->db->insert_id();
 								//aktifkan sesi
 						        $login   = array('is_active_user' => $email,
 						                            'is_active_name' => $first_name.' '.$last_name,
 						                            'is_active_id' => $id_user,
+						                            'is_active_cid' => $cid,
 						                            'is_logged_in' => 'TRUE');
 								$this->session->set_userdata($login);
 
@@ -86,17 +89,49 @@
 
 		function voucher(){
 			if(isset($_POST['submit'])){
-
+				$id_voucher			=	$this->input->post('id_voucher');
 				$code 			=	$this->input->post('voucher_code');
+				$domain			=	$this->input->post('domain');
+				$email 			=	$this->input->post('email');
+				$bandwidth 		=	$this->input->post('bandwidth');
+				$storage		= 	$this->input->post('storage');
+				$active 		=	$this->input->post('active_period');
+				$price 			=	$this->input->post('price');
 
+				$start_date 	= date("Y-m-d");
+				$end_date		= date("Y-m-d", strtotime("+".$active." days"));
+				
+				// set active package
+				$packagedata	= array("id_client" => $this->session->userdata("is_active_id"),
+									"domain" => $voucher['domain'],
+									"email" => $voucher['email'],
+									"bandwidth"	=> $voucher['bandwidth'],
+									"storage" => $voucher['storage'],
+									"active_period" => $voucher['active_period'],
+									"start_date" => date('Y-m-d')
+								);
+
+				$this->db->insert("clients_package",$package_data);
+
+				// update voucher as used
 				$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'));
-				$this->db->where('code', $code);
+				$this->db->where('id_voucher', $id_voucher);
 				$this->db->update("vouchers",$use_voucher);
 
-				$voucher 	=	$this->db->get_where('vouchers', array('code' => $code))->result_array();
-				foreach($voucher as $voucher){
-					$this->session->set_flashdata('package', $voucher['id_package']);
-				}
+				// simpan transaksi
+				$transaction_data	= array("id_client" => $this->session->userdata("is_active_id"),
+										"date_transaction" => date("Y-m-d"),
+										"due_date" => date("Y-m-d"),
+										"date_payment" => date("Y-m-d"),
+										"date_transaction" => date("Y-m-d"),
+										"total" => $price,
+										"method" => 1,
+										"detail" => "Aktivasi voucher starter",
+										"status_payment" => 2,
+										"verified_by" => 1
+										);
+				$this->db->insert("transactions",$transaction_data);
+
 				redirect('auth/createsite');
 			}
 			$this->load->view('auth/voucher.php');
@@ -106,12 +141,19 @@
 			$code 		=	$_GET['code'];
 	        $voucher 	=  $this->db->query("SELECT * FROM vouchers
 	        								JOIN packages ON vouchers.id_package = packages.id_package
-	        								WHERE vouchers.code = '$code'")->result_array();
+	        								WHERE vouchers.code = '$code' AND vouchers.status = 0 LIMIT 1")->result_array();
 
 	        if($voucher){
-
 		        foreach($voucher as $detail){
-					echo '<h5 class="info-text">Anda akan mengaktifkan <strong>'.$detail['name'].'</strong>!</h5>
+						echo '<h5 class="info-text">Anda akan mengaktifkan <strong>'.$detail['name'].'</strong></h5>
+							<input type="hidden" name="id_voucher" value="'.$detail['id_voucher'].'">
+							<input type="hidden" name="domain" value="'.$detail['domain'].'">
+							<input type="hidden" name="email" value="'.$detail['email'].'">
+							<input type="hidden" name="bandwidth" value="'.$detail['bandwidth'].'">
+							<input type="hidden" name="storage" value="'.$detail['storage'].'">
+							<input type="hidden" name="active_period" value="'.$detail['active_period'].'">
+							<input type="hidden" name="price" value="'.$detail['price'].'">
+
 	                        <div class="col-sm-10 col-sm-offset-1">
 	                            <div class="col-sm-3">
 									<div class="choice" data-toggle="wizard-checkbox">
@@ -150,11 +192,12 @@
 	                            </div>
 	                        </div>
 	                    </div>';
+	                }
 	            }
 	        }
 	        else
 	        {
-	        	echo '<h5 class="info-text">Voucher Tidak Ditemukan!</h5>';
+	        	echo '<h5 class="info-text">Voucher Tidak Ditemukan atau Telah Kadaluarsa</h5>';
 	        }
             exit;
 		}
@@ -164,17 +207,16 @@
 				$siteaddress	= $this->input->post("siteaddress");
 				$sitedesc		= $this->input->post("sitedesc");
 				$webmail		= $this->input->post("webmail");
-				$package		= $this->input->post("package");
 
 				$sitedata		= array("name_site" => $sitename,
 										"address_site" => $siteaddress,
 										"description_site" => $sitedesc,
 										"client_id"	=> $this->session->userdata("is_active_id"),
-										"active_package" => $package,
 										"date_registered" => date('Y-m-d')
 									);
 				if($this->db->insert("sites",$sitedata)){
-					redirect("web-builder");
+					$this->session->set_userdata('new_site', $siteaddress);
+					redirect("web-builder/");
 				}
 				else{
 					$this->session->set_flashdata("message","Failed to save site! ".$this->db->error());	

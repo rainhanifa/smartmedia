@@ -3,17 +3,23 @@
 	
 	class Manage extends CI_COntroller{
 		var $table	=	"sites";
+		var $user_id;
 
 		function __construct() {
 	        parent::__construct();
 		     if (!$this->session->userdata('is_logged_in')){
 		        redirect('auth/login');
 		     }
+		     $this->user_id = $this->session->userdata('is_active_id');
 	    }
 	    
 		public function index()
 		{
-			$data['sites'] = $this->db->get_where($this->table, array('client_id =' => $this->session->userdata('is_active_id')))->result_array();
+			$data['sites'] = $this->db->get_where($this->table, array('client_id =' => $this->user_id))->result_array();
+			$data['total_sites'] = $this->db->get_where($this->table, array('client_id =' => $this->user_id))->num_rows();
+			$data['user_account'] = $this->db->get_where("clients_package", array('id_client' => $this->user_id))->result_array();
+			$data['is_exist_account'] = $this->db->get_where("clients_package", array('id_client' => $this->user_id))->num_rows();
+
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('manage/index.php', $data);

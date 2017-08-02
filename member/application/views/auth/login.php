@@ -31,13 +31,12 @@
                 <hr/>
                 <?php if($this->session->flashdata("message") != ""){ ?>
                         <div class="alert alert-danger">
-                            <button class="close" data-dismiss="alert">&times;</button>
                             <?php echo $this->session->flashdata("message");?>
                         </div>
                 <?php }?>
                 <div class="form-group">
                     <div class="controls">
-                        <input type="text" placeholder="Username" class="form-control" name="username"/>
+                        <input type="text" placeholder="Email" class="form-control" name="username"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,41 +46,12 @@
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" value="remember" /> Remember me
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="controls">
                         <input type="submit" class="btn btn-primary form-control" name="submit" value="LOGIN">
                     </div>
                 </div>
 
-                <p class="clearfix">
-                    <a href="#" class="goto-forgot pull-left">Forgot Password?</a>
-                </p>
             </form>
             <!-- END Login Form -->
-
-            <form id="form-forgot" action="<?php echo base_url("auth/requestreset")?>" method="post" style="display:none">
-                <h3>Get back your password</h3>
-                <hr/>
-                <div class="form-group">
-                    <div class="controls">
-                        <input type="text" placeholder="Email" class="form-control" name="email"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="controls">
-                        <button type="submit" class="btn btn-primary form-control">Reset Password</button>
-                    </div>
-                </div>
-                <hr/>
-                <p class="clearfix">
-                    <a href="#" class="goto-login pull-left">← Back to login form</a>
-                </p>
-            </form>
         </div>
         <!-- END Main Content -->
 

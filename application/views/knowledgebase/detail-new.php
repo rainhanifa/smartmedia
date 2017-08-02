@@ -31,18 +31,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand site-name" href="#top"><img src="<?php echo base_url('assets/')?>images/logo.png" alt="logo"></a>
+                        <a class="navbar-brand site-name" href="<?php echo base_url()?>"><img src="<?php echo base_url('assets/')?>images/logo.png" alt="logo"></a>
                     </div>
 
                     <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="about">Tentang</a></li>
-                            <li><a href="#feature">Fitur</a></li>
-                            <li><a href="#package">Paket</a></li>
-                            <li class="active"><a href="knowledgebase">Knowledgebase</a></li>
-                            <li><a href="#testi">Testimonial</a></li>
-                            <li><a href="#contact">Kontak</a></li>
+                            <li><a href="<?php echo base_url('#about')?>">Tentang</a></li>
+                            <li><a href="<?php echo base_url('#feature-2')?>">Fitur</a></li>
+                            <li><a href="<?php echo base_url('#package')?>">Paket</a></li>
+                            <li class="active"><a href="<?php echo base_url('knowledgebase')?>">Knowledgebase</a></li>
+                            <li><a href="<?php echo base_url('#testi')?>">Testimonial</a></li>
+                            <li><a href="<?php echo base_url('#contact')?>">Kontak</a></li>
                             <li><a href="<?php echo base_url('member/auth/login')?>">Login</a></li>
+                            <li><a href="<?php echo base_url('auth/register')?>">Register</a></li>
                         </ul>
                     </div>
                 </div>

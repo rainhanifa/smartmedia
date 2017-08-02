@@ -116,10 +116,10 @@
                         </div>
                         <div class="col-sm-12 col-lg-12 controls">
                             <span class="m_25"><label>Category</label></span>
-                            <select name="package" class="form-control">
+                            <select name="category" class="form-control">
                                 <option value="0" '.(($p['category_package'] == 0) ? 'selected' : '').'>Quota</option>
                                 <option value="1" '.(($p['category_package'] == 1) ? 'selected' : '').'>Extension</option>
-                                <option value="2" '.(($p['category_package'] == 2) ? 'selected' : '').'>New</option>
+                                <option value="2" '.(($p['category_package'] == 2) ? 'selected' : '').'>Starter</option>
                             </select>
                         </div>
                         <div class="col-sm-12 col-lg-12 controls">
@@ -152,7 +152,8 @@
 		}
 
 		public function vouchers(){
-			$data['vouchers'] = $this->db->get('vouchers')->result_array();
+			$data['vouchers'] = $this->db->query('SELECT * FROM vouchers JOIN packages ON vouchers.id_package = packages.id_package')->result_array();
+			$data['packages']  =	$this->db->get('packages')->result_array();
 
 			//detail
 			$this->load->view('template/header-admin.php');
@@ -163,6 +164,7 @@
 
 		public function get_voucher_by_id($id_voucher){
 			$voucher	=	$this->db->query('SELECT * FROM vouchers WHERE id_voucher ='.$id_voucher)->result_array();
+			$package	=	$this->db->get('packages')->result_array();
 
 			foreach($voucher as $v){
 				echo '<div class="row">
@@ -175,7 +177,7 @@
 
                     <div class="col-sm-12 col-lg-12 controls">
                         <span class="m_25"><label>Voucher Name</label></span>
-                        <input type="text" name="name" id="voucher_name" class="form-control value="'.$v['name'].'">
+                        <input type="text" name="voucher_name" id="voucher_name" class="form-control value="'.$v['name'].'">
                     </div>
 
                     <div class="col-sm-12 col-lg-12 controls">
@@ -188,11 +190,11 @@
 
                     <div class="col-sm-12 col-lg-12 controls">
                         <span class="m_25"><label>Package</label></span>
-                        <select name="package" class="form-control">
-                            <option value="0"'.(($v['id_package'] == '0')?' selected ':'').'>0</option>
-                            <option value="1"'.(($v['id_package'] == '1')?' selected ':'').'>1</option>
-                            <option value="2"'.(($v['id_package'] == '2')?' selected ':'').'>2</option>
-                        </select>
+                        <select name="package" class="form-control">';
+                foreach($package as $p){
+                	echo '<option value="'.$p['id_package'].'"'.(($v['id_package'] == $p['id_package'])?' selected ':'').'>'.$p['name_package'].'</option>';
+                }
+				echo '</select>
                     </div>
                 </div>
             	</div>';
@@ -202,7 +204,7 @@
 		public function voucher_add(){
 			if(isset($_POST['submit'])){
 				$code	=	$this->input->post('code');
-				$name	=	$this->input->post('name');
+				$name	=	$this->input->post('voucher_name');
 				$price	=	$this->input->post('price');
 				$package=	$this->input->post('package');
 
@@ -222,7 +224,7 @@
 		public function voucher_update(){
 			$id 	=	$this->input->post('id');
 			$code	=	$this->input->post('code');
-			$name	=	$this->input->post('name');
+			$name	=	$this->input->post('voucher_name');
 			$price	=	$this->input->post('price');
 			$package=	$this->input->post('package');
 

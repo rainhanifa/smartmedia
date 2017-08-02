@@ -4,21 +4,14 @@
     <div class="page-title">
         <div>
             <h1><i class="fa fa-file-o"></i> Dashboard</h1>
-            <h4>Overview, stats, chat and more</h4>
+            
         </div>
     </div>
     <!-- END Page Title -->
 
-    <!-- BEGIN Breadcrumb -->
-    <div id="breadcrumbs">
-        <ul class="breadcrumb">
-            <li class="active"><i class="fa fa-home"></i> Home</li>
-        </ul>
-    </div>
-    <!-- END Breadcrumb -->
-
 
     <!-- BEGIN Tiles -->
+    
     <div class="row">
     	<div class="col-md-3">
     		<div class="tile tile-green">

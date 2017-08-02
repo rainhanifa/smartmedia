@@ -40,6 +40,11 @@
                 /*"aoColumnDefs": [
                   { "bSortable": true, "aTargets": [ 4 ] }
                 ]*/ } );
+            
+              $('#transaction-table').dataTable( {
+                "aoColumnDefs": [
+                  { "bSortable": true, "aTargets": [ 5 ] }
+                ] } );
               
             });
             

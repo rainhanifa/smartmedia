@@ -54,7 +54,7 @@
 
                             <!-- /.header button -->
                             <div class="head-btn wow fadeInLeft">
-                                <a href="#about" class="btn-primary">Selengkapnya</a>
+                                <a href="#about" class="btn-primary"><i class="pe-7s-play pe-5x pe-va"></i> Lihat Video</a>
                                 <a href="#download" class="btn-default">Coba Sekarang</a>
                             </div>
 

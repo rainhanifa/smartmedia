@@ -7,19 +7,6 @@
                     </div>
                 </div>
                 <!-- END Page Title -->
-
-               <!-- BEGIN Breadcrumb -->
-                <div id="breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
-                            <span class="divider"><i class="fa fa-angle-right"></i></span>
-                        </li>
-                        <li class="active">Transaction</li>
-                    </ul>
-                </div>
-                <!-- END Breadcrumb -->
                 <!-- BEGIN Main Content -->
                
                 <!-- 
@@ -56,9 +43,9 @@
                             <tbody>
                                 <?php foreach($transactions as $transaction) { ?>
                                 <tr>                               
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>"><?php echo $transaction['id_transaction']?></a></td>
+                                    <td><a href="<?php echo base_url("transaction/invoice/").$transaction['id_transaction'];?>"><?php echo $transaction['id_transaction']?></a></td>
                                     <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction'])) ?></td>
-                                    <td><a href="<?php echo base_url("transactions/invoice");?>"><?php echo $transaction['detail']?></a></td>
+                                    <td><a href="<?php echo base_url("transaction/invoice/").$transaction['id_transaction'];?>"><?php echo $transaction['detail']?></a></td>
                                     <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
                                     <td> Rp. <?php echo $transaction['total']?></td>
                                     <td>

@@ -20,10 +20,9 @@
 			$this->load->view('transaction/index.php', $data);
 			$this->load->view('template/footer-member.php');
 		}
-		public function invoice(){
+		public function invoice($id = 0){
+			$data['invoices']	=	$this->db->get_where($this->table, array('id_transaction' => $id))->result_array();
 			$this->load->view('template/header-member.php');
-			$this->load->view('template/navbar-member.php');
-			$this->load->view('transaction/invoice.php');
-			$this->load->view('template/footer-member.php');
+			$this->load->view('transaction/invoice.php', $data);
 		}
 	}

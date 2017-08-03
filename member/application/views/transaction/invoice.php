@@ -1,177 +1,119 @@
-                <!-- BEGIN Main Content -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box">
-                            <div class="box-content">
-                                <div class="invoice">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h2><i class="fa fa-cloud"></i> Smart Media</h2>
-                                            <p class="font-size-17"><strong>Invoice</strong> # 7628-16</p>
-                                        </div>
-                                        <div class="col-md-6 invoice-info">
-                                            <div class="distance3">
-                                                <h4><strong>UNPAID</strong></h4>
-                                                <br/>
-                                                <p>
-                                                    Silahkan transfer ke : <br/>
-                                                    BANK BCA CAB. Gudang Peluru<br/>
-                                                    A.n. Alfian Pamungkas Sakawiguna<br/>
-                                                    No. Rekening 272-090-889-2<br/>
-                                                    Pastikan anda sudah mentransfer uang sebelum mengeksekusi tombol.<br/>
-                                                    Mogon tuliskan berita:INVOICE-7628-16 pada kolom berita transfer.<br/>
-                                                    Atau jika via AM silahkan transfer dengan jumlah : Rp. 324444<br/>
-                                                    (Transfer dengan angka khusus hanya berlaku 3 hari)<br/>
-                                                </p>
-                                                <button class="btn">Cek Pembayaran</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div class="row">
-                                        <div class="col-md-3 company-info">
-                                            <p>
-                                                Invoiced To :<br/><br/>
-                                                illiyin.co<br/>
-                                                muhammad luqman hakim<br/>
-                                                Perum. Puri Nirwana Keben Kav. 7 Sukun, Kota Malang, jl. gading pesantren 38 Malang<br/>
-                                                Malang, Jawa Timur, 65146<br/> 
-                                                Indonesia<br/>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-3 company-info">
-                                            <p>
-                                                Pay To :<br/><br/>
-                                                PT. Cloud Hosting Indonesia<br/>
-                                                NPWP : 73.599.599.5-411.000<br/>
-                                                Pinus Raya Reni Jaya Ag-1 No.01 Pamulang Barat, Pamulang.<br/>
-                                                Tangerang Selatan, Banten.<br/>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-3 company-info">
-                                            <p>
-                                                Invoiced Date :<br/><br/>
-                                                Wednesday, June 31th, 2017<br/>
-                                                Due Date :<br/>
-                                                Friday, July 2nd, 2017<br/>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-3 company-info">
-                                            <div class="form-group">
-                                               <label class="col-sm-12 control-label">Payment Method</label><br/>
-                                               <div class="col-sm-9 col-lg-10 controls">
-                                                  <select class="form-control input-sm" tabindex="1">
-                                                     <option value="BCA">BCA</option>
-                                                     <option value="ATM">ATM</option>
-                                                  </select>
-                                               </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br/>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">APPLY CREDIT</h4>
-                                                </div>
-                                                <div class="panel-body">
-                                                    Your credit balance is Rp. 596-. This can be applied to the invoice using the form below. Enter the amount to apply : <br/>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 col-lg-4 control-label"></label>
-                                                        <div class="col-sm-5 col-lg-4 controls">
-                                                            <div class="input-group">
-                                                                <input type="text" placeholder="" class="form-control">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn" type="button">Apply</button>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                        <th>DESCRIPTION</th>
-                                                        <th class="text-right">AMOUNT</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Starter Pro - rumahdimalang.info (26/01/2017 - 25/01/2018)<br/>Location:Singapore*</td>
-                                                        <td class="text-right">Rp. 120,000-</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Domain Renewal - rumahdimalang.info - 1 Year (26/01/2017 - 25/01/2018)<br/>+ DNS Management<br/>+ Email Fowarding* </td>
-                                                        <td class="text-right">Rp. 145,000-</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Late Free (Added 31/01/2017)* </td>
-                                                        <td class="text-right">Rp. 29,150- </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Sub Total</td>
-                                                        <td class="text-right">Rp. 294,150- </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10.00% PPN </td>
-                                                        <td class="text-right">Rp. 29,415- </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Credit</td>
-                                                        <td class="text-right">Rp. 0- </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Total</td>
-                                                        <td class="text-right">Rp. 323,565- </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p><span>* Indicates a taxed item. </span></p>
-                                            <table class="table table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                        <th>TRANSACTION DATE</th>
-                                                        <th>GATEWAY</th>
-                                                        <th>TRANSACTION ID</th>
-                                                        <th class="text-right">AMOUNT</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>No Related Transactions Found</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td class="text-right"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Balance</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td class="text-right">Rp. 323,565-</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div><br/><br/>
-                                    <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <a href="index.html">Back to Client Area</a>
-                                        </div>
-                                    </div>
-                                </div>
+
+<div id="main-content">
+    <!-- BEGIN Page Title -->
+    <div class="page-title">
+        <div>
+            <h1><i class="fa fa-file-o"></i> INVOICE DETAIL</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <?php foreach($invoices as $invoice){ ?>
+            <div class="box">
+                <div class="box-content">
+                    <div class="invoice">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="<?php echo base_url('assets/')?>img/logo.png" />
+                            </div>
+                            <div class="col-md-6 invoice-info">
+                                <p class="font-size-17"><strong>Invoice #<?php echo $invoice['id_transaction']?></strong></p>
+                                <p class="font-size-15"><?php echo date("d F Y", strtotime($invoice['date_transaction'])) ?></p>
                             </div>
                         </div>
+
+                        <hr class="margin-0" />
+
+                        <div class="row">
+                            <div class="col-md-4 company-info">
+                                <p>Invoice From:</p>
+                                <h4>Smart Media</h4>
+                                <p>Perum Nirwana Keben Kav. 7, Sukun<br/>Kota Malang, 65122</p>
+                                <p><i class="fa fa-phone"></i> +62 81 333 66 2055</p>
+                                <p><i class="fa fa-globe"></i> www.smartmedia.com</p>
+                                <p><i class="fa fa-envelope"></i> info@smartmedia.com</p>
+                            </div>
+                            <div class="col-md-4 company-info">
+                                <p>Invoiced To:</p>
+                                <h4>John Doe</h4>
+                                <p>Jl. Gading Pesantren no. 38<br/>Kota Malang, 65128</p>
+                                <p><i class="fa fa-phone"></i> +62 85 941 020 444</p>
+                                <p><i class="fa fa-envelope"></i> johndoe@gmail.com</p>
+                            </div>
+                            <div class="col-md-4 company-info">
+                                <h4>Payment</h4>
+                                <?php if($invoice['status_payment'] != 0){ 
+                                        switch($invoice['status_payment']){
+                                            case '1'   : echo "<span class='btn btn-warning btn-lg'>Awaiting Confirmation</span>";
+                                                         break;
+                                            case '2'   : echo "<span class='btn btn-success btn-lg'><i class='fa fa-check'></i> Paid</span>";
+                                                         break;
+                                            default   : echo "<span class='btn btn-success btn-lg'><i class='fa fa-check'></i> Paid</span>";
+                                                         break;
+                                        }
+                                    } else {?>
+                                <p>
+                                    <select name="method" class="form-control">
+                                        <option value="0">Voucher</option>
+                                        <option value="2">Transfer Bank</option>
+                                        <option value="1">Veritrans</option>
+                                    </select>
+                                </p>
+                                    <?php } ?>
+                            </div>
+                        </div>
+
+                        <br/><br/>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="center">#</th>
+                                        <th class="hidden-sm">Deskripsi</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="center">1</td>
+                                        <td class="hidden-sm"><?php echo $invoice['detail']?></td>
+                                        <td>Rp <?php echo $invoice['total']?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php if($invoice['status_payment'] == 0){ ?>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Anda dapat melakukan pembayaran dengan salah satu metode berikut ini:</h4>
+                                <ul>
+                                    <li>Transfer ke Bank:<br/>BCA KCU MALANG Basuki Rahmat<br/>a.n Imaniar Hanifa<br/>
+                                    No. Rekening 0115116032</li>
+                                    <li><a href="#">Bayar online melalui Veritrans</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 invoice-amount">
+                                <p><strong>Total:</strong> <span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
+                                <p><br/><a class="btn btn-success btn-xlarge" href="#">Konfirmasi Pembayaran</a></p>
+                            </div>
+                        </div>
+                        <?php }
+                            else{ ?>
+
+                            <div class="col-md-12 invoice-amount pull-right">
+                                <p><strong>Total:</strong> <span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
+                            </div>
+                        <?php }?>
                     </div>
                 </div>
+            </div>
+            <?php } ?>
 
-                <!-- END Main Content -->
+                    <div class="row text-center">
+                    <a href="<?php echo base_url('transaction')?>" class="btn btn-info">Kembali ke Transaksi</a>
+                    </div>
+        </div>
+
+    </div>
+</div>

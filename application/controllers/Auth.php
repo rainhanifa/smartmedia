@@ -194,7 +194,7 @@
 	                    </div>';
 	                }
 	            }
-	        }
+	       
 	        else
 	        {
 	        	echo '<h5 class="info-text">Voucher Tidak Ditemukan atau Telah Kadaluarsa</h5>';

@@ -103,15 +103,16 @@
 				
 				// set active package
 				$packagedata	= array("id_client" => $this->session->userdata("is_active_id"),
-									"domain" => $voucher['domain'],
-									"email" => $voucher['email'],
-									"bandwidth"	=> $voucher['bandwidth'],
-									"storage" => $voucher['storage'],
-									"active_period" => $voucher['active_period'],
-									"start_date" => date('Y-m-d')
+									"domain" => $domain,
+									"email" => $email,
+									"bandwidth"	=> $bandwidth,
+									"storage" => $storage,
+									"active_period" => $active,
+									"start_date" => $start_date,
+									"end_date" => $end_date
 								);
 
-				$this->db->insert("clients_package",$package_data);
+				$this->db->insert("clients_package",$packagedata);
 
 				// update voucher as used
 				$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'));

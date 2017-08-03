@@ -14,7 +14,7 @@
     
     <div class="row">
     	<div class="col-md-3">
-    		<div class="tile tile-green">
+    		<div class="tile tile-green tile-mysites">
                 <div class="<?php echo base_url('assets')?>/img">
                     <i class="fa fa-desktop"></i>
                 </div>
@@ -25,7 +25,7 @@
             </div>
     	</div>
     	<div class="col-md-3">
-    		<div class="tile tile-red">
+    		<div class="tile tile-red tile-due">
                 <div class="<?php echo base_url('assets')?>/img">
                     <i class="fa fa-files-o"></i>
                 </div>
@@ -36,7 +36,7 @@
             </div>
     	</div>
     	<div class="col-md-3">
-    		<div class="tile tile-orange">
+    		<div class="tile tile-orange tile-tickets">
                 <div class="<?php echo base_url('assets')?>/img">
                     <i class="fa fa-ticket"></i>
                 </div>
@@ -47,7 +47,7 @@
             </div>
     	</div>
     	<div class="col-md-3">
-    		<div class="tile">
+    		<div class="tile tile-credits">
                 <div class="<?php echo base_url('assets')?>/img">
                     <i class="fa fa-credit-card"></i>
                 </div>

@@ -81,7 +81,7 @@
             <div class="container">
                 <div class="row">
                     <!-- /.apple devices image -->
-                    <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-10 col-md-offset-1 know-content">
                         <?php echo $article['content_articles']?>	
                         <div class="text-center"><a href="<?php echo base_url('knowledgebase')?>">Kembali ke Knowledgebase</a></div>
                     </div>	

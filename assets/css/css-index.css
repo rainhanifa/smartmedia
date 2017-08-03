@@ -153,8 +153,8 @@ a:hover {
 }
 
 .site-name img {
-	width: 150px; 
-	height: 37px
+	width: auto; 
+	height: 37px;
 }
 .logo {
 	margin: 100px 0 40px 0;
@@ -1032,4 +1032,21 @@ and (orientation : landscape) {
 	.table > tbody > tr > td { 
 		padding: 20px 10px; 
 	}
+}
+
+
+/* 
+    --------------------------------
+    CUSTOM CSS REDESIGN SMART MEDIA
+    --------------------------------
+*/
+.logo img {
+    width: auto;
+    height: 37px;
+}
+.know-content img{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin-bottom: 15px;
 }

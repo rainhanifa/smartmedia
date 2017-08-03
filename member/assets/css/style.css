@@ -356,3 +356,87 @@ border-color: #8DFF1C!important;
 width:100%!important;
 }
 
+
+/* 
+    --------------------------------
+    CUSTOM CSS REDESIGN SMART MEDIA
+    --------------------------------
+*/
+.tile-mysites{
+    background-color: #6d819c;
+}
+.tile-due{
+    background-color: #9baec8;
+}
+.tile-tickets{
+    background-color: #7f9eb2;
+}
+.tile-credits{
+    background-color: #77919d;
+}
+.preview-template{
+    position: relative;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.preview-template .preview-hover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.table-manage > tbody > tr {
+    background-color: #fff;
+}
+.table-manage > tbody > tr:nth-of-type(odd){
+    background-color: #fff;
+}
+.table-manage > tbody > tr > td{
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+.btn-action{
+    width: 120px;
+    padding: 10px 15px;
+    text-align: left;
+}
+.btn-action .fa{
+    margin-right: 5px;
+    font-size: 16px;
+}
+.btn-edit{
+    background: #5CAB7D;
+    border-bottom: 2px solid #8CD790;
+    color: #fff !important;
+}
+.btn-edit:hover,
+.btn-edit:focus{
+    background: #5CAB7D;
+    opacity: 0.9;
+}
+.btn-view{
+    background: #6AAFE6;
+    border-bottom: 2px solid #2b90d9;
+    color: #fff !important;
+}
+.btn-view:hover,
+.btn-view:focus{
+    background: #6AAFE6;
+    opacity: 0.9;
+}
+.btn-delete{
+    background: #ff7473;
+    border-bottom: 2px solid #cb7575;
+    color: #fff !important;
+}
+.btn-delete:hover,
+.btn-delete:focus{
+    background: #ff7473;
+    opacity: 0.9;
+}

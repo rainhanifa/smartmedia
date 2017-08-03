@@ -20,6 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="<?php echo base_url("assets");?>/css/font-awesome.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo base_url("assets");?>/css/style.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo base_url("assets");?>/css/ctm_style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo base_url("assets");?>/css/custom.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom Theme files -->
 <!-- webfonts -->

@@ -1,8 +1,24 @@
 /* CUSTOM CSS REDESIGN SMART MEDIA*/
 
 .logo img {
-    width: 240px;
+    width: auto;
     height: 37px;
-    background: red;
+}
+.know-content img{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+.know-content{
+    overflow: hidden;
+}
+.faq-list{
+    margin-bottom: 20px !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 15px !important;
 }
 

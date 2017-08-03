@@ -27,7 +27,7 @@
                 <!-- BEGIN Tiles --> 
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="tile">
+                            <div class="tile tile-mysites">
                                 <div class="<?php echo base_url('assets')?>/img">
                                     <i class="fa fa-desktop"></i>
                                 </div>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="tile">
+                            <div class="tile tile-due">
                                 <div class="<?php echo base_url('assets')?>/img">
                                     <i class="fa fa-files-o"></i>
                                 </div>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="tile">
+                            <div class="tile tile-tickets">
                                 <div class="<?php echo base_url('assets')?>/img">
                                     <i class="fa fa-ticket"></i>
                                 </div>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="tile">
+                            <div class="tile tile-credits">
                                 <div class="<?php echo base_url('assets')?>/img">
                                     <i class="fa fa-credit-card"></i>
                                 </div>
@@ -109,28 +109,33 @@
                             </div>
                             <div class="panel-body">
                                 <div class="col-md-3">
-                                    <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/img/demo/profile-picture.jpg" alt="profile picture" />
+                                    <div class="preview-template">
+                                        <div class="preview-hover"></div>
+                                        <img class="img-responsive" src="<?php echo base_url("assets");?>/img/demo/template-picture.jpg" alt="profile picture" />
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <table>
-                                        <tr>
-                                            <td width="10%">Alamat</td>
-                                            <td width="10%" align="center">:</td>
-                                            <td><a href="http://<?php echo $site['address_site']?>.smartmedia.com"><?php echo $site['address_site']?>.smartmedia.com</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="10%">Deskripsi</td>
-                                            <td width="10%" align="center">:</td>
-                                            <td><?php echo $site['description_site']?></td>
-                                        </tr>
+                                    <table class="table table-striped table-manage">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10%">URL</td>
+                                                <td width="10%" align="center">:</td>
+                                                <td><a href="http://<?php echo $site['address_site']?>.smartmedia.com"><?php echo $site['address_site']?>.smartmedia.com</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%">Deskripsi</td>
+                                                <td width="10%" align="center">:</td>
+                                                <td><?php echo $site['description_site']?></td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                                 <div class="col-md-3">
-                                    <p><a class="btn col-md-12" href="<?php echo base_url('./../web-builder');?>"><i class="fa fa-edit"></i> Edit Site</a></p>
+                                    <p><a class="btn btn-action btn-edit" href="<?php echo base_url('./../web-builder');?>"><i class="fa fa-edit"></i> Edit Site</a></p>
 
-                                    <p><a class="btn col-md-12" href="<?php echo base_url('./../manage');?>"><i class="fa fa-desktop"></i> View Site</a></p>
+                                    <p><a class="btn btn-action btn-view" href="<?php echo base_url('./../manage');?>"><i class="fa fa-desktop"></i> View Site</a></p>
 
-                                    <p><a class="btn col-md-12" href="<?php echo base_url('./../manage');?>"><i class="fa fa-trash-o"></i> Delete Site</a></p>
+                                    <p><a class="btn btn-action btn-delete" href="<?php echo base_url('./../manage');?>"><i class="fa fa-trash-o"></i> Delete Site</a></p>
                                 </div>
                             </div>
                         </div>

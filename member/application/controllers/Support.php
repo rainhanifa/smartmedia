@@ -92,7 +92,7 @@
 			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
 			$data['name'] = $this->db->query(
 				"SELECT tickets.*, app_users.fullname 
-				FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.answered_id 
+				FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.client_id 
 				WHERE tickets.id_ticket = '" .$data['ticket'][0]['id_ticket']."' ORDER BY tickets.id")->result_array();
 			
 			if (isset($_POST['submit'])){
@@ -103,7 +103,7 @@
 								"id_ticket" => $data['ticket'][0]['id_ticket'],
 								"sites" => $data['ticket'][0]['sites'],
 								"priority" => $data['ticket'][0]['priority'],
-								"client_id" => $this->session->userdata('is_active_user'),
+								"client_id" => $this->session->userdata('is_active_cid'),
 								"department_id" => $data['ticket'][0]['department_id'],
 								"status_ticket" => $data['ticket'][0]['status_ticket'],
 								"answered_id" => $data['ticket'][0]['answered_id'],

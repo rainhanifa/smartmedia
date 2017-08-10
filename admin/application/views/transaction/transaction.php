@@ -26,10 +26,7 @@
                 </div>
                 <!-- BEGIN Main Content -->
                
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>                
+                
 
                 <div class="box">
                             
@@ -43,52 +40,35 @@
                                     <th>Invoice Date</th>
                                     <th>Due Date</th>
                                     <th>Total</th>
+                                    <th>Payment Date</th>
                                     <th colspan="2">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>                               
-                                    <td><a href="">279641</a></td>
-                                    <td>Handharbeni</td>
-                                    <td>Muhammad</td>
-                                    <td>16/08/2015</td>
-                                    <td>21/08/2015</td>
-                                    <td> Rp. 280.983,00</td>
-                                    <td><span class="label label-large label-lime">Paid</span></td>
-                                    <td><a href="<?php echo base_url("transaction/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
-                                </tr>
-                                <tr>                               
-                                    <td><a href="">495868</a></td>
-                                    <td>Ibnu Shodiqin</td>
-                                    <td>Suhaemy</td>
-                                    <td>16/03/2017</td>
-                                    <td>23/03/2017</td>
-                                    <td>Rp. 159.945,00</td>
-                                    <td><span class="label label-large label-gray">Canceled</span></td>
-                                    <td><a href="<?php echo base_url("transaction/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
-                                </tr>
+                                <?php foreach($transactions as $transaction){?>                      
+                                <tr>         
+                                    <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>"><?php echo $transaction['id_transaction']?></a></td>
+                                    <td><?php echo $transaction['first_name']?></td>
+                                    <td><?php echo $transaction['last_name']?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
+                                    <td> Rp. <?php echo $transaction['total']?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($transaction['date_payment']))?></td>
+                                    <td>
+                                        <?php switch($transaction['status_payment']){
+                                            case 0  : echo '<span class="label label-large label-danger">Unpaid</span></span>';
+                                                        break;
+                                            case 1  : echo '<span class="label label-large label-warning">Awaiting Confirmation</span></span>';
+                                                        break;
+                                            case 2  : echo '<span class="label label-large label-lime">Paid</span>';
+                                                          break;
+                                            default  : echo '<span class="label label-large label-gray">Canceled</span>';
+                                                        break;
+                                        }
 
-                                <tr>                               
-                                    <td><a href="">503565</a></td>
-                                    <td>Andy Zain</td>
-                                    <td>Ifkaruddin</td>
-                                    <td>12/04/2017</td>
-                                    <td>17/04/2017</td>
-                                    <td> Rp. 200.565,00</td>
-                                    <td><span class="label label-large label-lime">Paid</span></td>
-                                    <td><a href="<?php echo base_url("transaction/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
+                                        ?></td>
                                 </tr>
-
-                                 <tr>                               
-                                    <td><a href="">512348</a></td>
-                                    <td>Akhmad</td>
-                                    <td>Maulidi</td>
-                                    <td>5/05/2017</td>
-                                    <td>12/05/2017</td>
-                                    <td> Rp. 235.348,00</td>
-                                    <td><span class="label label-large label-gray">Canceled</span></td>
-                                    <td><a href="<?php echo base_url("transaction/invoice");?>" class="btn btn-info"><i class="fa fa-tasks"></i> View Invoice</a></td>
-                              
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

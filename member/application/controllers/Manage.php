@@ -10,7 +10,7 @@
 		     if (!$this->session->userdata('is_logged_in')){
 		        redirect('auth/login');
 		     }
-		     $this->user_id = $this->session->userdata('is_active_id');
+		     $this->user_id = $this->session->userdata('is_active_cid');
 	    }
 	    
 		public function index()
@@ -45,7 +45,7 @@
 				$sitedata		= array("name_site" => $sitename,
 										"address_site" => $siteaddress,
 										"description_site" => $sitedesc,
-										"client_id"	=> $this->session->userdata("is_active_id"),
+										"client_id"	=> $this->session->userdata("is_active_cid"),
 										"date_registered" => date("Y-m-d H:i:s")
 									);
 				if($this->db->insert("sites",$sitedata)){
@@ -59,4 +59,3 @@
 			}
 		}
 	}
-?>	

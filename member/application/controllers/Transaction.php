@@ -10,11 +10,11 @@
 		     if (!$this->session->userdata('is_logged_in')){
 		        redirect('auth/login');
 		     }
-		     $this->user 	= $this->session->userdata('is_active_id');
+		     $this->user 	= $this->session->userdata('is_active_cid');
 	    }
 	    
 		public function index(){
-			$data['transactions']	=	$this->db->get_where($this->table, array('id_client' => $this->user))->result_array();
+			$data['transactions']	=	$this->db->get_where($this->table, array('client_id' => $this->user))->result_array();
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('transaction/index.php', $data);

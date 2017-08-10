@@ -20,12 +20,14 @@
 	                $r      = $login->row_array();
 	                if($r['type'] == '3'){	
 	                	$clients  =  $this->db->get_where('clients',array('user_id' =>  $r['id_users']))->result_array();
-
+	                	foreach($clients as $client){
+	                		$client_id = $client['id_client'];
+	                	}
 
 	                	$data   = array('is_active_user' => $r['username'],
 	                            'is_active_name' => $r['fullname'],
 	                            'is_active_id' => $r['id_users'],
-	                            'is_active_cid' => $clients[0]['id_client'],
+	                            'is_active_cid' => $client_id,
 	                            'is_logged_in' => 'TRUE');
 
 		                $this->session->set_userdata($data);

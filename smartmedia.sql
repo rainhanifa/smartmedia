@@ -13,12 +13,10 @@
 
 
 -- Dumping database structure for smartmedia
-DROP DATABASE IF EXISTS `smartmedia`;
 CREATE DATABASE IF NOT EXISTS `smartmedia` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `smartmedia`;
 
 -- Dumping structure for table smartmedia.announcements
-DROP TABLE IF EXISTS `announcements`;
 CREATE TABLE IF NOT EXISTS `announcements` (
   `id_announcement` int(11) NOT NULL AUTO_INCREMENT,
   `title_announcement` varchar(50) DEFAULT NULL,
@@ -35,7 +33,6 @@ INSERT INTO `announcements` (`id_announcement`, `title_announcement`, `content_a
 /*!40000 ALTER TABLE `announcements` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.app_users
-DROP TABLE IF EXISTS `app_users`;
 CREATE TABLE IF NOT EXISTS `app_users` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
@@ -44,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `app_users` (
   `password` varchar(50) DEFAULT NULL,
   `type` int(11) DEFAULT NULL COMMENT '1: admin, 2: staff, 3:user',
   PRIMARY KEY (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table smartmedia.app_users: ~9 rows (approximately)
 DELETE FROM `app_users`;
@@ -54,16 +51,14 @@ INSERT INTO `app_users` (`id_users`, `username`, `fullname`, `email`, `password`
 	(2, 'user', 'John Doe', 'user@user.com', 'EE11CBB19052E40B07AAC0CA060C23EE', 3),
 	(3, 'customercare', 'Customer Care', 'customercare@smartmedia.com', 'E828400B3535C6353E8AA744BDAE8E14', 2),
 	(4, 'staff', 'Staff', 'staff@smartmedia.com', '1253208465B1EFA876F982D8A9E73EEF', 2),
-	(5, 'johndoe@smartmedia.com', 'John Doe', 'johndoe@smartmedia.com', '6579e96f76baa00787a28653876c6127', 3),
-	(6, 'johndoe@gmail.com', 'John Doe', 'johndoe@gmail.com', '6579e96f76baa00787a28653876c6127', 3),
-	(7, 'rue@smartmedia.com', 'Rue Roe', 'rue@smartmedia.com', 'a7dc5849a233266c71bc62f1d163c34f', 3),
 	(8, 'andrea@gmail.com', 'Andrea William', 'andrea@gmail.com', '1c42f9c1ca2f65441465b43cd9339d6c', 3),
-	(9, 'luqmanppmh@gmail.com', 'Luqman Ajah', 'luqmanppmh@gmail.com', '4781c13b4bf9b7288a343fd274ff0310', 3),
-	(10, 'tes@gmail', 'tes tes', 'tes@gmail', '21232f297a57a5a743894a0e4a801fc3', 3);
+	(9, 'luqmanppmh@gmail.com', 'Luqman Hakim', 'luqmanppmh@gmail.com', '4781c13b4bf9b7288a343fd274ff0310', 3),
+	(10, 'tes@gmail', 'tes tes', 'tes@gmail', '21232f297a57a5a743894a0e4a801fc3', 3),
+	(11, 'ibnusuhaemy@gmail.com', 'Ibnu Suhaemy', 'ibnusuhaemy@gmail.com', '195ace8d50de761419faf08845304398', 3),
+	(12, 'andyzain@gmail.com', 'Andy Zain', 'andyzain@gmail.com', '15c4b113a3819762f3de99c270d082ab', 3);
 /*!40000 ALTER TABLE `app_users` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.articles
-DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id_articles` int(11) NOT NULL AUTO_INCREMENT,
   `title_articles` varchar(50) NOT NULL,
@@ -82,7 +77,6 @@ INSERT INTO `articles` (`id_articles`, `title_articles`, `content_articles`, `da
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.article_category
-DROP TABLE IF EXISTS `article_category`;
 CREATE TABLE IF NOT EXISTS `article_category` (
   `id_category` int(11) NOT NULL AUTO_INCREMENT,
   `name_category` varchar(50) DEFAULT NULL,
@@ -95,20 +89,21 @@ DELETE FROM `article_category`;
 INSERT INTO `article_category` (`id_category`, `name_category`) VALUES
 	(1, 'Hosting'),
 	(2, 'Domain'),
-	(3, 'Web Builder'),
+	(3, 'Web Builders'),
 	(4, 'Email'),
 	(5, 'Pembayaran'),
-	(6, 'Account Management');
+	(6, 'Manajemen Akun');
 /*!40000 ALTER TABLE `article_category` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.billing
-DROP TABLE IF EXISTS `billing`;
 CREATE TABLE IF NOT EXISTS `billing` (
   `id_billing` int(11) NOT NULL AUTO_INCREMENT,
-  `id_users` int(11) DEFAULT NULL,
-  `code_bank` int(11) DEFAULT NULL,
-  `name_bank` int(11) DEFAULT NULL,
-  `no_bank` int(11) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `address_1` varchar(50) DEFAULT NULL,
+  `address_2` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_billing`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -118,7 +113,6 @@ DELETE FROM `billing`;
 /*!40000 ALTER TABLE `billing` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.clients
-DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
   `id_client` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -132,27 +126,27 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `region` varchar(50) DEFAULT NULL,
   `zip_code` varchar(50) DEFAULT NULL,
   `country` varchar(50) DEFAULT NULL,
+  `date_registered` date DEFAULT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.clients: ~6 rows (approximately)
+-- Dumping data for table smartmedia.clients: ~7 rows (approximately)
 DELETE FROM `clients`;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` (`id_client`, `user_id`, `first_name`, `last_name`, `company_name`, `phone_number`, `address_1`, `address_2`, `city`, `region`, `zip_code`, `country`) VALUES
-	(1, 5, 'John', 'Doe', '0', '0', '0', '0', '0', '0', '0', '0'),
-	(2, 6, 'John', 'Doe', '0', '0', '0', '0', '0', '0', '0', '0'),
-	(3, 7, 'Rue', 'Roe', '0', '0', '0', '0', '0', '0', '0', '0'),
-	(4, 2, 'User', 'Dummy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(5, 8, 'Andrea', 'William', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(6, 9, 'Luqman', 'Ajah', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(7, 10, 'tes', 'tes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `clients` (`id_client`, `user_id`, `first_name`, `last_name`, `company_name`, `phone_number`, `address_1`, `address_2`, `city`, `region`, `zip_code`, `country`, `date_registered`) VALUES
+	(3, 7, 'Rue', 'Roe', '0', '0', '0', '0', '0', '0', '0', '0', '2017-08-09'),
+	(4, 2, 'User', 'Dummy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-08-09'),
+	(5, 8, 'Andrea', 'William', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-08-09'),
+	(6, 9, 'Luqman', 'Hakim', 'Illiyin Studio', '085941020493', '', '', 'Malang', 'Jawa Timur', '65115', 'Indonesia', '2017-07-10'),
+	(7, 10, 'tes', 'tes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-08-09'),
+	(8, 11, 'Ibnu', 'Suhaemy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-08-09'),
+	(9, 12, 'Andy', 'Zain', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-08-09');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.clients_package
-DROP TABLE IF EXISTS `clients_package`;
 CREATE TABLE IF NOT EXISTS `clients_package` (
   `id_package` int(11) NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) NOT NULL DEFAULT '0',
+  `client_id` int(11) NOT NULL DEFAULT '0',
   `domain` int(11) NOT NULL DEFAULT '0',
   `email` int(11) NOT NULL DEFAULT '0',
   `bandwidth` int(11) NOT NULL DEFAULT '0',
@@ -161,17 +155,18 @@ CREATE TABLE IF NOT EXISTS `clients_package` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   PRIMARY KEY (`id_package`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.clients_package: ~0 rows (approximately)
+-- Dumping data for table smartmedia.clients_package: ~2 rows (approximately)
 DELETE FROM `clients_package`;
 /*!40000 ALTER TABLE `clients_package` DISABLE KEYS */;
-INSERT INTO `clients_package` (`id_package`, `id_client`, `domain`, `email`, `bandwidth`, `storage`, `active_period`, `start_date`, `end_date`) VALUES
-	(1, 9, 1, 1, 200, 200, 7, '2017-08-02', '2017-08-09');
+INSERT INTO `clients_package` (`id_package`, `client_id`, `domain`, `email`, `bandwidth`, `storage`, `active_period`, `start_date`, `end_date`) VALUES
+	(1, 6, 1, 1, 200, 200, 7, '2017-08-02', '2017-08-09'),
+	(2, 8, 1, 1, 200, 200, 7, '2017-08-03', '2017-08-10'),
+	(3, 9, 1, 1, 200, 200, 7, '2017-08-03', '2017-08-10');
 /*!40000 ALTER TABLE `clients_package` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.departments
-DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id_department` int(11) NOT NULL AUTO_INCREMENT,
   `name_department` varchar(50) DEFAULT NULL,
@@ -189,7 +184,6 @@ INSERT INTO `departments` (`id_department`, `name_department`, `description_depa
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.packages
-DROP TABLE IF EXISTS `packages`;
 CREATE TABLE IF NOT EXISTS `packages` (
   `id_package` int(11) NOT NULL AUTO_INCREMENT,
   `name_package` varchar(50) DEFAULT NULL,
@@ -220,7 +214,6 @@ INSERT INTO `packages` (`id_package`, `name_package`, `detail_package`, `price_p
 /*!40000 ALTER TABLE `packages` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.sites
-DROP TABLE IF EXISTS `sites`;
 CREATE TABLE IF NOT EXISTS `sites` (
   `id_site` int(11) NOT NULL AUTO_INCREMENT,
   `name_site` varchar(50) DEFAULT NULL,
@@ -229,23 +222,24 @@ CREATE TABLE IF NOT EXISTS `sites` (
   `client_id` text,
   `date_registered` date DEFAULT NULL,
   PRIMARY KEY (`id_site`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table smartmedia.sites: ~6 rows (approximately)
 DELETE FROM `sites`;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
 INSERT INTO `sites` (`id_site`, `name_site`, `address_site`, `description_site`, `client_id`, `date_registered`) VALUES
-	(1, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '1', NULL),
-	(2, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '2', NULL),
+	(1, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '1', '2017-08-09'),
+	(2, 'John Doe\'s Site', 'johndoe', 'John Doe\'s Site', '2', '2017-08-09'),
 	(3, 'Dummy', 'dummysite', 'Dummy Website', NULL, '2017-07-26'),
 	(4, 'Second Site', 'second', 'Second Website', NULL, '2017-07-26'),
-	(5, 'Beni Website', 'mhandharbeni', 'Website milik beni', NULL, NULL),
-	(6, 'Cakmen', 'cakmenajah', 'Cakmen AJah', '9', '2017-07-31'),
-	(7, 'Website Tes', 'tesweb', 'Website Tes', '10', '2017-08-01');
+	(5, 'Beni Website', 'mhandharbeni', 'Website milik beni', NULL, '2017-08-09'),
+	(6, 'Cakmen', 'cakmenajah', 'Cakmen AJah', '6', '2017-07-31'),
+	(7, 'Website Tes', 'tesweb', 'Website Tes', '7', '2017-08-01'),
+	(8, 'Ibnu Suhaemy', 'ibnusuhaemy', 'Website Pribadi Ibnu Suhaemy', '8', '2017-08-03'),
+	(9, 'Andy Robot', 'andyzain', 'Website jualan robot Andy Zain', '9', '2017-08-03');
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.theme
-DROP TABLE IF EXISTS `theme`;
 CREATE TABLE IF NOT EXISTS `theme` (
   `id_theme` int(11) NOT NULL AUTO_INCREMENT,
   `name_theme` varchar(50) DEFAULT NULL,
@@ -265,7 +259,6 @@ INSERT INTO `theme` (`id_theme`, `name_theme`, `description_theme`, `preview_1`,
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.tickets
-DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE IF NOT EXISTS `tickets` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_ticket` int(11) NOT NULL DEFAULT '0',
@@ -291,30 +284,32 @@ INSERT INTO `tickets` (`id`, `id_ticket`, `subject_ticket`, `sites`, `priority`,
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.transactions
-DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE IF NOT EXISTS `transactions` (
   `id_transaction` int(11) NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) DEFAULT NULL,
+  `client_id` int(11) DEFAULT NULL,
   `date_transaction` date DEFAULT NULL,
   `due_date` date DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
   `method` int(11) DEFAULT NULL,
   `detail` text,
-  `date_payment` text,
-  `status_payment` int(11) DEFAULT NULL COMMENT '0: unpaid, 1: paid not confirmed, 2: paid confirmed, 5: cancelled',
+  `billing_id` int(11) DEFAULT NULL,
+  `date_payment` date DEFAULT NULL,
+  `status_payment` int(11) DEFAULT NULL COMMENT '0: unpaid, 1: paid not confirmed, 2: paid confirmed, 3: voucher, 4: canceled, 5: cancelled',
   `verified_by` int(11) DEFAULT NULL,
+  `verified_date` date DEFAULT NULL,
   PRIMARY KEY (`id_transaction`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartmedia.transactions: ~0 rows (approximately)
+-- Dumping data for table smartmedia.transactions: ~3 rows (approximately)
 DELETE FROM `transactions`;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` (`id_transaction`, `id_client`, `date_transaction`, `due_date`, `total`, `method`, `detail`, `date_payment`, `status_payment`, `verified_by`) VALUES
-	(1, 9, '2017-08-02', '2017-08-02', NULL, 1, 'Aktivasi voucher starter', '2017-08-02', 2, 1);
+INSERT INTO `transactions` (`id_transaction`, `client_id`, `date_transaction`, `due_date`, `total`, `method`, `detail`, `billing_id`, `date_payment`, `status_payment`, `verified_by`, `verified_date`) VALUES
+	(1, 6, '2017-08-02', '2017-08-02', 0, 1, 'Aktivasi voucher starter', NULL, '2017-08-02', 1, 1, '2017-08-02'),
+	(2, 8, '2017-08-03', '2017-08-03', 0, 1, 'Aktivasi voucher starter', NULL, '2017-08-03', 2, 1, '2017-08-10'),
+	(3, 9, '2017-08-03', '2017-08-03', 0, 1, 'Aktivasi voucher starter', NULL, '2017-08-03', 2, 1, '2017-08-03');
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 
 -- Dumping structure for table smartmedia.vouchers
-DROP TABLE IF EXISTS `vouchers`;
 CREATE TABLE IF NOT EXISTS `vouchers` (
   `id_voucher` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(50) DEFAULT NULL,
@@ -324,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
   `status` int(11) DEFAULT '0' COMMENT '0: not activated, 1: active, 2: used, 3: expired',
   `used_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_voucher`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table smartmedia.vouchers: ~9 rows (approximately)
 DELETE FROM `vouchers`;
@@ -334,11 +329,12 @@ INSERT INTO `vouchers` (`id_voucher`, `code`, `name`, `id_package`, `price`, `st
 	(2, 'AO81231557772', 'Voucher Basic', 1, 50000, 1, '2017-07-31 13:07:02'),
 	(3, 'PAKETHORE7', 'Voucher Paket Hore 7 Hari', 3, 0, 1, '2017-08-01 15:07:49'),
 	(4, 'PAKETHORE7', 'Voucher Paket Hore 7 Hari', 3, 0, 1, '2017-08-02 15:05:11'),
-	(5, 'PAKETHORE7', 'Voucher Paket Hore 7 Hari', 3, 0, 0, NULL),
+	(5, 'PAKETHORE7', 'Voucher Paket Hore 7 Hari', 3, 0, 1, '2017-08-03 08:04:20'),
 	(6, 'KUOTA200MB', 'Kuota 200 MB', 8, 30000, 0, NULL),
 	(7, 'KUOTA200MB', 'Kuota 200 MB', 8, 30000, 0, NULL),
 	(8, 'KUOTA200MB', 'Kuota++ 200 MB', 8, 30000, 0, NULL),
-	(9, 'TAMBAH30HARI', 'Tambah 30 Hari', 4, 25000, 0, NULL);
+	(9, 'TAMBAH30HARI', 'Tambah 30 Hari', 4, 25000, 0, NULL),
+	(10, 'PAKETHORE7', 'Free Trial Paket Hore 7 Hari', 3, 0, 1, '2017-08-03 15:24:22');
 /*!40000 ALTER TABLE `vouchers` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

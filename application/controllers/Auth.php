@@ -68,7 +68,7 @@
 						        $login   = array('is_active_user' => $email,
 						                            'is_active_name' => $first_name.' '.$last_name,
 						                            'is_active_id' => $id_user,
-						                            'is_active_cid' => $cid,
+						                            'is_active_cid' => $id_client,
 						                            'is_logged_in' => 'TRUE');
 								$this->session->set_userdata($login);
 
@@ -102,7 +102,7 @@
 				$end_date		= date("Y-m-d", strtotime("+".$active." days"));
 				
 				// set active package
-				$packagedata	= array("id_client" => $this->session->userdata("is_active_id"),
+				$packagedata	= array("client_id" => $this->session->userdata("is_active_cid"),
 									"domain" => $domain,
 									"email" => $email,
 									"bandwidth"	=> $bandwidth,
@@ -120,7 +120,7 @@
 				$this->db->update("vouchers",$use_voucher);
 
 				// simpan transaksi
-				$transaction_data	= array("id_client" => $this->session->userdata("is_active_id"),
+				$transaction_data	= array("client_id" => $this->session->userdata("is_active_cid"),
 										"date_transaction" => date("Y-m-d"),
 										"due_date" => date("Y-m-d"),
 										"date_payment" => date("Y-m-d"),
@@ -212,7 +212,7 @@
 				$sitedata		= array("name_site" => $sitename,
 										"address_site" => $siteaddress,
 										"description_site" => $sitedesc,
-										"client_id"	=> $this->session->userdata("is_active_id"),
+										"client_id"	=> $this->session->userdata("is_active_cid"),
 										"date_registered" => date('Y-m-d')
 									);
 				if($this->db->insert("sites",$sitedata)){
@@ -232,6 +232,8 @@
 	        $this->session->sess_destroy();
 	        $data   = array('is_active_user' => '',
 	                            'is_active_name' => '',
+	                            'is_active_id' => '',
+	                            'is_active_cid' => '',
 	                            'is_logged_in' => 'FALSE');
 	        $this->session->unset_userdata($data);
 	        $this->session->set_flashdata("message","You're logged out");	

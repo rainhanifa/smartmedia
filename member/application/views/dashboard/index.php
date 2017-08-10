@@ -19,7 +19,7 @@
                     <i class="fa fa-desktop"></i>
                 </div>
                 <div class="content">
-                    <p class="big">3</p>
+                    <p class="big"><?php echo $my_site?></p>
                     <p class="title">My Sites</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <i class="fa fa-files-o"></i>
                 </div>
                 <div class="content">
-                    <p class="big">2</p>
+                    <p class="big"><?php echo $my_invoice ?></p>
                     <p class="title">Invoices Due</p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <i class="fa fa-ticket"></i>
                 </div>
                 <div class="content">
-                    <p class="big">1</p>
+                    <p class="big"><?php echo $my_tickets ?></p>
                     <p class="title">Active Tickets</p>
                 </div>
             </div>
@@ -52,8 +52,8 @@
                     <i class="fa fa-credit-card"></i>
                 </div>
                 <div class="content">
-                    <p class="big">Rp 667</p>
-                    <p class="title">Credit Balance</p>
+                    <p class="big">Rp 0</p>
+                    <p class="title">Outstanding Balance</p>
                 </div>
             </div>
     	</div>
@@ -69,7 +69,7 @@
     	<div class="open-ticket">
         	<div class="box">
             	<div class="box-title no-bg">
-                	<h3>Invoices Due <span class="badge badge-xxlarge badge-gray">2</span></h3>
+                	<h3>Invoices Due <span class="badge badge-xxlarge badge-gray"><?php echo $my_invoice?></span></h3>
             	</div>
         	</div>
     	</div>
@@ -77,37 +77,46 @@
 
     <div class="box">
         <div class="table-responsive">
-        	<table class="table table-advance" id="invoice-table">
+        	<table class="table table-advance" id="invoices-table">
                 <thead class="panel-info">
                     <tr>
                         <th>Invoice #</th>
                         <th>Invoice Date</th>
                         <th>Due Date</th>
                         <th>Total</th>
-                        <th>Balance</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    if($my_invoice > 0){
+                        foreach($transactions as $transaction) { ?>
                     <tr class="table-flag-blue">
-                        
-                        <td><a href="">94633</a></td>
-                        <td>11/05/2017</td>
-                        <td>17/05/2017</td>
-                        <td>Rp. 160.000,00</td>
-                        <td>Rp. 667,00</td>
-                        <td>Waiting Confirmation</td>
-                    </tr>
+                        <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>"><?php echo $transaction['id_transaction']?></a></td>
+                        <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>
+                        <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
+                        <td> Rp. <?php echo $transaction['total']?></td>
+                        <td>
+                            <?php switch($transaction['status_payment']){
+                                case 0  : echo '<span class="label label-large label-danger">Unpaid</span></span>';
+                                            break;
+                                case 1  : echo '<span class="label label-large label-warning">Awaiting Confirmation</span></span>';
+                                            break;
+                                case 2  : echo '<span class="label label-large label-lime">Paid</span>';
+                                              break;
+                                default  : echo '<span class="label label-large label-gray">Canceled</span>';
+                                            break;
+                            }
 
-                    <tr class="table-flag-blue">
-                        
-                        <td><a href="">96633</a></td>
-                        <td>11/05/2017</td>
-                        <td>17/05/2017</td>
-                        <td>Rp. 224.000,00</td>
-                        <td>Rp. 667,00</td>
-                        <td>Waiting Confirmation</td>
-                    </tr>        
+                            ?></td>
+                    </tr>
+                    <?php }
+                        } else {
+                    ?>
+                        <tr><td colspan="5">No Invoice Due</td></tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -119,7 +128,7 @@
         <div class="open-ticket">
         <div class="box">
             <div class="box-title no-bg">
-                <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray">3</span></h3>
+                <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray"><?php echo $my_tickets?></span></h3>
                 <div class="box-tool">
                     <a class="btn btn-warning btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
                 </div>
@@ -130,7 +139,7 @@
 
     <div class="box">                            
         <div class="table-responsive">
-            <table class="table table-advance" id="ticket-table">
+            <table class="table table-advance" id="tickets-table">
                 <thead class="panel-info">
                     <tr>
                         <th>Date</th>
@@ -142,6 +151,7 @@
                 </thead>
                 <tbody>
                     <?php 
+                    if($my_tickets > 0){
                         $counter = 0;
                         foreach($ticket as $list){
                             $counter++;
@@ -155,21 +165,13 @@
                         <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
                         <td><?php echo $list['latest_date']?></td>
                     </tr>
-                    <?php  } ?>
-                    <!-- <tr class="table-flag-blue">                                    
-                        <td>3/11/2017</td>
-                        <td>Domain</td>
-                        <td>Kenapa terjadi Internal Server error ?</td>
-                        <td><span class="label label-large label-success">Active</span></td>
-                        <td>16/11/2017</td>
-                    </tr>
-                    <tr class="table-flag-blue">                                    
-                        <td>3/11/2017</td>
-                        <td>Lain-Lain</td>
-                        <td>Muncul Halaman Mercusuar</td>
-                        <td><span class="label label-large label-success">Active</span></td>
-                        <td>16/11/2017</td>
-                    </tr>  -->                             
+                    <?php  } 
+                        }else {
+                    ?>
+                        <tr><td colspan="5">No Active Tickets</td></tr>
+                    <?php
+                        }
+                    ?>                         
                 </tbody>
             </table>
         </div>

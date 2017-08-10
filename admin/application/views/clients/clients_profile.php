@@ -45,7 +45,7 @@
                                                     <?php foreach($profile as $profile){?>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>Name</p>
+                                                            <p><b>Name</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['first_name']." ".$profile['last_name']?></p>
@@ -53,7 +53,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>Company Name</p>
+                                                            <p><b>Company Name</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['company_name']; ?></p>
@@ -61,7 +61,15 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>Address</p>
+                                                            <p><b>Phone No.</b></p>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p><?php echo $profile['phone_number']; ?></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <p><b>Address</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['address_1']; ?></p>
@@ -69,7 +77,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>City</p>
+                                                            <p><b>City</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['city']; ?></p>
@@ -77,7 +85,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>Region</p>
+                                                            <p><b>Region</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['region'].", ".$profile['country']; ?></p>
@@ -85,13 +93,12 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>ZIP Code</p>
+                                                            <p><b>ZIP Code</b></p>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <p><?php echo $profile['zip_code']; ?></p>
                                                         </div>
                                                     </div>
-                                                    <?php } ?>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/../img/demo/profile-picture.jpg" alt="profile picture" width="200px" height="200px" style="float:right;">
@@ -103,93 +110,24 @@
                                                     <h3><strong>Account Information</strong></h3>
                                                     <div class="row">
                                                         <div class="col-md-2">
-                                                            <p>Email</p>
+                                                            <p><b>Email</b></p>
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <p>andizain@gmail.com</p>
+                                                            <p><?php echo $profile['email']?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-2">
-                                                            <p>Phone No.</p>
+                                                            <p><b>Registered Since</b></p>
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <p>081234567890</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Registered Since</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>01/05/2017</p>
+                                                            <p><?php echo date("l, d-m-Y", strtotime($profile['date_registered'])); ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <hr/>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h3><strong>Billing Information</strong></h3>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Name</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>Andi Zain Ifkaruddin</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Company Name</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>Illiyin Studio</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Address</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>Perum Puri Nirwana Keben Kav 7 Sukun</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>City</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>Malang</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Region</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>Jawa Timur - Indonesia</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>ZIP Code</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>65118</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <p>Phone No.</p>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <p>081234567890</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr/>
+
+                                                    <?php } ?>
                                         </div>
                                         <div class="tab-pane fade" id="invoice">
                                             <div class="row">
@@ -199,7 +137,7 @@
                                                             <i class="fa fa-tasks"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">4</p>
+                                                            <p class="big"><?php echo $total_invoice ?></p>
                                                             <p class="title">INVOICES</p>
                                                         </div>
                                                     </div>
@@ -210,7 +148,7 @@
                                                             <i class="fa fa-clock-o"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">1</p>
+                                                            <p class="big"><?php echo $invoice_due ?></p>
                                                             <p class="title">INVOICE DUE</p>
                                                         </div>
                                                     </div>
@@ -221,8 +159,8 @@
                                                             <i class="fa fa-money"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">Rp 667</p>
-                                                            <p class="title">CLIENT'S BALANCE</p>
+                                                            <p class="big">Rp <?php echo $outstanding[0]['outstanding']?></p>
+                                                            <p class="title">OUTSTANDING BALANCE</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -243,42 +181,30 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                            <?php foreach($invoice as $invoice){ ?>
                                                                 <tr class="table-flag-blue">
-                                                                    <td>124141</td>
-                                                                    <td>12/05/2017</td>
-                                                                    <td>12/05/2017</td>
-                                                                    <td>Rp 123.000</td>
-                                                                    <td>13/05/2017</td>
-                                                                    <td><span class="label label-success">Paid</span></td>
+                                                                    <td><?php echo $invoice['id_transaction']?></td>
+                                                                    <td><?php echo date("d-m-Y", strtotime($invoice['date_transaction']))?></td>
+                                                                    <td><?php echo date("d-m-Y", strtotime($invoice['due_date']))?></td>
+                                                                    <td>Rp <?php echo $invoice['total']?></td>
+                                                                    <td><?php echo ($invoice['date_payment'] != NULL) ? date("d-m-Y", strtotime($invoice['date_payment'])) : '' ?></td>
+                                                                    <td>
+                                                                        <?php switch($invoice['status_payment']){
+                                                                            case 0  : echo '<span class="label label-danger">Unpaid</span></span>';
+                                                                                        break;
+                                                                            case 1  : echo '<span class="label label-warning">Awaiting Confirmation</span></span>';
+                                                                                        break;
+                                                                            case 2  : echo '<span class="label label-success">Paid</span>';
+                                                                                          break;
+                                                                            default  : echo '<span class="label label-gray">Canceled</span>';
+                                                                                        break;
+                                                                        }
+
+                                                                        ?>
+                                                                    </td>
                                                                     <td><a href="<?php echo base_url("clients/detail");?>">Detail</a></td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td>941237</td>
-                                                                    <td>13/05/2017</td>
-                                                                    <td>13/06/2017</td>
-                                                                    <td>Rp 25.000</td>
-                                                                    <td>14/05/2017</td>
-                                                                    <td><span class="label label-gray">Canceled</span></td>
-                                                                    <td><a href="<?php echo base_url("clients/detail");?>">Detail</a></td>
-                                                                </tr>
-                                                                <tr class="table-flag-orange">
-                                                                    <td>771263</td>
-                                                                    <td>14/05/2017</td>
-                                                                    <td>14/06/2017</td>
-                                                                    <td>Rp 90.000</td>
-                                                                    <td>15/05/2017</td>
-                                                                    <td><span class="label label-success">Paid</span></td>
-                                                                    <td><a href="<?php echo base_url("clients/detail");?>">Detail</a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>123123</td>
-                                                                    <td>15/05/2017</td>
-                                                                    <td>15/06/2017</td>
-                                                                    <td>Rp 64.000</td>
-                                                                    <td>16/05/2017</td>
-                                                                    <td><span class="label label-warning">Unpaid</span></td>
-                                                                    <td><a href="<?php echo base_url("clients/detail");?>">Detail</a></td>
-                                                                </tr>
+                                                            <?php } ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -286,41 +212,54 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="sites">
+                                        <?php foreach ($packages as $package){?>
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="tile tile-light-blue">
                                                         <div class="img">
                                                             <i class="fa fa-desktop"></i>
                                                         </div>
                                                         <div class="content">
                                                             <p class="big"><?php echo $total_site;?></p>
+                                                            <p class="title">ACTIVE SITE</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="tile tile-blue">
+                                                        <div class="img">
+                                                            <i class="fa fa-desktop"></i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <p class="big"><?php echo $package['domain'];?></p>
                                                             <p class="title">TOTAL SITE</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="tile tile-magenta">
                                                         <div class="img">
                                                             <i class="fa fa-cloud"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">2 GB</p>
+                                                            <p class="big"><?php echo $package['storage']?>MB</p>
                                                             <p class="title">TOTAL STORAGE</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="tile tile-pink">
                                                         <div class="img">
                                                             <i class="fa fa-envelope"></i>
                                                         </div>
                                                         <div class="content">
-                                                            <p class="big">3</p>
-                                                            <p class="title">WEB MAIL ACCOUNT</p>
+                                                            <p class="big"><?php echo $package['email']?></p>
+                                                            <p class="title">MAIL ACCOUNT</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php } ?>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h3><strong>Client's Site</strong></h3>
@@ -352,33 +291,6 @@
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <a href="mailto:">email@voucher.co.id</a>
-                                                                </div>
-                                                            </div>
-                                                            <br/>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Storage</strong></p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Used</p>
-                                                                    <p>200 MB</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Total</p>
-                                                                    <p>2046 MB</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <p><strong>Bandwith</strong></p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Used</p>
-                                                                    <p>200 MB</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <p>Total</p>
-                                                                    <p>1024 MB</p>
                                                                 </div>
                                                             </div>
                                                             <?php } ?>

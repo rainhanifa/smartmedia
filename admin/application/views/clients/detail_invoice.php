@@ -15,18 +15,6 @@
                                         <div class="col-md-6 invoice-info">
                                             <div class="distance3">
                                                 <h4><strong>UNPAID</strong></h4>
-                                                <br/>
-                                                <p>
-                                                    Silahkan transfer ke : <br/>
-                                                    BANK BCA CAB. Gudang Peluru<br/>
-                                                    A.n. Alfian Pamungkas Sakawiguna<br/>
-                                                    No. Rekening 272-090-889-2<br/>
-                                                    Pastikan anda sudah mentransfer uang sebelum mengeksekusi tombol.<br/>
-                                                    Mogon tuliskan berita:INVOICE-7628-16 pada kolom berita transfer.<br/>
-                                                    Atau jika via AM silahkan transfer dengan jumlah : Rp. 324444<br/>
-                                                    (Transfer dengan angka khusus hanya berlaku 3 hari)<br/>
-                                                </p>
-                                            </div>
                                         </div>
                                     </div>
                                     <hr/>

@@ -357,6 +357,7 @@ width:100%!important;
 }
 
 
+<<<<<<< Updated upstream
 /* 
     --------------------------------
     CUSTOM CSS REDESIGN SMART MEDIA
@@ -439,4 +440,9 @@ width:100%!important;
 .btn-delete:focus{
     background: #ff7473;
     opacity: 0.9;
+
+.btn-save{
+	background-color : #0a59c0;
+	color : #FFF;
+
 }

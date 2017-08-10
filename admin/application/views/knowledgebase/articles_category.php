@@ -42,7 +42,7 @@
                           <!-- end modal-body -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<input type="submit" class="btn btn-info " value="Submit" name="OK" >
+								<input type="submit" class="btn btn-info " value="SAVE" name="OK" >
                             </div>
                         </div>
                         <!-- end modal-content -->
@@ -60,7 +60,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">CANCEL</button>
-								<a class="btn btn-info btn-ok">DELETE</a>
+								<a class="btn btn-info btn-ok" href="data-href">DELETE</a>
                             </div>
                         </div>
                         <!-- end modal-content -->
@@ -127,8 +127,15 @@
                                 <tr>                               
                                     <td><?php echo $counter;?></td>
 									<td><?php echo $list['name_category']?></td>
-									<td><a id="link_update" data-href="<?php echo base_url("knowledgebase/category/update?id=").$list['id_category'];?>" data-id="<?php echo $list['id_category'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil"></a></td>
-									<td><a data-href="<?php echo base_url("knowledgebase/category/delete?id=").$list['id_category'];?>" data-toggle="modal" data-target="#delete" class="glyphicon glyphicon-trash"></a></td>
+									<td><a data-href="<?php echo base_url("knowledgebase/category/update?id=").$list['id_category'];?>" data-id="<?php echo $list['id_category'];?>" data-toggle="modal" data-target="#edit" class="glyphicon glyphicon-pencil link_update"></a></td>
+
+									<td>
+                                    <a
+                                    data-href="<?php echo base_url("knowledgebase/category/delete?id=").$list['id_category'];?>"
+                                    data-toggle="modal"
+                                    data-target="#delete"
+                                    class="glyphicon glyphicon-trash"></a>
+                                    </td>
                                     
                                 </tr>
                                 <?php }?>
@@ -137,10 +144,13 @@
                 </div>
                 <!-- END Main Content -->
                 <script type="text/javascript">
+
                     $('#delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                     });
-                    $('#link_update').click(function(){
+
+
+                    $('.link_update').click(function(){
                         var id_category = $(this).data('id');
                         $.get("<?php echo base_url('knowledgebase/get_category_by_id/')?>"+id_category, function(html){
                             $('#container_update').html(html);

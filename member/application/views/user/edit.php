@@ -3,7 +3,7 @@
                 <!-- BEGIN Page Title -->
                 <div class="page-title">
                     <div>
-                        <h1><i class="fa fa-user"></i> Edit Profile</h1>
+                        <h1><i class="fa fa-user"></i> Profil Saya</h1>
                     </div>
                 </div>
                 <!-- END Page Title -->
@@ -15,103 +15,70 @@
 					<div class="col sm-12">
 					<form class="form-horizontal" action="<?php echo base_url("user/edit")?>" method="post">
 							<div class="form-group">
-								<label for="inputfirstname" class="col-sm-2 control-label">First Name</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control" placeholder="" name="first_name" value="<?php echo $profile['first_name']?>">
+								<label for="inputfirstname" class="col-sm-2 control-label">Nama Lengkap</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" placeholder="" name="first_name" value="<?php echo $profile['first_name']?>" autofocus>
 									</div>
-									<div class="col-sm-2"></div>
-							</div>
-							<div class="form-group">
-								<label for="inputlasttname" class="col-sm-2 control-label">Last Name</label>
-									<div class="col-sm-8">
+									<div class="col-sm-5">
 										<input type="text" class="form-control" placeholder="" name="last_name" value="<?php echo $profile['last_name']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>
 							<div class="form-group">
-								<label for="inputcompanyname" class="col-sm-2 control-label">Company Name</label>
-									<div class="col-sm-8">
+								<label for="inputcompanyname" class="col-sm-2 control-label">Institusi</label>
+									<div class="col-sm-10">
 										<input type="text" class="form-control" placeholder="" name="company_name" value="<?php echo $profile['company_name']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>	
 							<div class="form-group">		
-								<label for="inputphonenumber" class="col-sm-2 control-label">Phone Number</label>
-									<div class="col-sm-8">
+								<label for="inputphonenumber" class="col-sm-2 control-label">No. Telp</label>
+									<div class="col-sm-10">
 										<input type="tel" class="form-control" placeholder="" name="phone" value="<?php echo $profile['phone_number']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>		
 							<div class="form-group">		
-								<label for="inputaddress1" class="col-sm-2 control-label">Address 1</label>
-									<div class="col-sm-8">
+								<label for="inputaddress1" class="col-sm-2 control-label">Alamat 1</label>
+									<div class="col-sm-10">
 										<input type="text" class="form-control" placeholder="" name="address_1" value="<?php echo $profile['address_1']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>		
 							<div class="form-group">		
-								<label for="inputaddress2" class="col-sm-2 control-label">Address 2</label>
-									<div class="col-sm-8">
+								<label for="inputaddress2" class="col-sm-2 control-label">Alamat 2</label>
+									<div class="col-sm-10">
 										<input type="text" class="form-control" placeholder="" name="address_2" value="<?php echo $profile['address_2']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>		
 							<div class="form-group">		
-								<label for="inputcity" class="col-sm-2 control-label">City</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control" placeholder="" name="city" value="<?php echo $profile['city']?>">
+								<label for="city" class="col-sm-2 control-label">Kota/Propinsi</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" placeholder="Kota" name="city" value="<?php echo $profile['city']?>">
 									</div>
-									<div class="col-sm-2"></div>
-							</div>		
-							<div class="form-group">
-								<label for="inputstate" class="col-sm-2 control-label">State/Region</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control" placeholder="" name="region" value="<?php echo $profile['region']?>">
+									<div class="col-sm-5">
+										<input type="text" class="form-control" placeholder="Propinsi" name="region" value="<?php echo $profile['region']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>		
 							<div class="form-group">		
-								<label for="inputzipcode" class="col-sm-2 control-label">ZIP Code</label>
-									<div class="col-sm-8">
+								<label for="zip_code" class="col-sm-2 control-label">Kode Pos</label>
+									<div class="col-sm-5">
 										<input type="text" class="form-control" placeholder="" name="zip_code" value="<?php echo $profile['zip_code']?>">
 									</div>
-									<div class="col-sm-2"></div>
 							</div>		
 							<div class="form-group">		
-							<label for="inputcountry" class="col-sm-2 control-label">Country</label>
-								<div class="col-sm-8">
+							<label for="country" class="col-sm-2 control-label">Negara</label>
+								<div class="col-sm-5">
 									<select class="form-control" name="country">
 										<option value="Indonesia">Indonesia</option>
-										<option value="United States">United States</option>
-										<option value="Singapore">Singapore</option>
-										<option value="Japan">Japan</option>
-										<option value="Phillipine">Phillipine</option>
 										<option value="Other">Other</option>
 									</select>
 								</div>
-								<div class="col-sm-2"></div>
 							</div>	
                             <div class="form-group">
-								<label class="col-sm-3 col-lg-2 control-label">Image Upload</label>
-                                    <div class="col-sm-9 col-lg-10 controls">
-                                        <div class="fileupload fileupload-new" data-provides="fileupload">
-											<div class="fileupload-new img-thumbnail" style="width: 210px; height: 160px;">
-                                               <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
-                                            </div>
-                                            <div class="fileupload-preview fileupload-exists img-thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-											<div>
-												<span class="btn btn-default btn-file"><span class="fileupload-new">Select image</span>
-												<span class="fileupload-exists">Change</span>
-												<input type="file" class="file-input" /></span>
-												<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-											</div>
-										</div>
-                                         <span class="label label-important">NOTE!</span>
-                                         <span>Attached image img-thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only</span>
+								<label class="col-sm-3 col-lg-2 control-label">Foto Profil</label>
+                                    <div class="col-sm-10">
+                                    <i>Upload foto tidak tersedia</i>
                                     </div>
                             </div>		
 							
-							<input type="submit" class="btn btn-success btn-save btn-lg " value="Save Changes" name="submit">
+							<input type="submit" class="btn btn-save" value="Simpan" name="submit">
 					</form>
 					</div>	
 				</div>

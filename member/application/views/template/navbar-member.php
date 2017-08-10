@@ -138,22 +138,21 @@
 
                         <li>
                             <a href="<?php echo base_url("user/acc_setting");?>">
-                                <i class="fa fa-cog"></i>
-                                Account Settings
+                                <i class="fa fa-cog"></i> Pengaturan Akun
                             </a>
                         </li>
 
                         <li>
                             <a href="<?php echo base_url("user/edit");?>">
                                 <i class="fa fa-user"></i>
-                                Edit Profile
+                                Profil Saya
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="<?php echo base_url("knowledgebase");?>">
                                 <i class="fa fa-question"></i>
-                                Help
+                                Bantuan
                             </a>
                         </li>
 

@@ -24,7 +24,7 @@
                 
         <!--flaty scripts-->
         <script src="<?php echo base_url('assets')?>/js/flaty.js"></script>
-        <script src="<?php echo base_url('assets')?>/js/flaty-demo-codes.js"></script>
+        <!--<script src="<?php echo base_url('assets')?>/js/flaty-demo-codes.js"></script>-->
         
             
             <script type="text/javascript">
@@ -41,10 +41,11 @@
                         "aoColumnDefs": [
                           { "bSortable": true, "aTargets": [ 5 ] }
                         ] } );
-                    $('#awaiting-table').dataTable( {
-                    "aoColumnDefs": [
-                        { "bSortable": true, "aTargets": [ 6 ] }
+                    $('#awaiting-transaction-table').dataTable( {
+                        "aoColumnDefs": [
+                          { "bSortable": true, "aTargets": [ 7 ] }
                         ] } );
+
                     $('#clients-table').dataTable( {
                     "aoColumnDefs": [
                         { "bSortable": true, "aTargets": [ 4 ] }

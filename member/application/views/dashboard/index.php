@@ -14,7 +14,7 @@
     
     <div class="row">
     	<div class="col-md-3">
-    		<div class="tile tile-green tile-mysites">
+    		<div class="tile tile-mysites">
                 <div class="<?php echo base_url('assets')?>/img">
                     <i class="fa fa-desktop"></i>
                 </div>

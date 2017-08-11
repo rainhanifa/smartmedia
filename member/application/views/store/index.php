@@ -39,45 +39,22 @@
                             </div>
                             <div class="box-content">
                                 <div class="row">
+                                    <?php foreach($quota as $quota) {?>
                                     <div class="col-md-4">
                                         <div class="well well-lg">
                                             <div class="gambar">
                                                 <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/basic.png" style="position:center;">
                                             </div>
-                                            <h5 class="text-center">STARTER</h5><hr/>
-                                            <p class="text-center">1 Subdomain</p><hr/>
-                                            <p class="text-center">1 Email</p><hr/>
-                                            <p class="text-center">1GB Bandwith</p><hr/>
-                                            <p class="text-center">1GB Storage</p><hr/>        
-                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
+                                            <h5 class="text-center"><strong><?php echo $quota['name_package']?></strong></h5><hr/>
+                                            <?php if($quota['active_period'] > 0) { ?><p class="text-center">Masa Aktif <?php echo $quota['active_period']?> Hari</p><hr/> <?php } ?>
+                                            <?php if($quota['domain'] > 0) { ?><p class="text-center"><?php echo $quota['domain']?> Subdomain</p><hr/> <?php } ?>
+                                            <?php if($quota['email'] > 0) { ?><p class="text-center"><?php echo $quota['email']?> Email</p><hr/> <?php } ?>
+                                            <?php if($quota['bandwidth'] > 0) { ?><p class="text-center"><?php echo $quota['bandwidth']?> MB Bandwith</p><hr/> <?php } ?>
+                                            <?php if($quota['storage'] > 0) { ?><p class="text-center"><?php echo $quota['storage']?> MB Storage</p><hr/> <?php } ?>        
+                                            <a href="confirmation_store.html" class="btn-block btn btn-primary btn-lg text-center" >BELI</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="well well-lg">
-                                            <div class="gambar">
-                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/starter.png">
-                                            </div>
-                                            <h5 class="text-center">BASIC</h5><hr/>
-                                            <p class="text-center">1 Subdomain</p><hr/>
-                                            <p class="text-center">1 Email</p><hr/>
-                                            <p class="text-center">2GB Bandwith</p><hr/>
-                                            <p class="text-center">2GB Storage</p><hr/>        
-                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="well well-lg">
-                                            <div class="gambar">
-                                                <img class="img-responsive img-thumbnail" src="<?php echo base_url('assets/img/')?>demo/pro.png">
-                                            </div>
-                                            <h5 class="text-center">PROFESSIONAL</h5><hr/>
-                                            <p class="text-center">1 Subdomain</p><hr/>
-                                            <p class="text-center">5 Email</p><hr/>
-                                            <p class="text-center">Unlimited Bandwith</p><hr/>
-                                            <p class="text-center">5GB Storage</p><hr/>        
-                                            <a href="confirmation_store.html"><button class="btn-block btn btn-primary btn-lg text-center" >Buy</button></a>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

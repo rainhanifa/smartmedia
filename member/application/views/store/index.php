@@ -51,7 +51,7 @@
                                             <?php if($quota['email'] > 0) { ?><p class="text-center"><?php echo $quota['email']?> Email</p><hr/> <?php } ?>
                                             <?php if($quota['bandwidth'] > 0) { ?><p class="text-center"><?php echo $quota['bandwidth']?> MB Bandwith</p><hr/> <?php } ?>
                                             <?php if($quota['storage'] > 0) { ?><p class="text-center"><?php echo $quota['storage']?> MB Storage</p><hr/> <?php } ?>        
-                                            <a href="confirmation_store.html" class="btn-block btn btn-primary btn-lg text-center" >BELI</a>
+                                            <a href="<?php echo base_url('store/confirmation/').$quota['id_package']?>" class="btn-block btn btn-primary btn-lg text-center" >BELI</a>
                                         </div>
                                     </div>
                                     <?php } ?>
@@ -79,7 +79,7 @@
                                                 <hr/><h5 class="text-center"><?php echo $extension['name_package']?></h5><hr/>
                                                 
                                                 <p>
-                                                    <button class="btn-block btn btn-primary btn-lg">BELI</button>
+                                                    <a class="btn-block btn btn-primary btn-lg" href="<?php echo base_url('store/confirmation/').$extension['id_package']?>">BELI</a>
                                                 </p>
                                             </div>
                                         </div>

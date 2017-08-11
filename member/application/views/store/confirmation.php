@@ -8,70 +8,84 @@
                 </div>
                 <!-- END Page Title -->
 
-                <!-- BEGIN Breadcrumb -->
-                <div id="breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="<?php echo base_url("dashboard")?>">Home</a>
-                            <span class="divider"><i class="fa fa-angle-right"></i></span>
-                        </li>
-                        <li>
-                            <a href="package.html">Package</a>
-                            <span class="divider"><i class="fa fa-angle-right"></i></span>
-                        </li>
-                        <li class="active"> Payment Confirmation</li>
-                    </ul>
-                </div>
-                <!-- END Breadcrumb -->
-
-                
                 <!-- BEGIN Main Content -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="box">
-                            <div class="box-content">
-                                <br/>
-                                <span>
-                                    <div class="col-md-offset-1">
-                                        <h3>You are going to buy :</h3>    
+                        <form action="<?php echo base_url('store/finish')?>" method="post">
+                        <div clas="row">
+                            <div class="col-sm-8">
+                                <h3>Billing Information</h3>    
+                                <?php foreach($my_detail as $my_detail){ ?>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                           <input type="text" name="first_name" class="form-control" placeholder="Nama Depan" value="<?php echo $my_detail['first_name'] ?>">
+                                        </div>
+                                        <div class="col-md-4">
+                                           <input type="text" name="last_name" class="form-control" placeholder="Nama Belakang" value="<?php echo $my_detail['last_name'] ?>">
+                                        </div>
+                                        <div class="col-md-4">
+                                           <input type="text" name="company_name" class="form-control" placeholder="Institusi" value="<?php echo $my_detail['company_name'] ?>">
+                                        </div>
                                     </div>
-                                </span>
-                                <br/>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-4 col-md-offset-1">
-                                        <span>BASIC PACKAGE</span>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                           <input type="tel" name="phone_number" class="form-control" placeholder="No. Handphone" value="<?php echo $my_detail['phone_number'] ?>">
+                                        </div>
+                                        <div class="col-md-6">
+                                           <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $my_detail['email'] ?>">
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">Rp. 75.000</div>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <span>Payment Method :</span>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                           <input type="text" name="address_1" class="form-control" placeholder="Alamat 1" value="<?php echo $my_detail['address_1'] ?>">
+                                        </div>
+                                        <div class="col-md-6">
+                                           <input type="text" name="address_2" class="form-control" placeholder="Alamat 2" value="<?php echo $my_detail['address_2'] ?>">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                       <div class="col-sm-9 col-md-offset-1 controls">
-                                          <label class="radio">
-                                              <input type="radio" name="optionsRadios1" value="option1"> PayPal
-                                          </label>
-                                          <label class="radio">
-                                              <input type="radio" name="optionsRadios1" value="option2" checked=""> BCA
-                                          </label>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                           <input type="text" name="city" class="form-control" placeholder="Kota" value="<?php echo $my_detail['city'] ?>">
+                                        </div>
+                                        <div class="col-md-4">
+                                           <input type="text" name="region" class="form-control" placeholder="Propinsi" value="<?php echo $my_detail['region'] ?>">
+                                        </div>
+                                        <div class="col-md-4">
+                                           <input type="text" name="zip_code" class="form-control" placeholder="Kode Pos" value="<?php echo $my_detail['zip_code'] ?>">
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                    <h3>Payment Method</h3>    
+                                    <div class="row form-group">
+                                       <div class="col-sm-12 controls">
+                                        <select name="method" class="form-control">
+                                            <option value="1">Transfer ke BCA</option>
+                                            <option value="2">Veritrans</option>
+                                            <option value="3">Paypal</option>
+                                        </select>
                                        </div>
                                     </div>
-                                </div>
-                                <br/>
-                                <br/>
+                            </div>
+                            <div class="col-sm-4" id="cart">
+                                <h3>Product Detail</h3>    
                                 <div class="row">
-                                    <div class="col-md-4 col-md-offset-8">
-                                        <a href="<?php echo base_url('transactions/invoice')?>"><button class="btn btn-primary">ORDER</button></a>
+                                    <?php foreach($product as $product) {?>
+                                    <div class="col-md-8">
+                                        <span><?php echo $product['name_package'] ?></span>
                                     </div>
+                                    <div class="col-md-4">Rp. <?php echo $product['price_package'] ?></div>
+                                    <input type="hidden" name="product" value="<?php echo $product['id_package'] ?>">
+                                    <input type="hidden" name="price" value="<?php echo $product['price_package'] ?>">
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="submit" class="btn btn-save btn-primary pull-right" value="LANJUTKAN PEMBELIAN" >
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
 

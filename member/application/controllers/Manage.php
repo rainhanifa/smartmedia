@@ -15,10 +15,11 @@
 	    
 		public function index()
 		{
-			$data['sites'] = $this->db->get_where($this->table, array('client_id =' => $this->user_id))->result_array();
-			$data['total_sites'] = $this->db->get_where($this->table, array('client_id =' => $this->user_id))->num_rows();
-			$data['user_account'] = $this->db->get_where("clients_package", array('id_client' => $this->user_id))->result_array();
-			$data['is_exist_account'] = $this->db->get_where("clients_package", array('id_client' => $this->user_id))->num_rows();
+			$where = array('client_id =' => $this->user_id);
+			$data['sites'] = $this->db->get_where($this->table, $where)->result_array();
+			$data['total_sites'] = $this->db->get_where($this->table, $where)->num_rows();
+			$data['user_account'] = $this->db->get_where("clients_package", $where)->result_array();
+			$data['is_exist_account'] = $this->db->get_where("clients_package", $where)->num_rows();
 
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');

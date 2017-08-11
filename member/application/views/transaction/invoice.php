@@ -11,6 +11,7 @@
             <?php foreach($invoices as $invoice){ ?>
             <div class="box">
                 <div class="box-content">
+                    <form action="<?php echo base_url('transaction/confirm_payment')?>" method="post">
                     <div class="invoice">
                         <div class="row">
                             <div class="col-md-6">
@@ -23,7 +24,6 @@
                         </div>
 
                         <hr class="margin-0" />
-
                         <div class="row">
                             <div class="col-md-4 company-info">
                                 <p>Invoice From:</p>
@@ -34,11 +34,14 @@
                                 <p><i class="fa fa-envelope"></i> info@smartmedia.com</p>
                             </div>
                             <div class="col-md-4 company-info">
+                                <?php foreach($my_detail as $my_detail) { ?>
                                 <p>Invoiced To:</p>
-                                <h4>John Doe</h4>
-                                <p>Jl. Gading Pesantren no. 38<br/>Kota Malang, 65128</p>
-                                <p><i class="fa fa-phone"></i> +62 85 941 020 444</p>
-                                <p><i class="fa fa-envelope"></i> johndoe@gmail.com</p>
+                                <h4><?php echo $my_detail['first_name']." ".$my_detail['last_name'] ?></h4>
+                                <p><?php echo $my_detail['address_1'] ?><br/><?php echo $my_detail['city']?>, <?php echo $my_detail['region']?></p>
+                                <p><?php echo $my_detail['zip_code'] ?></p>
+                                <p><i class="fa fa-phone"></i> <?php echo $my_detail['phone'] ?></p>
+                                <p><i class="fa fa-envelope"></i> <?php echo $my_detail['email'] ?></p>
+                                <?php } ?>
                             </div>
                             <div class="col-md-4 company-info">
                                 <h4>Payment</h4>
@@ -94,20 +97,24 @@
                                 </ul>
                             </div>
                             <div class="col-md-6 invoice-amount">
-                                <p><strong>Total:</strong> <span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
-                                <p><br/><a class="btn btn-success btn-xlarge" href="#">Konfirmasi Pembayaran</a></p>
+                                <p><span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
+
+                                <input type="hidden" name="invoice_id" value="<?php echo $invoice['id_transaction']?>">
+
+                                <p><br/><input type="submit" class="btn btn-success btn-large" value="Konfirmasi Pembayaran" name="submit"></p>
                             </div>
                         </div>
                         <?php }
                             else{ ?>
 
                             <div class="col-md-12 invoice-amount pull-right">
-                                <p><strong>Total:</strong> <span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
+                                <p><span class="green font-size-17"><strong>Rp <?php echo $invoice['total']?></strong></span></p>
                             </div>
                         <?php }?>
                     </div>
                 </div>
             </div>
+            </form>
             <?php } ?>
 
                     <div class="row text-center">

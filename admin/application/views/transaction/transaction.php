@@ -53,7 +53,7 @@
                                     <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>
                                     <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
                                     <td> Rp. <?php echo $transaction['total']?></td>
-                                    <td><?php echo date("d-m-Y", strtotime($transaction['date_payment']))?></td>
+                                    <td><?php echo ($transaction['date_payment'] != NULL) ? date("d-m-Y", strtotime($transaction['date_payment'])) : '-' ?></td>
                                     <td>
                                         <?php switch($transaction['status_payment']){
                                             case 0  : echo '<span class="label label-large label-danger">Unpaid</span>';

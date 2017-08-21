@@ -31,9 +31,9 @@
                 <div class="open-ticket">
                     <div class="box">
                         <div class="box-title no-bg">
-                            <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray">3</span></h3>
+                            <h3>Tiket Saya <span class="badge badge-xxlarge badge-gray"><?php echo getTotalTiketAktif()?></span></h3>
                             <div class="box-tool">
-                                <a href="<?php echo base_url("support/new_ticket")?>" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
+                                <a href="<?php echo base_url("support/new_ticket")?>" class="btn btn-save btn-lg"><i class="fa fa-edit"></i> Tiket Baru</a>
                             </div>
                         </div>
                     </div>
@@ -54,91 +54,19 @@
                             <tbody>
                             <?php 
                                 $counter = 0;
-                                foreach($ticket as $list){
+                                foreach($tickets as $ticket){
                                     $counter++;
                             ?>
-                                <tr class="table-flag-blue">                                    
-                                    <td><?php echo $list['open_date']?></td>
-                                    <td><?php echo $list['name_department']?></td>
+                                <tr <?php echo ($ticket['status_ticket'] == 1) ? 'class="table-flag-blue"' : '' ?>>                                    
+                                    <td><?php echo $ticket['date_open_ticket']?></td>
+                                    <td><?php echo $ticket['name_department']?></td>
                                     <td>
-                                        <a href="<?php echo base_url("support/detail/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
+                                        <a href="<?php echo base_url("support/detail/").$ticket['id_ticket']?>"><?php echo $ticket['subject_ticket']?></a>
                                     </td>
-                                    <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
-                                    <td><?php echo $list['latest_date']?></td>
+                                    <td><span class="label label-large label-info"><?php echo getStatusTiketName($ticket['status_ticket'])?></span></td>
+                                    <td><?php echo getLastUpdateTiket($ticket['id_ticket'])?></td>
                                 </tr>
                             <?php  } ?>
-                                <!-- <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Domain</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 17371</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Another Subject</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 98278</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>13/10/2017</td>
-                                    <td>Hosting</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 73149</a>
-                                    </td>
-                                    <td><span class="label label-large label-info">Solved</span></td>
-                                    <td>21/10/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Domain</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 17371</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Another Subject</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 98278</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>13/10/2017</td>
-                                    <td>Hosting</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 73149</a>
-                                    </td>
-                                    <td><span class="label label-large label-info">Solved</span></td>
-                                    <td>21/10/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Domain</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 17371</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr>
-                                <tr class="table-flag-blue">                                    
-                                    <td>3/11/2017</td>
-                                    <td>Another Subject</td>
-                                    <td>
-                                        <a href="<?php echo base_url("support/detail")?>">Invoice 98278</a>
-                                    </td>
-                                    <td><span class="label label-large label-success">Active</span></td>
-                                    <td>16/11/2017</td>
-                                </tr> -->
                         </table>
                     </div>
                 </div>

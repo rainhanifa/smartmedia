@@ -115,7 +115,7 @@
 				$this->db->insert("clients_package",$packagedata);
 
 				// update voucher as used
-				$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'));
+				$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'), "used_by" => $this->session->userdata("is_active_cid");
 				$this->db->where('id_voucher', $id_voucher);
 				$this->db->update("vouchers",$use_voucher);
 
@@ -127,7 +127,7 @@
 										"date_transaction" => date("Y-m-d"),
 										"total" => $price,
 										"method" => 1,
-										"detail" => "Aktivasi voucher starter",
+										"detail" => $code,
 										"status_payment" => 2,
 										"verified_by" => 1
 										);

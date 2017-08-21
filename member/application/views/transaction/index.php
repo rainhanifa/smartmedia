@@ -7,25 +7,8 @@
                     </div>
                 </div>
                 <!-- END Page Title -->
-                <!-- BEGIN Main Content -->
-               
-                <!-- 
-                <div class="outstanding-balance ">
-                    <div class="box">
-                        <div class="box-title no-bg ">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Outstanding Balance: <span>Rp 0,00</span></h4>
-                                </div>
 
-                                </div>
-                            <div class="box-tool">
-                                <div class="box">Credit Balance: <span> Rp.667 </span> <a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-ok"></i> Add Deposit</a> </div>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
+                <!-- BEGIN Main Content -->
                 
                 <div class="box">
                     <div>
@@ -42,7 +25,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach($transactions as $transaction) { ?>
-                                <tr>                               
+                                <tr <?php echo ($transaction['status_payment'] == 0) ? "class='table-flag-red'" : "" ?>>                               
                                     <td><a href="<?php echo base_url("transaction/invoice/").$transaction['id_transaction'];?>"><?php echo $transaction['id_transaction']?></a></td>
                                     <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction'])) ?></td>
                                     <td><a href="<?php echo base_url("transaction/invoice/").$transaction['id_transaction'];?>"><?php echo $transaction['detail']?></a></td>

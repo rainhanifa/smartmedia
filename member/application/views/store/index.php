@@ -51,7 +51,7 @@
                                             <?php if($quota['email'] > 0) { ?><p class="text-center"><?php echo $quota['email']?> Email</p><hr/> <?php } ?>
                                             <?php if($quota['bandwidth'] > 0) { ?><p class="text-center"><?php echo $quota['bandwidth']?> MB Bandwith</p><hr/> <?php } ?>
                                             <?php if($quota['storage'] > 0) { ?><p class="text-center"><?php echo $quota['storage']?> MB Storage</p><hr/> <?php } ?>        
-                                            <a href="<?php echo base_url('store/confirmation/').$quota['id_package']?>" class="btn-block btn btn-primary btn-lg text-center" >BELI</a>
+                                            <a href="<?php echo base_url('transaction/confirmation/').$quota['id_package']?>" class="btn-block btn btn-primary btn-lg text-center" >BELI</a>
                                         </div>
                                     </div>
                                     <?php } ?>
@@ -79,7 +79,7 @@
                                                 <hr/><h5 class="text-center"><?php echo $extension['name_package']?></h5><hr/>
                                                 
                                                 <p>
-                                                    <a class="btn-block btn btn-primary btn-lg" href="<?php echo base_url('store/confirmation/').$extension['id_package']?>">BELI</a>
+                                                    <a class="btn-block btn btn-primary btn-lg" href="<?php echo base_url('transaction/confirmation/').$extension['id_package']?>">BELI</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
 
                 <!-- Modal Voucher -->
                 <div class="modal fade modal-white" id="buy_voucher" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <form action="<?php echo base_url("store/activate_voucher");?>" method="post">
+                <form action="<?php echo base_url("transaction/activate_voucher");?>" method="post">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">

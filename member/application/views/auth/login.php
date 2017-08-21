@@ -49,9 +49,12 @@
                         <input type="submit" class="btn btn-primary form-control" name="submit" value="LOGIN">
                     </div>
                 </div>
-
+                <div>
+                	<a href="http://localhost/smartmedia">Kembali</a>
+                </div>
             </form>
             <!-- END Login Form -->
+            	
         </div>
         <!-- END Main Content -->
 

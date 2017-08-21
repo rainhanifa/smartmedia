@@ -18,16 +18,15 @@
 			$where2 = array("client_id" => $this->session->userdata("is_active_cid"),
 							"status_payment" => 0
 							);
-
-			$data['ticket'] = $this->db->query('SELECT DISTINCT tickets.id, tickets.id_ticket, 
-								min(tickets.date_ticket) as open_date,
-								max(tickets.date_ticket) as latest_date,
-								departments.name_department,
-								tickets.subject_ticket,
-								tickets.status_ticket
-								FROM departments JOIN tickets
-								ON departments.id_department = tickets.department_id
-								WHERE tickets.client_id = '.$this->session->userdata("is_active_cid").' GROUP BY tickets.id_ticket')->result_array();
+			
+			$where = array("client_id" => $this->user_id);
+			$data['tickets']  	= $this->db->select("*")
+									->from("tickets AS t")
+									->join("departments AS d","t.department_id = d.id_department")
+									->where($where)
+									->group_by("t.id_ticket")
+									->get()
+									->result_array();
 			
 			$data['transactions'] = $this->db->get_where("transactions", $where2)->result_array();
 			$data['my_site'] = $this->db->get_where("sites", $where)->num_rows();

@@ -23,14 +23,6 @@
                         <li class="active">Vouchers</li>
                     </ul>
                 </div>
-                <!-- END Breadcrumb -->
-
-                <!-- <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div> -->
-               
-				
                 <!-- BEGIN Main Content -->
                
                 <?php if($this->session->flashdata("message") != ""){?>

@@ -19,25 +19,16 @@
                         <li class="active">Transaction</li>
                     </ul>
                 </div>
-                <!-- END Breadcrumb -->
-                <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
-                <!-- BEGIN Main Content -->
-               
-                
-
                 <div class="box">
                             
                     <div class="table-responsive">
                         <table class="table table-advance" id="transaction-table">
                             <thead class="table-flag-blue">
                                 <tr>
-                                    <th>Invoice #</th>
+                                    <th>Transaction #</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
-                                    <th>Invoice Date</th>
+                                    <th>Transaction Date</th>
                                     <th>Due Date</th>
                                     <th>Total</th>
                                     <th>Payment Date</th>

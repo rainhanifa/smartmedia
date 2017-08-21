@@ -1,4 +1,10 @@
-<?php $active= $this->router->fetch_class(); ?>
+<?php
+    $active        = $this->router->fetch_class();
+    $notif_invoice      = getTotalInvoiceDue();
+    $notif_announcement = 0;
+    $notif_expire       = 0;
+    $total_notif        = $notif_invoice + $notif_announcement + $notif_expire;
+?>
         <!-- BEGIN Navbar -->
         <div id="navbar" class="navbar">
             <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
@@ -17,37 +23,37 @@
                 <li class="hidden-xs">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-bell"></i>
-                        <span class="badge badge-important">5</span>
+                        <span class="badge badge-important"><?php echo $total_notif ?></span>
                     </a>
 
                     <!-- BEGIN Notifications Dropdown -->
                     <ul class="dropdown-navbar dropdown-menu">
                         <li class="nav-header">
                             <i class="fa fa-warning"></i>
-                            5 Notifications
+                            <?php echo $total_notif ?> Notifikasi
                         </li>
 
                         <li class="notify">
                             <a href="#">
                                 <i class="fa fa-bullhorn orange"></i>
-                                <p>Maintenance Announcement</p>
-                                <span class="badge badge-warning">1</span>
+                                <p>Announcement</p>
+                                <span class="badge badge-warning"><?php echo $notif_announcement ?></span>
                             </a>
                         </li>
 
                         <li class="notify">
                             <a href="#">
                                 <i class="fa fa-clock-o blue"></i>
-                                <p>Site Expire Notice</p>
-                                <span class="badge badge-info">1</span>
+                                <p>Masa Aktif</p>
+                                <span class="badge badge-info"><?php echo $notif_expire ?></span>
                             </a>
                         </li>
 
                         <li class="notify">
                             <a href="#">
                                 <i class="fa fa-shopping-cart green"></i>
-                                <p>You have pending payment</p>
-                                <span class="badge badge-success">1</span>
+                                <p>Pembayaran tertunda</p>
+                                <span class="badge badge-success"><?php echo $notif_invoice ?></span>
                             </a>
                         </li>
                     </ul>

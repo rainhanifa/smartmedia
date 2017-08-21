@@ -152,7 +152,8 @@
 		}
 
 		public function vouchers(){
-			$data['vouchers'] = $this->db->query('SELECT * FROM vouchers JOIN packages ON vouchers.id_package = packages.id_package')->result_array();
+			$data['vouchers'] = $this->db->select("*")->from("vouchers")->join("packages", "vouchers.id_package = packages.id_package")
+								->order_by("status")->get()->result_array();
 			$data['packages']  =	$this->db->get('packages')->result_array();
 
 			//detail

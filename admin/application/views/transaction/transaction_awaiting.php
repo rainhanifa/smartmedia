@@ -3,7 +3,7 @@
                 <!-- BEGIN Page Title -->
                 <div class="page-title">
                     <div>
-                        <h1><i class="fa fa-check-square-o"></i> AWAITING TRANSACTION</h1>
+                        <h1><i class="fa fa-check-square-o"></i> AWAITING CONFIRMATION</h1>
                     </div>
                 </div>
                 <!-- END Page Title -->
@@ -16,7 +16,7 @@
                             <a href="index.html">Home</a>
                             <span class="divider"><i class="fa fa-angle-right"></i></span>
                         </li>
-                        <li class="active">Awaiting Transaction</li>
+                        <li class="active">Awaiting Confirmation</li>
                     </ul>
                 </div>
                 <!-- END Breadcrumb -->

@@ -30,7 +30,7 @@
                     <i class="fa fa-files-o"></i>
                 </div>
                 <div class="content">
-                    <p class="big"><?php echo $my_invoice ?></p>
+                    <p class="big"><?php echo getTotalInvoiceDueMember($this->session->user_id) ?></p>
                     <p class="title">Invoices Due</p>
                 </div>
             </div>
@@ -91,14 +91,14 @@
                     <?php
                     if($my_invoice > 0){
                         foreach($transactions as $transaction) { ?>
-                    <tr class="table-flag-blue">
+                    <tr <?php echo ($transaction['status_payment'] == 0) ? "class='table-flag-red'" : "" ?>>
                         <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>"><?php echo $transaction['id_transaction']?></a></td>
                         <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>
                         <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
                         <td> Rp. <?php echo $transaction['total']?></td>
                         <td>
                             <?php switch($transaction['status_payment']){
-                                case 0  : echo '<span class="label label-large label-danger">Unpaid</span></span>';
+                                case 0  : echo '<span class="label label-large label-warning">Unpaid</span></span>';
                                             break;
                                 case 1  : echo '<span class="label label-large label-warning">Awaiting Confirmation</span></span>';
                                             break;
@@ -130,7 +130,7 @@
             <div class="box-title no-bg">
                 <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray"><?php echo $my_tickets?></span></h3>
                 <div class="box-tool">
-                    <a class="btn btn-warning btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
+                    <a href="<?php echo base_url('support')?>" class="btn btn-save btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
                 </div>
             </div>
         </div>

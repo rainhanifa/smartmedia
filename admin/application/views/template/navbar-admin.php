@@ -224,7 +224,7 @@
                         <ul class="submenu">
                             <li><a href="<?php echo base_url("transaction");?>" >All Transaction</a></li>
                             <li><a href="<?php echo base_url("transaction/awaiting");?>">Awaiting Confirmation</a></li>
-                            <li><a href="transaction-voucher.html">Voucher Activation</a></li>
+                            <li><a href="<?php echo base_url("transaction/vouchers");?>">Voucher Activation</a></li>
                         </ul>
                         <!-- END Submenu -->
                     </li>

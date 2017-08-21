@@ -11,7 +11,7 @@
                 <!-- BEGIN Main Content -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="<?php echo base_url('store/finish')?>" method="post">
+                        <form action="<?php echo base_url('transaction/finish')?>" method="post">
                         <div clas="row">
                             <div class="col-sm-8">
                                 <h3>Billing Information</h3>    

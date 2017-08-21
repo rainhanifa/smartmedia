@@ -1,10 +1,8 @@
 
 <div id="main-content">
     <!-- BEGIN Page Title -->
-    <div class="page-title">
-        <div>
-            <h1><i class="fa fa-file-o"></i> INVOICE DETAIL</h1>
-        </div>
+    <div class="page-title text-center">
+            <h3><i class="fa fa-file-o"></i> INVOICE DETAIL</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -26,7 +24,7 @@
                         <hr class="margin-0" />
                         <div class="row">
                             <div class="col-md-4 company-info">
-                                <p>Invoice From:</p>
+                                <p><b>Invoice From:</b></p>
                                 <h4>Smart Media</h4>
                                 <p>Perum Nirwana Keben Kav. 7, Sukun<br/>Kota Malang, 65122</p>
                                 <p><i class="fa fa-phone"></i> +62 81 333 66 2055</p>
@@ -35,7 +33,7 @@
                             </div>
                             <div class="col-md-4 company-info">
                                 <?php foreach($my_detail as $my_detail) { ?>
-                                <p>Invoiced To:</p>
+                                <p><b>Invoiced To:</b></p>
                                 <h4><?php echo $my_detail['first_name']." ".$my_detail['last_name'] ?></h4>
                                 <p><?php echo $my_detail['address_1'] ?><br/><?php echo $my_detail['city']?>, <?php echo $my_detail['region']?></p>
                                 <p><?php echo $my_detail['zip_code'] ?></p>
@@ -44,7 +42,7 @@
                                 <?php } ?>
                             </div>
                             <div class="col-md-4 company-info">
-                                <h4>Payment</h4>
+                                <p><b>Payment</b></p>
                                 <?php if($invoice['status_payment'] != 0){ 
                                         switch($invoice['status_payment']){
                                             case '1'   : echo "<span class='btn btn-warning btn-lg'>Awaiting Confirmation</span>";
@@ -57,9 +55,9 @@
                                     } else {?>
                                 <p>
                                     <select name="method" class="form-control">
-                                        <option value="0">Voucher</option>
+                                        <!--option value="1">Voucher</option-->
                                         <option value="2">Transfer Bank</option>
-                                        <option value="1">Veritrans</option>
+                                        <option value="3">Veritrans</option>
                                     </select>
                                 </p>
                                     <?php } ?>

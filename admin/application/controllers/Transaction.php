@@ -14,20 +14,39 @@
 		
 		public function index(){
 			$data['transactions'] =	$this->db->select("*")->from($this->table)->join("clients", $this->table.'.client_id = clients.id_client')
+                                    ->order_by("date_payment", "DESC")
 									->get()->result_array();
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('transaction/transaction.php', $data);
 			$this->load->view('template/footer-admin.php');
 		}
-		public function invoice(){
+		public function invoice($id){
+
+
+            $billing_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
+                                                first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
+                                    ->join("billing", "transactions.client_id = billing.client_id")
+                                    ->where("id_transaction",$id)
+                                    ->get_compiled_select();
+            $client_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
+                                                first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
+                                    ->join("clients", "transactions.client_id = clients.id_client")
+                                    ->where("id_transaction",$id)
+                                    ->get_compiled_select();
+
+            // merge both data
+            $data['transactions'] = $this->db->query($billing_data." UNION ".$client_data." LIMIT 1")->result_array();
+
+                                    //print_r($this->db->last_query());exit;
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
-			$this->load->view('transaction/detail_invoice.php');
+			$this->load->view('transaction/detail_invoice.php', $data);
 			$this->load->view('template/footer-admin.php');
 		}
 		public function awaiting(){
-			$data['transactions'] =	$this->db->select("transactions.id_transaction as notrans, transactions.*, clients.*")->from($this->table)->join("clients", $this->table.'.client_id = clients.id_client')
+			$data['transactions'] =	$this->db->select("transactions.id_transaction as notrans, transactions.*, clients.*")
+                                    ->from($this->table)->join("clients", $this->table.'.client_id = clients.id_client')
 									->where(array("status_payment" => "1"))->get()->result_array();
 			// print_r($this->db->last_query());
 			$this->load->view('template/header-admin.php');
@@ -35,6 +54,24 @@
 			$this->load->view('transaction/transaction_awaiting.php', $data);
 			$this->load->view('template/footer-admin.php');
 		}
+
+        public function vouchers(){
+            $data['transactions'] = $this->db->select("*, vouchers.used_by as activator")->from($this->table)
+                                    ->join("clients", $this->table.'.client_id = clients.id_client', "inner")
+                                    ->join("vouchers", $this->table. '.client_id = vouchers.used_by', "inner")
+                                    ->where(
+                                        array("status_payment" => "2",
+                                                "method" => 1)
+                                        )
+                                    ->order_by("date_payment", "DESC")
+                                    ->get()->result_array();
+                                    //print_r($this->db->last_query());exit;
+            $this->load->view('template/header-admin.php');
+            $this->load->view('template/navbar-admin.php');
+            $this->load->view('transaction/voucher_activation.php', $data);
+            $this->load->view('template/footer-admin.php');
+        }
+
 		public function confirm($id_transaction){
 			
 			$konfirmasi = array("status_payment" => 2, 

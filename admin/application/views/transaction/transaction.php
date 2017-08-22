@@ -76,7 +76,7 @@
                 <!-- END Main Content -->
 
                 <!-- Modal -->
-                <div class="modal fade modal-white in" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block">
+                <div class="modal fade modal-white" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content infotrophy-content">
                             <div class="modal-header">

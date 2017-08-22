@@ -76,11 +76,12 @@
                 <!-- END Main Content -->
 
                 <!-- Modal -->
-                <div class="modal fade modal-white" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade modal-white in" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content infotrophy-content">
-                            <div class="modal-title">
-                                <h3><strong>Confirm Payment #1231231</strong></h3>
+                            <div class="modal-header">
+                                
+                                <h3 class="modal-title"><strong>Confirm Payment #1231231</strong></h3>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -91,45 +92,64 @@
                                 <br/>
                                 <div class="row">
                                     <div class="col-md-6">
-                                            <h4>ORDER</h4>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Extend 30-days</td>
-                                                        <td>..............</td>
-                                                        <td class="text-right">Rp 70.000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Credit Balance</td>
-                                                        <td>..............</td>
-                                                        <td class="text-right">-Rp 6.000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td class="text-right">TOTAL</td>
-                                                        <td class="text-right">Rp 70.000</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4>ORDER</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <table class="table table-stripped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Extend 30-days</th>
+                                                            <th>..............</th>
+                                                            <th class="text-right">Rp 70.000</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Credit Balance</th>
+                                                            <th>..............</th>
+                                                            <th class="text-right">-Rp 6.000</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td class="text-right">TOTAL</td>
+                                                            <td class="text-right">Rp 70.000</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <h4>PAYMENT DETAIL</h4>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Date of Payment</td>
-                                                    <td> : </td>
-                                                    <td>30-07-2017</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4>PAYMENT DETAIL</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <table class="table table-stripped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date of Payment</th>
+                                                            <th>: 30-07-2017</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <br/>
-                                        <p><strong>PAYMENT METHOD</strong></p>
-                                        <p><strong>BCA 0115116032 - Imaniar Hanifa</strong></p>
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h5>PAYMENT METHOD</h5> 
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>BCA 0115116032 - Imaniar Hanifa</p>
+                                            </div>
+                                        </div>
                                     </div>              
                                 </div>
                             </div>

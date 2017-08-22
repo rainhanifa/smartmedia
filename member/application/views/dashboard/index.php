@@ -30,7 +30,7 @@
                     <i class="fa fa-files-o"></i>
                 </div>
                 <div class="content">
-                    <p class="big"><?php echo getTotalInvoiceDueMember($this->session->user_id) ?></p>
+                    <p class="big"><?php echo getTotalInvoiceDue($this->session->user_id) ?></p>
                     <p class="title">Invoices Due</p>
                 </div>
             </div>

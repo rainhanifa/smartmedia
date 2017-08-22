@@ -13,6 +13,7 @@
 	    }
 
 		public function index(){
+			$data['tickets'] = $this->db->query('SELECT * FROM tickets')->result_array();
 			$data['departments'] = $this->db->query('SELECT * FROM departments')->result_array();
 			
 			$this->load->view('template/header-admin.php');
@@ -20,10 +21,8 @@
 			$this->load->view('support/departments.php', $data);
 			$this->load->view('template/footer-admin.php');
 		}
-		public function detail(){
-			//detail ticket
-		}
-		public function add(){
+
+		public function department_add(){
 			if (isset($_POST['submit'])){
 				$name = $this->input->post('name');
 				$desc = $this->input->post('desc');
@@ -43,7 +42,7 @@
 	        }
 		}
 		
-		public function update(){
+		public function department_update(){
 			if (isset($_POST['submit'])){	
 				$id_department = $this->input->post('id_department');
 				$name = $this->input->post('name');
@@ -68,7 +67,7 @@
 			$data['departments'] = $this->db->query("SELECT * FROM departments WHERE id_department = ".$id_department)->result();
 		}
 
-		public function delete(){
+		public function department_delete(){
 			$id_department = $_GET['id'];
 			$this->db->where('id_department', $id_department);
 			if($this->db->delete("departments")){
@@ -105,66 +104,88 @@
 	            </div>';
             }
 		}
-		public function ticket($id=0){
-			$data['ticket'] = $this->db->query('SELECT tickets.id, tickets.id_ticket,  min(tickets.date_ticket) as open_date, max(tickets.date_ticket) as latest_date, departments.name_department, tickets.subject_ticket, tickets.status_ticket from departments JOIN tickets ON departments.id_department = tickets.department_id group by tickets.id_ticket')->result_array();
-			$this->load->view('template/header-admin.php');
-			$this->load->view('template/navbar-admin.php');
-			$this->load->view('support/tickets.php', $data);
-			$this->load->view('template/footer-admin.php');
+		public function ticket(){
+
+			if($page == ""){
+				$data['tickets']  	= $this->db->select("*")
+									->from("tickets AS t")
+									->join("departments AS d","t.department_id = d.id_department")
+									->group_by("t.id_ticket")
+									->get()
+									->result_array();
+				$this->load->view('support/tickets.php', $data);
+				$this->load->view('template/footer-admin.php');	
+			}
+			
+			
 		}
 
-		public function detail_ticket($id = 0){
-			$data['ticket'] = $this->db->query('SELECT * FROM tickets WHERE id = '.$id)->result_array();
-			/*$data['tiket'] = $this->db->query('SELECT * FROM tickets WHERE id_ticket ='.$data['ticket'][0]['id_ticket'])->result_array();*/
-			$data['name'] = $this->db->query(
-				"SELECT tickets.*, app_users.fullname 
-				FROM tickets INNER JOIN app_users ON app_users.id_users = tickets.answered_id 
-				WHERE tickets.id_ticket = '" .$data['ticket'][0]['id_ticket']."' ORDER BY tickets.id")->result_array();
-			
-			if (isset($_POST['submit'])){
-				$name = $this->input->post('msg-body');
-				$date = date("Y-m-d");
+		public function ticket_detail($id = 0){
 
-				$reply = array( "description" => $name,
-								"subject_ticket" => $data['ticket'][0]['subject_ticket'],
-								"id_ticket" => $data['ticket'][0]['id_ticket'],
-								"sites" => $data['ticket'][0]['sites'],
-								"priority" => $data['ticket'][0]['priority'],
-								"client_id" => $data['ticket'][0]['client_id'],
-								"department_id" => $data['ticket'][0]['department_id'],
-								"status_ticket" => $data['ticket'][0]['status_ticket'],
-								"answered_id" => $this->session->userdata('admin_active_id'),
-								"date_ticket" => $date
-					);
+			$where = array("id_ticket" => $id);
+			$where2 = array("ticket_id" => $id);
 
-				if($this->db->insert("tickets",$reply)){
-					$this->session->set_flashdata("warning", '
-			            <div class="alert alert-success">
-			                <button class="close" data-dismiss="alert">×</button>
-			                <strong>Reply Telah Terkirim</strong>
-			            </div>');
+			$data['tickets']  	= $this->db->select("*")->from("tickets AS t")
+									->join("departments AS d","t.department_id = d.id_department")
+									->join("clients AS c","t.client_id = c.id_client")
+									->where($where)->get()->result_array();
+			$data['messages'] 	= $this->db->select("*")->from("ticket_details as d")
+									->join("app_users AS u", "d.user_id = u.id_users")
+									->where($where2)->order_by("date_detail", "DESC")->get()->result_array();
 
-			        redirect('Support/ticket');
-				}else{
-					$this->session->set_flashdata("warning", '
-			            <div class="alert alert-error">
-			                <button class="close" data-dismiss="alert">×</button>
-			                <strong>Reply Gagal Terkirim</strong>
-			            </div>');
-
-			        redirect('Support/ticket');
-				}
-
-	        }
 			$this->load->view('template/header-admin.php');
 			$this->load->view('template/navbar-admin.php');
 			$this->load->view('support/detail_ticket.php',$data);
-			$this->load->view('template/footer-admin.php');
+			$this->load->view('template/footer-admin.php'); 
 		}
 
-		public function open_ticket(){
-			
+
+
+		function reply_ticket(){
+				//user inputs
+				$id_ticket = $this->input->post('id_ticket');
+				$message = $this->input->post('message');
+				$date = date("Y-m-d H:i:s");
+
+				$reply_data = array("ticket_id" => $id_ticket,
+										"user_id" => $this->session->userdata("admin_active_id"),
+										"date_detail" => $date,
+										"message_detail" => $message
+									);
+				if($this->db->insert("ticket_details", $reply_data)){
+					//last id
+					$id_detail 	= $this->db->insert_id();
+					
+					$config['upload_path']          = realpath('./../')."/upload/tickets/";
+		            $config['allowed_types']        = 'gif|jpg|png|jpeg|doc|zip|rar';
+
+		            $this->load->library('upload');
+		            $this->upload->initialize($config);
+
+		            if($this->upload->do_upload('up_photo')) {
+		                $datax = $this->upload->data();
+		                $filex = "upload/tickets/".$datax['file_name'];
+
+						$ticket_post = array( "detail_id" => $id_detail,
+												"file_detail" => $filex);
+
+						$this->db->insert("ticket_attachments",$ticket_post);
+					}
+
+					// mark ticket as Answered
+					$mark_ticket 	= array("status_ticket" => 1);
+					$this->db->where('id_ticket', $id_ticket);
+					$this->db->update("tickets",$mark_ticket);
+
+					$message = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> Reply telah dikirimkan</div>"; 
+				}
+				else{
+					$message = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> Terjadi kesalahan sistem</div>"; 	
+				}
+				$this->session->set_flashdata('message', $message);
+				redirect("support/ticket_detail/".$id_ticket);
 		}
+
 		public function close_ticket(){
 			//action close
 		}

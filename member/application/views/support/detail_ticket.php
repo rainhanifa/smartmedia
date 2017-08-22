@@ -61,7 +61,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                     <div class="msg-reply">
-                                        <form class="horizontal-form" action="<?php echo base_url("support/detail")?>" method="post">
+                                        <form class="horizontal-form" action="<?php echo base_url("support/reply_ticket")?>" method="post">
                                             <p class="controls">
                                                 <textarea class="form-control wysihtml5" name="message" placeholder="Reply" rows="5" id="reply"></textarea>
                                             </p>

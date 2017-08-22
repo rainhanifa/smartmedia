@@ -67,39 +67,8 @@
 									->where($where)->get()->result_array();
 			$data['messages'] 	= $this->db->select("*")->from("ticket_details as d")
 									->join("app_users AS u", "d.user_id = u.id_users")
-									->where($where2)->get()->result_array();
-//									var_dump($this->db->last_query());exit;
+									->where($where2)->order_by("date_detail","DESC")->get()->result_array();
 
-			if (isset($_POST['submit'])){
-				$name = $this->input->post('msg-body');
-				$date = date("Y-m-d H:i:s");
-
-				$reply = array( "description" => $name,
-								"subject_ticket" => $data['ticket'][0]['subject_ticket'],
-								"id_ticket" => $data['ticket'][0]['id_ticket'],
-								"sites" => $data['ticket'][0]['sites'],
-								"priority" => $data['ticket'][0]['priority'],
-								"client_id" => $this->session->userdata('is_active_cid'),
-								"department_id" => $data['ticket'][0]['department_id'],
-								"status_ticket" => $data['ticket'][0]['status_ticket'],
-								"date_ticket" => $date
-					);
-
-				/*var_dump($reply);die();*/
-				if($this->db->insert("tickets",$reply)){
-					$this->session->set_flashdata("warning", '
-			            <div class="alert alert-success">
-			                <button class="close" data-dismiss="alert">×</button>
-			                <strong>Berhasil menambahkan</strong>
-			            </div>');
-
-			        redirect('support/');
-				}else{
-					$this->session->set_flashdata("warning", '<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Tidak Berhasil</strong></div>');
-
-			        redirect('support/');
-				}
-			}
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('support/detail_ticket.php',$data);
@@ -180,7 +149,7 @@
 										"date_detail" => $date,
 										"message_detail" => $message
 									);
-				if($this->db->insert("ticket_details", $ticket_detail)){
+				if($this->db->insert("ticket_details", $reply_data)){
 					//last id
 					$id_detail 	= $this->db->insert_id();
 					
@@ -199,6 +168,11 @@
 
 						$this->db->insert("ticket_attachments",$ticket_post);
 					}
+
+					// mark ticket as Customer Reply
+					$mark_ticket 	= array("status_ticket" => 2);
+					$this->db->where('id_ticket', $id_ticket);
+					$this->db->update("tickets",$mark_ticket);
 
 					$message = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> Tiket telah dikirimkan</div>"; 
 				}

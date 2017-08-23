@@ -1,4 +1,13 @@
-        <?php $active= $this->router->fetch_class(); ?>
+<?php
+    $active= $this->router->fetch_class(); 
+    
+    $notif_invoice      = getTotalAwaiting();
+    $notif_tiket        = getTotalTiketAktif();
+    $total_notif        = $notif_invoice + $notif_tiket;
+
+    $total_last_tickets      = getTotalTiketReplied();
+    $last_tickets            = getLastTiketReplied();
+?>
         <!-- BEGIN Navbar -->
 <!-- BEGIN Navbar -->
         <div id="navbar" class="navbar">
@@ -18,39 +27,32 @@
                 <li class="hidden-xs">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-bell"></i>
-                        <span class="badge badge-important">5</span>
+                        <span class="badge badge-important"><?php echo $total_notif?></span>
                     </a>
 
                     <!-- BEGIN Notifications Dropdown -->
                     <ul class="dropdown-navbar dropdown-menu">
                         <li class="nav-header">
                             <i class="fa fa-warning"></i>
-                            5 Notifications
+                            <?php echo $total_notif?> Notifications
                         </li>
 
                         <li class="notify">
-                            <a href="#">
+                            <a href="<?php echo base_url('transaction/awaiting')?>">
                                 <i class="fa fa-bullhorn orange"></i>
-                                <p>Maintenance Announcement</p>
-                                <span class="badge badge-warning">1</span>
+                                <p>Waiting Confirmation</p>
+                                <span class="badge badge-warning"><?php echo $notif_invoice?></span>
                             </a>
                         </li>
 
                         <li class="notify">
-                            <a href="#">
-                                <i class="fa fa-clock-o blue"></i>
-                                <p>Site Expire Notice</p>
-                                <span class="badge badge-info">1</span>
+                            <a href="<?php echo base_url('support/ticket')?>">
+                                <i class="fa fa-ticket blue"></i>
+                                <p>Open Ticket</p>
+                                <span class="badge badge-info"><?php echo $notif_tiket ?></span>
                             </a>
                         </li>
 
-                        <li class="notify">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart green"></i>
-                                <p>You have pending payment</p>
-                                <span class="badge badge-success">1</span>
-                            </a>
-                        </li>
                     </ul>
                     <!-- END Notifications Dropdown -->
                 </li>
@@ -60,60 +62,32 @@
                 <li class="hidden-xs">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-envelope"></i>
-                        <span class="badge badge-success">3</span>
+                        <span class="badge badge-success"><?php echo $total_last_tickets ?></span>
                     </a>
 
                     <!-- BEGIN Messages Dropdown -->
                     <ul class="dropdown-navbar dropdown-menu">
                         <li class="nav-header">
                             <i class="fa fa-comments"></i>
-                            3 Messages
+                            <?php echo $total_last_tickets ?> New Responses 
                         </li>
-
+                        <?php foreach($last_tickets as $ticket) { ?>
                         <li class="msg">
                             <a href="#">
                                 <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
                                 <div>
-                                    <span class="msg-title">Sarah</span>
+                                    <span class="msg-title"><?php echo $ticket['first_name'] ?></span>
                                     <span class="msg-time">
                                         <i class="fa fa-clock-o"></i>
-                                        <span>a moment ago</span>
+                                        <span><?php echo $ticket['date_detail'] ?></span>
                                     </span>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </a>
                         </li>
-
-                        <li class="msg">
-                            <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
-                                <div>
-                                    <span class="msg-title">Emma</span>
-                                    <span class="msg-time">
-                                        <i class="fa fa-clock-o"></i>
-                                        <span>2 Days ago</span>
-                                    </span>
-                                </div>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ...</p>
-                            </a>
-                        </li>
-
-                        <li class="msg">
-                            <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
-                                <div>
-                                    <span class="msg-title">John</span>
-                                    <span class="msg-time">
-                                        <i class="fa fa-clock-o"></i>
-                                        <span>8:24 PM</span>
-                                    </span>
-                                </div>
-                                <p>Duis aute irure dolor in reprehenderit in ...</p>
-                            </a>
-                        </li>
-
+                        <?php } ?>
                         <li class="more">
-                            <a href="#">See all messages</a>
+                            <a href="<?php echo base_url('support/ticket')?>">See all tickets</a>
                         </li>
                     </ul>
                     <!-- END Notifications Dropdown -->
@@ -134,32 +108,8 @@
                     <ul class="dropdown-menu drop-right dropdown-navbar">
                         <li class="nav-header">
                             <i class="fa fa-clock-o"></i>
-                            Logined From 20:45
+                            Login From <?php echo $this->session->userdata['admin_active_time']?>
                         </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-cog"></i>
-                                Account Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                Edit Profile
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-question"></i>
-                                Help
-                            </a>
-                        </li>
-
-                        <li class="divider visible-xs"></li>
-
                         <li class="visible-xs">
                             <a href="#">
                                 <i class="fa fa-tasks"></i>
@@ -181,8 +131,6 @@
                                 <span class="badge badge-success">5</span>
                             </a>
                         </li>
-
-                        <li class="divider"></li>
 
                         <li>
                             <a href="<?php echo base_url('auth/logout')?>">

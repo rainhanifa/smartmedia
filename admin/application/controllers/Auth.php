@@ -23,7 +23,8 @@
 	                	$data   = array('admin_active_user' => $r['username'],
 	                            'admin_active_name' => $r['fullname'],
 	                            'admin_active_id' => $r['id_users'],
-	                            'admin_logged_in' => 'TRUE');
+	                            'admin_logged_in' => 'TRUE',
+	                            'admin_active_time' => date("H:i"));
 
 		                $this->session->set_userdata($data);
 
@@ -50,6 +51,7 @@
 
 	    	$data   = array('admin_active_user' => '',
 	                'admin_active_name' => '',
+	                'admin_active_time' => '',
 	                'admin_logged_in' => 'FALSE');
 	        $this->session->unset_userdata($data);
 	        $this->session->set_flashdata("message","You're logged out");	

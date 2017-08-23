@@ -64,7 +64,7 @@
                                                             <p><b>Phone No.</b></p>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p><?php echo $profile['phone_number']; ?></p>
+                                                            <p><?php echo $profile['phone']; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -266,7 +266,7 @@
                                                     <div class="row">
                                                         <?php foreach($sites as $site){ ?>
                                                         <div class="col-md-3">
-                                                            <img class="img-responsive img-thumbnail" src="<?php echo base_url("assets");?>/../img/demo/profile-picture.jpg" alt="profile picture">
+                                                            <img class="img-responsive img-thumbnail" src="<?php echo base_url("../member/assets");?>/../img/demo/profile-picture.jpg" alt="profile picture">
                                                         </div>
                                                         <div class="col-md-9">
                                                             <div class="row">
@@ -308,3 +308,11 @@
                     </div>
                 </div>
                 <!-- END Main Content -->
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var link = window.location.href.split("#");
+
+                        $('.nav-tabs a[href="#' + link[1] + '"]').tab('show');
+                    });
+                </script>

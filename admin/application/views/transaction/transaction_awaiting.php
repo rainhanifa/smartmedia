@@ -25,7 +25,7 @@
                 <div class="modal fade modal-white" id="konfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content infotrophy-content">
-                            <div class="modal-title">
+                            <div class="modal-header">
                                 <div id="container_confirm">
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                                         <tbody>
                                             <?php foreach($transactions as $transaction){?>                      
                                             <tr>         
-                                                <td><?php echo $transaction['id_transaction']?></td>
+                                                <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>">#<?php echo $transaction['id_transaction']?></a></td>
                                                 <td><?php echo $transaction['first_name']?></td>
                                                 <td><?php echo $transaction['last_name']?></td>
                                                 <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>

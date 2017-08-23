@@ -105,19 +105,16 @@
             }
 		}
 		public function ticket(){
-
-			if($page == ""){
-				$data['tickets']  	= $this->db->select("*")
-									->from("tickets AS t")
-									->join("departments AS d","t.department_id = d.id_department")
-									->group_by("t.id_ticket")
-									->get()
-									->result_array();
-				$this->load->view('support/tickets.php', $data);
-				$this->load->view('template/footer-admin.php');	
-			}
-			
-			
+			$data['tickets']  	= $this->db->select("*")
+								->from("tickets AS t")
+								->join("departments AS d","t.department_id = d.id_department")
+								->group_by("t.id_ticket")
+								->get()
+								->result_array();
+			$this->load->view('template/header-admin.php');
+			$this->load->view('template/navbar-admin.php');
+			$this->load->view('support/tickets.php', $data);
+			$this->load->view('template/footer-admin.php');	
 		}
 
 		public function ticket_detail($id = 0){

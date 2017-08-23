@@ -20,17 +20,7 @@
                     </ul>
                 </div>
 
-                <!-- END Breadcrumb -->
-                <div class="alert alert-info">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Latest Info! </strong> The page has been added.
-                </div>
-                <!-- BEGIN Main Content -->
-               
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Available Credit Balance:  </strong> You have a credit balance of Rp. 667,00 and this will be automatically applied to any new invoices
-                </div>                
+                <!-- END Breadcrumb -->            
 
                 <div class="box">
                             
@@ -56,8 +46,8 @@
                                     <td><?php echo $client['last_name']; ?></td>
                                     <td><?php echo $client['email']; ?></td>
                                     <td><a href="<?php echo base_url("clients/profile/").$client['id_client'];?>" class="btn btn-lime"><i class="fa fa-user"></i> Profile</a>
-                                        <a href="<?php echo base_url("clients/profile/").$client['id_client'];?>" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a>
-                                        <a href="clients_profile.html#sites" class="btn btn-gray"><i class="fa fa-desktop"></i> Sites</a></td>
+                                        <a href="<?php echo base_url("clients/profile/").$client['id_client'].'#invoice';?>" class="btn btn-info"><i class="fa fa-tasks"></i> Invoice</a>
+                                        <a href="<?php echo base_url("clients/profile/").$client['id_client'].'#sites';?>" class="btn btn-gray"><i class="fa fa-desktop"></i> Sites</a></td>
                                 </tr>
                                 <?php $counter++;
                                 } ?>

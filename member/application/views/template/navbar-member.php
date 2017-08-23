@@ -4,6 +4,10 @@
     $notif_announcement = 0;
     $notif_expire       = 0;
     $total_notif        = $notif_invoice + $notif_announcement + $notif_expire;
+
+
+    $total_last_tickets      = getTotalTiketReplied();
+    $last_tickets            = getLastTiketReplied();
 ?>
         <!-- BEGIN Navbar -->
         <div id="navbar" class="navbar">
@@ -65,57 +69,31 @@
                 <li class="hidden-xs">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-envelope"></i>
-                        <span class="badge badge-success">3</span>
+                        <span class="badge badge-success"><?php echo $total_last_tickets?></span>
                     </a>
 
                     <!-- BEGIN Messages Dropdown -->
                     <ul class="dropdown-navbar dropdown-menu">
                         <li class="nav-header">
                             <i class="fa fa-comments"></i>
-                            3 Messages
+                            <?php echo $total_last_tickets?> Messages
                         </li>
 
+                        <?php foreach($last_tickets as $ticket) { ?>
                         <li class="msg">
                             <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
+                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar3.jpg" alt="Admin's Avatar" />
                                 <div>
-                                    <span class="msg-title">Sarah</span>
+                                    <span class="msg-title"><?php echo $ticket['fullname'] ?></span>
                                     <span class="msg-time">
                                         <i class="fa fa-clock-o"></i>
-                                        <span>a moment ago</span>
+                                        <span><?php echo $ticket['date_detail'] ?></span>
                                     </span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p><?php echo substr($ticket['message_detail'], 0, 100)."..."?></p>
                             </a>
                         </li>
-
-                        <li class="msg">
-                            <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
-                                <div>
-                                    <span class="msg-title">Emma</span>
-                                    <span class="msg-time">
-                                        <i class="fa fa-clock-o"></i>
-                                        <span>2 Days ago</span>
-                                    </span>
-                                </div>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ...</p>
-                            </a>
-                        </li>
-
-                        <li class="msg">
-                            <a href="#">
-                                <img src="<?php echo base_url('assets')?>/img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
-                                <div>
-                                    <span class="msg-title">John</span>
-                                    <span class="msg-time">
-                                        <i class="fa fa-clock-o"></i>
-                                        <span>8:24 PM</span>
-                                    </span>
-                                </div>
-                                <p>Duis aute irure dolor in reprehenderit in ...</p>
-                            </a>
-                        </li>
+                        <?php } ?>
 
                         <li class="more">
                             <a href="#">See all messages</a>
@@ -139,7 +117,7 @@
                     <ul class="dropdown-menu dropdown-navbar" id="user_menu">
                         <li class="nav-header">
                             <i class="fa fa-clock-o"></i>
-                            Logined From 20:45
+                            Login From <?php echo $this->session->userdata['is_active_time']?>
                         </li>
 
                         <li>

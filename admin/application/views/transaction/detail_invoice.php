@@ -13,7 +13,7 @@
                     <div class="invoice">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="<?php echo base_url('assets/')?>img/logo.png" />
+                                <img src="<?php echo base_url('../assets/')?>images/logo.png" />
                             </div>
                             <div class="col-md-6 invoice-info">
                                 <p class="font-size-17"><strong>Invoice #<?php echo $transaction['id_transaction']?></strong></p>
@@ -43,7 +43,7 @@
                                 <p><b>Status Payment</b></p>
                                 <?php 
                                         switch($transaction['status_payment']){
-                                            case '1'   : echo "<span class='btn btn-warning'>Awaiting Confirmation</span>";
+                                            case '1'   : echo "<p><b>Paid via Bank Transfer on ".date("l, d-m-Y", strtotime($transaction['date_payment']))."</b></p><a href='".base_url("transaction/confirm/").$transaction["id_transaction"]."'class='btn btn-warning '>Confirm Payment Now</a>";
                                                          break;
                                             case '2'   : 
                                                             switch($transaction['method']){
@@ -97,3 +97,5 @@
 
     </div>
 </div>
+
+<!-- END Main Content -->

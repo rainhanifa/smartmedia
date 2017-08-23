@@ -5,10 +5,47 @@ function getTotalTiketAktif(){
     $user_id    =   $CI->session->userdata("is_active_cid");
 
     $where  =   array("client_id" => $user_id,
-                    "status_ticket" => "unsolved");
+                    "status_ticket <" => "3");
     $total  =   $CI->db->select("COUNT(id_ticket) AS my_ticket")->from("tickets")->where($where)->get()->row()->my_ticket;
     return $total;
 }
+
+function getTotalTiketReplied(){
+    $CI =& get_instance();
+    $user_id    =   $CI->session->userdata("is_active_cid");
+    $user       =   $CI->session->userdata("is_active_id");
+
+    $where  =   array("status_ticket" => 1, "client_id" => $user_id, "user_id <>" => $user);
+    $total  =   $CI->db->select("*")->from("tickets as t")
+                ->join("ticket_details as d", "t.id_ticket = d.ticket_id")
+                ->join("app_users as u", "d.user_id = u.id_users")
+                ->where($where)
+                ->order_by("date_detail", "DESC")
+                ->limit(3)
+                ->get()->num_rows();
+    return $total;
+    exit;
+}
+
+function getLastTiketReplied(){
+    $CI =& get_instance();
+    $user_id    =   $CI->session->userdata("is_active_cid");
+
+    $where  =   array("status_ticket" => 1, "client_id" => $user_id);
+    $tiket  =   $CI->db->select("*")->from("tickets as t")
+                ->join("ticket_details as d", "t.id_ticket = d.ticket_id")
+                ->join("app_users as u", "d.user_id = u.id_users")
+                ->where($where)
+                ->order_by("id_ticket", "DESC")
+                ->order_by("date_detail", "DESC")
+                ->group_by("t.id_ticket")
+                ->limit(3)
+                ->get()
+                ->result_array();
+    return $tiket;
+}
+
+
 
 function getTotalInvoiceDue(){
     $CI =& get_instance();
@@ -28,8 +65,8 @@ function getTotalActiveDue($user_id){
 function getLastUpdateTiket($id_tiket){
     $CI =& get_instance();
     $where  =   array("ticket_id" => $id_tiket);
-    $total  =   $CI->db->select("MAX(date_detail) as last_update")->from("ticket_details")->where($where)->get()->row()->last_update;
-    return $total;
+    $date   =   $CI->db->select("MAX(date_detail) as last_update")->from("ticket_details")->where($where)->get()->row()->last_update;
+    return $date;
 }
 
 function getPriorityName($priority){
@@ -56,6 +93,19 @@ function getStatusTiketName($status){
         case 3  :   return "Closed";
                     break;
         default  :   return "Open";
+                    break;
+    }
+}
+
+function getStatusPaymentLabel($status){
+    switch($status){
+        case 0  : return '<span class="label label-large label-warning">Unpaid</span></span>';
+                    break;
+        case 1  : return '<span class="label label-large label-warning">Awaiting Confirmation</span></span>';
+                    break;
+        case 2  : return '<span class="label label-large label-lime">Paid</span>';
+                      break;
+        default  : return '<span class="label label-large label-gray">Canceled</span>';
                     break;
     }
 }

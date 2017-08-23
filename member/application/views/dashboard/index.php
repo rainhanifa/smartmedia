@@ -96,19 +96,7 @@
                         <td><?php echo date("d-m-Y", strtotime($transaction['date_transaction']))?></td>
                         <td><?php echo date("d-m-Y", strtotime($transaction['due_date']))?></td>
                         <td> Rp. <?php echo $transaction['total']?></td>
-                        <td>
-                            <?php switch($transaction['status_payment']){
-                                case 0  : echo '<span class="label label-large label-warning">Unpaid</span></span>';
-                                            break;
-                                case 1  : echo '<span class="label label-large label-warning">Awaiting Confirmation</span></span>';
-                                            break;
-                                case 2  : echo '<span class="label label-large label-lime">Paid</span>';
-                                              break;
-                                default  : echo '<span class="label label-large label-gray">Canceled</span>';
-                                            break;
-                            }
-
-                            ?></td>
+                        <td><?php echo getStatusPaymentLabel($transaction['status_payment'])?></td>
                     </tr>
                     <?php }
                         } else {
@@ -128,7 +116,7 @@
         <div class="open-ticket">
         <div class="box">
             <div class="box-title no-bg">
-                <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray"><?php echo $my_tickets?></span></h3>
+                <h3>My Tickets <span class="badge badge-xxlarge badge-gray"><?php echo $my_tickets?></span></h3>
                 <div class="box-tool">
                     <a href="<?php echo base_url('support')?>" class="btn btn-save btn-lg"><i class="fa fa-edit"></i> Open new tickets</a>
                 </div>
@@ -153,17 +141,17 @@
                     <?php 
                     if($my_tickets > 0){
                         $counter = 0;
-                        foreach($ticket as $list){
+                        foreach($tickets as $ticket){
                             $counter++;
                     ?>
                     <tr class="table-flag-blue">                                    
-                        <td><?php echo $list['open_date']?></td>
-                        <td><?php echo $list['name_department']?></td>
+                        <td><?php echo $ticket['date_open_ticket']?></td>
+                        <td><?php echo $ticket['name_department']?></td>
                         <td>
-                            <a href="<?php echo base_url("support/detail/").$list['id']?>"><?php echo $list['subject_ticket']?></a>
+                            <a href="<?php echo base_url("support/detail/").$ticket['id_ticket']?>"><?php echo $ticket['subject_ticket']?></a>
                         </td>
-                        <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
-                        <td><?php echo $list['latest_date']?></td>
+                        <td><span class="label label-large label-info"><?php echo getStatusTiketName($ticket['status_ticket'])?></span></td>
+                        <td><?php echo getLastUpdateTiket($ticket['id_ticket'])?></td>
                     </tr>
                     <?php  } 
                         }else {

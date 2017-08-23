@@ -22,8 +22,6 @@
 			$this->load->view('template/footer-admin.php');
 		}
 		public function invoice($id){
-
-
             $billing_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
                                                 first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
                                     ->join("billing", "transactions.client_id = billing.client_id")
@@ -102,6 +100,72 @@
 			$transaksi =	$this->db->select("*")->from($this->table)->join("clients", $this->table.'.client_id = clients.id_client')
 									->where(array("id_transaction" => $id_transaction))->get()->result_array();
 
+            echo '<h3 class="modal-title"><strong>CONFIRM PAYMENT #'.$transaksi[0]['id_transaction'].'</strong></h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4>ORDER</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table class="table table-stripped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>'.$transaksi[0]['detail'].'</th>
+                                                        <th class="text-right">Rp '.$transaksi[0]['total'].'</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-right"><h4>TOTAL</h4></td>
+                                                        <td class="text-right"><h4>Rp '.$transaksi[0]['total'].'</h4></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4>PAYMENT DETAIL</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date of Payment</th>
+                                                        <th>: '.date('l, d-m-Y', strtotime($transaksi[0]['date_payment'])).'</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h5>PAYMENT METHOD</h5> 
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>'.getPaymentName($transaksi[0]['method']).'</p>
+                                        </div>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>';
+                            /*
 			echo '<h3><strong>Confirm Payment '.$transaksi[0]['id_transaction'].'</strong></h3>
                             </div>
                             <div class="modal-body">
@@ -153,6 +217,6 @@
                                         <p><strong>PAYMENT METHOD</strong></p>
                                         <p><strong>BCA 0115116032 - Imaniar Hanifa</strong></p>
                                     </div>
-                                </div>              ';
+                                </div>              ';*/
 		}
 	}

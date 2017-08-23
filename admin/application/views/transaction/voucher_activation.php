@@ -37,7 +37,7 @@
                             <tbody>
                                 <?php foreach($transactions as $transaction){?>                      
                                 <tr>         
-                                    <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>"><?php echo $transaction['id_transaction']?></a></td>
+                                    <td><a href="<?php echo base_url('transaction/invoice/').$transaction['id_transaction']?>">#<?php echo $transaction['id_transaction']?></a></td>
                                     <td><?php echo $transaction['first_name']?></td>
                                     <td><?php echo $transaction['last_name']?></td>
                                     <td><?php echo $transaction['name']?></td>

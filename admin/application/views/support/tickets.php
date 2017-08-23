@@ -31,7 +31,7 @@
                 <div class="open-ticket">
                     <div class="box">
                         <div class="box-title no-bg">
-                            <h3>Open Support Tickets <span class="badge badge-xxlarge badge-gray"><?php echo getTotalTiketAktif()?></span></h3>
+                            <h3>Support Tickets <span class="badge badge-xxlarge badge-gray"><?php echo getTotalTiketAktif()?></span></h3>
                         </div>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
                                     <td>
                                         <a href="<?php echo base_url("support/ticket_detail/").$list['id_ticket']?>"><?php echo $list['subject_ticket']?></a>
                                     </td>
-                                    <td><span class="label label-large label-info"><?php echo $list['status_ticket']?></span></td>
-                                    <td><?php echo $list['date_close_ticket']?></td>
+                                    <td><?php echo getStatusTiketLabel($list['status_ticket'])?></td>
+                                    <td><?php echo getLastUpdateTiket($list['id_ticket'])?></td>
                                 </tr>
                             <?php  } ?>
                         </table>

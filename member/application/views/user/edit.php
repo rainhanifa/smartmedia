@@ -32,7 +32,7 @@
 							<div class="form-group">		
 								<label for="inputphonenumber" class="col-sm-2 control-label">No. Telp</label>
 									<div class="col-sm-10">
-										<input type="tel" class="form-control" placeholder="" name="phone" value="<?php echo $profile['phone_number']?>">
+										<input type="tel" class="form-control" placeholder="" name="phone" value="<?php echo $profile['phone']?>">
 									</div>
 							</div>		
 							<div class="form-group">		

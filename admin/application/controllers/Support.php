@@ -183,8 +183,17 @@
 				redirect("support/ticket_detail/".$id_ticket);
 		}
 
-		public function close_ticket(){
+		public function close_ticket($id_ticket){
 			//action close
+			$close_ticket = array("status_ticket" => 3,
+								"date_close_ticket" => date("Y-m-d"));
+
+			$this->db->where('id_ticket', $id_ticket);
+			$this->db->update("tickets",$close_ticket);
+
+			$message = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> Ticket is closed.</div>";
+				$this->session->set_flashdata('message', $message);
+			redirect("support/ticket_detail/".$id_ticket);
 		}
 		public function delete_ticket(){
 			//action delete

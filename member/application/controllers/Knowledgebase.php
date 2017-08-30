@@ -3,6 +3,7 @@
 
 	class Knowledgebase extends CI_Controller {
 		var $table = "articles";
+		var $table2 = "article_category";
 
 		function __construct() {
 	        parent::__construct();
@@ -11,16 +12,27 @@
 		     }
 	    }
 
-		public function index(){
-			$data['articles'] = $this->db->query('SELECT * FROM articles')->result_array();
-			$data['articles2'] = $this->db->query('SELECT * FROM article_category')->result_array();
+	    public function index(){
+	    	redirect("knowledgebase/articles");
+	    }
+
+		public function articles($name = ""){
+
+			$this->load->library('pagination');
+
+			$config['base_url'] = base_url('knowledgebase/').$name;
+			$config['total_rows'] = $this->smartmedia->get_total_articles($name);
+			$config['per_page'] = 10;
+
+			$this->pagination->initialize($config);
+
+			if($name != "")
+				$offset 			= $this->uri->segment(4);
+			else 
+				$offset 			= $this->uri->segment(3);
+			$data['articles'] 	= $this->smartmedia->get_articles($name, $config['per_page'], $offset);
+			$data['categories'] = $this->db->get('article_category')->result_array();
 			
-			$string = 	$data['articles'][0]['content_articles'];
-			$pos=strpos($string, ' ', 100);
-			$data['string'] = substr($string,0,$pos ); 
-			// $a= substr($string,0,100);
-     		// $a= substr($string,0,strrpos($string," "));
-     		// echo $a;
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('knowledgebase/index.php', $data);
@@ -36,14 +48,6 @@
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('knowledgebase/detail.php', $data);
 			$this->load->view('template/footer-member.php');
-		}
-
-		public function some_function($string){
-			$data['articles']= $this->db->query('SELECT content_articles FROM articles')->result_array();
-			$small = some_function($data);
-		    $string = substr($string,0,100);
-		    $string = substr($string,0,strrpos($string," "));
-		    return $string;
 		}
 		
 	}

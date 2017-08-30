@@ -1,45 +1,29 @@
 <?php 
-	Class Smartmedia extends CI_Model{
-		var $table = 'announcements'; 
+	Class Smartmedia extends CI_Model{ 
 
-		public function update($where, $data){
-			$this->db->update($this->table, $data, $where);
-			return $this->db->affected_rows();
+		public function get_articles($where, $number, $offset){
+			if($where != ''){
+				$where  	= array("name_category" => $where);
+				return $this->db->select('*')->from($this->table)
+								->join($this->table2, $this->table.".category_articles = ".$this->table2.".id_category")
+								->where($where)
+								->limit($number, $offset)
+								->get()->result_array();
+			}else {
+				return $this->db->get('articles',$number,$offset)->result_array();
+			}
 		}
 
-		public function delete($id){
-			$this->db->where('id', $id);
-			return $this->db->delete($this->table);
-		}
-		
-		function save($data){
-			$this->db->insert($this->table, $data);
-			return true;
-		}
-
-		function get_by_id($where = []){
-			$query = $this->db->from($this->table);
-
-			if(count($where) > 0) { $query->where($where); }
-
-			return $query->get()->result();
+		public function get_total_articles($where){
+			if($where != ''){
+				$where  	= array("name_category" => $where);
+				return $this->db->select('*')->from($this->table)
+								->join($this->table2, $this->table.".category_articles = ".$this->table2.".id_category")
+								->where($where)->get()->num_rows();
+			}else {
+				return $this->db->get('articles')->num_rows();
+			}
 		}
 
-		public function record_count($table) {
-            return $this->db->count_all($table);
-        }
-
-        public function fetch_countries($limit, $start) {
-            $this->db->limit($limit, $start);
-            $query = $this->db->get("announcements");
-
-            if ($query->num_rows() > 0) {
-                foreach ($query->result() as $row) {
-                    $data[] = $row;
-                }
-                return $data;
-            }
-            return false;
-       }
 	}
 ?>

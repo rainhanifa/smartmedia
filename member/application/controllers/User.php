@@ -33,7 +33,7 @@
 				$profile		= array("first_name" => $first_name,
 										"last_name" => $last_name,
 										"company_name" => $company_name,
-										"phone_number" => $phone,
+										"phone" => $phone,
 										"address_1" => $address_1,
 										"address_2" => $address_2,
 										"city" => $city,

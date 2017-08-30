@@ -44,6 +44,7 @@
                                     <th>Package</th>
                                     <th>Voucher Price</th>
                                     <th>Voucher Status</th>
+                                    <th>Expired At</th>
                                     <th>Used At</th>
                                     <th colspan="2">Action</th>
                                 </tr>
@@ -87,6 +88,7 @@
                                                             break;
                                         }?>
                                     </td>
+                                    <td><?php echo $voucher['expired_date']?></td>
                                     <td><?php echo $voucher['used_at']?></td>
 									<td>
 
@@ -110,7 +112,47 @@
                             </div>
                             <div class="modal-body">
                                 <div id="container_update">
-                                    <img src="<?php echo base_url('assets/img/loader.gif')?>"/>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-12 col-lg-12 controls">
+                                                <span class="m_25"><label>Voucher Code</label></span>
+                                                <input type="hidden" name="id" value="" id="voucher_id">
+                                                <input type="text" name="code" id="voucher_code" class="form-control" value="">
+                                            </div>
+
+                                            <div class="col-sm-12 col-lg-12 controls">
+                                                <span class="m_25"><label>Voucher Name</label></span>
+                                                <input type="text" name="v_name" id="voucher_name" class="form-control" value="">
+                                            </div>
+
+                                            <div class="col-sm-12 col-lg-12 controls">
+                                                <span class="m_25"><label>Voucher Price</label></span>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"> Rp </div>
+                                                        <input type="number" name="price" id="voucher_price" class="form-control" value="">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-lg-12 controls">
+                                                <span class="m_25"><label>Package</label></span>
+                                                <select name="package" class="form-control" id="voucher_package">
+
+                                        <?php foreach($packages as $p){ ?>
+                                                    <option value="<?php echo $p['id_package']?>"> <?php echo $p['name_package']?></option>
+                                        <?php } ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-sm-12 col-lg-12 controls">
+                                                <span class="m_25"><label>Expiry Date</label></span>
+                                                <div class="input-group date date-picker" data-date="102/2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    <input class="form-control date-picker" size="16" type="text" value="" name="expiry_date" id="voucher_expire">
+                                                </div>
+                                            </div>
+                                            <input type="text" id="voucher_expiry" class="form-control" >
+                                        </div>
+                                        </div>
                                 </div>                            
                                                
                             </div>
@@ -180,6 +222,14 @@
                                             <?php } ?>
                                             </select>
                                         </div>
+
+                                        <div class="col-sm-12 col-lg-12 controls">
+                                            <span class="m_25"><label>Expiry Date</label></span>
+                                            <div class="input-group date date-picker" data-date="102/2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input class="form-control date-picker" size="16" type="text" value="" name="expiry_date" >
+                                            </div>
+                                        </div>
                                     </div>                
                             </div>
                           <!-- end modal-body -->
@@ -201,9 +251,23 @@
                     });
                     $('.link_update').click(function(){
                         var id_vouchers = $(this).data('uid');
-                        $.get("<?php echo base_url('store/get_voucher_by_id/')?>"+id_vouchers, function(html){
-                            $('#container_update').html(html);
+
+                        $.getJSON("<?php echo base_url('store/json_voucher_detail/')?>"+id_vouchers, function(data){
+                                document.getElementById("voucher_id").value = data.id;
+                                document.getElementById("voucher_code").value = data.code;
+                                document.getElementById("voucher_name").value = data.name;
+                                document.getElementById("voucher_price").value = data.price;
+                                document.getElementById("voucher_package").value = data.package;
+                                document.getElementById("voucher_expire").value = data.expired_date;
+                                // selected
                         });
                     })
 
                 </script>       
+
+
+                <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-datepicker/css/datepicker.css" />
+
+                
+                <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+                <script type="text/javascript" src="<?php echo base_url('assets')?>/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>

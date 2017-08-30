@@ -9,6 +9,9 @@
             <!-- END Page Title -->
 
             <?php 
+                if($this->session->flashdata("message") != "")
+                    echo $this->session->flashdata("message");
+
                 foreach($tickets as $ticket){
             ?> 
 
@@ -30,23 +33,27 @@
                         <div class="col-md-12">
                         <div class="col-md-3">
                             <p>
-                                <span><i class="fa fa-calendar-o"></i></span> <?php echo date('l', strtotime($ticket['date_open_ticket']))?>, <?php echo $ticket['date_open_ticket']?></span>
+                                <span><i class="fa fa-calendar-o"></i> <?php echo date('l', strtotime($ticket['date_open_ticket']))?>, <?php echo $ticket['date_open_ticket']?></span>
                             </p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <p>
-                                <span><i class="fa fa-users"></i></span> <?php echo $ticket['name_department']?></span>
+                                <span><i class="fa fa-users"></i> <?php echo $ticket['name_department']?></span>
                             </p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <p>
                                 <span><i class="fa fa-exclamation-circle"></i></span> <?php echo getPriorityName($ticket['priority_ticket'])?> Priority</span>
                             </p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <p>
-                                <span><i class="fa fa-tag"></i></span> <?php echo getStatusTiketName($ticket['status_ticket'])?></span>
+                                <span><i class="fa fa-tag"></i> <?php echo getStatusTiketName($ticket['status_ticket'])?></span>
                             </p>
+                        </div>
+
+                        <div class="col-md-3">
+                            
                         </div>
                         </div>
                     </div>
@@ -60,17 +67,20 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                <div class="msg-reply">
-                                    <form class="horizontal-form" action="<?php echo base_url("support/reply_ticket")?>" method="post">
-                                        <p class="controls">
-                                            <textarea class="form-control wysihtml5" name="message" placeholder="Reply" rows="5" id="reply"></textarea>
-                                        </p>
-                                        <p>
-                                            <input type="hidden" value="<?php echo $ticket['id_ticket']?>" name="id_ticket">
-                                            <input type="submit" class="btn btn-primary" value="Reply" name="submit">
-                                        </p>
-                                    </form>
-                                </div>
+                                    <div class="msg-reply">
+                                        <form class="horizontal-form" action="<?php echo base_url("support/reply_ticket")?>" method="post">
+                                            <p class="controls">
+                                                <textarea class="form-control wysihtml5" name="message" placeholder="Reply" rows="5" id="reply"></textarea>
+                                            </p>
+                                            <p>
+                                                <input type="hidden" value="<?php echo $ticket['id_ticket']?>" name="id_ticket">
+                                                <input type="submit" class="btn btn-primary" value="Reply" name="submit">
+                                                <?php if($ticket['status_ticket'] != 3){ ?>
+                                                <a href="<?php echo base_url("support/close_ticket/").$ticket['id_ticket']?>" class="btn btn-success">Mark as Closed</a>
+                                                <?php }?>
+                                            </p>
+                                        </form>
+                                    </div>
                                 </div>    
                             </div>
                             <div class="row">

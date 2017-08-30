@@ -9,7 +9,9 @@
         <!-- END Container -->
 
         <!--page specific css styles-->
-        <link rel="stylesheet" href="<?php echo base_url('assets')?>/assets/data-tables/bootstrap3/dataTables.bootstrap.css" />
+        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/data-tables/bootstrap3/dataTables.bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets')?>/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
 
@@ -24,7 +26,6 @@
                 
         <!--flaty scripts-->
         <script src="<?php echo base_url('assets')?>/js/flaty.js"></script>
-        <!--<script src="<?php echo base_url('assets')?>/js/flaty-demo-codes.js"></script>-->
         
             
             <script type="text/javascript">

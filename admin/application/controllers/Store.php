@@ -163,44 +163,18 @@
 			$this->load->view('template/footer-admin.php');
 		}
 
-		public function get_voucher_by_id($id_voucher){
-			$voucher	=	$this->db->query('SELECT * FROM vouchers WHERE id_voucher ='.$id_voucher)->result_array();
-			$package	=	$this->db->get('packages')->result_array();
-
-			foreach($voucher as $v){
-				echo '<div class="row">
-                <div class="form-group">
-                    <div class="col-sm-12 col-lg-12 controls">
-                        <span class="m_25"><label>Voucher Code</label></span>
-                        <input type="hidden" name="id" value="'.$v['id_voucher'].'">
-                        <input type="text" name="code" id="voucher_code" class="form-control" value="'.$v['code'].'">
-                    </div>
-
-                    <div class="col-sm-12 col-lg-12 controls">
-                        <span class="m_25"><label>Voucher Name</label></span>
-                        <input type="text" name="voucher_name" id="voucher_name" class="form-control value="'.$v['name'].'">
-                    </div>
-
-                    <div class="col-sm-12 col-lg-12 controls">
-                        <span class="m_25"><label>Voucher Price</label></span>
-                            <div class="input-group">
-                                <div class="input-group-addon"> Rp </div>
-                                <input type="number" name="price" id="voucher_price" class="form-control" value="'.$v['price'].'">
-                            </div>
-                    </div>
-
-                    <div class="col-sm-12 col-lg-12 controls">
-                        <span class="m_25"><label>Package</label></span>
-                        <select name="package" class="form-control">';
-                foreach($package as $p){
-                	echo '<option value="'.$p['id_package'].'"'.(($v['id_package'] == $p['id_package'])?' selected ':'').'>'.$p['name_package'].'</option>';
-                }
-				echo '</select>
-                    </div>
-                </div>
-            	</div>';
-            }
-            exit;
+		public function json_voucher_detail($id_voucher){
+			$voucher	 =	$this->db->select('*')->from('vouchers')->where(array("id_voucher" => $id_voucher))->get()->row();
+			echo json_encode(
+				array(
+					"id"	=> $voucher->id_voucher,
+					"code" => $voucher->code,
+					"name" => $voucher->name,
+					"price" => $voucher->price,
+					"expired_date" => date("m/d/Y", strtotime($voucher->expired_date)),
+					"package" => $voucher->id_package
+					));
+			exit;
 		}
 		public function voucher_add(){
 			if(isset($_POST['submit'])){
@@ -208,11 +182,15 @@
 				$name	=	$this->input->post('voucher_name');
 				$price	=	$this->input->post('price');
 				$package=	$this->input->post('package');
+				
+				$expiry	=	date("Y-m-d 23:59:59", strtotime($this->input->post('expiry_date')));
+
 
 				$insert_voucher	= array("code" => $code,
 										"name" => $name,
 										"price" => $price,
-										"id_package"	=> $package
+										"id_package"	=> $package,
+										"expired_date" => $expiry
 								);
 				if($this->db->insert("vouchers", $insert_voucher)){
 					$this->session->set_flashdata("message","Berhasil menambahkan voucher!");
@@ -225,14 +203,15 @@
 		public function voucher_update(){
 			$id 	=	$this->input->post('id');
 			$code	=	$this->input->post('code');
-			$name	=	$this->input->post('voucher_name');
+			$name	=	$this->input->post('v_name');
 			$price	=	$this->input->post('price');
 			$package=	$this->input->post('package');
-
+			$expiry	=	date("Y-m-d 23:59:59", strtotime($this->input->post('expiry_date')));
 			$update_voucher	= array("code" => $code,
 									"name" => $name,
 									"price" => $price,
-									"id_package"	=> $package
+									"id_package"	=> $package,
+									"expired_date" => $expiry
 							);
 			$this->db->where('id_voucher', $id);
 			if($this->db->update("vouchers",$update_voucher)){
@@ -242,6 +221,7 @@
 			}
 			redirect("store/vouchers");
 		}
+
 		public function voucher_delete($id){
 			$this->db->where('id_voucher', $id);
 			if($this->db->delete("vouchers")){

@@ -69,6 +69,7 @@
 						                            'is_active_name' => $first_name.' '.$last_name,
 						                            'is_active_id' => $id_user,
 						                            'is_active_cid' => $id_client,
+						                            'is_active_time' => date("H:i"),
 						                            'is_logged_in' => 'TRUE');
 								$this->session->set_userdata($login);
 
@@ -234,6 +235,7 @@
 	                            'is_active_name' => '',
 	                            'is_active_id' => '',
 	                            'is_active_cid' => '',
+	                            'is_active_time' => '',
 	                            'is_logged_in' => 'FALSE');
 	        $this->session->unset_userdata($data);
 	        $this->session->set_flashdata("message","You're logged out");	

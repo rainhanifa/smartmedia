@@ -2,7 +2,7 @@
     $active        = $this->router->fetch_class();
     $notif_invoice      = getTotalInvoiceDue();
     $notif_announcement = 0;
-    $notif_expire       = 0;
+    $notif_expire       = getTotalActiveDue();
     $total_notif        = $notif_invoice + $notif_announcement + $notif_expire;
 
 
@@ -38,7 +38,7 @@
                         </li>
 
                         <li class="notify">
-                            <a href="#">
+                            <a href="<?php echo base_url('announcement')?>">
                                 <i class="fa fa-bullhorn orange"></i>
                                 <p>Announcement</p>
                                 <span class="badge badge-warning"><?php echo $notif_announcement ?></span>
@@ -46,7 +46,7 @@
                         </li>
 
                         <li class="notify">
-                            <a href="#">
+                            <a href="<?php echo base_url('manage')?>">
                                 <i class="fa fa-clock-o blue"></i>
                                 <p>Masa Aktif</p>
                                 <span class="badge badge-info"><?php echo $notif_expire ?></span>
@@ -54,7 +54,7 @@
                         </li>
 
                         <li class="notify">
-                            <a href="#">
+                            <a href="<?php echo base_url('transaction')?>">
                                 <i class="fa fa-shopping-cart green"></i>
                                 <p>Pembayaran tertunda</p>
                                 <span class="badge badge-success"><?php echo $notif_invoice ?></span>

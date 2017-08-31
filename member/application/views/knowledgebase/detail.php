@@ -1,53 +1,33 @@
+
             <!-- BEGIN Content -->
             <div id="main-content">
                 <!-- BEGIN Page Title -->
+                <?php    
+                    foreach ($articles as $art):
+                        updateTotalViews($art['id_articles']);
+                ?> 
                 <div class="page-title">
                     <div>
-                        <h1><i class="fa fa-lightbulb-o"></i> KNOWLEDGEBASE</h1>
+                        <h1><i class="fa fa-lightbulb-o"></i> <?php echo $art['title_articles']?></h1>
                     </div>
                 </div>
                 <!-- END Page Title -->
 
-                <!-- BEGIN Breadcrumb -->
-                <div id="breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="index.html">Home</a>
-                            <span class="divider"><i class="fa fa-angle-right"></i></span>
-                        </li>
-                        <li class="active">Knowledgebase</li>
-                    </ul>
-                </div>
-                <!-- END Breadcrumb -->
-
-
-                <div class="current-balance">
-                    <div class="box">
-                        <div class="box-title no-bg">
-                         <h2>Knowledgebase</h2>
-                            <div class="box-tool">
-                                <div class="box">Credit Balance: <span> Rp.667 </span> <a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-ok"></i> Add Deposit</a> </div>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <?php foreach ($articles as $art): ?> 
                 <div class="tag-list">
-                    <div class="box">
-                        <a href="#" class="btn disabled btn-gray"><?php echo $art['name_category']?></a>
-                        <!-- <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Lorem ipsum dolor sit amet, consectetur adipisicing </a>
-                        <a href="#" class="btn disabled btn-gray">Gray</a> -->
+                    <div class="col-md-4">
+                        <i class="fa fa-clock-o"></i> Administrator pada <?php echo $art['date_articles']?>
                     </div>
-                </div>
-                <?php endforeach; ?>  
+                    <div class="col-md-4">
+                        <i class="fa fa-tags"></i> <a href="<?php echo base_url('knowledgebase/') ?>">Knowledgebase</a>
+                         / 
+                        <a href="<?php echo base_url('knowledgebase/').$art['name_category'] ?>"><?php echo $art['name_category']?></a>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa fa-eye"></i> <?php echo $art['views_articles']+1;?> kali dilihat
+                    </div>
+                         
+                </div> 
                 
-                <?php foreach ($articles as $art): ?> 
                <div class="news-list single-announcement"> 
                 <div class="box-content">
                 <!-- BEGIN Tab Content -->
@@ -55,10 +35,8 @@
                     <div class="tab-pane active" id="search-simple">
                         <!-- BEGIN Simple Search Result -->
                                 <div class="info">
-                                     <h2><?php echo $art['title_articles']?></h2>
                                      <div class="divider"></div>
                                             <p><?php echo $art['content_articles']?></p>
-                                    <p class="news-date"><?php echo date('l', strtotime($art['date_articles']))?>,<?php echo $art['date_articles']?></p>
                                 </div>
                         <!-- END Simple Search Result -->
                     </div>

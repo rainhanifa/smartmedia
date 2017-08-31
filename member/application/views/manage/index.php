@@ -16,14 +16,30 @@
                             $available_domain   = $detail['domain'] - $total_sites;
                             $available_email    = $detail['email'];
                             $available_storage  = $detail['storage'];
-                            $end_date           = date("d-m-Y", strtotime($detail['end_date']));
-                            $expired_date       = new DateTime($detail['end_date']);
-                            $today              = new DateTime(date("Y-m-d"));
-                            $remaining_days  = $today->diff($expired_date)->format("%a");
-                            //$remaining_days = floor($remaining / (60 * 60 * 24));
+
+                            //date format
+                            date_default_timezone_set('UTC');
+                            $end_date           = DateTime::createFromFormat('Y-m-d', $detail['end_date']);
+
+                            $remaining_days = getRemainingActivePackage($detail['end_date']);
+                            
 
                         }
-                ?>
+
+                        if(!getStatusPackage()){
+                                if($remaining_days == "Expired"){
+                            ?>
+                                <div class="alert alert-danger">
+                                    <strong>Masa Aktif Anda telah habis!</strong> 
+                                    Aktifkan dengan voucher perpanjangan atau beli paketnya di <a href="<?php echo base_url('store')?>">Store</a>
+                                </div>
+                            <?php } else { ?>
+                                <div class="alert alert-warning">
+                                    <strong>Masa Aktif Anda akan habis!</strong> 
+                                    Aktifkan dengan voucher perpanjangan atau beli paketnya di <a href="<?php echo base_url('store')?>">Store</a>
+                                </div>
+                            <?php }?>
+                <?php   } ?>
                 <!-- BEGIN Tiles --> 
                     <div class="row">
                         <div class="col-md-3">
@@ -65,8 +81,8 @@
                                     <i class="fa fa-credit-card"></i>
                                 </div>
                                 <div class="content">
-                                    <p class="big"><?php echo $remaining_days ?> hari</p>
-                                    <p class="title">Masa Aktif hingga <?php echo $end_date ?></p>
+                                    <p class="big"><?php echo $remaining_days ?></p>
+                                    <p class="title">Masa Aktif hingga <?php echo $end_date->format("d-m-Y") ?></p>
                                 </div>
                             </div>
                         </div>
@@ -87,14 +103,15 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-body">
-                                <?php if(isset($available_domain)){ 
-                                    if($available_domain > 0){ ?>
-                                <div class="box">
-                                    <div class="row">
-                                        <a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#create-site" ><i class="glyphicon glyphicon-plus"></i> Create Site</a>
-                                    </div>
-                                </div>
-                                <?php } } ?>
+                                <?php if(getStatusPackage()) {
+                                        if(isset($available_domain)){ 
+                                            if($available_domain > 0){ ?>
+                                            <div class="box">
+                                                <div class="row">
+                                                    <a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#create-site" ><i class="glyphicon glyphicon-plus"></i> Create Site</a>
+                                                </div>
+                                            </div>
+                                <?php } } }?>
                             </div>
                         </div>
                     </div>
@@ -131,11 +148,11 @@
                                     </table>
                                 </div>
                                 <div class="col-md-3">
-                                    <p><a class="btn btn-action btn-edit" href="<?php echo base_url('./../web-builder');?>"><i class="fa fa-edit"></i> Edit Site</a></p>
+                                    <p><a class="btn btn-action btn-edit <?php echo (!getStatusPackage()) ? 'disabled' : ''; ?>" href="<?php echo base_url('./../web-builder');?>"><i class="fa fa-edit"></i> Edit Site</a></p>
 
-                                    <p><a class="btn btn-action btn-view" href="<?php echo base_url('./../manage');?>"><i class="fa fa-desktop"></i> View Site</a></p>
+                                    <p><a class="btn btn-action btn-view <?php echo (!getStatusPackage()) ? 'disabled' : ''; ?>" href="<?php echo base_url('./../manage');?>"><i class="fa fa-desktop"></i> View Site</a></p>
 
-                                    <p><a class="btn btn-action btn-delete" href="<?php echo base_url('./../manage');?>"><i class="fa fa-trash-o"></i> Delete Site</a></p>
+                                    <p><a class="btn btn-action btn-delete <?php echo (!getStatusPackage()) ? 'disabled' : ''; ?>" href="<?php echo base_url('./../manage');?>"><i class="fa fa-trash-o"></i> Delete Site</a></p>
                                 </div>
                             </div>
                         </div>

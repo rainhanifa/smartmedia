@@ -45,8 +45,42 @@ function getLastTiketReplied(){
     return $tiket;
 }
 
+function getStatusPackage(){
+    
+    $CI =& get_instance();
+    $user_id    =   $CI->session->userdata("is_active_cid");
+    $where      =   array("client_id" => $user_id);
+    $end_date   =   $CI->db->select("end_date")->from("clients_package")
+                ->where($where)
+                ->get()->row()->end_date;
 
+    $expired    =   new DateTime($end_date);
+    $today      = new DateTime(date("Y-m-d"));
 
+    // jika masa aktif habis (R = minus)
+    if($today->diff($expired)->format("%R") == "-"){
+        return false;
+    }
+    elseif($today->diff($expired)->format("%a") < 7){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+function getRemainingActivePackage($date){
+    $expired    =   new DateTime($date);
+    $today      = new DateTime(date("Y-m-d"));
+
+    // jika masa aktif habis (R = minus)
+    if($today->diff($expired)->format("%R") == "-"){
+        return "Expired";
+    }else{
+        return $today->diff($expired)->format("%a")." hari";
+    }
+
+}
 function getTotalInvoiceDue(){
     $CI =& get_instance();
     $user_id    =   $CI->session->userdata("is_active_cid");
@@ -57,9 +91,27 @@ function getTotalInvoiceDue(){
     return $total;
 }
 
-function getTotalActiveDue($user_id){
+function getTotalActiveDue(){
     $CI =& get_instance();
-    $user_id    =   $CI->session->userdata("is_active_cid"); 
+    $user_id    =   $CI->session->userdata("is_active_cid");
+    $where      =   array("client_id" => $user_id);
+    $end_date   =   $CI->db->select("end_date")->from("clients_package")
+                ->where($where)
+                ->get()->row()->end_date;
+
+    $expired    =   new DateTime($end_date);
+    $today      = new DateTime(date("Y-m-d"));
+
+    // jika masa aktif habis (R = minus)
+    if($today->diff($expired)->format("%R") == "-"){
+        return 1;
+    }
+    elseif($today->diff($expired)->format("%a") < 7){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
 function getLastUpdateTiket($id_tiket){
@@ -121,6 +173,14 @@ function getPriviligeName($type){
     }
 }
 
+function updateTotalViews($id_article){
+    $CI =& get_instance(); 
+
+    $CI->db->where('id_articles', $id_article);
+    $CI->db->set('views_articles', 'views_articles+1', FALSE);
+    $CI->db->update('articles');
+}
+
 function getField($tables,$field,$pk,$value)
     {
         $CI =& get_instance();
@@ -135,64 +195,3 @@ function getField($tables,$field,$pk,$value)
             return '';
         }
     }
-
-function get_status_pinjaman_by_id($id){
-    $CI =& get_instance();
-    $query_pinjaman     = "SELECT COUNT(dp.id_detail) AS total
-                            FROM detail_peminjaman as dp
-                            WHERE dp.id_peminjaman = $id AND dp.status_dokumen = 0";
-    $jumlah             = $CI->db->query($query_pinjaman)->row()->total;
-    if($jumlah > 0){
-        $teks               = $jumlah." dokumen belum kembali";
-        $query_jatuh_tempo  = "SELECT DATEDIFF(tanggal_jatuh_tempo, CURDATE()) AS selisih,
-                                (SELECT CASE WHEN tanggal_jatuh_tempo>CURDATE() THEN 'false' ELSE 'true' END) AS lewat
-                                FROM master_peminjaman WHERE id = $id";
-        $selisih            = $CI->db->query($query_jatuh_tempo)->row()->selisih;
-        $lewat              = $CI->db->query($query_jatuh_tempo)->row()->lewat;
-
-        if($lewat=="true"){
-            $label          = "<span class='label label-important'>".$teks."</span>";
-        }
-        else{
-            if($selisih < 5){
-                $label          = "<span class='label label-warning'>".$teks."</span>";
-            }
-        }
-    }
-    else{
-        $label              = "<span class='label label-success'>OK</span>";
-    }
-
-    return $label;
-}
-
-function get_jumlah_dokumen_akan_jatuh_tempo(){
-    $CI =& get_instance();
-    $query_pinjaman     = "SELECT COUNT(dp.id_detail) AS total
-                            FROM detail_peminjaman as dp, master_peminjaman as mp
-                            WHERE dp.id_peminjaman = mp.id AND dp.status_dokumen = 0 
-                                AND DATEDIFF(tanggal_jatuh_tempo, CURDATE()) < 5 
-                                AND tanggal_jatuh_tempo > CURDATE()";
-    $jumlah             = $CI->db->query($query_pinjaman)->row()->total;
-    return $jumlah;
-}
-
-function get_jumlah_dokumen_jatuh_tempo(){
-    $CI =& get_instance();
-    $query_pinjaman     = "SELECT COUNT(dp.id_detail) AS total
-                            FROM detail_peminjaman as dp, master_peminjaman as mp
-                            WHERE dp.id_peminjaman = mp.id AND dp.status_dokumen = 0 
-                                AND tanggal_jatuh_tempo <= CURDATE()";
-    $jumlah             = $CI->db->query($query_pinjaman)->row()->total;
-    return $jumlah;
-}
-
-
-function dokumen_lengkap_by_master($id)
-{
-    $CI =& get_instance();
-    $query_lengkap = "SELECT dd.* FROM detail_data as dd
-                        WHERE dd.id_master_data = $id AND dd.status = 1 ";
-    $detail_dokumen = $CI->db->query($query_lengkap)->result_array() ;
-    return $detail_dokumen;
-}

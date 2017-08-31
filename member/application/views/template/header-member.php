@@ -31,5 +31,9 @@
         <link rel="stylesheet" href="<?php echo base_url('assets')?>/css/style.css">
 
         <link rel="shortcut icon" href="<?php echo base_url('assets')?>/img/favicon.png">
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<?php echo base_url('assets')?>/assets/jquery/jquery-2.1.4.min.js"><\/script>')</script>
+        <script src="<?php echo base_url('assets')?>/assets/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body class="skin-blue">

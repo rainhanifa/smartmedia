@@ -19,7 +19,7 @@
                         <li class="active">Theme</li>
                     </ul>
                 </div>
-                 <?php echo $this->session->flashdata("warning")?>                            
+                 <?php echo $this->session->flashdata("message")?>                            
 
                 <div class="box">
                     <div class="col sm-12">     
@@ -31,16 +31,6 @@
 											<input type="text" class="form-control" name="name">
 										</div>		
 								</div>
-								<!-- <div class="form-group">		
-									<label for="inputcountry" class="col-sm-1 control-label">Category</label>
-									<div class="col-sm-11">
-										<select class="form-control" name="category">
-                                          
-											<option value=""></option>
-                                            
-										</select>
-									</div>
-								</div>	 -->
 								<div class="form-group">
                                     <label for="inputlasttname" class="col-sm-1 control-label">Description Theme</label>
                                         <div class="col-sm-11">

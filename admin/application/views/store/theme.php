@@ -102,7 +102,7 @@
                                     <td><?php echo $counter;?></td>
                                     <td><?php echo $them['name_theme']?></td>
                                     <td><?php echo $them['description_theme']?></td>
-                                    <td><a href="../../<?php echo $them["preview_1"]?>"> Preview</a></td>
+                                    <td><a href="<?php echo base_url('../assets/theme/').$them['name_theme'].$them["preview_1"]?>"> Preview</a></td>
                                     <td><a href="../../<?php echo $them["preview_2"]?>"> Preview</a></td>
                                     <td><a href="../../<?php echo $them["preview_3"]?>"> Preview</a></td>
                                     <td><a href="../../<?php echo $them['file_theme']?>">Download</a></td>

@@ -2,16 +2,25 @@
 	defined('BASEPATH') OR exit ('No diect script access allowed');
 	class Knowledgebase extends CI_COntroller{
 
-		public function index()
+		public function index($name = "")
 		{
-			$data['articles'] = $this->db->query('SELECT * FROM articles')->result_array();
+			$this->load->library('pagination');
+
+			$config['base_url'] = base_url('knowledgebase/').$name;
+			$config['total_rows'] = $this->smartmedia->get_total_articles($name);
+			$config['per_page'] = 10;
+
+			$this->pagination->initialize($config);
+			$data['paging']=$this->pagination->create_links();
+
+			if($name != "")
+				$offset 			= $this->uri->segment(3);
+			else 
+				$offset 			= $this->uri->segment(2);
+			$data['articles'] 	= $this->smartmedia->get_articles($name, $config['per_page'], $offset);
+			$data['categories'] = $this->db->get('article_category')->result_array();
 			
-			$string = 	$data['articles'][0]['content_articles'];
-			$pos=strpos($string, ' ', 100);
-			$data['string'] = substr($string,0,$pos ); 
-			$this->load->view('template/header.php');
-			$this->load->view('knowledgebase/faq.php',$data);
-			$this->load->view('template/footer.php');
+			$this->load->view('knowledgebase/index.php',$data);
 		}
 		public function detail($id_articles = 0){
 
@@ -21,4 +30,3 @@
 		}
 
 	}
-?>	

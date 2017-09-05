@@ -49,7 +49,7 @@
                 </div>
             </nav>
         </div>
-        <?php foreach($articles as $article) { ?>
+        
         <!-- /.parallax full screen background image -->
         <div class="fullscreen landing parallax" style="background-image:url('<?php echo base_url('assets/')?>images/banner.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
 
@@ -62,19 +62,18 @@
                             <div class="logo wow fadeInDown"> &nbsp;</div>
                             <!-- /.main title -->
                             <h2 class="wow fadeInLeft">
-                                <?php echo $article['title_articles']; ?>
+                                Knowledgebase
                             </h2>
 
                             <!-- /.header paragraph -->
                             <div class="landing-text wow fadeInLeft">
-                                <p>Knowledgebase <i class="fa fa-angle-double-right"></i> <?php echo $article['name_category']?></p>
+                                <p>Pusat Informasi</p>
                             </div>				  
                         </div> 
                     </div>
                 </div> 
             </div> 
         </div>
-        <?php } ?>
 
         <!-- /.feature section -->
         <div id="policy">
@@ -82,9 +81,23 @@
                 <div class="row">
                     <!-- /.apple devices image -->
                     <div class="col-md-10 col-md-offset-1 know-content">
-                        <?php echo $article['content_articles']?>	
+                        <?php 
+                            $counter = 0;
+                                foreach($articles as $art){
+                                    $counter++;
+                        ?>    
+                                    <div class="col-md-6">
+                                        <ul class="project_box faq-list">
+                                            <li class="desc"><h5><a href="<?php echo base_url("knowledgebase/detail/").$art['id_articles'];?>"><?php echo $art['title_articles']?></a></h5>
+                                                <p></p>
+                                            </li>
+                                          <div class="clearfix"> </div>
+                                        </ul>
+                                    </div>
+                        <?php  } ?>
                     </div>	
 
+                    <?php echo $paging;?>
 
                 </div>			  
             </div>

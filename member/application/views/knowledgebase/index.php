@@ -55,9 +55,9 @@ BEGIN Content -->
                         <!-- END Tab Content -->
                         <div class="text-center">
                         
-                            <ul class="pagination">
-                            <?php echo $this->pagination->create_links();?>
-                                <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                            <!-- <ul class="pagination"> -->
+                            <?php echo $paging;?>
+                                <!-- <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
                                 <li class="active"><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
@@ -65,7 +65,7 @@ BEGIN Content -->
                                 <li><a href="#">5</a></li>
                                 <li><a href="#">6</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                     <div class="col-md-4">
                         <i class="fa fa-tags"></i> <a href="<?php echo base_url('knowledgebase/') ?>">Knowledgebase</a>
                          / 
-                        <a href="<?php echo base_url('knowledgebase/').$art['name_category'] ?>"><?php echo $art['name_category']?></a>
+                        <a href="<?php echo base_url('knowledgebase/articles/').$art['name_category'] ?>"><?php echo $art['name_category']?></a>
                     </div>
                     <div class="col-md-4">
                         <i class="fa fa-eye"></i> <?php echo $art['views_articles']+1;?> kali dilihat

@@ -256,50 +256,44 @@
 
 				if($this->upload->do_upload('preview1')) {
 	                $datax = $this->upload->data();
-	                $preview1= "upload/theme/".$datax['file_name'];
-	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
-	            }
-	            else{
-	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
-	            }
+	                $preview1= "upload/theme/".$name."-preview-1-".$datax['file_name'];
+	            }else{
 
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file 1 gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('message', $alert_preview);
+
+					redirect("store/theme_add");
+	            }
 	            if($this->upload->do_upload('preview2')) {
 	                $datax = $this->upload->data();
-	                $preview2 = "upload/theme/".$datax['file_name'];
-	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
+	                $preview2 = "upload/theme/".$name."-preview-2-".$datax['file_name'];
 	            }
 	            else{
-	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
+
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file 2 gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('message', $alert_preview);
+					redirect("store/theme_add");
 	            }
 
 	            if($this->upload->do_upload('preview3')) {
 	                $datax = $this->upload->data();
-	                $preview3 = "upload/theme/".$datax['file_name'];
-	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
-	            }
-	            else{
-	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
-	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload preview theme gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
+	                $preview3 = "upload/theme/".$name."-preview-3-".$datax['file_name'];
+	            }else{
+
+	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file 3 gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
+					$this->session->set_flashdata('message', $alert_preview);
+					redirect("store/theme_add");
 	            }
 
 	            if($this->upload->do_upload('file')) {
 	                $datax = $this->upload->data();
-	                $file = "upload/theme/".$datax['file_name'];
-	                $alert_preview = "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file berhasil!</strong></div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
+	                $file = "upload/theme/".$name."/".$datax['file_name'];
 	            }
 	            else{
 	            	/*echo $this->upload->display_errors('<p>', '</p>');*/
 	            	$alert_preview = "<div class='alert alert-warning alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Upload file gagal!</strong>".var_dump($this->upload->display_errors())."</div>";
-					$this->session->set_flashdata('alert_preview', $alert_preview);
+					$this->session->set_flashdata('message', $alert_preview);
+					redirect("store/theme_add");
 	            }
 
 				$theme_post = array("name_theme" => $name, 
@@ -324,7 +318,7 @@
 				}
 
 
-            	redirect('store/theme_detail');    
+            	redirect('store/themes');    
 			}
 
 			$this->load->view('template/header-admin.php');
@@ -367,7 +361,7 @@
 	                </div>');
 				}
 				
-            	redirect('store/theme_detail');    
+            	redirect('store/themes');    
 			}
 
 

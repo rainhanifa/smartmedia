@@ -20,11 +20,12 @@
 
 			$this->load->library('pagination');
 
-			$config['base_url'] = base_url('knowledgebase/').$name;
+			$config['base_url'] = base_url('knowledgebase/articles/').$name;
 			$config['total_rows'] = $this->smartmedia->get_total_articles($name);
 			$config['per_page'] = 10;
 
 			$this->pagination->initialize($config);
+			$data['paging']=$this->pagination->create_links();
 
 			if($name != "")
 				$offset 			= $this->uri->segment(4);

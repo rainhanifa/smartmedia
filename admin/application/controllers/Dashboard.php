@@ -55,4 +55,3 @@
 			$this->load->view('template/footer-admin.php');
 		}
 	}
-?>	

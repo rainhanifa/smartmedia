@@ -105,7 +105,7 @@
 		                                        <div class="form-group">
 		                                            <label>Alamat Website</label>
 		                                            <div class="input-group">
-					                                    <input type="text" class="form-control"  placeholder="" name="siteaddress">
+					                                    <input type="text" class="form-control" placeholder="" name="siteaddress">
 					                                    <div class="input-group-addon"> .smartmedia.com </div>
 					                                </div>
 		                                        </div>
@@ -158,7 +158,7 @@
 	<script src="<?php echo base_url('assets/')?>js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="<?php echo base_url('assets/')?>js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+	<script src="<?php echo base_url('assets/')?>js/form-validator/register-site.js" type="text/javascript"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="<?php echo base_url('assets/')?>js/jquery.validate.min.js" type="text/javascript"></script>

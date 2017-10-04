@@ -29,14 +29,11 @@
 			
 			//proses register
 			if(isset($_POST['submit'])){
-				$password		=	md5($this->input->post('password'));
-	        	$confirm		=	md5($this->input->post('confirm_password'));
-
 	        	if($password != $confirm){
 	        		$this->session->set_flashdata("message","Password and Confirm Password doesn't match");
 	        	}
 	        	else{
-		        	$email			=	$this->input->post('email');
+		        	$email			=	trim($this->input->post('email'));
 
 		        	//check if email already registered
 		        	$exist = $this->db->get_where($this->table, array('username' => $email))->num_rows();
@@ -45,8 +42,8 @@
 		        	}
 		        	else{
 
-			        	$first_name		=	$this->input->post('firstname');
-			        	$last_name		=	$this->input->post('lastname');
+			        	$first_name		=	trim($this->input->post('firstname'));
+			        	$last_name		=	trim($this->input->post('lastname'));
 
 		        		$register_user	= 	array("username" => $email,
 														"email"	 => $email,
@@ -89,141 +86,175 @@
 		}
 
 		function voucher(){
+			
 			if(isset($_POST['submit'])){
 				$id_voucher			=	$this->input->post('id_voucher');
 				$code 			=	$this->input->post('voucher_code');
-				$domain			=	$this->input->post('domain');
-				$email 			=	$this->input->post('email');
-				$bandwidth 		=	$this->input->post('bandwidth');
-				$storage		= 	$this->input->post('storage');
-				$active 		=	$this->input->post('active_period');
-				$price 			=	$this->input->post('price');
 
-				$start_date 	= date("Y-m-d");
-				$end_date		= date("Y-m-d", strtotime("+".$active." days"));
-				
-				// set active package
-				$packagedata	= array("client_id" => $this->session->userdata("is_active_cid"),
-									"domain" => $domain,
-									"email" => $email,
-									"bandwidth"	=> $bandwidth,
-									"storage" => $storage,
-									"active_period" => $active,
-									"start_date" => $start_date,
-									"end_date" => $end_date
-								);
+				if($id_voucher != ""){
+					if (preg_match("/^[A-Za-z0-9\-]+$/", $id_voucher) && preg_match("/^[A-Za-z0-9\-]+$/", $code)) {
+						
 
-				$this->db->insert("clients_package",$packagedata);
+						// check if voucher code and voucher id is exist, not used, and not expired
+						$check_id 		=	array("id_voucher" => $id_voucher, "code" => $code, "used_at" => null, "expired_date <= " => 'NOW()');
+						$check 			=	$this->db->get_where("vouchers", $check_id)->result_array();
 
-				// update voucher as used
-				$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'), "used_by" => $this->session->userdata("is_active_cid"));
-				$this->db->where('id_voucher', $id_voucher);
-				$this->db->update("vouchers",$use_voucher);
+						if(!empty($check)){
 
-				// simpan transaksi
-				$transaction_data	= array("client_id" => $this->session->userdata("is_active_cid"),
-										"date_transaction" => date("Y-m-d"),
-										"due_date" => date("Y-m-d"),
-										"date_payment" => date("Y-m-d"),
-										"date_transaction" => date("Y-m-d"),
-										"total" => $price,
-										"method" => 1,
-										"detail" => $code,
-										"status_payment" => 2,
-										"verified_by" => 1
-										);
-				$this->db->insert("transactions",$transaction_data);
+							//Find detail
+							$id_package 	= 	$check[0]['id_package'];
+							$find 			=	array("id_package" => $id_package);
+							$package 		=	$this->db->get_where("packages", $find)->result_array();
 
-				redirect('auth/createsite');
+							if(!empty($package)){
+
+								//check if voucher is starter type
+								if($package[0]['category_package'] ==  2){
+
+									//PROSES
+									$start_date 	= date("Y-m-d");
+									$end_date		= date("Y-m-d", strtotime("+".$active." days"));
+
+
+									// set active package
+									$packagedata	= array("client_id" => $this->session->userdata("is_active_cid"),
+													"domain" => $package[0]['domain'],
+													"email" => $package[0]['email'],
+													"bandwidth"	=> $package[0]['bandwidth'],
+													"storage" => $package[0]['storage'],
+													"active_period" => $package[0]['active_period'],
+													"start_date" => $start_date,
+													"end_date" => $end_date
+												);
+									$this->db->insert("clients_package",$packagedata);
+
+									// update voucher as used
+									$use_voucher	=	array("status" => 1, "used_at" => date('Y-m-d H:i:s'), "used_by" => $this->session->userdata("is_active_cid"));
+									$this->db->where('id_voucher', $id_voucher);
+									$this->db->update("vouchers",$use_voucher);
+
+									// simpan transaksi
+									$transaction_data	= array("client_id" => $this->session->userdata("is_active_cid"),
+															"date_transaction" => date("Y-m-d"),
+															"due_date" => date("Y-m-d"),
+															"date_payment" => date("Y-m-d"),
+															"date_transaction" => date("Y-m-d"),
+															"total" => $package[0]['price_package'],
+															"method" => 1,
+															"detail" => $code,
+															"status_payment" => 2,
+															"verified_by" => 1
+															);
+									$this->db->insert("transactions",$transaction_data);
+
+									redirect('auth/createsite');
+								}
+								else
+								{
+									$this->session->set_flashdata("message","Masukkan kode voucher untuk Starter Pack");
+								}
+							}
+							else{
+								$this->session->set_flashdata("message","Mohon maaf, kode voucher tidak dapat digunakan lagi.");
+							}
+						}
+						else{
+							$this->session->set_flashdata("message","Kode voucher tidak ditemukan");
+						}
+					}
+					else{
+						$this->session->set_flashdata("message","Format kode voucher tidak sesuai");
+					}
+				}
+				else
+				{
+					$this->session->set_flashdata("message","Aktifkan voucher dengan mengklik Enter");
+				}
 			}
 			$this->load->view('auth/voucher.php');
 		}
 
 		function get_voucher_by_code(){
 			$code 		=	$_GET['code'];
-	        $voucher 	=  $this->db->query("SELECT * FROM vouchers
+			if($code != ""){
+				if (preg_match("/^[A-Za-z0-9-]+$/", $code)) {
+		        	$voucher 	=  $this->db->query("SELECT * FROM vouchers
 	        								JOIN packages ON vouchers.id_package = packages.id_package
 	        								WHERE vouchers.code = '$code' AND vouchers.status = 0 LIMIT 1")->result_array();
-
-	        if($voucher){
-		        foreach($voucher as $detail){
-						echo '<h5 class="info-text">Anda akan mengaktifkan <strong>'.$detail['name'].'</strong></h5>
-							<input type="hidden" name="id_voucher" value="'.$detail['id_voucher'].'">
-							<input type="hidden" name="domain" value="'.$detail['domain'].'">
-							<input type="hidden" name="email" value="'.$detail['email'].'">
-							<input type="hidden" name="bandwidth" value="'.$detail['bandwidth'].'">
-							<input type="hidden" name="storage" value="'.$detail['storage'].'">
-							<input type="hidden" name="active_period" value="'.$detail['active_period'].'">
-							<input type="hidden" name="price" value="'.$detail['price'].'">
-
-	                        <div class="col-sm-10 col-sm-offset-1">
-	                            <div class="col-sm-3">
-									<div class="choice" data-toggle="wizard-checkbox">
-	                                    <input type="checkbox" name="jobb" value="Design">
-	                                    <div class="card card-checkboxes card-hover-effect">
-	                                        <i class="ti-desktop"></i>
-											<p>'.$detail['domain'].'<br/>Subdomain</p>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div class="col-sm-3">
-									<div class="choice" data-toggle="wizard-checkbox">
-	                                    <input type="checkbox" name="jobb" value="Design">
-	                                    <div class="card card-checkboxes card-hover-effect">
-	                                        <i class="ti-envelope"></i>
-											<p>'.$detail['email'].'<br/>Akun Email</p>
-	                                    </div>
-	                            </div>
-	                        </div>
-	                        <div class="col-sm-3">
-								<div class="choice" data-toggle="wizard-checkbox">
-	                                <input type="checkbox" name="jobb" value="Design">
-	                                <div class="card card-checkboxes card-hover-effect">
-	                                    <i class="ti-package"></i>
-										<p>'.$detail['storage'].' MB <br/>Penyimpanan</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="col-sm-3">
-								<div class="choice" data-toggle="wizard-checkbox">
-	                                <input type="checkbox" name="jobb" value="Design">
-	                                <div class="card card-checkboxes card-hover-effect">
-	                                    <i class="ti-stats-up"></i>
-										<p>'.$detail['bandwidth'].' MB<br/>Bandwidth</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>';
-	                }
-	            }
-	       
-	        else
-	        {
-	        	echo '<h5 class="info-text">Voucher Tidak Ditemukan atau Telah Kadaluarsa</h5>';
-	        }
+		        	
+			        if($voucher){
+			        	// cek apakah kode voucher berupa starter
+			        	if($voucher[0]['category_package'] ==  2){
+			        		//pass voucher data to view
+			        		$data['voucher'] = $voucher;
+			        		$result = $this->load->view('auth/voucher_detail', $data, TRUE);
+			        		echo $result;	
+			        	}
+			        	else
+			        	{
+			        		echo '<h5 class="info-text">Anda harus memasukkan kode voucher untuk Starter</h5>';
+			        	}
+			        	
+			        }
+			        else
+			        {
+			        	echo '<h5 class="info-text">Voucher tidak ditemukan atau telah kadaluarsa</h5>';
+			        }
+			    }
+			    else
+			        {
+			        	echo '<h5 class="info-text">Kode voucher tidak sesuai format</h5>';
+			        }
+		    }
+		    else{
+		    	echo '<h5 class="info-text">Harap memasukkan kode voucher!</h5>';
+		    }
             exit;
 		}
 		function createsite(){
-			if(isset($_POST['finish'])){
-				$sitename		= $this->input->post("sitename");
-				$siteaddress	= $this->input->post("siteaddress");
-				$sitedesc		= $this->input->post("sitedesc");
-				$webmail		= $this->input->post("webmail");
 
-				$sitedata		= array("name_site" => $sitename,
-										"address_site" => $siteaddress,
-										"description_site" => $sitedesc,
-										"client_id"	=> $this->session->userdata("is_active_cid"),
-										"date_registered" => date('Y-m-d')
-									);
-				if($this->db->insert("sites",$sitedata)){
-					$this->session->set_userdata('new_site', $siteaddress);
-					redirect("web-builder/");
+			if(isset($_POST['finish'])){
+
+				// check if site address available
+				$siteaddress	= $this->input->post("siteaddress");
+				$site_exist		= $this->db->get_where("sites", "address_site = '".$siteaddress."'")->result_array();
+
+				if(empty($site_exist)){
+					// check if webmail address available
+					$mailaddress	= $this->input->post("webmail");
+					$mail_exist		= $this->db->get_where("site_mails", "address_mail = '".$mailaddress."'")->result_array();
+					
+					if(empty($mail_exist)){
+						// process
+						$sitename		= $this->input->post("sitename");
+						$sitedesc		= $this->input->post("sitedesc");
+
+						$sitedata		= array("name_site" => $sitename,
+												"address_site" => $siteaddress,
+												"description_site" => $sitedesc,
+												"client_id"	=> $this->session->userdata("is_active_cid"),
+												"date_registered" => date('Y-m-d')
+											);
+						if($this->db->insert("sites",$sitedata)){
+							// get site id 
+
+							// insert email to databasedddd`dddddzsdd
+							$this->session->set_userdata('new_site', $siteaddress);
+							redirect("web-builder/");
+						}
+						else{
+							$this->session->set_flashdata("message","Failed to save site! ".$this->db->error());	
+						}	
+					}
+					else
+					{
+						$this->session->set_flashdata("message","Alamat email tidak tersedia");	
+					}
 				}
-				else{
-					$this->session->set_flashdata("message","Failed to save site! ".$this->db->error());	
+				else
+				{
+					$this->session->set_flashdata("message","Alamat website tidak tersedia");	
 				}
-				
 			}
 			$this->load->view('auth/createsite.php');
 		}

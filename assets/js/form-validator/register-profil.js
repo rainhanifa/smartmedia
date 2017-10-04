@@ -23,20 +23,54 @@ transparent = true;
             /*  Activate the tooltips      */
             $('[rel="tooltip"]').tooltip();
 
+            /* Add Method*/
+            jQuery.validator.addMethod("lettersonly", function(value, element) {
+              return this.optional(element) || /^[a-z]+$/i.test(value);
+            }, "Hanya berupa huruf alfabet"); 
+
+            jQuery.validator.addMethod("alphanumeric", function(value, element) {
+                return this.optional(element) || /^\w+$/i.test(value);
+            }, "Hanya berupa huruf, angka, spasi, dan underscore"); 
+
+            /** Validator custom message */
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Wajib diisi",
+                remote: "Please fix this field.",
+                email: "Masukkan format email yang benar",
+                url: "Masukkan format URL yang benar",
+                number: "Masukkan hanya angka",
+                digits: "Please enter only digits.",
+                creditcard: "Please enter a valid credit card number.",
+                equalTo: "Konfirmasi password tidak sesuai",
+                maxlength: jQuery.validator.format("Maksimal {0} karakter."),
+                minlength: jQuery.validator.format("Minimal {0} karakter.")
+            });
+
             /*Code for the Validator */
             var $validator = $('.wizard-card form').validate({
         		  rules: {
         		    firstname: {
         		      required: true,
-        		      minlength: 3
+        		      minlength: 3,
+                      lettersonly: true
         		    },
         		    lastname: {
         		      required: true,
-        		      minlength: 3
+        		      minlength: 3,
+                      lettersonly: true
         		    },
         		    email: {
-        		      required: true
-        		    }
+        		      required: true,
+                      email: true
+        		    },
+                    password: {
+                      required: true,
+                      minlength: 8,
+                      alphanumeric: true
+                    },
+                    confirm_password: {
+                      equalTo : "#password"
+                    }
                 },
         	});
 

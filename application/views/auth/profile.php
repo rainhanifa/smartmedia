@@ -45,7 +45,7 @@
 		            <div class="wizard-container">
 
 		                <div class="card wizard-card" data-color="blue" id="wizardProfile">
-		                    <form action="<?php echo base_url("auth/register");?>" method="post">
+							<form action="<?php echo base_url("auth/register");?>" method="post">
 		                    	<div class="wizard-header text-center">
 		                        	<h3 class="wizard-title">Registrasi</h3>
 									<p class="category">Lengkapi informasi berikut ini.</p>
@@ -93,7 +93,7 @@
 													</div>
 													<div class="form-group">
 														<label>Nama Belakang</label>
-														<input name="lastname" type="text" class="form-control" placeholder="Smith...">
+														<input name="lastname" type="text" class="form-control" placeholder="Smith..." id="lastname">
 													</div>
 											</div>
 											<div class="col-sm-10 col-sm-offset-1">
@@ -105,7 +105,7 @@
 											<div class="col-sm-10 col-sm-offset-1">
 												<div class="form-group">
 													<label>Password</label>
-													<input name="password" type="password" class="form-control" placeholder="">
+													<input name="password" type="password" class="form-control" placeholder="" id="password">
 												</div>
 											</div>
 											<div class="col-sm-10 col-sm-offset-1">
@@ -151,9 +151,10 @@
 	<script src="<?php echo base_url('assets/')?>js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="<?php echo base_url('assets/')?>js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+	<script src="<?php echo base_url('assets/')?>js/form-validator/register-profil.js" type="text/javascript"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="<?php echo base_url('assets/')?>js/jquery.validate.min.js" type="text/javascript"></script>
+
 
 </html>

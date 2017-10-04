@@ -23,35 +23,52 @@ transparent = true;
             /*  Activate the tooltips      */
             $('[rel="tooltip"]').tooltip();
 
+            /* Add Method*/
+            jQuery.validator.addMethod("voucher", function(value, element) {
+              return this.optional(element) || /^[a-zA-Z0-9\-]+$/i.test(value);
+            }, "Kode voucher tidak sesuai"); 
+
+            /** Validator custom message */
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Wajib diisi",
+                remote: "Please fix this field.",
+                email: "Masukkan format email yang benar",
+                url: "Masukkan format URL yang benar",
+                number: "Masukkan hanya angka",
+                digits: "Please enter only digits.",
+                creditcard: "Please enter a valid credit card number.",
+                equalTo: "Konfirmasi password tidak sesuai",
+                maxlength: jQuery.validator.format("Maksimal {0} karakter."),
+                minlength: jQuery.validator.format("Minimal {0} karakter.")
+            });
+
             /*Code for the Validator */
             var $validator = $('.wizard-card form').validate({
-        		  rules: {
-        		    firstname: {
-        		      required: true,
-        		      minlength: 3
-        		    },
-        		    lastname: {
-        		      required: true,
-        		      minlength: 3
-        		    },
-        		    email: {
-        		      required: true
-        		    }
+                  rules: {
+                    voucher_code: {
+                      required: true,
+                      voucher: true
+                    },
+                    id_voucher: {
+                      required : function () {
+                                    return "Klik Enter untuk mengaktifkan voucher";
+                                }
+                    }
                 },
-        	});
+            });
 
             // Wizard Initialization
-          	$('.wizard-card').bootstrapWizard({
+            $('.wizard-card').bootstrapWizard({
                 'tabClass': 'nav nav-pills',
                 'nextSelector': '.btn-next',
                 'previousSelector': '.btn-previous',
 
                 onNext: function(tab, navigation, index) {
-                	var $valid = $('.wizard-card form').valid();
-                	if(!$valid) {
-                		$validator.focusInvalid();
-                		return false;
-                	}
+                    var $valid = $('.wizard-card form').valid();
+                    if(!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
                 },
 
                 onInit : function(tab, navigation, index){
@@ -101,7 +118,7 @@ transparent = true;
                     $wizard.find($('.wizard-card .nav-pills li.active a .icon-circle')).addClass('checked');
 
                 }
-	        });
+            });
 
 
                 // Prepare the preview for profile picture

@@ -23,19 +23,49 @@ transparent = true;
             /*  Activate the tooltips      */
             $('[rel="tooltip"]').tooltip();
 
+            /* Add Method*/
+            jQuery.validator.addMethod("lettersonly", function(value, element) {
+              return this.optional(element) || /^[a-z]+$/i.test(value);
+            }, "Hanya berupa huruf alfabet"); 
+
+            jQuery.validator.addMethod("alphanumeric", function(value, element) {
+                return this.optional(element) || /^[a-zA-Z\-\s]+$/i.test(value);
+            }, "Hanya berupa huruf, angka, spasi, dan underscore"); 
+
+            /** Validator custom message */
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Wajib diisi",
+                remote: "Please fix this field.",
+                email: "Masukkan format email yang benar",
+                url: "Masukkan format URL yang benar",
+                number: "Masukkan hanya angka",
+                digits: "Please enter only digits.",
+                creditcard: "Please enter a valid credit card number.",
+                equalTo: "Konfirmasi password tidak sesuai",
+                maxlength: jQuery.validator.format("Maksimal {0} karakter."),
+                minlength: jQuery.validator.format("Minimal {0} karakter.")
+            });
+
             /*Code for the Validator */
             var $validator = $('.wizard-card form').validate({
         		  rules: {
-        		    firstname: {
+        		    sitename: {
         		      required: true,
-        		      minlength: 3
+        		      minlength: 5,
+                      maxlength: 30,
+                      alphanumeric: true
         		    },
-        		    lastname: {
+                    siteaddress: {
+                      required: true,
+                      minlength: 5,
+                      maxlength: 30,
+                      lettersonly: true
+                    },
+        		    webmail: {
         		      required: true,
-        		      minlength: 3
-        		    },
-        		    email: {
-        		      required: true
+        		      minlength: 5,
+                      maxlength: 30,
+                      lettersonly: true
         		    }
                 },
         	});

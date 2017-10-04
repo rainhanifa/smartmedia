@@ -49,7 +49,7 @@
 		public function confirmation($product = 0){
 			$data['product']	= $this->db->get_where('packages',array("id_package" => $product))->result_array();
 			$data['my_detail']	= $this->db->select('*')->from('clients')->join('app_users as u', 'u.id_users = clients.user_id')
-								->where(array("id_client" => $this->user_id))->get()->result_array();
+								->where(array("id_client" => $this->user))->get()->result_array();
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('transaction/confirmation.php', $data);

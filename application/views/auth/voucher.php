@@ -89,6 +89,9 @@
 		                            <div class="tab-pane" id="profile">
 		                            </div>
 		                            <div class="tab-pane" id="voucher">
+		                            	<?php if($this->session->flashdata("message") != ""){ ?>
+		                            			<div class="alert alert-danger"><?php echo $this->session->flashdata("message");?></div>
+		                            	<?php }?>
 		                                <h5 class="info-text"> Enter your voucher code </h5>
 		                                <div class="row">
 		                                    <div class="col-sm-10 col-sm-offset-1">
@@ -105,7 +108,7 @@
 											</div>
 										</div>
 		                                <div class="row" id="voucher_detail">
-		                                	
+		                                	<input type="hidden" name="id_voucher" value="">
 		                                </div>
 		                            </div>
 		                            <div class="tab-pane" id="setup">
@@ -140,7 +143,7 @@
 	<script src="<?php echo base_url('assets/')?>js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="<?php echo base_url('assets/')?>js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+	<script src="<?php echo base_url('assets/')?>js/form-validator/register-voucher.js" type="text/javascript"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="<?php echo base_url('assets/')?>js/jquery.validate.min.js" type="text/javascript"></script>

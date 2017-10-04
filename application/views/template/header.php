@@ -16,6 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo base_url("assets");?>/js/jquery-1.11.1.min.js"></script>
 
+
 <!-- Custom Theme files -->
 <link href="<?php echo base_url("assets");?>/css/font-awesome.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo base_url("assets");?>/css/style.css" rel='stylesheet' type='text/css' />

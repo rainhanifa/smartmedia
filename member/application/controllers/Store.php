@@ -29,14 +29,17 @@
 
 	        if($voucher){
 	        	foreach($voucher as $detail){
+	        		$voucher_detail	= array("cart_id_voucher"	=> $detail['id_voucher'],
+	        								"cart_kode_voucher" => $detail['code']);
+	        		$this->session->set_userdata("cart_detail", $voucher_detail);
+       						//	<input type="hidden" name="id_voucher" value="'.$detail['id_voucher'].'">
+		     				//  <input type="hidden" name="domain" value="'.$detail['domain'].'">
+							// <input type="hidden" name="email" value="'.$detail['email'].'">
+							// <input type="hidden" name="bandwidth" value="'.$detail['bandwidth'].'">
+							// <input type="hidden" name="storage" value="'.$detail['storage'].'">
+							// <input type="hidden" name="active_period" value="'.$detail['active_period'].'">
+							// <input type="hidden" name="price" value="'.$detail['price'].'">
 		        	echo '<div class="modal-body">
-                            <input type="hidden" name="id_voucher" value="'.$detail['id_voucher'].'">
-		        			<input type="hidden" name="domain" value="'.$detail['domain'].'">
-							<input type="hidden" name="email" value="'.$detail['email'].'">
-							<input type="hidden" name="bandwidth" value="'.$detail['bandwidth'].'">
-							<input type="hidden" name="storage" value="'.$detail['storage'].'">
-							<input type="hidden" name="active_period" value="'.$detail['active_period'].'">
-							<input type="hidden" name="price" value="'.$detail['price'].'">
 							<div class="row">
 	                            <div class="col-md-12">
 	                                <h5>Anda akan mengaktifkan <strong>'.$detail['name'].'</strong></h5>

@@ -25,7 +25,7 @@ transparent = true;
 
             /* Add Method*/
             jQuery.validator.addMethod("lettersonly", function(value, element) {
-              return this.optional(element) || /^[a-z]+$/i.test(value);
+              return this.optional(element) || /^[a-zA-Z\s]+$/i.test(value);
             }, "Hanya berupa huruf alfabet"); 
 
             jQuery.validator.addMethod("alphanumeric", function(value, element) {
@@ -48,21 +48,24 @@ transparent = true;
 
             /*Code for the Validator */
             var $validator = $('.wizard-card form').validate({
-        		  rules: {
-        		    firstname: {
-        		      required: true,
-        		      minlength: 3,
+                  rules: {
+                    firstname: {
+                      required: true,
+                      minlength: 3,
+                      maxlength: 30,
                       lettersonly: true
-        		    },
-        		    lastname: {
-        		      required: true,
-        		      minlength: 3,
+                    },
+                    lastname: {
+                      required: true,
+                      minlength: 3,
+                      maxlength: 30,
                       lettersonly: true
-        		    },
-        		    email: {
-        		      required: true,
+                    },
+                    email: {
+                      required: true,
+                      maxlength: 30,
                       email: true
-        		    },
+                    },
                     password: {
                       required: true,
                       minlength: 8,
@@ -72,20 +75,20 @@ transparent = true;
                       equalTo : "#password"
                     }
                 },
-        	});
+            });
 
             // Wizard Initialization
-          	$('.wizard-card').bootstrapWizard({
+            $('.wizard-card').bootstrapWizard({
                 'tabClass': 'nav nav-pills',
                 'nextSelector': '.btn-next',
                 'previousSelector': '.btn-previous',
 
                 onNext: function(tab, navigation, index) {
-                	var $valid = $('.wizard-card form').valid();
-                	if(!$valid) {
-                		$validator.focusInvalid();
-                		return false;
-                	}
+                    var $valid = $('.wizard-card form').valid();
+                    if(!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
                 },
 
                 onInit : function(tab, navigation, index){
@@ -135,7 +138,7 @@ transparent = true;
                     $wizard.find($('.wizard-card .nav-pills li.active a .icon-circle')).addClass('checked');
 
                 }
-	        });
+            });
 
 
                 // Prepare the preview for profile picture

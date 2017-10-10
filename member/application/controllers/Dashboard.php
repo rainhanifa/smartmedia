@@ -37,6 +37,8 @@
 			$data['my_invoice'] = $this->db->get_where("transactions", $where2)->num_rows();
 			$data['my_tickets'] = $this->db->get_where("tickets", $where3)->num_rows();
 
+			$data['js']			=	array('assets/data-tables/jquery.dataTables.js', 'assets/data-tables/bootstrap3/dataTables.bootstrap.js');
+			$data['page_js']	=	$this->load->view('custom-script/dashboard', '', TRUE);
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
 			$this->load->view('dashboard/index.php', $data);

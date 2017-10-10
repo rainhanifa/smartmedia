@@ -444,3 +444,11 @@ width:100%!important;
 	background-color : #0a59c0;
 	color : #FFF;
 }
+
+/** Styling for Error Validation**/
+.error {
+   color: red;
+}
+input.error{
+	border : 0.5px solid red;
+}

@@ -76,7 +76,7 @@
 				if($new_passw == $old_passw){
 					$this->session->set_flashdata('message','<div class="alert alert-danger">Password baru tidak dapat sama dengan password lama</div>');
 				} else if($new_passw != $conf_passw){
-					$this->session->set_flashdata('message','<div class="alert alert-danger">Konfirmasi password salah</div>');
+					$this->session->set_flashdata('message','<div class="alert alert-danger">Konfirmasi password tidak sama dengan password baru</div>');
 				} else{
 					$key	= array("id_users" => $this->session->userdata("is_active_id"),
 									"password" => md5($old_passw));
@@ -94,9 +94,11 @@
 					}
 				}
 			}
+			$data['js'] 		= array('js/jquery.validate.min.js');
+			$data['page_js']	= $this->load->view('custom-script/acc-setting', '', TRUE);
 			$this->load->view('template/header-member.php');
 			$this->load->view('template/navbar-member.php');
-			$this->load->view('user/acc_setting.php');
+			$this->load->view('user/acc_setting.php', $data);
 			$this->load->view('template/footer-member.php');
 		}
 	}

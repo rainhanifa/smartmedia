@@ -13,9 +13,10 @@
 			if ($this->session->userdata('is_logged_in')){
 	            redirect('member/dashboard');
 	        }
-			$this->load->view('template/header.php');
-			$this->load->view('auth/login.php');
-			$this->load->view('template/footer.php');
+			// $this->load->view('template/header.php');
+			// $this->load->view('auth/login.php');
+			// $this->load->view('template/footer.php');
+			redirect('member/auth/login');
 		}
 
 		function register(){

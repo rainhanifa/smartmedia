@@ -32,7 +32,7 @@
 									);
 				$this->db->insert("departments",$department_post);
 
-				$this->session->set_flashdata("warning", '
+				$this->session->set_flashdata("message", '
 		            <div class="alert alert-success">
 		                <button class="close" data-dismiss="alert">×</button>
 		                <strong>Berhasil menambahkan</strong>
@@ -55,7 +55,7 @@
 				$this->db->where('id_department', $id_department);
 				$this->db->update("departments",$department_update);
 				
-				$this->session->set_flashdata("warning", '
+				$this->session->set_flashdata("message", '
                 <div class="alert alert-success">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Berhasil mengupdate !</strong>
@@ -71,13 +71,13 @@
 			$id_department = $_GET['id'];
 			$this->db->where('id_department', $id_department);
 			if($this->db->delete("departments")){
-				$this->session->set_flashdata("warning", '
+				$this->session->set_flashdata("message", '
                 <div class="alert alert-success">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Berhasil menghapus!</strong>
                 </div>');
 			}else{
-				$this->session->set_flashdata("warning", '
+				$this->session->set_flashdata("message", '
                 <div class="alert alert-error">
                     <button class="close" data-dismiss="alert">×</button>
                     <strong>Error!</strong>
@@ -118,22 +118,31 @@
 		}
 
 		public function ticket_detail($id = 0){
+			if($id > 0){
+				$where = array("id_ticket" => $id);
+				$where2 = array("ticket_id" => $id);
 
-			$where = array("id_ticket" => $id);
-			$where2 = array("ticket_id" => $id);
+				$data['tickets']  	= $this->db->select("*")->from("tickets AS t")
+										->join("departments AS d","t.department_id = d.id_department")
+										->join("clients AS c","t.client_id = c.id_client")
+										->where($where)->get()->result_array();
+				$data['messages'] 	= $this->db->select("*")->from("ticket_details as d")
+										->join("app_users AS u", "d.user_id = u.id_users")
+										->where($where2)->order_by("date_detail", "DESC")->get()->result_array();
 
-			$data['tickets']  	= $this->db->select("*")->from("tickets AS t")
-									->join("departments AS d","t.department_id = d.id_department")
-									->join("clients AS c","t.client_id = c.id_client")
-									->where($where)->get()->result_array();
-			$data['messages'] 	= $this->db->select("*")->from("ticket_details as d")
-									->join("app_users AS u", "d.user_id = u.id_users")
-									->where($where2)->order_by("date_detail", "DESC")->get()->result_array();
-
-			$this->load->view('template/header-admin.php');
-			$this->load->view('template/navbar-admin.php');
-			$this->load->view('support/detail_ticket.php',$data);
-			$this->load->view('template/footer-admin.php'); 
+				$this->load->view('template/header-admin.php');
+				$this->load->view('template/navbar-admin.php');
+				$this->load->view('support/detail_ticket.php',$data);
+				$this->load->view('template/footer-admin.php'); 	
+			}
+			else{
+				$this->session->set_flashdata("message", '
+                <div class="alert alert-warning">
+                    <button class="close" data-dismiss="alert">×</button>
+                    <strong>Please select ticket</strong>
+                </div>');
+				redirect("support/ticket");
+			}
 		}
 
 

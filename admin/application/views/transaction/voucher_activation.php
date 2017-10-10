@@ -20,7 +20,6 @@
                     </ul>
                 </div>
                 <div class="box">
-                            
                     <div class="table-responsive">
                         <table class="table table-advance" id="transaction-table">
                             <thead class="table-flag-blue">

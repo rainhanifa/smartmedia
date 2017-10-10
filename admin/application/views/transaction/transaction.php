@@ -20,7 +20,10 @@
                     </ul>
                 </div>
                 <div class="box">
-                            
+                    <?php if($this->session->flashdata("message") != ""){
+                        echo $this->session->flashdata("message");
+                        }
+                    ?>
                     <div class="table-responsive">
                         <table class="table table-advance" id="transaction-table">
                             <thead class="table-flag-blue">

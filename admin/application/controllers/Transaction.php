@@ -22,25 +22,37 @@
 			$this->load->view('template/footer-admin.php');
 		}
 		public function invoice($id){
-            $billing_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
+            if($id>0){
+                $billing_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
                                                 first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
                                     ->join("billing", "transactions.client_id = billing.client_id")
                                     ->where("id_transaction",$id)
                                     ->get_compiled_select();
-            $client_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
-                                                first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
-                                    ->join("clients", "transactions.client_id = clients.id_client")
-                                    ->where("id_transaction",$id)
-                                    ->get_compiled_select();
+                $client_data = $this->db->select("id_transaction, detail, total, status_payment, method, due_date, date_payment, date_transaction,
+                                                    first_name, last_name,  address_1, address_2, city, region, zip_code, phone, email")->from($this->table)
+                                        ->join("clients", "transactions.client_id = clients.id_client")
+                                        ->where("id_transaction",$id)
+                                        ->get_compiled_select();
 
-            // merge both data
-            $data['transactions'] = $this->db->query($billing_data." UNION ".$client_data." LIMIT 1")->result_array();
+                // merge both data
+                $data['transactions'] = $this->db->query($billing_data." UNION ".$client_data." LIMIT 1")->result_array();
 
-                                    //print_r($this->db->last_query());exit;
-			$this->load->view('template/header-admin.php');
-			$this->load->view('template/navbar-admin.php');
-			$this->load->view('transaction/detail_invoice.php', $data);
-			$this->load->view('template/footer-admin.php');
+                                        //print_r($this->db->last_query());exit;
+                $this->load->view('template/header-admin.php');
+                $this->load->view('template/navbar-admin.php');
+                $this->load->view('transaction/detail_invoice.php', $data);
+                $this->load->view('template/footer-admin.php');
+            }
+            else{
+                $this->session->set_flashdata("message", '
+                    <div class="alert alert-warning">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Please choose transaction</strong>
+                    </div>');
+
+                redirect('transaction'); 
+            }
+            
 		}
 		public function awaiting(){
 			$data['transactions'] =	$this->db->select("transactions.id_transaction as notrans, transactions.*, clients.*")
@@ -71,27 +83,34 @@
         }
 
 		public function confirm($id_transaction){
-			
-			$konfirmasi = array("status_payment" => 2, 
-								"verified_by" => $this->admin,
-								"verified_date" => date("Y-m-d")
-								);
-			$this->db->where('id_transaction', $id_transaction);
-			if($this->db->update("transactions",$konfirmasi)){
-				$this->session->set_flashdata("message", '
-                <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Transaction confirmed</strong>
-                </div>');
-			}else{
-				$this->session->set_flashdata("message", '
-                <div class="alert alert-danger">
-                    <button class="close" data-dismiss="alert">×</button>
-                    <strong>Failed to confirm, please try again later!</strong>
-                </div>');
-			}
-			
-            redirect('transaction/awaiting');
+			if($id_transaction > 0){
+                $konfirmasi = array("status_payment" => 2, 
+                                "verified_by" => $this->admin,
+                                "verified_date" => date("Y-m-d")
+                                );
+                $this->db->where('id_transaction', $id_transaction);
+                if($this->db->update("transactions",$konfirmasi)){
+                    $this->session->set_flashdata("message", '
+                    <div class="alert alert-success">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Transaction confirmed</strong>
+                    </div>');
+                }else{
+                    $this->session->set_flashdata("message", '
+                    <div class="alert alert-danger">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Failed to confirm, please try again later!</strong>
+                    </div>');
+                } 
+            }
+            else{
+                $this->session->set_flashdata("message", '
+                    <div class="alert alert-warning">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Please choose transaction</strong>
+                    </div>');
+            }
+			redirect('transaction/awaiting');   
 		}
 		public function voucher(){
 			//list voucher activated

@@ -21,7 +21,7 @@
 </div>
 <!-- END Breadcrumb -->
 
-<?php echo $this->session->flashdata("warning")?>
+<?php echo $this->session->flashdata("message")?>
 
 <!-- SUPPORT TICKET -->
 <div class="row">
